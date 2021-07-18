@@ -4,9 +4,11 @@ Repository for Dev Launchers Edu Project
 # Running the project
 
 Navigate to the root directory in your terminal. Then run...
+
 npm install
 
-then...
+After the dependencies are installed run...
+
 npm start
 
 Project should then be available at:
