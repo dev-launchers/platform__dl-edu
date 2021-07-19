@@ -2,6 +2,8 @@ import React from "react"
 
 import './Header.css';
 
+//How To Headers and more - https://www.w3schools.com/howto/default.asp
+
 function Header() {
     return (
         //HEADER 1, RESPONSIVE - https://www.w3schools.com/howto/howto_css_responsive_header.asp
