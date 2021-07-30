@@ -1,0 +1,20 @@
+.lm-module {
+    height: 800px;
+}
+
+/* Left column */
+.lm-leftcolumn {   
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: #aaa;
+  }
+  
+  /* Right column */
+  .lm-rightcolumn {
+    float: left;
+    width: 50%;
+    height: 100%;
+    background-color: rgb(144, 233, 191);
+    padding-left: 20px;
+  }
