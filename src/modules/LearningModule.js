@@ -15,6 +15,18 @@ const markdown = `
 * Follows [CommonMark](https://commonmark.org)
 * Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
 * Has a lot of plugins
+
+1. item one
+2. item two
+   - sublist
+   - sublist
+
+> Blockquote 
+
+Horizontal rule:
+
+--- 
+
 `
 
 function LearningModule() {
@@ -23,7 +35,6 @@ function LearningModule() {
         <div>
             <div class="card lm-module">
                 <div class="lm-leftcolumn">
-                    Writeup/Guide Section
                     <ReactMarkdown children={markdown}></ReactMarkdown>
                 </div>
                 <div class="lm-rightcolumn">
