@@ -3,43 +3,21 @@ import ReactMarkdown from "react-markdown";
 
 import "./LearningModule.css";
 
-const markdown = `
-# Hello, *world*! (H1)
-
-## Header 2
-
-### Header 3
-
-## Overview
-
-* Follows [CommonMark](https://commonmark.org)
-* Optionally follows [GitHub Flavored Markdown](https://github.github.com/gfm/)
-* Has a lot of plugins
-
-1. item one
-2. item two
-   - sublist
-   - sublist
-
-> Blockquote 
-
-Horizontal rule:
-
---- 
-
-`
-
-function LearningModule() {
+function LearningModule(props) {
     return (
-        
+
         <div>
             <div class="card lm-module">
+                <div class="learning-module-header">
+                    <h2>{props.moduleDatum.title}</h2>
+                    <button onClick={props.onClickBackBtn}>Back</button>
+                </div>
                 <div class="lm-leftcolumn">
-                    <ReactMarkdown children={markdown}></ReactMarkdown>
+                    <ReactMarkdown children={props.moduleDatum.markdown}></ReactMarkdown>
                 </div>
                 <div class="lm-rightcolumn">
-                    <iframe src="https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor"
-                        style={{width:"100%", height:"100%"}}
+                    <iframe src={props.moduleDatum.codeSandboxSrc}
+                        style={{ width: "100%", height: "100%" }}
                         title="red-https-knd21"
                         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
                         sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"

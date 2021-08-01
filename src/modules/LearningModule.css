@@ -3,18 +3,24 @@
 }
 
 /* Left column */
-.lm-leftcolumn {   
+.lm-leftcolumn {
     float: left;
     width: 50%;
-    height: 100%;
+    height: 90%;
     background-color: rgb(206, 206, 206);
-  }
-  
-  /* Right column */
-  .lm-rightcolumn {
+}
+
+/* Right column */
+.lm-rightcolumn {
     float: left;
     width: 50%;
-    height: 100%;
+    height: 90%;
     background-color: rgb(144, 233, 191);
     padding-left: 20px;
-  }
+}
+
+.learning-module-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
