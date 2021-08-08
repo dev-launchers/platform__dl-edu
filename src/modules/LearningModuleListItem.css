@@ -34,3 +34,10 @@
     margin-bottom: 4px;
     color: black;
 }
+
+.module-img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50px; 
+    align-self: center;
+}
