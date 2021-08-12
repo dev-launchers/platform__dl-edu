@@ -26,13 +26,6 @@ Problem with var:
 
 - Var can be changed without any consequence, which may cause confusion if you have already declared a variable before and weren't expecting an output using another declaration of var
 
-Var Practice Example:
-
-Student: 
-
-- Declares Variable
-- Calls the variable
-- Change the variable below it and call it again to see the result
 
 \`\`\`jsx
 var x = "pie"
@@ -65,10 +58,6 @@ Hoisting of let:
 
 - let variables are also hoisted to the top like var variables except they are not initialized with a value of undefined, therefore if you try to use a let variable before declaration a reference error will pop up
 
-Student:
-
-- Declares variable with let
-- 
 
 Const:
 
@@ -100,7 +89,7 @@ This is a test of a gif
 This is the test of a block quote 
 > cool (dev) beans
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
+codeSandboxSrc: 'https://codesandbox.io/embed/gracious-bardeen-ist7m?fontsize=14&hidenavigation=1&theme=dark&view=editor'
 },
 {
 id: 2, 
