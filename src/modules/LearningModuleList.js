@@ -3,34 +3,25 @@ import ModuleMetadata from "../data/ModuleMetadata"
 import LearningModuleListItem from "./LearningModuleListItem"
 import "./LearningModuleList.css"
 
-class LearningModuleList extends React.Component {
-    constructor() {
-        super()
-        this.state = {}
-        this.onClickLearningModuleItemListHandler = this.onClickLearningModuleItemListHandler.bind(this)
+function LearningModuleList(props) {
+    const onClickLearningModuleItemListHandler = (id) => {
+        props.onClickLearningModuleItemMainHandler(id);
     }
 
-    onClickLearningModuleItemListHandler(id) {
-        this.props.onClickLearningModuleItemMainHandler(id);
-    }
+    const learningModuleListItemComponents = ModuleMetadata.map(metaDatum =>
+        <LearningModuleListItem
+            key={metaDatum.id}
+            moduleMetadata={metaDatum}
+            onClickLearningModuleItemListHandler={onClickLearningModuleItemListHandler}
+        />
+    )
 
-    render() {
-        const learningModuleListItemComponents = ModuleMetadata.map(meta => {
-            return (
-                <LearningModuleListItem
-                    key={meta.id}
-                    moduleMetadata={meta}
-                    onClickLearningModuleItemListHandler={this.onClickLearningModuleItemListHandler}
-                />
-            )
-        })
+    return (
+        <div className="module-list-container">
+            {learningModuleListItemComponents}
+        </div>
+    )
 
-        return (
-            <div className="module-list-container">
-                {learningModuleListItemComponents}
-            </div>
-        )
-    }
 }
 
 export default LearningModuleList

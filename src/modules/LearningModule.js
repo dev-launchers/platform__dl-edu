@@ -1,21 +1,24 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-
+import rehypeHighlight from "rehype-highlight";
 import "./LearningModule.css";
+import 'highlight.js/styles/base16/zenburn.css'
 
 function LearningModule(props) {
     return (
-
         <div>
-            <div class="card lm-module">
-                <div class="learning-module-header">
+            <div className="card lm-module">
+                <div className="learning-module-header">
                     <h2>{props.moduleDatum.title}</h2>
                     <button onClick={props.onClickBackBtn}>Back</button>
                 </div>
-                <div class="lm-leftcolumn">
-                    <ReactMarkdown children={props.moduleDatum.markdown}></ReactMarkdown>
+                <div className="lm-leftcolumn">
+                    <ReactMarkdown
+                        children={props.moduleDatum.markdown}
+                        rehypePlugins={[rehypeHighlight]}>
+                    </ReactMarkdown>
                 </div>
-                <div class="lm-rightcolumn">
+                <div className="lm-rightcolumn">
                     <iframe src={props.moduleDatum.codeSandboxSrc}
                         style={{ width: "100%", height: "100%" }}
                         title="red-https-knd21"
