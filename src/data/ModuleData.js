@@ -137,7 +137,7 @@ codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&f
     markdown: `
     # Learning Module 7
     `,
-    codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
+    codeSandboxSrc: 'https://codesandbox.io/embed/zealous-poitras-vflt7?fontsize=14&hidenavigation=1&theme=dark&view=editor'
     }
 ]
 
