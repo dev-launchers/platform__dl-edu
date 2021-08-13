@@ -130,7 +130,15 @@ markdown: `
 # Learning Module 6
 `,
 codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-}
+},
+{
+    id: 7, 
+    title: 'JS Functions',
+    markdown: `
+    # Learning Module 7
+    `,
+    codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
+    }
 ]
 
 export default ModuleData
