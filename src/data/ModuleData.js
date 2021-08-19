@@ -27,7 +27,7 @@ Problem with var:
 - Var can be changed without any consequence, which may cause confusion if you have already declared a variable before and weren't expecting an output using another declaration of var
 
 
-\`\`\`java
+\`\`\`
 var x = "pie"
 
 console.log(x)
