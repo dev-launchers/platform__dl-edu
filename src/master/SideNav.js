@@ -168,12 +168,12 @@ function SideNav() {
                                         <ListItemText>Java</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/learning-modules/python" activeClassName="active-link">
+                                <NavLink to="/learning-modules/csharp" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
                                         </ListItemIcon>
-                                        <ListItemText>Python</ListItemText>
+                                        <ListItemText>C#</ListItemText>
                                     </ListItem>
                                 </NavLink>
                             </List>
