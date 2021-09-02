@@ -1,8 +1,8 @@
 const ModuleData = [
-{
-id: 1, 
-title: 'JS Variables',
-markdown: `# Variables
+  {
+    id: 1,
+    title: "JS Variables",
+    markdown: `# Variables
 
 Var:
 
@@ -27,7 +27,7 @@ Problem with var:
 - Var can be changed without any consequence, which may cause confusion if you have already declared a variable before and weren't expecting an output using another declaration of var
 
 
-\`\`\`jsx
+\`\`\`
 var x = "pie"
 
 console.log(x)
@@ -86,59 +86,66 @@ This is a test of a gif
 
 ![](https://upload.wikimedia.org/wikipedia/commons/2/2c/Rotating_earth_%28large%29.gif)
 
-This is the test of a block quote 
+This is the test of a block quote
 > cool (dev) beans
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/gracious-bardeen-ist7m?fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-id: 2, 
-title: 'JS Datatypes',
-markdown: `
+    codeSandboxSrc:
+      "https://codesandbox.io/embed/gracious-bardeen-ist7m?fontsize=14&hidenavigation=1&theme=dark&view=editor",
+  },
+  {
+    id: 2,
+    title: "JS Datatypes",
+    markdown: `
 # Learning Module 2
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-id: 3, 
-title: 'JS Strings',
-markdown: `
+    codeSandboxSrc:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+  },
+  {
+    id: 3,
+    title: "JS Strings",
+    markdown: `
 # Learning Module 3
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-id: 4, 
-title: 'JS Comments',
-markdown: `
+    codeSandboxSrc:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+  },
+  {
+    id: 4,
+    title: "JS Comments",
+    markdown: `
 # Learning Module 4
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-id: 5, 
-title: 'JS Operators',
-markdown: `
+    codeSandboxSrc:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+  },
+  {
+    id: 5,
+    title: "JS Operators",
+    markdown: `
 # Learning Module 5
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-id: 6, 
-title: 'JS Math & Random',
-markdown: `
+    codeSandboxSrc:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+  },
+  {
+    id: 6,
+    title: "JS Math & Random",
+    markdown: `
 # Learning Module 6
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-    id: 7, 
-    title: 'JS Functions',
+    codeSandboxSrc:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+  },
+  {
+    id: 7,
+    title: "JS Functions",
     markdown: `
     # Learning Module 7
     `,
-    codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-    }
-]
+    codeSandboxSrc:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+  },
+];
 
-export default ModuleData
+export default ModuleData;
