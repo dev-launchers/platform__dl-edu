@@ -45,7 +45,7 @@ const ModuleMetadata = [
     id: 7,
     thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
     title: 'JS Functions',
-    description: 'Blah blah blah blah',
+    description: 'Learn how to declare and call functions!',
     keyWords: ['JavaScript', 'ES6', 'Webdev', 'Functions']
   }
 ]
