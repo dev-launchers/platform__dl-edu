@@ -1,34 +1,84 @@
-import React, { useState } from "react";
+import React from "react";
+import { Route } from 'react-router-dom'
+
+
 import LearningModule from "../modules/LearningModule";
 import LearningModuleList from "../modules/LearningModuleList";
-import ModuleData from "../data/ModuleData"
+import LegacyLearnList from "../legacy-learn/legacy-learn-list";
+import { makeStyles } from "@material-ui/core/styles";
+import Toolbar from "@material-ui/core/Toolbar";
 
-import "./MainContent.css";
+import Footer from "./Footer"
+import Home from '../pages/Home'
+import Login from '../pages/Login'
+import SideNav from "./SideNav";
 
-//Website Layout Basics CSS - https://www.w3schools.com/css/css_website_layout.asp
-//Website Layout Example, used below - https://www.w3schools.com/css/tryit.asp?filename=trycss_website_layout_blog
-function MainContent(props) {
-    const [showList, setShowList] = useState(true)
-    const [loadedModuleData, setLoadedModuleData] = useState(null)
+const drawerWidth = 270;
 
-    const onClickLearningModuleItemMainHandler = (id) => {
-        // Mock fetching data from API
-        const moduleDatum = ModuleData.find(data => data.id === id)
-
-        setShowList(false)
-        setLoadedModuleData(moduleDatum)
+const useStyles = makeStyles((theme) => ({
+    root: {
+        display: "flex",
+    },
+    drawer: {
+        width: drawerWidth,
+        flexShrink: 0,
+    },
+    drawerPaper: {
+        width: drawerWidth,
+    },
+    drawerContainer: {
+        overflow: "auto",
+    },
+    // necessary for content to be below app bar
+    toolbar: theme.mixins.toolbar,
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+    },
+    nested: {
+        paddingLeft: theme.spacing(4),
+    },
+    toolbarHeader: {
+        height: '20em', 
+        display: 'flex', 
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+    },
+    active: {
+        backgroundColor: 'hotpink'
     }
+}));
 
-    const onClickBackBtn = () => {
-        setShowList(true)
-    }
+function MainContent() {
+    const classes = useStyles();
 
-    if (showList) {
-        return <LearningModuleList onClickLearningModuleItemMainHandler={onClickLearningModuleItemMainHandler}/>
-    } else {
-        return <LearningModule moduleDatum={loadedModuleData} onClickBackBtn={onClickBackBtn}/>   
-    }
-    
+    return (
+        <div className={classes.root}>
+            <SideNav/>
+            <main className={classes.content}>
+                {/* Toolbar necessary to create space for the toolbar display*/}
+                <Toolbar />
+                <Route path="/home">
+                    <Home/>
+                </Route>
+                <Route path="/login">
+                    <Login/>
+                </Route>
+                <Route path="/legacy-learn/:tab">
+                    <LegacyLearnList/>
+                </Route>
+                <Route path="/learning-modules/:category">
+                    <LearningModuleList/>
+                </Route>
+                <Route path="/learning-module/:moduleId">
+                    <LearningModule/>
+                </Route>
+                <Footer />
+            </main>
+        </div>
+    )
+
 }
 
 export default MainContent;

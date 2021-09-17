@@ -1,5 +1,6 @@
 .lm-module {
-    height: 800px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Left column */

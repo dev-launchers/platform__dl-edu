@@ -1,18 +1,14 @@
 import React from "react"
 import ModuleMetadata from "../data/ModuleMetadata"
 import LearningModuleListItem from "./LearningModuleListItem"
+
 import "./LearningModuleList.css"
 
-function LearningModuleList(props) {
-    const onClickLearningModuleItemListHandler = (id) => {
-        props.onClickLearningModuleItemMainHandler(id);
-    }
-
+function LearningModuleList() {
     const learningModuleListItemComponents = ModuleMetadata.map(metaDatum =>
         <LearningModuleListItem
             key={metaDatum.id}
             moduleMetadata={metaDatum}
-            onClickLearningModuleItemListHandler={onClickLearningModuleItemListHandler}
         />
     )
 
@@ -21,7 +17,6 @@ function LearningModuleList(props) {
             {learningModuleListItemComponents}
         </div>
     )
-
 }
 
 export default LearningModuleList
