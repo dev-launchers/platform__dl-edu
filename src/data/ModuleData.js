@@ -126,7 +126,7 @@ This is the test of a block quote
 # Learning Module 5
 `,
     codeSandboxSrc:
-      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+      "https://codesandbox.io/embed/solitary-framework-vnpzw?fontsize=14&hidenavigation=1&theme=dark&view=editor",
   },
   {
     id: 6,

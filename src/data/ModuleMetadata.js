@@ -31,7 +31,7 @@ const ModuleMetadata = [
     id: 5,
     thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
     title: 'JS Operators',
-    description: 'Blah blah blah blah',
+    description: 'Learn about operators and how to use them',
     keyWords: ['JavaScript', 'ES6', 'Webdev', 'Operators']
   },
   {
