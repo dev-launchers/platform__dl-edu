@@ -100,7 +100,6 @@ This is a test of a gif
 This is the test of a block quote
 > cool (dev) beans
 `,
-<<<<<<< HEAD
 codeSandboxSrc: 
 'https://codesandbox.io/embed/gracious-bardeen-ist7m?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
 },
@@ -108,16 +107,6 @@ codeSandboxSrc:
 id: 2, 
 title: 'JS Datatypes',
 markdown: `
-=======
-    embeddedIDEURL:
-      "https://codesandbox.io/embed/gracious-bardeen-ist7m?fontsize=14&hidenavigation=1&theme=dark&view=editor",
-    customIFrameStyle: { width: "100%", height: "100%", border: "none" }
-  },
-  {
-    id: 2,
-    title: "JS Datatypes",
-    markdown: `
->>>>>>> main
 # Learning Module 2
 `,
     embeddedIDEURL:
@@ -160,11 +149,6 @@ markdown: `
     markdown: `
 # Learning Module 6
 `,
-<<<<<<< HEAD
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-}
-]
-=======
     embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
     customIFrameStyle: null
@@ -200,6 +184,5 @@ codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&f
     customIFrameStyle: null
   },
 ];
->>>>>>> main
 
 export default ModuleData;
