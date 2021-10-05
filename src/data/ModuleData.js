@@ -1,8 +1,8 @@
 const ModuleData = [
-{
-id: 1, 
-title: 'JS Variables',
-markdown: `# Variables
+  {
+    id: 1,
+    title: "JS Variables",
+    markdown: `# Variables
 
 Var:
 
@@ -34,7 +34,7 @@ Student:
 - Calls the variable
 - Change the variable below it and call it again to see the result
 
-\`\`\`jsx
+\`\`\`
 var x = "pie"
 
 console.log(x)
@@ -97,9 +97,10 @@ This is a test of a gif
 
 ![](https://upload.wikimedia.org/wikipedia/commons/2/2c/Rotating_earth_%28large%29.gif)
 
-This is the test of a block quote 
+This is the test of a block quote
 > cool (dev) beans
 `,
+<<<<<<< HEAD
 codeSandboxSrc: 
 'https://codesandbox.io/embed/gracious-bardeen-ist7m?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
 },
@@ -107,42 +108,98 @@ codeSandboxSrc:
 id: 2, 
 title: 'JS Datatypes',
 markdown: `
+=======
+    embeddedIDEURL:
+      "https://codesandbox.io/embed/gracious-bardeen-ist7m?fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: { width: "100%", height: "100%", border: "none" }
+  },
+  {
+    id: 2,
+    title: "JS Datatypes",
+    markdown: `
+>>>>>>> main
 # Learning Module 2
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-id: 3, 
-title: 'JS Strings',
-markdown: `
+    embeddedIDEURL:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
+  },
+  {
+    id: 3,
+    title: "JS Strings",
+    markdown: `
 # Learning Module 3
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-id: 4, 
-title: 'JS Comments',
-markdown: `
+    embeddedIDEURL:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
+  },
+  {
+    id: 4,
+    title: "JS Comments",
+    markdown: `
 # Learning Module 4
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-id: 5, 
-title: 'JS Operators',
-markdown: `
+    embeddedIDEURL:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
+  },
+  {
+    id: 5,
+    title: "JS Operators",
+    markdown: `
 # Learning Module 5
 `,
-codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
-},
-{
-id: 6, 
-title: 'JS Math & Random',
-markdown: `
+    embeddedIDEURL:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
+  },
+  {
+    id: 6,
+    title: "JS Math & Random",
+    markdown: `
 # Learning Module 6
 `,
+<<<<<<< HEAD
 codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
 }
 ]
+=======
+    embeddedIDEURL:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
+  },
+  {
+    id: 7,
+    title: "JS Functions",
+    markdown: `
+    # Learning Module 7
+    `,
+    embeddedIDEURL:
+      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
+  },
+  {
+    id: 8,
+    title: "Java Introduction",
+    markdown: `
+    # Introduction to Java
+    `,
+    embeddedIDEURL:
+      "https://replit.com/@jdaus/Java-Demo?lite=true",
+    customIFrameStyle: null
+  },
+  {
+    id: 9,
+    title: "C# Introduction",
+    markdown: `
+    # Introduction to C#
+    `,
+    embeddedIDEURL:
+      "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
+    customIFrameStyle: null
+  },
+];
+>>>>>>> main
 
-export default ModuleData
+export default ModuleData;

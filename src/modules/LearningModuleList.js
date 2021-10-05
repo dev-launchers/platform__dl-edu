@@ -1,27 +1,27 @@
 import React from "react"
 import ModuleMetadata from "../data/ModuleMetadata"
 import LearningModuleListItem from "./LearningModuleListItem"
+import { useParams } from "react-router-dom"
+
 import "./LearningModuleList.css"
 
-function LearningModuleList(props) {
-    const onClickLearningModuleItemListHandler = (id) => {
-        props.onClickLearningModuleItemMainHandler(id);
-    }
+function LearningModuleList() {
+    const params = useParams();
 
-    const learningModuleListItemComponents = ModuleMetadata.map(metaDatum =>
-        <LearningModuleListItem
-            key={metaDatum.id}
-            moduleMetadata={metaDatum}
-            onClickLearningModuleItemListHandler={onClickLearningModuleItemListHandler}
-        />
-    )
+    const learningModuleListItemComponents = ModuleMetadata
+        .filter(metaDatum => metaDatum.category?.toLowerCase() == params.category?.toLowerCase())
+        .map(metaDatum =>
+            <LearningModuleListItem
+                key={metaDatum.id}
+                moduleMetadata={metaDatum}
+            />
+        )
 
     return (
         <div className="module-list-container">
             {learningModuleListItemComponents}
         </div>
     )
-
 }
 
 export default LearningModuleList
