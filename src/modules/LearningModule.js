@@ -1,6 +1,9 @@
-import React from "react"
-import ReactMarkdown from "react-markdown"
-import rehypeHighlight from "rehype-highlight"
+import React from "react";
+import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
+import EmbeddedIDE from "../components/EmbeddedIDE/EmbeddedIDE";
+import "./LearningModule.css";
+
 import { Link, useParams } from "react-router-dom"
 import { Button } from "@material-ui/core"
 import { ArrowBack } from "@material-ui/icons"
@@ -34,12 +37,7 @@ function LearningModule() {
                         </ReactMarkdown>
                     </div>
                     <div className="lm-rightcolumn">
-                        <iframe src={moduleDatum.codeSandboxSrc}
-                            style={{ width: "100%", height: "100%" }}
-                            title="red-https-knd21"
-                            allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-                            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-                        ></iframe>
+                        <EmbeddedIDE embedURL={moduleDatum.embeddedIDEURL} customIFrameStyle={moduleDatum.embedIDEStyle}/>
                     </div>
                 </div>
             </div>

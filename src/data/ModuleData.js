@@ -89,8 +89,9 @@ This is a test of a gif
 This is the test of a block quote
 > cool (dev) beans
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/gracious-bardeen-ist7m?fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: { width: "100%", height: "100%", border: "none" }
   },
   {
     id: 2,
@@ -98,8 +99,9 @@ This is the test of a block quote
     markdown: `
 # Learning Module 2
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 3,
@@ -107,8 +109,9 @@ This is the test of a block quote
     markdown: `
 # Learning Module 3
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 4,
@@ -116,8 +119,9 @@ This is the test of a block quote
     markdown: `
 # Learning Module 4
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 5,
@@ -125,8 +129,9 @@ This is the test of a block quote
     markdown: `
 # Learning Module 5
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 6,
@@ -134,8 +139,9 @@ This is the test of a block quote
     markdown: `
 # Learning Module 6
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 7,
@@ -143,8 +149,29 @@ This is the test of a block quote
     markdown: `
     # Learning Module 7
     `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
+  },
+  {
+    id: 8,
+    title: "Java Introduction",
+    markdown: `
+    # Introduction to Java
+    `,
+    embeddedIDEURL:
+      "https://replit.com/@jdaus/Java-Demo?lite=true",
+    customIFrameStyle: null
+  },
+  {
+    id: 9,
+    title: "C# Introduction",
+    markdown: `
+    # Introduction to C#
+    `,
+    embeddedIDEURL:
+      "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
+    customIFrameStyle: null
   },
 ];
 
