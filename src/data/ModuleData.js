@@ -26,6 +26,13 @@ Problem with var:
 
 - Var can be changed without any consequence, which may cause confusion if you have already declared a variable before and weren't expecting an output using another declaration of var
 
+Var Practice Example:
+
+Student: 
+
+- Declares Variable
+- Calls the variable
+- Change the variable below it and call it again to see the result
 
 \`\`\`
 var x = "pie"
@@ -58,6 +65,10 @@ Hoisting of let:
 
 - let variables are also hoisted to the top like var variables except they are not initialized with a value of undefined, therefore if you try to use a let variable before declaration a reference error will pop up
 
+Student:
+
+- Declares variable with let
+- 
 
 Const:
 
@@ -89,6 +100,15 @@ This is a test of a gif
 This is the test of a block quote
 > cool (dev) beans
 `,
+<<<<<<< HEAD
+codeSandboxSrc: 
+'https://codesandbox.io/embed/gracious-bardeen-ist7m?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
+},
+{
+id: 2, 
+title: 'JS Datatypes',
+markdown: `
+=======
     embeddedIDEURL:
       "https://codesandbox.io/embed/gracious-bardeen-ist7m?fontsize=14&hidenavigation=1&theme=dark&view=editor",
     customIFrameStyle: { width: "100%", height: "100%", border: "none" }
@@ -97,6 +117,7 @@ This is the test of a block quote
     id: 2,
     title: "JS Datatypes",
     markdown: `
+>>>>>>> main
 # Learning Module 2
 `,
     embeddedIDEURL:
@@ -139,6 +160,11 @@ This is the test of a block quote
     markdown: `
 # Learning Module 6
 `,
+<<<<<<< HEAD
+codeSandboxSrc: 'https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
+}
+]
+=======
     embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
     customIFrameStyle: null
@@ -174,5 +200,6 @@ This is the test of a block quote
     customIFrameStyle: null
   },
 ];
+>>>>>>> main
 
 export default ModuleData;
