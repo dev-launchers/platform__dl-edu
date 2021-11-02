@@ -1,0 +1,4 @@
+.active-link > div {
+    /*We could get more creative with these colors*/
+    background-color: rgba(0, 0, 0, 0.04);
+}
