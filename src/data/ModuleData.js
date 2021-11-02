@@ -215,7 +215,7 @@ Comparison Operators:
 - >=: Greater than or equal to Operator(Checks to see if a value is greater than or equal to another)
 `,
     embeddedIDEURL:
-      "https://codesandbox.io/embed/solitary-framework-vnpzw?fontsize=14&hidenavigation=1&theme=dark&view=editor",
+      "https://codesandbox.io/embed/solitary-framework-vnpzw?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
     customIFrameStyle: null
   },
   {
@@ -290,7 +290,7 @@ Assigning values to variables within a function:
 when you need the value of a variable to change frequently
     `,
     embeddedIDEURL:
-      "https://codesandbox.io/embed/zealous-poitras-vflt7?fontsize=14&hidenavigation=1&theme=dark&view=editor",
+      "https://codesandbox.io/embed/zealous-poitras-vflt7?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
     customIFrameStyle: null
   },
   {
