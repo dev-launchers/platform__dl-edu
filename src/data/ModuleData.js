@@ -159,6 +159,61 @@ markdown: `
     title: "JS Functions",
     markdown: `
     # Learning Module 7
+
+    Function:
+
+- A function is a block of code used to execute a certain task when called upon
+- A function argument/parameter is a value local to the function
+- We use functions because they allow us to execute a certain block of code as many times as we want, reducing the amount of code needed
+
+Syntax:
+
+- A JS function is defined using the function keyword that is followed by a keyword and parentheses.
+- Parameters may be put inside the parentheses
+
+    \`\`\`jsx
+    function functionName(parameter1, parameter2) {
+    	//code
+    }
+
+    \`\`\`
+
+Function Calling:
+
+- In order to call a function you write the name of the function with parentheses
+
+\`\`\`jsx
+//Calls the result of functionName
+functionName()
+\`\`\`
+
+Parameters:
+
+- Parameters are the names of arguments that are passed through a function
+- They are used to execute a certain task while still being able to change the value they hold when called
+
+    \`\`\`jsx
+    //Has the parameters a and b
+    function addition(a, b) {
+    	let sum = a + b;
+    	console.log(sum)
+    }
+    //Logs out 8
+    addition(3, 5)
+    \`\`\`
+
+Recursive Functions:
+-  Recursive Functions are functions that call themselves within themselves
+-  They typically involve an if statement to initiate a loop and a base case in order to stop the loop
+-  Recursion is used to break down bigger problems into smaller pieces
+
+Calling a function within another function:
+-  Funcitons are also able to call different functions inside of themselves
+-  This allows for neater and more efficient code
+
+Assigning values to variables within a function:
+-  Assigning values to variables through the parameter of a function is useful for 
+when you need the value of a variable to change frequently
     `,
     embeddedIDEURL:
       "https://codesandbox.io/embed/zealous-poitras-vflt7?fontsize=14&hidenavigation=1&theme=dark&view=editor",
