@@ -101,7 +101,8 @@ This is the test of a block quote
 > cool (dev) beans
 `,
 embeddedIDEURL: 
-'https://codesandbox.io/embed/gracious-bardeen-ist7m?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor'
+'https://codesandbox.io/embed/gracious-bardeen-ist7m?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor',
+customIFrameStyle: null
 },
 {
 id: 2, 
