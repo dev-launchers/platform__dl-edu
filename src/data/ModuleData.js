@@ -160,7 +160,7 @@ markdown: `
     # Learning Module 7
     `,
     embeddedIDEURL:
-      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+      "https://codesandbox.io/embed/zealous-poitras-vflt7?fontsize=14&hidenavigation=1&theme=dark&view=editor",
     customIFrameStyle: null
   },
   {
