@@ -36,7 +36,7 @@ const ModuleMetadata = [
     thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
     category: 'JavaScript',
     title: 'JS Operators',
-    description: 'Blah blah blah blah',
+    description: 'Learn about operators and how to use them',
     keyWords: ['JavaScript', 'ES6', 'Webdev', 'Operators']
   },
   {
@@ -52,7 +52,7 @@ const ModuleMetadata = [
     thumbnail: 'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',
     category: 'JavaScript',
     title: 'JS Functions',
-    description: 'Blah blah blah blah',
+    description: 'Learn how to declare and call functions!',
     keyWords: ['JavaScript', 'ES6', 'Webdev', 'Functions']
   },
   {
