@@ -232,9 +232,9 @@ Comparison Operators:
     id: 7,
     title: "JS Functions",
     markdown: `
-    # Learning Module 7
+# Learning Module 7
 
-    Function:
+Function:
 
 - A function is a block of code used to execute a certain task when called upon
 - A function argument/parameter is a value local to the function
@@ -245,28 +245,27 @@ Syntax:
 - A JS function is defined using the function keyword that is followed by a keyword and parentheses.
 - Parameters may be put inside the parentheses
 
-    \`\`\`jsx
+    \`\`\`
     function functionName(parameter1, parameter2) {
     	//code
     }
-
     \`\`\`
 
 Function Calling:
 
 - In order to call a function you write the name of the function with parentheses
 
-\`\`\`jsx
-//Calls the result of functionName
-functionName()
-\`\`\`
+  \`\`\`
+  //Calls the result of functionName
+  functionName()
+  \`\`\`
 
 Parameters:
 
 - Parameters are the names of arguments that are passed through a function
 - They are used to execute a certain task while still being able to change the value they hold when called
 
-    \`\`\`jsx
+    \`\`\`
     //Has the parameters a and b
     function addition(a, b) {
     	let sum = a + b;
