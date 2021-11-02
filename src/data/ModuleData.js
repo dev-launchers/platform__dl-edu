@@ -139,9 +139,83 @@ markdown: `
     title: "JS Operators",
     markdown: `
 # Learning Module 5
+Operators:
+
+Arithmetic Operators:
+
+- Arithmetic Operators perform mathematical functions
+- + : Addition(adds two values together)
+- - : Subtractions(subtracts two values)
+- * : Multiplication(multiplies two values)
+- / : Division(divides two values)
+- % : Modulus(divides two values and returns the remainder)
+- ++ : Increment(adds one to a value)
+- — : Decrement(subtracts one from a value)
+
+Assignment Operators:
+
+- Assignment Operators assign values to a variable
+- = : Equals(assigns a value to a variable)
+- += : Plus Equals(adds a value to a variable)
+- -= : Minus Equals(subtracts a value from a variable)
+- *= : Times Equals(multiplies a variable by a value)
+- /= : Divides Equals(divides a variable by a value
+- %= : Modulus equals(modulus' a variable by a value)
+
+Logical Operators:
+
+- Returns a value based on the condition imposed by the operator
+- && : And Operator(performs expression only if both conditions are true)
+
+Ex:
+
+\`\`\`
+let x = 5
+let y = 3
+
+// returns true
+if(x < 7 && y > 1)
+	return true
+\`\`\`
+
+- || : Or Operator(performs expression if either of the conditions are true)
+
+Ex:
+
+\`\`\`
+let x = 9
+let y = 7
+
+// returns true
+if(x < 7 || y > 5)
+return true
+\`\`\`
+
+- ! : Returns the opposite boolean value
+
+\`\`\`
+let x = true
+let y = !x
+
+// logs out false
+console.log(y)
+
+\`\`\`
+
+Comparison Operators:
+
+- The comparison operators compare two values
+- == : Equals Equals Operator(checks to see if two values are the same)
+- ! = : Does Not Equals Operator(checks to see if two values are not the same)
+- ===: Equals Equals Equals Operator(checks to see if two values are the same and have the same data type)
+- ! ==:  Does Not Equals Equals Operator(checks to see if two values are the same and do not have the same data type)
+- < : Less than Operator( Performs the less than function)
+- > : Greater than Operator(Performs greater than function)
+- < = : Less than or equal to Operator( Checks to see if a value is less than or equal to another)
+- >=: Greater than or equal to Operator(Checks to see if a value is greater than or equal to another)
 `,
     embeddedIDEURL:
-      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+      "https://codesandbox.io/embed/solitary-framework-vnpzw?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
     customIFrameStyle: null
   },
   {
@@ -216,7 +290,7 @@ Assigning values to variables within a function:
 when you need the value of a variable to change frequently
     `,
     embeddedIDEURL:
-      "https://codesandbox.io/embed/zealous-poitras-vflt7?fontsize=14&hidenavigation=1&theme=dark&view=editor",
+      "https://codesandbox.io/embed/zealous-poitras-vflt7?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
     customIFrameStyle: null
   },
   {
