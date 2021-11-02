@@ -26,6 +26,13 @@ Problem with var:
 
 - Var can be changed without any consequence, which may cause confusion if you have already declared a variable before and weren't expecting an output using another declaration of var
 
+Var Practice Example:
+
+Student: 
+
+- Declares Variable
+- Calls the variable
+- Change the variable below it and call it again to see the result
 
 \`\`\`
 var x = "pie"
@@ -58,6 +65,10 @@ Hoisting of let:
 
 - let variables are also hoisted to the top like var variables except they are not initialized with a value of undefined, therefore if you try to use a let variable before declaration a reference error will pop up
 
+Student:
+
+- Declares variable with let
+- 
 
 Const:
 
@@ -89,17 +100,19 @@ This is a test of a gif
 This is the test of a block quote
 > cool (dev) beans
 `,
-    codeSandboxSrc:
-      "https://codesandbox.io/embed/gracious-bardeen-ist7m?fontsize=14&hidenavigation=1&theme=dark&view=editor",
-  },
-  {
-    id: 2,
-    title: "JS Datatypes",
-    markdown: `
+embeddedIDEURL: 
+'https://codesandbox.io/embed/gracious-bardeen-ist7m?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor',
+customIFrameStyle: null
+},
+{
+id: 2, 
+title: 'JS Datatypes',
+markdown: `
 # Learning Module 2
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 3,
@@ -107,8 +120,9 @@ This is the test of a block quote
     markdown: `
 # Learning Module 3
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 4,
@@ -116,8 +130,9 @@ This is the test of a block quote
     markdown: `
 # Learning Module 4
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 5,
@@ -199,8 +214,9 @@ Comparison Operators:
 - < = : Less than or equal to Operator( Checks to see if a value is less than or equal to another)
 - >=: Greater than or equal to Operator(Checks to see if a value is greater than or equal to another)
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/solitary-framework-vnpzw?fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 6,
@@ -208,17 +224,94 @@ Comparison Operators:
     markdown: `
 # Learning Module 6
 `,
-    codeSandboxSrc:
+    embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
   },
   {
     id: 7,
     title: "JS Functions",
     markdown: `
     # Learning Module 7
+
+    Function:
+
+- A function is a block of code used to execute a certain task when called upon
+- A function argument/parameter is a value local to the function
+- We use functions because they allow us to execute a certain block of code as many times as we want, reducing the amount of code needed
+
+Syntax:
+
+- A JS function is defined using the function keyword that is followed by a keyword and parentheses.
+- Parameters may be put inside the parentheses
+
+    \`\`\`jsx
+    function functionName(parameter1, parameter2) {
+    	//code
+    }
+
+    \`\`\`
+
+Function Calling:
+
+- In order to call a function you write the name of the function with parentheses
+
+\`\`\`jsx
+//Calls the result of functionName
+functionName()
+\`\`\`
+
+Parameters:
+
+- Parameters are the names of arguments that are passed through a function
+- They are used to execute a certain task while still being able to change the value they hold when called
+
+    \`\`\`jsx
+    //Has the parameters a and b
+    function addition(a, b) {
+    	let sum = a + b;
+    	console.log(sum)
+    }
+    //Logs out 8
+    addition(3, 5)
+    \`\`\`
+
+Recursive Functions:
+-  Recursive Functions are functions that call themselves within themselves
+-  They typically involve an if statement to initiate a loop and a base case in order to stop the loop
+-  Recursion is used to break down bigger problems into smaller pieces
+
+Calling a function within another function:
+-  Funcitons are also able to call different functions inside of themselves
+-  This allows for neater and more efficient code
+
+Assigning values to variables within a function:
+-  Assigning values to variables through the parameter of a function is useful for 
+when you need the value of a variable to change frequently
     `,
-    codeSandboxSrc:
-      "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    embeddedIDEURL:
+      "https://codesandbox.io/embed/zealous-poitras-vflt7?fontsize=14&hidenavigation=1&theme=dark&view=editor",
+    customIFrameStyle: null
+  },
+  {
+    id: 8,
+    title: "Java Introduction",
+    markdown: `
+    # Introduction to Java
+    `,
+    embeddedIDEURL:
+      "https://replit.com/@jdaus/Java-Demo?lite=true",
+    customIFrameStyle: null
+  },
+  {
+    id: 9,
+    title: "C# Introduction",
+    markdown: `
+    # Introduction to C#
+    `,
+    embeddedIDEURL:
+      "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
+    customIFrameStyle: null
   },
 ];
 
