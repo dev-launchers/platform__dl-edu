@@ -1,0 +1,55 @@
+.appBar {
+  background-color: #222222;
+  box-shadow: 0px 4px 8px rgba(34, 34, 34, 0.25);
+}
+.toolBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.dlContainer1 {
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.rocketIcon {
+  width: 55px;
+  height: 55px;
+}
+
+.dev_launchers_title {
+  font-family: 'Abel', sans-serif;
+  font-style: normal;
+  line-height: 46px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.dlContainer2 {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.link {
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+  cursor: pointer;
+}
+
+.signUpButton {
+  background-color: #ff7f0e;
+  color: #ffffff;
+}
+
+.loginButton {
+  background-color: #3a7ca5;
+  color: #ffffff;
+}
