@@ -1,24 +1,32 @@
 import React from "react";
-import Paper from "@mui/material/Paper";
+import { CacheProvider } from "@emotion/react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
-//import
+import Button from "@mui/material/Button";
 import classes from "./DarkBanner.module.css";
-import backGroundImage from "../images/backgroundCodeImage.png";
+import backGroundImage from "../images/darkenedBackGroundImage.png";
 
-const styles = {
-  paperContainer: {
-    backGroundImage: `url(${backGroundImage})`,
-  },
-};
 function DarkBanner() {
+  
+  //override default mui styling
+  const cache = createCache({
+    key: "css",
+    prepend: true,
+  });
 
   return (
     <>
+    <CacheProvider value={cache}>
       <Box className={classes.sloganContainer}>
-        <img className={classes.image} src={backGroundImage} alt="null" />
+        <div className={classes.bannerTextContainer}>
+            <Typography className={classes.bannerText} variant="h2">
+              With us coding is a piece of cake!
+            </Typography>
+          <Button className={classes.joinUsButton}>Join us</Button>
+        </div>
+        <img className={classes.image} src={backGroundImage} alt="null"></img>
       </Box>
+      </CacheProvider>
     </>
   );
 }
