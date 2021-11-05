@@ -2,7 +2,6 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import { CacheProvider } from "@emotion/react";
@@ -12,6 +11,8 @@ import rocketIcon from "../images/dev_launchers_rocket_small.png";
 import classes from "./DarkHeader.module.css";
 
 function DarkHeader() {
+  
+  //override default mui styling
   const cache = createCache({
     key: "css",
     prepend: true,
@@ -34,16 +35,16 @@ function DarkHeader() {
                 DL Basecamp
               </Typography>
             </span>
-            <Breadcrumbs aria-label="breadcrumb" separator=" ">
-              <Link to="/home" className={classes.link} underline="hover">
-                Home
-              </Link>
-              <Link to="/about" className={classes.link} underline="hover">
-                About
-              </Link>
-            </Breadcrumbs>
-
             <span className={classes.dlContainer2}>
+              <Link to="/home" className={classes.link} underline="none">
+                <Typography variant='h5' className={classes.linkText}>Home</Typography>
+              </Link>
+              <Link to="/about" className={classes.link} underline="none">
+              <Typography variant='h5' className={classes.linkText}>About</Typography>
+              </Link>
+            </span>
+
+            <span className={classes.dlContainer3}>
               <Button className={classes.signUpButton}>Sign up</Button>
               <Button className={classes.loginButton}>Login</Button>
             </span>

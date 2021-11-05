@@ -8,10 +8,10 @@
   justify-content: space-between;
 }
 .dlContainer1 {
-  width: 400px;
+  width: 350px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin: 10px;
 }
 
@@ -21,14 +21,20 @@
 }
 
 .dev_launchers_title {
-  font-family: 'Abel', sans-serif;
-  font-style: normal;
+  font-family: "Abel", sans-serif;
+  font-weight: 700;
   line-height: 46px;
   letter-spacing: 0em;
   text-align: left;
 }
-
 .dlContainer2 {
+  width: 350px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin: 10px;
+}
+.dlContainer3 {
   width: 150px;
   display: flex;
   flex-direction: row;
@@ -42,6 +48,16 @@
   font-size: 24px;
   line-height: 36px;
   cursor: pointer;
+  height: 22px;
+  width: 100px;
+  border-bottom: 4px solid #3a7ca5;
+}
+
+.linkText {
+  color: #ffffff;
+  width: 75px;
+  margin-left: 4px;
+  margin-bottom: 4px;
 }
 
 .signUpButton {

@@ -2,7 +2,7 @@ import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import DarkHeader from "./master/DarkHeader";
-import DarkSlogan from "./master/DarkSlogan";
+import DarkBanner from "./master/DarkBanner";
 
 function DarkApp() {
   const theme = createTheme({
@@ -15,7 +15,7 @@ function DarkApp() {
     <>
       <ThemeProvider theme={theme}>
         <DarkHeader />
-        <DarkSlogan />
+        <DarkBanner />
       </ThemeProvider>
     </>
   );
