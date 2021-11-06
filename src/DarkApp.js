@@ -3,6 +3,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import DarkHeader from "./master/DarkHeader";
 import DarkBanner from "./master/DarkBanner";
+import DarkLearnSection from './master/DarkLearnSection';
 
 function DarkApp() {
   const theme = createTheme({
@@ -16,6 +17,7 @@ function DarkApp() {
       <ThemeProvider theme={theme}>
         <DarkHeader />
         <DarkBanner />
+        <DarkLearnSection />
       </ThemeProvider>
     </>
   );

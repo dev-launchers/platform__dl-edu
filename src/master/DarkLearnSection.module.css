@@ -1,0 +1,29 @@
+.mainContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #222222;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.learnTextContainer {
+  padding: 0px 10px 0px 20px;
+  box-shadow: inset 0 -28px #3a7ca5;
+  width: 20%;
+}
+.learnText {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.pythonJavaContainer{
+    display:flex;
+    justify-content: space-evenly;
+}
+.pythonJavaButton{
+    color:#ffffff;
+    background-color: #3a7ca5;
+}
+.pythonJavaCard{
+    color:#ffffff;
+}

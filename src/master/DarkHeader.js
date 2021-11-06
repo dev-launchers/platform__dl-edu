@@ -10,13 +10,13 @@ import createCache from "@emotion/cache";
 import rocketIcon from "../images/dev_launchers_rocket_small.png";
 import classes from "./DarkHeader.module.css";
 
-function DarkHeader() {
-  
-  //override default mui styling
+//override default mui styling
   const cache = createCache({
     key: "css",
     prepend: true,
   });
+  
+function DarkHeader() {
 
   return (
     <>
