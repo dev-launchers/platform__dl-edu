@@ -1,7 +1,13 @@
 .mainContainer {
   width: 100%;
-  height: 100%;
+  height: 1200px;
   background-color: #222222;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.learnJavaPythonContainer {
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,14 +22,76 @@
   color: #ffffff;
 }
 
-.pythonJavaContainer{
-    display:flex;
-    justify-content: space-evenly;
+.pythonJavaContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 75%;
 }
-.pythonJavaButton{
-    color:#ffffff;
-    background-color: #3a7ca5;
+.pythonJavaButton {
+  color: #ffffff;
+  background-color: #3a7ca5;
+  margin: auto;
 }
-.pythonJavaCard{
-    color:#ffffff;
+.pythonJavaCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 250px;
+  height: 235px;
+  background-color: #222222;
+}
+.pythonJavaImg {
+  width: 50%;
+  height: 50%;
+  margin: auto;
+}
+
+.createDetailContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.detailTitleContainer {
+  padding-top: 10px;
+  box-shadow: inset 0 -28px #ff7f0e;
+  width: 20%;
+  margin: auto;
+}
+.createText {
+  color: #ffffff;
+  font-weight: 500;
+}
+.detailTextCard {
+  color: #ffffff;
+  background-color: #222222;
+  width: 45%;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.advantagesTitleContainer {
+  padding: 0 10px 0 20px;
+  box-shadow: inset 0 -28px #3a7ca5;
+  width:90%;
+}
+.advantagesCardContainer {
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+}
+.advantagesText {
+  color: #ffffff;
+}
+
+.advantagesCard {
+  color: #ffffff;
+  background-color: #222222;
+  width: 30%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
