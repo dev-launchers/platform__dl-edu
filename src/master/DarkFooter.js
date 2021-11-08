@@ -43,7 +43,7 @@ function DarkFooter() {
           <img />
         </Grid>
         <Grid item>
-          <Typography variant="h5" sx={{ color: "#ffffff", margin:'auto',width:'80%', textAlign:'center' }}>
+          <Typography variant="h5" className={classes.quoteText}>
             “Tell me and I forget, teach me and I may remember, involve me and I
             learn” - Benjamin Franklin
           </Typography>
