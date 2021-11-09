@@ -14,9 +14,13 @@ function DarkApp() {
     palette: {
       primary: {
         main: "#3a7ca5",
+        '&hover:': {
+          main:'#81C3D7'
+        }
       },
       secondary: {
-        main: "#ff7f0e"
+        main: "#ff7f0e",
+        contrastText:'#ffffff'
       } 
     }
   });

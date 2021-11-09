@@ -35,12 +35,6 @@
   justify-content: space-evenly;
   margin: 10px;
 }
-.dlContainer3 {
-  width: 150px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
 
 .link {
   color: #ffffff;
@@ -61,12 +55,15 @@
   margin-bottom: 4px;
 }
 
-.signUpButton {
-  background-color: #ff7f0e;
-  color: #ffffff;
+.dlContainer3 {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-
-.loginButton {
-  background-color: #3a7ca5;
-  color: #ffffff;
+.signinButton:hover{
+  background-color: #81C3D7;
+}
+.loginButton:hover{
+  background-color: #FFAB00;
 }

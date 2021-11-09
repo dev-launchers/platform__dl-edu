@@ -43,10 +43,9 @@ function DarkHeader() {
               <Typography variant='h5' className={classes.linkText}>About</Typography>
               </Link>
             </span>
-
             <span className={classes.dlContainer3}>
-              <Button className={classes.signUpButton}>Sign up</Button>
-              <Button className={classes.loginButton}>Login</Button>
+              <Button  className={classes.signinButton} size='small' color='primary' variant='contained'>Sign up</Button>
+              <Button className={classes.loginButton} size='small' color='secondary' variant = 'contained'>Login</Button>
             </span>
           </Toolbar>
         </AppBar>

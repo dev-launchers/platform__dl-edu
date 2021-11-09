@@ -41,7 +41,7 @@ function DarkFooter() {
             placeholder="Enter your email"
             className={classes.emailQueryField}
           />
-          <Button className={classes.emailQueryButton}>Submit</Button>{" "}
+          <Button className={classes.emailQueryButton} variant='contained' color='secondary'>Submit</Button>{" "}
         </Grid>
         <Grid item sx={{ width:'58%', display:'flex', flexDirection:'row', justifyContent:'space-between'}}>
           <Link href='http://www.instagram.com'><img src={instagramIcon} className={classes.footerImage} /></Link>

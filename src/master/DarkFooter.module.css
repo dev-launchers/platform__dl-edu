@@ -12,10 +12,12 @@
   text-align: center;
 }
 .emailQueryButton {
-  background-color: #ff7f0e;
-  color: #ffffff;
   height: 40px;
 }
+.emailQueryButton:hover {
+  background-color: #FFAB00;
+}
+
 
 .quoteText {
   color: #ffffff;

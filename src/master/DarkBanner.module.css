@@ -28,10 +28,11 @@
   font-weight: 500;
 }
 .joinUsButton {
-  background-color: #ff7f0e;
-  color: #ffffff;
   width: 25%;
   margin: auto;
+}
+.joinUsButton:hover{
+  background-color: #FFAB00;
 }
 .arrowContainer{
   display:flex;

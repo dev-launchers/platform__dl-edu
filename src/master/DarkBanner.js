@@ -24,7 +24,7 @@ function DarkBanner() {
             <Typography className={classes.bannerText} variant="h2">
               With us coding is a piece of cake!
             </Typography>
-          <Button variant='contained' size='medium' className={classes.joinUsButton}>Join us</Button>
+          <Button color='secondary' variant='contained' size='medium' className={classes.joinUsButton}>Join us</Button>
           <div className={classes.arrowContainer}><img src={downArrow} alt='null' className={classes.downArrow}/>
           <img src={downArrow} alt='null' className={classes.downArrow}/></div>
         </div>

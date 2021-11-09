@@ -29,9 +29,10 @@
   width: 75%;
 }
 .pythonJavaButton {
-  color: #ffffff;
-  background-color: #3a7ca5;
   margin: auto;
+}
+.pythonJavaButton:hover {
+  background-color: #FFAB00;
 }
 .pythonJavaCard {
   display: flex;

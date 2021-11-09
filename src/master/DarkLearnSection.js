@@ -43,7 +43,7 @@ function DarkLearnSection() {
                 >
                   Java
                 </Typography>
-                <Button className={classes.pythonJavaButton}>Start now</Button>
+                <Button variant='contained' color='secondary' className={classes.pythonJavaButton}>Start now</Button>
               </Card>
               <Card raised={true} className={classes.pythonJavaCard}>
                 <img
@@ -57,7 +57,7 @@ function DarkLearnSection() {
                 >
                   Python
                 </Typography>
-                <Button className={classes.pythonJavaButton}>Start now</Button>
+                <Button variant='contained' color='secondary'className={classes.pythonJavaButton}>Start now</Button>
               </Card>
             </Container>
           </Container>
