@@ -3,8 +3,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 
 import DarkHeader from "./master/DarkHeader";
 import DarkBanner from "./master/DarkBanner";
-import DarkLearnSection from './master/DarkLearnSection';
-import DarkFooter from './master/DarkFooter';
+import DarkLearnSection from "./master/DarkLearnSection";
+import DarkFooter from "./master/DarkFooter";
 
 function DarkApp() {
   const theme = createTheme({
@@ -14,15 +14,16 @@ function DarkApp() {
     palette: {
       primary: {
         main: "#3a7ca5",
-        '&hover:': {
-          main:'#81C3D7'
-        }
       },
       secondary: {
         main: "#ff7f0e",
-        contrastText:'#ffffff'
-      } 
-    }
+        contrastText: "#ffffff",
+      },
+      neutral: {
+        main: "#ffffff",
+        contrastText: "#ffffff",
+      },
+    },
   });
 
   return (

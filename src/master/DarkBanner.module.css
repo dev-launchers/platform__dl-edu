@@ -16,27 +16,18 @@
   height: 50%;
   width: 50%;
   margin: auto;
-  color: #ffffff;
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   font-weight: 700;
 }
 .bannerText {
   text-align: center;
   font-weight: 500;
 }
-.joinUsButton {
-  width: 25%;
-  margin: auto;
-}
+
 .joinUsButton:hover{
   background-color: #FFAB00;
 }
 .arrowContainer{
-  display:flex;
-  flex-direction: column;
   width:2%;
   margin:auto;
 }
