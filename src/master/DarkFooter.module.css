@@ -17,4 +17,14 @@
   height: 40px;
 }
 
-.quoteText{ color: #ffffff; margin:auto;width:80%; text-align:center }
+.quoteText {
+  color: #ffffff;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+.footerImage{
+    height:50px;
+    width:50px;
+}

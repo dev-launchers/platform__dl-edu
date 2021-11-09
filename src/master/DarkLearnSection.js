@@ -6,6 +6,9 @@ import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 
+import explorationIcon from "../images/exploration.png";
+import implementationIcon from "../images/Implementation.png";
+import sharingIcon from "../images/sharing.png";
 import javaScriptLogo from "../images/javascript-logo 1.png";
 import pythonLogo from "../images/python-logo 1.png";
 
@@ -82,19 +85,40 @@ function DarkLearnSection() {
           </Container>
           <Container className={classes.advantagesCardContainer}>
             <Card raised={true} className={classes.advantagesCard}>
-              <img src="null" alt="null" />
+              <img
+                className={classes.advantagesImage}
+                src={explorationIcon}
+                alt="null"
+              />
               <Typography variant="h4">Explore</Typography>
-              <Typography paragraph={true}>lorem ipsum</Typography>
+              <Typography align='center' paragraph={true}>
+                Eget id massa, non diam quam egestas. Tortor commodo nam
+                tristique ipsum odio lorem.
+              </Typography>
             </Card>
             <Card raised={true} className={classes.advantagesCard}>
-              <img src="null" alt="null" />{" "}
+              <img
+                className={classes.advantagesImage}
+                src={implementationIcon}
+                alt="null"
+              />
               <Typography variant="h4">Implementation</Typography>
-              <Typography paragraph={true}>lorem ipsum</Typography>
+              <Typography align='center' paragraph={true}>
+                Eget id massa, non diam quam egestas. Tortor commodo nam
+                tristique ipsum odio lorem.
+              </Typography>
             </Card>
             <Card raised={true} className={classes.advantagesCard}>
-              <img src="null" alt="null" />
+              <img
+                className={classes.advantagesImage}
+                src={sharingIcon}
+                alt="null"
+              />
               <Typography variant="h4">Sharing</Typography>
-              <Typography paragraph={true}>lorem ipsum</Typography>
+              <Typography align='center' paragraph={true}>
+                Eget id massa, non diam quam egestas. Tortor commodo nam
+                tristique ipsum odio lorem.
+              </Typography>
             </Card>
           </Container>
         </Container>
