@@ -10,8 +10,15 @@ function DarkApp() {
   const theme = createTheme({
     typography: {
       fontFamily: ["Poppins"].join(","),
-      color:'#ffffff',
     },
+    palette: {
+      primary: {
+        main: "#3a7ca5",
+      },
+      secondary: {
+        main: "#ff7f0e"
+      } 
+    }
   });
 
   return (
