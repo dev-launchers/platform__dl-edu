@@ -29,7 +29,7 @@ function DarkBanner() {
             className={classes.bannerTextContainer}
           >
             <Grid item>
-              <Typography sx={{ color: 'neutral.main'}} variant="h2" color="neutral">
+              <Typography sx={{ color: 'neutral.main' }} variant="h2" color="neutral">
                 With us coding is a piece of cake!
               </Typography>
             </Grid>
