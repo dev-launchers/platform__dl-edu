@@ -16,7 +16,7 @@ import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import Search from '@material-ui/icons/Search'
 
-import cakeImage from "../images/cake.svg"
+//import cakeImage from "../images/cake.svg"
 import "./SideNav.module.css";
 
 const drawerWidth = 270;
@@ -95,7 +95,7 @@ function SideNav() {
                 <div className={classes.drawerContainer}>
                     <div className={classes.toolbarHeader}>
                         <div>
-                            <img src={cakeImage}/>
+                            {/* <img src={cakeImage}/> */}
                         </div>
                         <TextField id="search-content" variant="filled" size="small"
                             InputProps={{
