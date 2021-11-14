@@ -1,60 +1,39 @@
 import React from "react";
+import { styled } from '@mui/material/styles';
 import { Route } from 'react-router-dom'
 
 
 import LearningModule from "../modules/LearningModule";
 import LearningModuleList from "../modules/LearningModuleList";
 import LegacyLearnList from "../legacy-learn/legacy-learn-list";
-import { makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
+import Toolbar from "@mui/material/Toolbar";
 
 import Footer from "./Footer"
 import Home from '../pages/Home'
 import Login from '../pages/Login'
 import SideNav from "./SideNav";
 
-const drawerWidth = 270;
+const PREFIX = 'MainContent';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
+const classes = {
+    root: `${PREFIX}-root`,
+    content: `${PREFIX}-content`,
+};
+
+const Root = styled('div')(({ theme }) => ({
+    [`&.${classes.root}`]: {
         display: "flex",
     },
-    drawer: {
-        width: drawerWidth,
-        flexShrink: 0,
-    },
-    drawerPaper: {
-        width: drawerWidth,
-    },
-    drawerContainer: {
-        overflow: "auto",
-    },
-    // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
-    content: {
+
+    [`& .${classes.content}`]: {
         flexGrow: 1,
         padding: theme.spacing(3),
-    },
-    nested: {
-        paddingLeft: theme.spacing(4),
-    },
-    toolbarHeader: {
-        height: '20em', 
-        display: 'flex', 
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        alignItems: 'center'
-    },
-    active: {
-        backgroundColor: 'hotpink'
     }
 }));
 
 function MainContent() {
-    const classes = useStyles();
-
     return (
-        <div className={classes.root}>
+        <Root className={classes.root}>
             <SideNav/>
             <main className={classes.content}>
                 {/* Toolbar necessary to create space for the toolbar display*/}
@@ -76,8 +55,8 @@ function MainContent() {
                 </Route>
                 <Footer />
             </main>
-        </div>
-    )
+        </Root>
+    );
 
 }
 
