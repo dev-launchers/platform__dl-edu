@@ -6,7 +6,6 @@ import MainContent from "./master/MainContent"
 
 import { ThemeProvider, StyledEngineProvider, createTheme } from '@mui/material/styles';
 
-import makeStyles from '@mui/styles/makeStyles';
 
 const theme = createTheme();
 

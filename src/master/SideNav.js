@@ -1,6 +1,6 @@
 import React, { useState } from "react";
+import { styled } from '@mui/material/styles';
 import { NavLink } from 'react-router-dom'
-import makeStyles from '@mui/styles/makeStyles';
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
@@ -19,42 +19,68 @@ import Search from '@mui/icons-material/Search'
 import cakeImage from "../images/cake.svg"
 import "./SideNav.module.css";
 
-const drawerWidth = 270;
+const PREFIX = 'SideNav';
 
-const useStyles = makeStyles((theme) => ({
-    root: {
+const classes = {
+    root: `${PREFIX}-root`,
+    drawer: `${PREFIX}-drawer`,
+    drawerPaper: `${PREFIX}-drawerPaper`,
+    drawerContainer: `${PREFIX}-drawerContainer`,
+    toolbar: `${PREFIX}-toolbar`,
+    content: `${PREFIX}-content`,
+    nested: `${PREFIX}-nested`,
+    toolbarHeader: `${PREFIX}-toolbarHeader`,
+    active: `${PREFIX}-active`
+};
+
+const Root = styled('div')((
+    {
+        theme
+    }
+) => ({
+    [`&.${classes.root}`]: {
         display: "flex",
     },
-    drawer: {
+
+    [`& .${classes.drawer}`]: {
         width: drawerWidth,
         flexShrink: 0,
     },
-    drawerPaper: {
+
+    [`& .${classes.drawerPaper}`]: {
         width: drawerWidth,
     },
-    drawerContainer: {
+
+    [`& .${classes.drawerContainer}`]: {
         overflow: "auto",
     },
+
     // necessary for content to be below app bar
-    toolbar: theme.mixins.toolbar,
-    content: {
+    [`& .${classes.toolbar}`]: theme.mixins.toolbar,
+
+    [`& .${classes.content}`]: {
         flexGrow: 1,
         padding: theme.spacing(3),
     },
-    nested: {
+
+    [`& .${classes.nested}`]: {
         paddingLeft: theme.spacing(4),
     },
-    toolbarHeader: {
+
+    [`& .${classes.toolbarHeader}`]: {
         height: '20em', 
         display: 'flex', 
         flexDirection: 'column',
         justifyContent: 'space-around',
         alignItems: 'center'
     },
-    active: {
+
+    [`& .${classes.active}`]: {
         backgroundColor: 'hotpink'
     }
 }));
+
+const drawerWidth = 270;
 
 // TODO better to store nav bar structure in JSON, and then load-and-loop, instead of repeating code
 function SideNav() {
@@ -81,10 +107,10 @@ function SideNav() {
 
 
 
-    const classes = useStyles();
+
 
     return (
-        <div className={classes.root}>
+        <Root className={classes.root}>
             <Drawer
                 className={classes.drawer}
                 variant="permanent"
@@ -213,8 +239,8 @@ function SideNav() {
                     </List>
                 </div>
             </Drawer>
-        </div>
-    )
+        </Root>
+    );
 
 }
 
