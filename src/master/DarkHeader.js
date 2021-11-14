@@ -3,18 +3,18 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
+import { Link } from 'react-router-dom'
 
 import rocketIcon from "../images/dev_launchers_rocket_small.png";
 import classes from "./DarkHeader.module.css";
 
 //override default mui styling
-  const cache = createCache({
+const cache = createCache({
     key: "css",
     prepend: true,
-  });
+});
   
 function DarkHeader() {
 
@@ -44,8 +44,12 @@ function DarkHeader() {
               </Link>
             </span>
             <span className={classes.dlContainer3}>
-              <Button  className={classes.signinButton} size='small' color='primary' variant='contained'>Sign up</Button>
-              <Button className={classes.loginButton} size='small' color='secondary' variant = 'contained'>Login</Button>
+                <Button className={classes.signinButton} size='small' color='primary' variant='contained' component={Link} to="/sign-up">
+                    Sign up
+                </Button>
+                <Button className={classes.loginButton} size='small' color='secondary' variant = 'contained' component={Link} to="/login">
+                    Login
+                </Button>
             </span>
           </Toolbar>
         </AppBar>

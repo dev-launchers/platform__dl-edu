@@ -16,7 +16,7 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Search from '@mui/icons-material/Search'
 
-//import cakeImage from "../images/cake.svg"
+import cakeImage from "../images/cake.svg"
 import "./SideNav.module.css";
 
 const PREFIX = 'SideNav';
@@ -113,7 +113,7 @@ function SideNav() {
                 <div className={classes.drawerContainer}>
                     <div className={classes.toolbarHeader}>
                         <div>
-                            {/* <img src={cakeImage}/> */}
+                            <img src={cakeImage}/>
                         </div>
                         <TextField id="search-content" variant="filled" size="small"
                             InputProps={{
@@ -130,7 +130,7 @@ function SideNav() {
                         </ListItem>
                         <Collapse in={openedLegacy} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <NavLink to="/legacy-learn/code" activeClassName="active-link">
+                                <NavLink to="/main/legacy-learn/code" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -138,7 +138,7 @@ function SideNav() {
                                         <ListItemText>Code</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/legacy-learn/design" activeClassName="active-link">
+                                <NavLink to="/main/legacy-learn/design" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -146,7 +146,7 @@ function SideNav() {
                                         <ListItemText>Design</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/legacy-learn/phaser 3" activeClassName="active-link">
+                                <NavLink to="/main/legacy-learn/phaser 3" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -154,7 +154,7 @@ function SideNav() {
                                         <ListItemText>Phaser</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/legacy-learn/react" activeClassName="active-link">
+                                <NavLink to="/main/legacy-learn/react" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -170,7 +170,7 @@ function SideNav() {
                         </ListItem>
                         <Collapse in={openedProgLang} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <NavLink to="/learning-modules/javascript" activeClassName="active-link">
+                                <NavLink to="/main/learning-modules/javascript" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -178,7 +178,7 @@ function SideNav() {
                                         <ListItemText>JavaScript</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/learning-modules/java" activeClassName="active-link">
+                                <NavLink to="/main/learning-modules/java" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -186,7 +186,7 @@ function SideNav() {
                                         <ListItemText>Java</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/learning-modules/csharp" activeClassName="active-link">
+                                <NavLink to="/main/learning-modules/csharp" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -202,7 +202,7 @@ function SideNav() {
                         </ListItem>
                         <Collapse in={openedFrameworks} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <NavLink to="/TODO1" activeClassName="active-link">
+                                <NavLink to="/main/TODO1" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -218,7 +218,7 @@ function SideNav() {
                         </ListItem>
                         <Collapse in={openedProgPrinc} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <NavLink to="/TODO2" activeClassName="active-link">
+                                <NavLink to="/main/TODO2" activeClassName="active-link">
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />

@@ -1,7 +1,4 @@
-import "./styles.css";
-
-
-import Header from "./master/Header"
+// import Header from "./master/Header"
 import MainContent from "./master/MainContent"
 
 import { ThemeProvider, StyledEngineProvider, createTheme } from '@mui/material/styles';

@@ -9,7 +9,7 @@ function LearningModuleListItem(props) {
     )
 
     return (
-        <Link to={"/learning-module/" + props.moduleMetadata.id}>        
+        <Link to={"/main/learning-module/" + props.moduleMetadata.id}>        
             <div className="module-list-item">
                 <h2 style={{ alignSelf: "center" }}>{props.moduleMetadata.title}</h2>
                 <img src={props.moduleMetadata.thumbnail} className="module-img" />

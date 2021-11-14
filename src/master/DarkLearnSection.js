@@ -5,6 +5,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
+import { Link } from 'react-router-dom'
 
 import explorationIcon from "../images/exploration.png";
 import implementationIcon from "../images/Implementation.png";
@@ -43,7 +44,9 @@ function DarkLearnSection() {
                 >
                   Java
                 </Typography>
-                <Button variant='contained' color='secondary' className={classes.pythonJavaButton}>Start now</Button>
+                <Button variant='contained' color='secondary' className={classes.pythonJavaButton} component={Link} to="main/learning-modules/javascript">
+                    Start now
+                </Button>
               </Card>
               <Card raised={true} className={classes.pythonJavaCard}>
                 <img
@@ -57,7 +60,9 @@ function DarkLearnSection() {
                 >
                   Python
                 </Typography>
-                <Button variant='contained' color='secondary'className={classes.pythonJavaButton}>Start now</Button>
+                <Button variant='contained' color='secondary' className={classes.pythonJavaButton} component={Link} to="main/learning-modules/python">
+                    Start now
+                </Button>
               </Card>
             </Container>
           </Container>

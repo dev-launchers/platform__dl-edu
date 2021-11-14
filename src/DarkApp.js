@@ -1,10 +1,14 @@
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Switch, Route, Redirect } from "react-router-dom";
 
 import DarkHeader from "./master/DarkHeader";
 import DarkBanner from "./master/DarkBanner";
 import DarkLearnSection from "./master/DarkLearnSection";
 import DarkFooter from "./master/DarkFooter";
+import MainContent from "./master/MainContent"
+
+import "./styles.css";
 
 function DarkApp() {
   const theme = createTheme({
@@ -30,9 +34,25 @@ function DarkApp() {
     <>
       <ThemeProvider theme={theme}>
         <DarkHeader />
-        <DarkBanner />
-        <DarkLearnSection />
+        
+        <Switch>
+            <Route path="/home">
+                <DarkBanner />
+                <DarkLearnSection />
+            </Route>
+            <Route path="/main">
+                <MainContent></MainContent>
+            </Route>
+            <Route exact path="/">
+                <Redirect to="/home"/>
+            </Route>
+            <Route path="*">
+                <h1 style={{padding: '1em'}}>This page doesn't exist :(</h1>
+            </Route>
+        </Switch>
+
         <DarkFooter />
+
       </ThemeProvider>
     </>
   );

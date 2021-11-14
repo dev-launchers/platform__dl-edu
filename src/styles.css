@@ -1,6 +1,6 @@
-.App {
-  font-family: sans-serif;
-  /* text-align: center; */
+* {
+    /*TODO let's use MUI instead of this global style. Ie, on the module list screen, we should use MUI*/
+    font-family: sans-serif;
 }
 
 a {
