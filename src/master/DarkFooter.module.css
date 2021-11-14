@@ -1,0 +1,32 @@
+.footerContainer {
+  background-color: #222222;
+}
+
+/* .emailQueryContainer{
+    display:flex;
+    flex-direction: row;
+} */
+.emailQueryField {
+  background-color: #ffffff;
+  height: 40px;
+  text-align: center;
+}
+.emailQueryButton {
+  height: 40px;
+}
+.emailQueryButton:hover {
+  background-color: #FFAB00;
+}
+
+
+.quoteText {
+  color: #ffffff;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+.footerImage{
+    height:50px;
+    width:50px;
+}

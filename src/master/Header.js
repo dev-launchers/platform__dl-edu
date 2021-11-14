@@ -56,7 +56,7 @@ function Header() {
                         <div>
                             <img src={logo} alt="Logo" className={classes.logoImg} />
                         </div>
-                        <Typography variant="h4" className={classes.title}>
+                        <Typography variant="h2" className={classes.title}>
                             DL Basecamp
                         </Typography>
                     </Link>

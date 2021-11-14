@@ -16,7 +16,7 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import Search from '@mui/icons-material/Search'
 
-import cakeImage from "../images/cake.svg"
+//import cakeImage from "../images/cake.svg"
 import "./SideNav.module.css";
 
 const PREFIX = 'SideNav';
@@ -113,7 +113,7 @@ function SideNav() {
                 <div className={classes.drawerContainer}>
                     <div className={classes.toolbarHeader}>
                         <div>
-                            <img src={cakeImage}/>
+                            {/* <img src={cakeImage}/> */}
                         </div>
                         <TextField id="search-content" variant="filled" size="small"
                             InputProps={{
