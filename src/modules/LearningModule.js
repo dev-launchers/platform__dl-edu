@@ -5,8 +5,8 @@ import EmbeddedIDE from "../components/EmbeddedIDE/EmbeddedIDE";
 import "./LearningModule.css";
 
 import { Link, useParams } from "react-router-dom"
-import { Button } from "@material-ui/core"
-import { ArrowBack } from "@material-ui/icons"
+import { Button } from "@mui/material"
+import { ArrowBack } from "@mui/icons-material"
 
 import 'highlight.js/styles/base16/zenburn.css'
 import "./LearningModule.css"

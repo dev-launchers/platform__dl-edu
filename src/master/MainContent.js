@@ -5,8 +5,8 @@ import { Route } from 'react-router-dom'
 import LearningModule from "../modules/LearningModule";
 import LearningModuleList from "../modules/LearningModuleList";
 import LegacyLearnList from "../legacy-learn/legacy-learn-list";
-import { makeStyles } from "@material-ui/core/styles";
-import Toolbar from "@material-ui/core/Toolbar";
+import makeStyles from '@mui/styles/makeStyles';
+import Toolbar from "@mui/material/Toolbar";
 
 import Footer from "./Footer"
 import Home from '../pages/Home'

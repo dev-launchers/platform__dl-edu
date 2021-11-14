@@ -4,18 +4,21 @@ import "./styles.css";
 import Header from "./master/Header"
 import MainContent from "./master/MainContent"
 
-import { ThemeProvider, createMuiTheme, makeStyles } from '@material-ui/core/styles';
+import { ThemeProvider, StyledEngineProvider, createTheme } from '@mui/material/styles';
 
-const theme = createMuiTheme();
+import makeStyles from '@mui/styles/makeStyles';
+
+const theme = createTheme();
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-        <div className="App">
-            <Header />
-            <MainContent />
-        </div>
-    </ThemeProvider>
-    
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={theme}>
+          <div className="App">
+              <Header />
+              <MainContent />
+          </div>
+      </ThemeProvider>
+    </StyledEngineProvider>
   );
 }
