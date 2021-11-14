@@ -33,11 +33,7 @@ const classes = {
     active: `${PREFIX}-active`
 };
 
-const Root = styled('div')((
-    {
-        theme
-    }
-) => ({
+const Root = styled('div')(({ theme }) => ({
     [`&.${classes.root}`]: {
         display: "flex",
     },
@@ -104,10 +100,6 @@ function SideNav() {
     const handleClickProgPrinc = () => {
         setOpenedProgPrinc(!openedProgPrinc);
     };
-
-
-
-
 
     return (
         <Root className={classes.root}>

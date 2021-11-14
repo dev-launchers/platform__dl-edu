@@ -17,68 +17,21 @@ const PREFIX = 'MainContent';
 
 const classes = {
     root: `${PREFIX}-root`,
-    drawer: `${PREFIX}-drawer`,
-    drawerPaper: `${PREFIX}-drawerPaper`,
-    drawerContainer: `${PREFIX}-drawerContainer`,
-    toolbar: `${PREFIX}-toolbar`,
     content: `${PREFIX}-content`,
-    nested: `${PREFIX}-nested`,
-    toolbarHeader: `${PREFIX}-toolbarHeader`,
-    active: `${PREFIX}-active`
 };
 
-const Root = styled('div')((
-    {
-        theme
-    }
-) => ({
+const Root = styled('div')(({ theme }) => ({
     [`&.${classes.root}`]: {
         display: "flex",
     },
 
-    [`& .${classes.drawer}`]: {
-        width: drawerWidth,
-        flexShrink: 0,
-    },
-
-    [`& .${classes.drawerPaper}`]: {
-        width: drawerWidth,
-    },
-
-    [`& .${classes.drawerContainer}`]: {
-        overflow: "auto",
-    },
-
-    // necessary for content to be below app bar
-    [`& .${classes.toolbar}`]: theme.mixins.toolbar,
-
     [`& .${classes.content}`]: {
         flexGrow: 1,
         padding: theme.spacing(3),
-    },
-
-    [`& .${classes.nested}`]: {
-        paddingLeft: theme.spacing(4),
-    },
-
-    [`& .${classes.toolbarHeader}`]: {
-        height: '20em', 
-        display: 'flex', 
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        alignItems: 'center'
-    },
-
-    [`& .${classes.active}`]: {
-        backgroundColor: 'hotpink'
     }
 }));
 
-const drawerWidth = 270;
-
 function MainContent() {
-
-
     return (
         <Root className={classes.root}>
             <SideNav/>
