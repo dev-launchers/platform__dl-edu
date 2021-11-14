@@ -4,7 +4,7 @@ import { Route, useRouteMatch } from 'react-router-dom'
 
 import LearningModule from "../modules/LearningModule"
 import LearningModuleList from "../modules/LearningModuleList"
-import LegacyLearnList from "../legacy-learn/legacy-learn-list"
+import LegacyLearnList from "../legacyLearn/LegacyLearnList"
 import SideNav from "./SideNav"
 
 const PREFIX = 'MainContent'

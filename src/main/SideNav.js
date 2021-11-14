@@ -30,7 +30,8 @@ const classes = {
     content: `${PREFIX}-content`,
     nested: `${PREFIX}-nested`,
     toolbarHeader: `${PREFIX}-toolbarHeader`,
-    active: `${PREFIX}-active`
+    active: `${PREFIX}-active`,
+    activeLink: `${PREFIX}-activeLink`,
 };
 
 const Root = styled('div')(({ theme }) => ({
@@ -71,8 +72,8 @@ const Root = styled('div')(({ theme }) => ({
         alignItems: 'center'
     },
 
-    [`& .${classes.active}`]: {
-        backgroundColor: 'hotpink'
+    [`& .${classes.activeLink} > div`]: {
+        backgroundColor: '#3a7ca524'
     }
 }));
 
@@ -130,7 +131,7 @@ function SideNav() {
                         </ListItem>
                         <Collapse in={openedLegacy} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <NavLink to="/main/legacy-learn/code" activeClassName="active-link">
+                                <NavLink to="/main/legacy-learn/code" activeClassName={classes.activeLink}>
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -138,7 +139,7 @@ function SideNav() {
                                         <ListItemText>Code</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/main/legacy-learn/design" activeClassName="active-link">
+                                <NavLink to="/main/legacy-learn/design" activeClassName={classes.activeLink}>
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -146,7 +147,7 @@ function SideNav() {
                                         <ListItemText>Design</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/main/legacy-learn/phaser 3" activeClassName="active-link">
+                                <NavLink to="/main/legacy-learn/phaser 3" activeClassName={classes.activeLink}>
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -154,7 +155,7 @@ function SideNav() {
                                         <ListItemText>Phaser</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/main/legacy-learn/react" activeClassName="active-link">
+                                <NavLink to="/main/legacy-learn/react" activeClassName={classes.activeLink}>
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -170,7 +171,7 @@ function SideNav() {
                         </ListItem>
                         <Collapse in={openedProgLang} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <NavLink to="/main/learning-modules/javascript" activeClassName="active-link">
+                                <NavLink to="/main/learning-modules/javascript" activeClassName={classes.activeLink}>
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -178,7 +179,7 @@ function SideNav() {
                                         <ListItemText>JavaScript</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/main/learning-modules/java" activeClassName="active-link">
+                                <NavLink to="/main/learning-modules/java" activeClassName={classes.activeLink}>
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -186,7 +187,7 @@ function SideNav() {
                                         <ListItemText>Java</ListItemText>
                                     </ListItem>
                                 </NavLink>
-                                <NavLink to="/main/learning-modules/csharp" activeClassName="active-link">
+                                <NavLink to="/main/learning-modules/csharp" activeClassName={classes.activeLink}>
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -202,7 +203,7 @@ function SideNav() {
                         </ListItem>
                         <Collapse in={openedFrameworks} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <NavLink to="/main/TODO1" activeClassName="active-link">
+                                <NavLink to="/main/TODO1" activeClassName={classes.activeLink}>
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />
@@ -218,7 +219,7 @@ function SideNav() {
                         </ListItem>
                         <Collapse in={openedProgPrinc} timeout="auto" unmountOnExit>
                             <List component="div" disablePadding>
-                                <NavLink to="/main/TODO2" activeClassName="active-link">
+                                <NavLink to="/main/TODO2" activeClassName={classes.activeLink}>
                                     <ListItem button className={classes.nested}>
                                         <ListItemIcon>
                                             <StarBorder />

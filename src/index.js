@@ -1,13 +1,13 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from 'react-router-dom'
-import DarkApp from "./DarkApp";
+import App from "./App";
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(
     <BrowserRouter>
         <StrictMode>
-            <DarkApp />
+            <App />
         </StrictMode>
     </BrowserRouter>,
     rootElement

@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import learnData from '../data/learnData.json'
-import LegacyLearnItem from './legacy-learn-item'
+import LegacyLearnItem from './LegacyLearnItem'
 
 function LegacyLearnList() {
     const params = useParams()

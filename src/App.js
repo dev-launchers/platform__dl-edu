@@ -1,20 +1,74 @@
-// import Header from "./master/Header"
-import MainContent from "./master/MainContent"
+import React from "react";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import { Switch, Route, Redirect } from "react-router-dom";
 
-import { ThemeProvider, StyledEngineProvider, createTheme } from '@mui/material/styles';
+import DarkLearnSection from "./home/DarkLearnSection";
+import DarkBanner from "./home/DarkBanner";
+import DarkHeader from "./main/DarkHeader";
+import DarkFooter from "./main/DarkFooter";
+import MainContent from "./main/MainContent";
+import Login from "./auth/Login";
+import SignUp from "./auth/SignUp";
+import About from "./pages/About";
+import NotFound from "./pages/NotFound";
 
+import "./styles.css";
 
-const theme = createTheme();
+function App() {
+  const theme = createTheme({
+    typography: {
+      fontFamily: ["Poppins"].join(","),
+    },
+    palette: {
+      primary: {
+        main: "#3a7ca5",
+      },
+      secondary: {
+        main: "#ff7f0e",
+        contrastText: "#ffffff",
+      },
+      neutral: {
+        main: "#ffffff",
+        contrastText: "#ffffff",
+      },
+    },
+  });
 
-export default function App() {
   return (
-    <StyledEngineProvider injectFirst>
+    <>
       <ThemeProvider theme={theme}>
-          <div className="App">
-              <Header />
-              <MainContent />
-          </div>
+        <DarkHeader />
+        
+        <Switch>
+            <Route path="/home">
+                <DarkBanner />
+                <DarkLearnSection />
+            </Route>
+            <Route exact path="/">
+                <Redirect to="/home"/>
+            </Route>
+            <Route path="/main">
+                <MainContent></MainContent>
+            </Route>
+            <Route path="/login">
+                <Login></Login>
+            </Route>
+            <Route path="/sign-up">
+                <SignUp></SignUp>
+            </Route>
+            <Route path="/about">
+                <About></About>
+            </Route>
+            <Route path="*">
+                <NotFound></NotFound>
+            </Route>
+        </Switch>
+
+        <DarkFooter />
+
       </ThemeProvider>
-    </StyledEngineProvider>
+    </>
   );
 }
+
+export default App;
