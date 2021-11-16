@@ -10,7 +10,7 @@
   justify-content: space-between;
 }
 .dlContainer1 {
-  width: 350px;
+  width: 22%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -30,7 +30,7 @@
   text-align: left;
 }
 .dlContainer2 {
-  width: 350px;
+  width: 33%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -57,7 +57,7 @@
 }
 
 .dlContainer3 {
-  width: 150px;
+  width: 10%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
