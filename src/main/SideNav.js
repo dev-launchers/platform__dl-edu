@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
-import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
@@ -16,6 +15,9 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import Search from "@mui/icons-material/Search";
 
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import IconButton from "@mui/material/IconButton";
 import cakeImage from "../images/cake.svg";
 import "./SideNav.module.css";
 
@@ -42,6 +44,10 @@ const Root = styled("div")(({ theme }) => ({
   [`& .${classes.drawer}`]: {
     width: drawerWidth,
     flexShrink: 0,
+    "& .MuiDrawer-paper": {
+      width: drawerWidth,
+      boxSizing: "border-box",
+    },
   },
 
   [`& .${classes.drawerPaper}`]: {
@@ -79,8 +85,16 @@ const Root = styled("div")(({ theme }) => ({
 
 const drawerWidth = 270;
 
+const DrawerHeader = styled("div")(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  padding: theme.spacing(0, 1),
+  // necessary for content to be below app bar
+  ...theme.mixins.toolbar,
+  justifyContent: "flex-end",
+}));
 // TODO better to store nav bar structure in JSON, and then load-and-loop, instead of repeating code
-function SideNav() {
+function SideNav(props) {
   const [openedLegacy, setOpenedLegacy] = useState(false);
   const [openedProgLang, setOpenedProgLang] = useState(false);
   const [openedFrameworks, setOpenedFrameworks] = useState(false);
@@ -106,12 +120,23 @@ function SideNav() {
     <Root className={classes.root}>
       <Drawer
         className={classes.drawer}
-        variant="permanent"
+        variant="persistent"
+        anchor="left"
+        open={props.onOpen}
         classes={{
           paper: classes.drawerPaper,
         }}
       >
-        <Toolbar />
+        <DrawerHeader>
+          <IconButton onClick={props.handleClose}>
+            {props.theme.direction === "ltr" ? (
+              <ChevronLeftIcon />
+            ) : (
+              <ChevronRightIcon />
+            )}
+          </IconButton>
+        </DrawerHeader>
+        <Divider />
         <div className={classes.drawerContainer}>
           <div className={classes.toolbarHeader}>
             <div>
