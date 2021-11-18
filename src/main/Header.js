@@ -32,7 +32,7 @@ function Header() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <AppBar position="sticky" className={classes.appBar}>
+            <AppBar position="fixed" className={classes.appBar}>
                 <Toolbar>
                     <Link to="/home" className={classes.logoAndTitleContainer}>
                         <div>
