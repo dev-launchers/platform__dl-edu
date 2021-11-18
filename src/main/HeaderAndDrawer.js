@@ -10,7 +10,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 
 import SideNav from "./SideNav";
 import rocketIcon from "../images/dev_launchers_rocket_small.png";
@@ -79,15 +78,7 @@ function HeaderAndDrawer(props) {
       <CssBaseline />
       <AppBar sx={{ backgroundColor: "#222222" }} position="fixed" open={open}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
-          >
-            <MenuIcon />
-          </IconButton>
+          
           <span className={classes.dlContainer1}>
             <img src={rocketIcon} alt="null" className={classes.rocketIcon} />
             <Typography variant="h3" className={classes.dev_launchers_title}>
