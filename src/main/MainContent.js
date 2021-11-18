@@ -15,12 +15,14 @@ const drawerWidth = 240;
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
     flexGrow: 1,
+    marginTop:"50px",
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: `-${drawerWidth}px`,
+    marginTop:"50px",
     ...(open && {
       transition: theme.transitions.create('margin', {
         easing: theme.transitions.easing.easeOut,
@@ -31,7 +33,7 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   }),
 );
 
-const classes = {
+/* const classes = {
   root: `${PREFIX}-root`,
   content: `${PREFIX}-content`,
 };
@@ -45,7 +47,7 @@ const Root = styled("div")(({ theme }) => ({
     flexGrow: 1,
     padding: theme.spacing(3)
   },
-}));
+})); */
 
 function MainContent() {
   // The `path` lets us build <Route> paths that are
