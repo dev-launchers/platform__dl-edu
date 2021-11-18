@@ -4,6 +4,7 @@ import LegacyLearnItem from './LegacyLearnItem'
 
 function LegacyLearnList() {
     const params = useParams()
+    console.log(params)
 
     const learnDataForTab = learnData
         .filter(ld => ld.tab.toLowerCase() === params.tab && ld.isActive.toLowerCase() === "true")

@@ -14,7 +14,7 @@ import ModuleData from "../data/ModuleData"
 
 function LearningModule() {
     const params = useParams();
-
+    console.log(params)
     // TODO replace by API call once we have a back-end
     const moduleDatum = ModuleData.find(data => data.id == params.moduleId)
 

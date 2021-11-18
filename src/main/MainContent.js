@@ -71,7 +71,8 @@ function MainContent() {
         handleOpen={handleDrawerOpen}
         handleClose={handleDrawerClose}
       />
-      <Main open={open} >
+      {/* <Main open={open}><h1>foo</h1></Main> */}
+      <Main open={open}>
         <Route path={`${path}/legacy-learn/:tab`}>
           <LegacyLearnList />
         </Route>

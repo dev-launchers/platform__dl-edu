@@ -42,7 +42,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {<Header />}
+      <Header />
       <MainContent />
     </ThemeProvider>
   );

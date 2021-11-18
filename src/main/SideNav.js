@@ -138,12 +138,11 @@ function SideNav(props) {
   };
 
   return (
-    <Root className={classes.root}>
+        <Root className={classes.root}>
         <IconButton
           aria-label="open drawer"
           onClick={props.handleOpen}
-          edge="start"
-          sx={{ mr: 2, ...(open && { display: "block", marginLeft:"5px", height:"40px", width:"40px" }) }}
+          sx={{ mr: 2, ...(open && { height:"40px", width:"40px" }) }}
         >
           <MenuIcon />
         </IconButton>
@@ -157,7 +156,7 @@ function SideNav(props) {
           }} 
         >
           <DrawerHeader>
-            <IconButton onClick={props.handleClose}>
+            <IconButton onClick={props.handleClose} sx= {{ marginTop: "10px" }}>
               {props.theme.direction === "ltr" ? (
                 <ChevronLeftIcon />
               ) : (
@@ -318,8 +317,7 @@ function SideNav(props) {
               </Collapse>
             </List>
           </div>
-        </Drawer>
-    </Root>
+        </Drawer></Root>
   );
 }
 
