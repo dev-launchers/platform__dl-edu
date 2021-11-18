@@ -51,7 +51,10 @@ function MainContent() {
   // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
   // us build relative links.
-  let { path, url } = useRouteMatch();
+
+  /*I ended up removing this useRouteMatch logic for now.  I'll reach out to Jack to try to figure out its purpose
+  let { path, url } = useRouteMatch();*/
+
   const theme = useTheme();
   const [open, setOpen] = useState(true);
 
@@ -73,13 +76,13 @@ function MainContent() {
       />
       {/* <Main open={open}><h1>foo</h1></Main> */}
       <Main open={open}>
-        <Route path={`${path}/legacy-learn/:tab`}>
+        <Route path={`/legacy-learn/:tab`}>
           <LegacyLearnList />
         </Route>
-        <Route path={`${path}/learning-modules/:category`}>
+        <Route path={`/learning-modules/:category`}>
           <LearningModuleList />
         </Route>
-        <Route path={`${path}/learning-module/:moduleId`}>
+        <Route path={`/learning-module/:moduleId`}>
           <LearningModule />
         </Route>
       </Main>

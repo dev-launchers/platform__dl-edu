@@ -191,7 +191,7 @@ function SideNav(props) {
               <Collapse in={openedLegacy} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   <NavLink
-                    to="/main/legacy-learn/code"
+                    to="/legacy-learn/code"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -202,7 +202,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/main/legacy-learn/design"
+                    to="/legacy-learn/design"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -213,7 +213,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/main/legacy-learn/phaser 3"
+                    to="/legacy-learn/phaser 3"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -224,7 +224,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/main/legacy-learn/react"
+                    to="/legacy-learn/react"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -243,7 +243,7 @@ function SideNav(props) {
               <Collapse in={openedProgLang} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   <NavLink
-                    to="/main/learning-modules/javascript"
+                    to="/learning-modules/javascript"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -254,7 +254,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/main/learning-modules/java"
+                    to="/learning-modules/java"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -265,7 +265,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/main/learning-modules/csharp"
+                    to="/learning-modules/csharp"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -284,7 +284,7 @@ function SideNav(props) {
               <Collapse in={openedFrameworks} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   <NavLink
-                    to="/main/TODO1"
+                    to="/TODO1"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -303,7 +303,7 @@ function SideNav(props) {
               <Collapse in={openedProgPrinc} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   <NavLink
-                    to="/main/TODO2"
+                    to="/TODO2"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
