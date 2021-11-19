@@ -122,6 +122,10 @@ function SideNav(props) {
     setOpenedProgPrinc(!openedProgPrinc);
   };
 
+  const handleDifficultySort = (difficulty) => {
+    console.log("handled " + difficulty);
+  }
+
   return (
     <Root className={classes.root}>
       <IconButton
@@ -298,9 +302,9 @@ function SideNav(props) {
             <List component="div" disablePadding>
               <ListItem>Difficulty</ListItem>
               <ListItem sx={{display:"flex", justifyContent:"space-between"}}>
-                <Button variant="contained" color="gray" size="small">Beginner</Button>
-                <Button variant="contained" color="gray" size="small">Intermediate</Button>
-                <Button variant="contained" color="gray" size="small">Advanced</Button>
+                <Button variant="contained" color="gray" size="small" onClick={() => {handleDifficultySort("beg")}}>Beginner</Button>
+                <Button variant="contained" color="gray" size="small" onClick={() => {handleDifficultySort("int")}}>Intermediate</Button>
+                <Button variant="contained" color="gray" size="small" onClick={() => {handleDifficultySort("adv")}}>Advanced</Button>
               </ListItem>
             </List>
           </List>

@@ -33,22 +33,6 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(
   }),
 );
 
-/* const classes = {
-  root: `${PREFIX}-root`,
-  content: `${PREFIX}-content`,
-};
-
-const Root = styled("div")(({ theme }) => ({
-  [`&.${classes.root}`]: {
-    display: "flex",
-  },
-
-  [`& .${classes.content}`]: {
-    flexGrow: 1,
-    padding: theme.spacing(3)
-  },
-})); */
-
 function MainContent() {
   // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets

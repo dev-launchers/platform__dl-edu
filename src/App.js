@@ -6,7 +6,8 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import DarkLearnSection from "./home/DarkLearnSection";
 import DarkBanner from "./home/DarkBanner";
-import Header from "./main/Header";
+import DarkHeader from "./main/DarkHeader";
+import DarkFooter from "./main/DarkFooter";
 import SideNav from "./main/SideNav";
 import MainContent from "./main/MainContent";
 import Login from "./auth/Login";
@@ -46,8 +47,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Header />
+      <DarkHeader />
       <MainContent />
+      <DarkFooter />
     </ThemeProvider>
   );
 }
