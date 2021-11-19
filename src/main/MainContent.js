@@ -9,7 +9,7 @@ import LegacyLearnList from "../legacyLearn/LegacyLearnList";
 import SideNav from "./SideNav";
 
 const PREFIX = "MainContent";
-const drawerWidth = 240;
+const drawerWidth = 368;
 
 //if we adopt this approach, this logic will be necessary for all content we place within our "main" section
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })(

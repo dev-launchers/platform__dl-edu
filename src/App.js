@@ -37,6 +37,10 @@ function App() {
         main: "#222222",
         contrastText: "#ffffff",
       },
+      gray: {
+        main: "#c4c4c4",
+        contrastText: "#222222",
+      },
     },
   });
 
