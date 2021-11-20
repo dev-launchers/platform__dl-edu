@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import Box from "@mui/material/Box";
@@ -34,14 +35,14 @@ function DarkBanner() {
               </Typography>
             </Grid>
             <Grid item>
-              <Button
+              <NavLink to="/main-content/explore"><Button
                 color="secondary"
                 variant="contained"
                 size="medium"
                 className={classes.joinUsButton}
               >
                 Join us
-              </Button>
+              </Button></NavLink>
             </Grid>
             <Grid item sx={{ display:'flex', flexDirection:"column"}}>
               <img src={downArrow} alt="null" className={classes.downArrow} />

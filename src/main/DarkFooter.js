@@ -24,7 +24,7 @@ function DarkFooter() {
       <Grid
         container
         columns={5}
-        spacing={4}
+        spacing={3}
         direction="column"
         alignItems="center"
         justify="center"

@@ -2,7 +2,6 @@ import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
 
 import DarkLearnSection from "./home/DarkLearnSection";
 import DarkBanner from "./home/DarkBanner";
@@ -44,12 +43,49 @@ function App() {
       },
     },
   });
-
+  {
+    /* <ThemeProvider theme={theme}>
+      <Grid container direction="column">
+        <Grid item>
+          <DarkHeader />
+        </Grid>
+        <Grid item>
+          <Route exact path="/">
+            <DarkBanner />
+            <DarkLearnSection />
+          </Route>
+        </Grid>
+        <Grid item>
+          <Route path="/MainContent">
+            <MainContent />
+          </Route>
+        </Grid>
+        <Grid item>
+          <DarkFooter />
+        </Grid>
+      </Grid>
+    </ThemeProvider> */
+  }
   return (
     <ThemeProvider theme={theme}>
-      <DarkHeader />
-      <MainContent />
-      <DarkFooter />
+      <Box
+        sx={{
+          position: "relative",
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
+        <DarkHeader />
+        <Route exact path="/">
+          <DarkBanner />
+          <DarkLearnSection />
+        </Route>
+        <Route path="/main-content">
+          <MainContent />
+        </Route>
+        <DarkFooter />
+      </Box>
     </ThemeProvider>
   );
 }

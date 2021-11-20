@@ -1,5 +1,9 @@
 .footerContainer {
   background-color: #222222;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index:1300;
 }
 
 /* .emailQueryContainer{
@@ -15,9 +19,8 @@
   height: 40px;
 }
 .emailQueryButton:hover {
-  background-color: #FFAB00;
+  background-color: #ffab00;
 }
-
 
 .quoteText {
   color: #ffffff;
@@ -26,7 +29,7 @@
   text-align: center;
 }
 
-.footerImage{
-    height:50px;
-    width:50px;
+.footerImage {
+  height: 50px;
+  width: 50px;
 }

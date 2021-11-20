@@ -181,7 +181,7 @@ function SideNav(props) {
             <Collapse in={openedLegacy} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 <NavLink
-                  to="/legacy-learn/code"
+                  to="/main-content/legacy-learn/code"
                   activeClassName={classes.activeLink}
                 >
                   <ListItem button className={classes.nested}>
