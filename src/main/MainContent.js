@@ -57,7 +57,7 @@ function MainContent() {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <SideNav
+        <SideNav
         theme={theme}
         checkOpen={open}
         handleOpen={handleDrawerOpen}
