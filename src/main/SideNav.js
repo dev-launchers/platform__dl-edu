@@ -43,6 +43,7 @@ const classes = {
 const Root = styled("div")(({ theme }) => ({
   [`&.${classes.root}`]: {
     display: "flex",
+    minHeight:"1550px"
   },
 
   [`& .${classes.drawer}`]: {

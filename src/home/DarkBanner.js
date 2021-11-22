@@ -35,7 +35,7 @@ function DarkBanner() {
               </Typography>
             </Grid>
             <Grid item>
-              <NavLink to="/main-content/explore"><Button
+              <NavLink to="/main-content/legacy-learn/code"><Button
                 color="secondary"
                 variant="contained"
                 size="medium"
