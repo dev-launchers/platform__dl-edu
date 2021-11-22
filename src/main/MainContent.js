@@ -12,20 +12,19 @@ import SideNav from "./SideNav";
 
 const drawerWidth = 368;
 
-//if we adopt this approach, this logic will be necessary for all content we place within our "main" section
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
     flexGrow: 1,
     marginTop: "50px",
-    paddingBottom: "2.5rem",
+    marginBottom:"411px",
     padding: theme.spacing(3),
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    marginLeft: `-${drawerWidth}px`,
+    marginLeft: `-${drawerWidth/10}px`,
     marginTop: "50px",
-    paddingBottom: "2.5rem",
+    marginBottom:"411px",
     ...(open && {
       transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.easeOut,
@@ -40,9 +39,6 @@ function MainContent() {
   // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
   // us build relative links.
-
-  /*I ended up removing this useRouteMatch logic for now.  I'll reach out to Jack to try to figure out its purpose
-  let { path, url } = useRouteMatch();*/
 
   const theme = useTheme();
   const [open, setOpen] = useState(true);
@@ -65,9 +61,7 @@ function MainContent() {
       />
       <Main open={open}>
         <Route path="/main-content/explore">
-          <Container sx={{ height:"1000px" }}><Typography variant="h1">
-            Check out what we have to offer!!
-          </Typography></Container>
+          <h1>foo</h1>
         </Route>
         <Route path={`/main-content/legacy-learn/:tab`}>
           <LegacyLearnList />

@@ -23,7 +23,7 @@ function LearningModule() {
             <div className="lm-module">
                 <div className="learning-module-header">
                     <h2>{moduleDatum.title}</h2>
-                    <Link to="/main/learning-modules/javascript">
+                    <Link to="/main-content/learning-modules/javascript">
                         <Button>
                             <ArrowBack/> Back
                         </Button>

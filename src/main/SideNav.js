@@ -50,7 +50,6 @@ const Root = styled("div")(({ theme }) => ({
     flexShrink: 0,
     position: "sticky",
     backgroundColor: "#f2f2f2",
-
     "& .MuiDrawer-paper": {
       width: drawerWidth,
       boxSizing: "border-box",
@@ -96,7 +95,7 @@ const Root = styled("div")(({ theme }) => ({
   },
 }));
 
-const drawerWidth = 300;
+const drawerWidth = 325;
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -150,7 +149,7 @@ function SideNav(props) {
             <MenuIcon />
           </IconButton>
         ) : null}
-        <Drawer
+        {props.checkOpen ? <Drawer
           className={classes.drawer}
           variant="persistent"
           anchor="left"
@@ -207,7 +206,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/legacy-learn/design"
+                    to="/main-content/legacy-learn/design"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -218,7 +217,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/legacy-learn/phaser 3"
+                    to="/main-content/legacy-learn/phaser 3"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -229,7 +228,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/legacy-learn/react"
+                    to="/main-content/legacy-learn/react"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -248,7 +247,7 @@ function SideNav(props) {
               <Collapse in={openedProgLang} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
                   <NavLink
-                    to="/learning-modules/javascript"
+                    to="/main-content/learning-modules/javascript"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -259,7 +258,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/learning-modules/java"
+                    to="/main-content/learning-modules/java"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -270,7 +269,7 @@ function SideNav(props) {
                     </ListItem>
                   </NavLink>
                   <NavLink
-                    to="/learning-modules/csharp"
+                    to="/main-content/learning-modules/csharp"
                     activeClassName={classes.activeLink}
                   >
                     <ListItem button className={classes.nested}>
@@ -288,7 +287,7 @@ function SideNav(props) {
               </ListItem>
               <Collapse in={openedFrameworks} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                  <NavLink to="/TODO1" activeClassName={classes.activeLink}>
+                  <NavLink to="/main-content/TODO1" activeClassName={classes.activeLink}>
                     <ListItem button className={classes.nested}>
                       <ListItemIcon>
                         <StarBorder />
@@ -304,7 +303,7 @@ function SideNav(props) {
               </ListItem>
               <Collapse in={openedProgPrinc} timeout="auto" unmountOnExit>
                 <List component="div" disablePadding>
-                  <NavLink to="/TODO2" activeClassName={classes.activeLink}>
+                  <NavLink to="/main-content/TODO2" activeClassName={classes.activeLink}>
                     <ListItem button className={classes.nested}>
                       <ListItemIcon>
                         <StarBorder />
@@ -353,7 +352,7 @@ function SideNav(props) {
               </List>
             </List>
           </div>
-        </Drawer>
+        </Drawer> : null}
       </Root>
     </CacheProvider>
   );
