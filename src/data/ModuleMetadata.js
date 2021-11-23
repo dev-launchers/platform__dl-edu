@@ -45,7 +45,7 @@ const ModuleMetadata = [
     category: 'JavaScript',
     title: 'JS Math & Random',
     description: 'Blah blah blah blah',
-    keyWords: ['JavaScript', 'ES6', 'Webdev', 'Operators', 'Math']
+    keyWords: ['JavaScript', 'ES6', 'Webdev', 'Operators', 'Math', 'foo', 'bar', 'roe', 'chi']
   },
   {
     id: 7,

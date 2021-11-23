@@ -23,7 +23,6 @@ function LearningModule() {
 
   //back button logic here
   useEffect(() => {
-    console.log(checkParams)
     if (checkParams < 8) {
       setModuleDirector("javascript");
     }
