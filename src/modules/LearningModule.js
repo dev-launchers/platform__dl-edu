@@ -3,6 +3,10 @@ import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import EmbeddedIDE from "../components/EmbeddedIDE/EmbeddedIDE";
 import "./LearningModule.css";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
@@ -11,10 +15,14 @@ import { ArrowBack } from "@mui/icons-material";
 import "highlight.js/styles/base16/zenburn.css";
 import "./LearningModule.css";
 import ModuleData from "../data/ModuleData";
+import TabPanel from "../components/TabPanel";
+import allyProps from "../components/allyProps";
+import DUMMY_TEXT from "../data/placeholdertext";
 
-function LearningModule() {
+function LearningModule(props) {
   //dynamically route user back to module starting point
   const [moduleDirector, setModuleDirector] = useState("");
+  const [value, setValue] = useState(0);
 
   const params = useParams();
   // TODO replace by API call once we have a back-end
@@ -25,42 +33,58 @@ function LearningModule() {
   useEffect(() => {
     if (checkParams < 8) {
       setModuleDirector("javascript");
-    }
-    else if (checkParams == 8) {
+    } else if (checkParams == 8) {
       setModuleDirector("java");
-    }
-    else {
+    } else {
       setModuleDirector("csharp");
     }
   }, [checkParams]);
 
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
   return (
-    <div>
-      <div className="lm-module">
-        <div className="learning-module-header">
-          <h2>{moduleDatum.title}</h2>
-          <Link to={`/main-content/learning-modules/${moduleDirector}`}>
-            <Button>
-              <ArrowBack /> Back
-            </Button>
-          </Link>
-        </div>
-        <div style={{ display: "flex", height: "800px" }}>
-          <div className="lm-leftcolumn">
-            <ReactMarkdown
-              children={moduleDatum.markdown}
-              rehypePlugins={[rehypeHighlight]}
-            ></ReactMarkdown>
+    <>
+      <Link to={`/main-content/learning-modules/${moduleDirector}`}>
+        <Button>
+          <ArrowBack /> Back
+        </Button>
+      </Link>
+      <Box sx={{ width: "100%" }}>
+        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+          <Tabs value={value} onChange={handleChange} aria-label="module tabs">
+            <Tab label="Guide" {...allyProps(0)} />
+            <Tab label="Engagement" {...allyProps(1)} />
+            <Tab label="Exercises" {...allyProps(2)} />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <div className="learning-module-header">
+            <div className="lm-leftcolumn">
+              <ReactMarkdown
+                children={moduleDatum.markdown}
+                rehypePlugins={[rehypeHighlight]}
+              ></ReactMarkdown>
+              <Typography paragraph>{DUMMY_TEXT}</Typography>
+            </div>
           </div>
-          <div className="lm-rightcolumn">
-            <EmbeddedIDE
-              embedURL={moduleDatum.embeddedIDEURL}
-              customIFrameStyle={moduleDatum.embedIDEStyle}
-            />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <div style={{ display: "flex", height: "800px" }}>
+            <div className="lm-rightcolumn">
+              <EmbeddedIDE
+                embedURL={moduleDatum.embeddedIDEURL}
+                customIFrameStyle={moduleDatum.embedIDEStyle}
+              />
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </TabPanel>
+        <TabPanel value={value} index={2}>
+          <Typography paragraph>{DUMMY_TEXT}</Typography>
+        </TabPanel>
+      </Box>
+    </>
   );
 }
 

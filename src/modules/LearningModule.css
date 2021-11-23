@@ -6,7 +6,7 @@
 /* Left column */
 .lm-leftcolumn {
     float: left;
-    width: 50%;
+    width: 100%;
     height: 90%;
     background-color: rgb(206, 206, 206);
     overflow-y: auto;
@@ -15,7 +15,7 @@
 /* Right column */
 .lm-rightcolumn {
     float: left;
-    width: 50%;
+    width: 100%;
     height: 90%;
 }
 
