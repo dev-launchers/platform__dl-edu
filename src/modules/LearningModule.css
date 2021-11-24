@@ -3,6 +3,25 @@
     flex-direction: column;
 }
 
+.back-button{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.tab-panels{
+    margin-top: -26px;
+}
+
+.tab-box{
+    color:black;
+    background-color: #efefefbe;
+    border-radius: 5px;
+    margin:2px;
+}
+.tab-box:focus{
+    color:black;
+    background-color:darkgray;
+}
 /* Left column */
 .lm-leftcolumn {
     float: left;

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import ModuleMetadata from "../data/ModuleMetadata"
 import LearningModuleListItem from "./LearningModuleListItem"
 import { useParams } from "react-router-dom"

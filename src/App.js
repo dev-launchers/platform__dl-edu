@@ -1,14 +1,12 @@
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
 
 import DarkLearnSection from "./home/DarkLearnSection";
 import DarkBanner from "./home/DarkBanner";
 import DarkHeader from "./main/DarkHeader";
 import DarkFooter from "./main/DarkFooter";
-import SideNav from "./main/SideNav";
 import MainContent from "./main/MainContent";
 import Login from "./auth/Login";
 import SignUp from "./auth/SignUp";
