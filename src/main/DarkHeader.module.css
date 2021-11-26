@@ -10,13 +10,19 @@
   justify-content: space-between;
 }
 .dlContainer1 {
-  width: 22%;
+  width: 25%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin: 10px;
+  text-decoration: none;
 }
-
+.dlLinkContainer{
+  display: flex;
+  justify-content: space-evenly;
+  width:80%;
+  text-decoration: none;
+}
 .rocketIcon {
   width: 55px;
   height: 55px;
@@ -28,6 +34,7 @@
   line-height: 46px;
   letter-spacing: 0em;
   text-align: left;
+  text-decoration: none;
 }
 .dlContainer2 {
   width: 33%;

@@ -68,10 +68,9 @@ function LearningModule(props) {
               value={value}
               onChange={handleChange}
               aria-label="module tabs"
-              indicatorColor="none"
               textColor="dark"
             >
-              <Tab label="Guide" className="tab-box" {...allyProps(0)} />
+              <Tab label="Guide" className="tab-box"  {...allyProps(0)} />
               <Tab label="Engagement" className="tab-box" {...allyProps(1)} />
               <Tab label="Exercises" className="tab-box" {...allyProps(2)} />
             </Tabs>

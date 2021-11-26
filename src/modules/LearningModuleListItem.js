@@ -18,8 +18,8 @@ function LearningModuleListItem(props) {
 
   return (
     <CacheProvider value={cache}>
-      <Link to={"/main-content/learning-module/" + props.moduleMetadata.id}>
-        <Card raised className="module-list-item">
+      <Card raised className="module-list-item">
+        <Link to={"/main-content/learning-module/" + props.moduleMetadata.id}>
           <Container className="module-list-item-inner-container">
             <Typography
               variant="h2"
@@ -45,8 +45,8 @@ function LearningModuleListItem(props) {
               })}
             </Container>
           </Container>
-        </Card>
-      </Link>
+        </Link>
+      </Card>
     </CacheProvider>
   );
 }
