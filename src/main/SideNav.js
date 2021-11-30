@@ -16,6 +16,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import Search from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
@@ -27,6 +28,22 @@ import FilterDropdown from "../components/FilterDropdown";
 import "./SideNav.module.css";
 
 const PREFIX = "SideNav";
+
+const languageFilterDescriptions = [
+  { name: "Javascript", link: "/main-content/learning-modules/javascript" },
+  { name: "Java", link: "/main-content/learning-modules/java" },
+  { name: "C#", link: "/main-content/learning-modules/csharp" },
+];
+const frameworkFilterDescriptions = [
+  { name: "Foo", link: "/main-content/learning-modules/javascript" },
+  { name: "Roh", link: "/main-content/learning-modules/java" },
+  { name: "Bar", link: "/main-content/learning-modules/csharp" },
+];
+const progressFilterDescriptions = [
+  { name: "alpha", link: "/main-content/learning-modules/javascript" },
+  { name: "beta", link: "/main-content/learning-modules/java" },
+  { name: "gamma", link: "/main-content/learning-modules/csharp" },
+];
 
 const classes = {
   root: `${PREFIX}-root`,
@@ -243,32 +260,18 @@ function SideNav(props) {
                     </NavLink>
                   </List>
                 </Collapse>
-                
-                <FilterDropdown />
-                <ListItem button onClick={handleClickFrameworks}>
-                  <ListItemText>Frameworks</ListItemText>
-                  {openedFrameworks ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-                <Collapse in={openedFrameworks} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <NavLink
-                      to="/main-content/TODO1"
-                      activeClassName={classes.activeLink}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText>TODO</ListItemText>
-                      </ListItem>
-                    </NavLink>
-                  </List>
-                </Collapse>
-                <ListItem button onClick={handleClickProgPrinc}>
-                  <ListItemText>Programming Principles</ListItemText>
-                  {openedProgPrinc ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-
+                <FilterDropdown
+                  filterTitle="Language"
+                  filterObjects={languageFilterDescriptions}
+                />
+                <FilterDropdown
+                  filterTitle="Framework"
+                  filterObjects={languageFilterDescriptions}
+                />
+                <FilterDropdown
+                  filterTitle="Progress"
+                  filterObjects={languageFilterDescriptions}
+                />
                 <List component="div" disablePadding>
                   <ListItem>Difficulty</ListItem>
                   <ListItem
@@ -313,6 +316,7 @@ function SideNav(props) {
                   </ListItem>
                 </List>
               </List>
+              <Container sx={{ width:"100%", display:"flex", justifyContent:"center", height:"80px" }}><Button variant="contained" color="lightGray" size="large" sx={{ width:"80%" }}>Filter</Button></Container>
             </div>
           </Drawer>
         ) : null}

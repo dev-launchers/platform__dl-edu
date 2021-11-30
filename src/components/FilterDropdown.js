@@ -59,9 +59,9 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-function FilterDropdown() {
+function FilterDropdown(props) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [language, setLanguage] = useState("Select Language");
+  const [dropDownSelection, setDropDownSelection] = useState("place-holder");
   const [menuArrowDown, setMenuArrowDown] = useState(true);
 
   const open = Boolean(anchorEl);
@@ -74,7 +74,7 @@ function FilterDropdown() {
       setMenuArrowDown(true);
       setAnchorEl(null);
     } else {
-      setLanguage(event.target.textContent);
+      setDropDownSelection(event.target.textContent);
       setMenuArrowDown(true);
       setAnchorEl(null);
     }
@@ -84,7 +84,7 @@ function FilterDropdown() {
     <CacheProvider value={cache}>
       <div className={classes.sortWrapper}>
         <div className={classes.innerSortWrapper}>
-          <label className={classes.filterLabel}>Language</label>
+          <label className={classes.filterLabel}>{props.filterTitle}</label>
           <Button
             id="demo-customized-button"
             aria-controls="demo-customized-menu"
@@ -104,7 +104,7 @@ function FilterDropdown() {
             }
             className={classes.filterButtons}
           >
-            {language}
+            {dropDownSelection}
           </Button>
         </div>
         <StyledMenu
@@ -116,30 +116,18 @@ function FilterDropdown() {
           open={open}
           onClose={handleClose}
         >
-          <MenuItem
-            component={NavLink}
-            to="/main-content/learning-modules/javascript"
-            onClick={handleClose}
-            disableRipple
-          >
-            Javascript
-          </MenuItem>
-          <MenuItem
-            component={NavLink}
-            to="/main-content/learning-modules/java"
-            onClick={handleClose}
-            disableRipple
-          >
-            Java
-          </MenuItem>
-          <MenuItem
-            component={NavLink}
-            to="/main-content/learning-modules/csharp"
-            onClick={handleClose}
-            disableRipple
-          >
-            C#
-          </MenuItem>
+          {props.filterObjects.map((item) => {
+            return (
+              <MenuItem
+                component={NavLink}
+                to={item.link}
+                onClick={handleClose}
+                disableRipple
+              >
+                {item.name}
+              </MenuItem>
+            );
+          })}
         </StyledMenu>
       </div>
     </CacheProvider>

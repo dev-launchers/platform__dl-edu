@@ -40,6 +40,10 @@ function App() {
         main: "#c4c4c4",
         contrastText: "#222222",
       },
+      lightGray: {
+        main: "#d8d8d8",
+        contrastText:"#222222"
+      }
     },
   });
 
