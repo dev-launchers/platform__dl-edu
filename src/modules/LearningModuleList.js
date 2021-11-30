@@ -24,4 +24,4 @@ function LearningModuleList() {
     )
 }
 
-export default LearningModuleList
+export default LearningModuleList;

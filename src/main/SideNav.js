@@ -43,7 +43,7 @@ const classes = {
 const Root = styled("div")(({ theme }) => ({
   [`&.${classes.root}`]: {
     display: "flex",
-    minHeight:"1550px"
+    minHeight: "1550px",
   },
 
   [`& .${classes.drawer}`]: {
@@ -150,210 +150,224 @@ function SideNav(props) {
             <MenuIcon />
           </IconButton>
         ) : null}
-        {props.checkOpen ? <Drawer
-          className={classes.drawer}
-          variant="persistent"
-          anchor="left"
-          open={props.checkOpen}
-          classes={{
-            paper: classes.drawerPaper,
-          }}
-        >
-          <DrawerHeader>
-            <IconButton onClick={props.handleClose}>
-              {props.theme.direction === "ltr" ? (
-                <ChevronLeftIcon />
-              ) : (
-                <ChevronRightIcon />
-              )}
-            </IconButton>
-          </DrawerHeader>
-          <div className={classes.drawerContainer}>
-            <div className={classes.toolbarHeader}>
-              <div>
-                <img src={cakeImage} />
+        {props.checkOpen ? (
+          <Drawer
+            className={classes.drawer}
+            variant="persistent"
+            anchor="left"
+            open={props.checkOpen}
+            classes={{
+              paper: classes.drawerPaper,
+            }}
+          >
+            <DrawerHeader>
+              <IconButton onClick={props.handleClose}>
+                {props.theme.direction === "ltr" ? (
+                  <ChevronLeftIcon />
+                ) : (
+                  <ChevronRightIcon />
+                )}
+              </IconButton>
+            </DrawerHeader>
+            <div className={classes.drawerContainer}>
+              <div className={classes.toolbarHeader}>
+                <div>
+                  <img src={cakeImage} />
+                </div>
+                <TextField
+                  id="filled-basic"
+                  label="Search"
+                  variant="outlined"
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <Search />
+                      </InputAdornment>
+                    ),
+                  }}
+                  sx={{ paddingBottom: "5px" }}
+                />
               </div>
-              <TextField
-                id="filled-basic"
-                label="Search"
-                variant="outlined"
-                InputProps={{
-                  endAdornment: (
-                    <InputAdornment position="end">
-                      <Search />
-                    </InputAdornment>
-                  ),
-                }}
-                sx={{ paddingBottom: "5px" }}
-              />
-            </div>
-            <Divider />
-            <List>
-              <ListItem button onClick={handleClickLegacy}>
-                <ListItemText>DL Learn</ListItemText>
-                {openedLegacy ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              <Collapse in={openedLegacy} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink
-                    to="/main-content/legacy-learn/code"
-                    activeClassName={classes.activeLink}
-                  >
-                    <ListItem button className={classes.nested}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText>Code</ListItemText>
-                    </ListItem>
-                  </NavLink>
-                  <NavLink
-                    to="/main-content/legacy-learn/design"
-                    activeClassName={classes.activeLink}
-                  >
-                    <ListItem button className={classes.nested}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText>Design</ListItemText>
-                    </ListItem>
-                  </NavLink>
-                  <NavLink
-                    to="/main-content/legacy-learn/phaser 3"
-                    activeClassName={classes.activeLink}
-                  >
-                    <ListItem button className={classes.nested}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText>Phaser</ListItemText>
-                    </ListItem>
-                  </NavLink>
-                  <NavLink
-                    to="/main-content/legacy-learn/react"
-                    activeClassName={classes.activeLink}
-                  >
-                    <ListItem button className={classes.nested}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText>React</ListItemText>
-                    </ListItem>
-                  </NavLink>
-                </List>
-              </Collapse>
-              <ListItem button onClick={handleClickProgLang}>
-                <ListItemText>Programming Languages</ListItemText>
-                {openedProgLang ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              <Collapse in={openedProgLang} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink
-                    to="/main-content/learning-modules/javascript"
-                    activeClassName={classes.activeLink}
-                  >
-                    <ListItem button className={classes.nested}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText>JavaScript</ListItemText>
-                    </ListItem>
-                  </NavLink>
-                  <NavLink
-                    to="/main-content/learning-modules/java"
-                    activeClassName={classes.activeLink}
-                  >
-                    <ListItem button className={classes.nested}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText>Java</ListItemText>
-                    </ListItem>
-                  </NavLink>
-                  <NavLink
-                    to="/main-content/learning-modules/csharp"
-                    activeClassName={classes.activeLink}
-                  >
-                    <ListItem button className={classes.nested}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText>C#</ListItemText>
-                    </ListItem>
-                  </NavLink>
-                </List>
-              </Collapse>
-              <ListItem button onClick={handleClickFrameworks}>
-                <ListItemText>Frameworks</ListItemText>
-                {openedFrameworks ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              <Collapse in={openedFrameworks} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink to="/main-content/TODO1" activeClassName={classes.activeLink}>
-                    <ListItem button className={classes.nested}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText>TODO</ListItemText>
-                    </ListItem>
-                  </NavLink>
-                </List>
-              </Collapse>
-              <ListItem button onClick={handleClickProgPrinc}>
-                <ListItemText>Programming Principles</ListItemText>
-                {openedProgPrinc ? <ExpandLess /> : <ExpandMore />}
-              </ListItem>
-              <Collapse in={openedProgPrinc} timeout="auto" unmountOnExit>
-                <List component="div" disablePadding>
-                  <NavLink to="/main-content/TODO2" activeClassName={classes.activeLink}>
-                    <ListItem button className={classes.nested}>
-                      <ListItemIcon>
-                        <StarBorder />
-                      </ListItemIcon>
-                      <ListItemText>TODO</ListItemText>
-                    </ListItem>
-                  </NavLink>
-                </List>
-              </Collapse>
-              <List component="div" disablePadding>
-                <ListItem>Difficulty</ListItem>
-                <ListItem
-                  sx={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <Button
-                    variant="contained"
-                    color="gray"
-                    size="small"
-                    onClick={() => {
-                      handleDifficultySort("beg");
-                    }}
-                  >
-                    Beginner
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="gray"
-                    size="small"
-                    onClick={() => {
-                      handleDifficultySort("int");
-                    }}
-                  >
-                    Intermediate
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="gray"
-                    size="small"
-                    onClick={() => {
-                      handleDifficultySort("adv");
-                    }}
-                  >
-                    Advanced
-                  </Button>
+              <Divider />
+              <List>
+                <ListItem button onClick={handleClickLegacy}>
+                  <ListItemText>DL Learn</ListItemText>
+                  {openedLegacy ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
+                <Collapse in={openedLegacy} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <NavLink
+                      to="/main-content/legacy-learn/code"
+                      activeClassName={classes.activeLink}
+                    >
+                      <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                          <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText>Code</ListItemText>
+                      </ListItem>
+                    </NavLink>
+                    <NavLink
+                      to="/main-content/legacy-learn/design"
+                      activeClassName={classes.activeLink}
+                    >
+                      <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                          <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText>Design</ListItemText>
+                      </ListItem>
+                    </NavLink>
+                    <NavLink
+                      to="/main-content/legacy-learn/phaser 3"
+                      activeClassName={classes.activeLink}
+                    >
+                      <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                          <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText>Phaser</ListItemText>
+                      </ListItem>
+                    </NavLink>
+                    <NavLink
+                      to="/main-content/legacy-learn/react"
+                      activeClassName={classes.activeLink}
+                    >
+                      <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                          <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText>React</ListItemText>
+                      </ListItem>
+                    </NavLink>
+                  </List>
+                </Collapse>
+                <ListItem button onClick={handleClickProgLang}>
+                  <ListItemText>Programming Languages</ListItemText>
+                  {openedProgLang ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={openedProgLang} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <NavLink
+                      to="/main-content/learning-modules/javascript"
+                      activeClassName={classes.activeLink}
+                    >
+                      <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                          <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText>JavaScript</ListItemText>
+                      </ListItem>
+                    </NavLink>
+                    <NavLink
+                      to="/main-content/learning-modules/java"
+                      activeClassName={classes.activeLink}
+                    >
+                      <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                          <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText>Java</ListItemText>
+                      </ListItem>
+                    </NavLink>
+                    <NavLink
+                      to="/main-content/learning-modules/csharp"
+                      activeClassName={classes.activeLink}
+                    >
+                      <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                          <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText>C#</ListItemText>
+                      </ListItem>
+                    </NavLink>
+                  </List>
+                </Collapse>
+                <ListItem button onClick={handleClickFrameworks}>
+                  <ListItemText>Frameworks</ListItemText>
+                  {openedFrameworks ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={openedFrameworks} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <NavLink
+                      to="/main-content/TODO1"
+                      activeClassName={classes.activeLink}
+                    >
+                      <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                          <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText>TODO</ListItemText>
+                      </ListItem>
+                    </NavLink>
+                  </List>
+                </Collapse>
+                <ListItem button onClick={handleClickProgPrinc}>
+                  <ListItemText>Programming Principles</ListItemText>
+                  {openedProgPrinc ? <ExpandLess /> : <ExpandMore />}
+                </ListItem>
+                <Collapse in={openedProgPrinc} timeout="auto" unmountOnExit>
+                  <List component="div" disablePadding>
+                    <NavLink
+                      to="/main-content/TODO2"
+                      activeClassName={classes.activeLink}
+                    >
+                      <ListItem button className={classes.nested}>
+                        <ListItemIcon>
+                          <StarBorder />
+                        </ListItemIcon>
+                        <ListItemText>TODO</ListItemText>
+                      </ListItem>
+                    </NavLink>
+                  </List>
+                </Collapse>
+                <List component="div" disablePadding>
+                  <ListItem>Difficulty</ListItem>
+                  <ListItem
+                    sx={{ display: "flex", justifyContent: "space-between" }}
+                  >
+                    <Button
+                      variant="contained"
+                      color="gray"
+                      size="small"
+                      component={NavLink}
+                      to="/main-content/filtered-learning-module/filter-by"
+                      onClick={() => {
+                        props.onDifficultyWasSelected("beginner");
+                      }}
+                    >
+                      Beginner
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="gray"
+                      size="small"
+                      component={NavLink}
+                      to="/main-content/filtered-learning-module/filter-by"
+                      onClick={() => {
+                        props.onDifficultyWasSelected("intermediate");
+                      }}
+                    >
+                      Intermediate
+                    </Button>
+                    <Button
+                      variant="contained"
+                      color="gray"
+                      size="small"
+                      component={NavLink}
+                      to="/main-content/filtered-learning-module/filter-by"
+                      onClick={() => {
+                        props.onDifficultyWasSelected("advanced");
+                      }}
+                    >
+                      Advanced
+                    </Button>
+                  </ListItem>
+                </List>
               </List>
-            </List>
-          </div>
-        </Drawer> : null}
+            </div>
+          </Drawer>
+        ) : null}
       </Root>
     </CacheProvider>
   );

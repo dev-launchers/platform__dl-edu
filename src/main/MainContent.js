@@ -3,6 +3,7 @@ import { styled, useTheme } from "@mui/material/styles";
 import { Route } from "react-router-dom";
 import Box from "@mui/material/Box";
 
+import FilteredLearningModule from "../modules/FilteredLearningModule";
 import LearningModule from "../modules/LearningModule";
 import LearningModuleList from "../modules/LearningModuleList";
 import LegacyLearnList from "../legacyLearn/LegacyLearnList";
@@ -10,9 +11,10 @@ import SideNav from "./SideNav";
 
 const drawerWidth = 368;
 
-function MainContent() {
+function MainContent(props) {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
+  const [filterKey, setFilterKey ] = useState("");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -22,6 +24,9 @@ function MainContent() {
     setOpen(false);
   };
 
+  const filterDifficultyHandler = (key) => {
+    setFilterKey(key)
+  };
 
   const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
   ({ theme, open }) => ({
@@ -57,16 +62,20 @@ function MainContent() {
         checkOpen={open}
         handleOpen={handleDrawerOpen}
         handleClose={handleDrawerClose}
+        onDifficultyWasSelected={filterDifficultyHandler} 
       />
       <Main open={open}>
-        <Route path={`/main-content/legacy-learn/:tab`}>
+        <Route exact path={`/main-content/legacy-learn/:tab`}>
           <LegacyLearnList />
         </Route>
-        <Route path={`/main-content/learning-modules/:category`}>
+        <Route exact path={`/main-content/learning-modules/:category`}>
           <LearningModuleList />
         </Route>
-        <Route path={`/main-content/learning-module/:moduleId`}>
+        <Route exact path={`/main-content/learning-module/:moduleId`}>
           <LearningModule />
+        </Route>
+        <Route exact path={`/main-content/filtered-learning-module/filter-by`}>
+          <FilteredLearningModule filterKey={filterKey} />
         </Route>
       </Main>
     </Box>
@@ -74,3 +83,4 @@ function MainContent() {
 }
 
 export default MainContent;
+/* =:${filterKey} */
