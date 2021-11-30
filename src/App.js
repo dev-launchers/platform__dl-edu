@@ -30,7 +30,7 @@ function App() {
       },
       neutral: {
         main: "#ffffff",
-        contrastText: "#ffffff",
+        contrastText: "#666666",
       },
       dark: {
         main: "#222222",

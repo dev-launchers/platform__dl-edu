@@ -23,6 +23,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import cakeImage from "../images/cake.svg";
+import FilterDropdown from "../components/FilterDropdown";
 import "./SideNav.module.css";
 
 const PREFIX = "SideNav";
@@ -242,47 +243,8 @@ function SideNav(props) {
                     </NavLink>
                   </List>
                 </Collapse>
-                <ListItem button onClick={handleClickProgLang}>
-                  <ListItemText>Programming Languages</ListItemText>
-                  {openedProgLang ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-                <Collapse in={openedProgLang} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <NavLink
-                      to="/main-content/learning-modules/javascript"
-                      activeClassName={classes.activeLink}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText>JavaScript</ListItemText>
-                      </ListItem>
-                    </NavLink>
-                    <NavLink
-                      to="/main-content/learning-modules/java"
-                      activeClassName={classes.activeLink}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText>Java</ListItemText>
-                      </ListItem>
-                    </NavLink>
-                    <NavLink
-                      to="/main-content/learning-modules/csharp"
-                      activeClassName={classes.activeLink}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText>C#</ListItemText>
-                      </ListItem>
-                    </NavLink>
-                  </List>
-                </Collapse>
+                
+                <FilterDropdown />
                 <ListItem button onClick={handleClickFrameworks}>
                   <ListItemText>Frameworks</ListItemText>
                   {openedFrameworks ? <ExpandLess /> : <ExpandMore />}
@@ -306,21 +268,7 @@ function SideNav(props) {
                   <ListItemText>Programming Principles</ListItemText>
                   {openedProgPrinc ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
-                <Collapse in={openedProgPrinc} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <NavLink
-                      to="/main-content/TODO2"
-                      activeClassName={classes.activeLink}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText>TODO</ListItemText>
-                      </ListItem>
-                    </NavLink>
-                  </List>
-                </Collapse>
+
                 <List component="div" disablePadding>
                   <ListItem>Difficulty</ListItem>
                   <ListItem
