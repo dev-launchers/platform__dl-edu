@@ -14,7 +14,7 @@ const drawerWidth = 368;
 function MainContent(props) {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-  const [filterKey, setFilterKey ] = useState("");
+  const [filterKey, setFilterKey] = useState("");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -25,59 +25,57 @@ function MainContent(props) {
   };
 
   const filterDifficultyHandler = (key) => {
-    setFilterKey(key)
+    setFilterKey(key);
   };
 
   const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
-  ({ theme, open }) => ({
-    flexGrow: 1,
-    marginBottom:"411px",
-    backgroundColor:"#ffffff",
-    padding: theme.spacing(3),
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    marginLeft: `-${drawerWidth/10}px`,
-    marginBottom:"411px",
-    backgroundColor:"#ffffff",
-    ...(open && {
+    ({ theme, open }) => ({
+      flexGrow: 1,
+      marginBottom: "411px",
+      backgroundColor: "#ffffff",
+      padding: theme.spacing(3),
       transition: theme.transitions.create("margin", {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
       }),
-      marginLeft: 0,
-    }),
-  })
-);// The `path` lets us build <Route> paths that are
+      marginLeft: `-${drawerWidth / 10}px`,
+      marginBottom: "411px",
+      backgroundColor: "#ffffff",
+      ...(open && {
+        transition: theme.transitions.create("margin", {
+          easing: theme.transitions.easing.easeOut,
+          duration: theme.transitions.duration.enteringScreen,
+        }),
+        marginLeft: 0,
+      }),
+    })
+  ); // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
   // us build relative links.
 
-  
-
   return (
     <Box sx={{ display: "flex" }}>
-        <SideNav
+      <SideNav
         theme={theme}
         checkOpen={open}
         handleOpen={handleDrawerOpen}
         handleClose={handleDrawerClose}
-        onDifficultyWasSelected={filterDifficultyHandler} 
+        onDifficultyWasSelected={filterDifficultyHandler}
       />
       <Main open={open}>
         <Switch>
-        <Route path={`/main-content/legacy-learn/:tab`}>
-          <LegacyLearnList />
-        </Route>
-        <Route path={`/main-content/learning-modules/:category`}>
-          <LearningModuleList />
-        </Route>
-        <Route path={`/main-content/learning-module/module-id=:moduleId`}>
-          <LearningModule />
-        </Route>
-        <Route path={`/main-content/learning-module/filter-by=:difficulty`}>
-          <FilteredLearningModule filterKey={filterKey} />
-        </Route>
+          <Route path={`/main-content/legacy-learn/:tab`}>
+            <LegacyLearnList />
+          </Route>
+          <Route path={`/main-content/learning-modules/:category`}>
+            <LearningModuleList />
+          </Route>
+          <Route path={`/main-content/learning-module/module-id=:moduleId`}>
+            <LearningModule />
+          </Route>
+          <Route path={`/main-content/learning-module/filter-by=:difficulty`}>
+            <FilteredLearningModule filterKey={filterKey} />
+          </Route>
         </Switch>
       </Main>
     </Box>
