@@ -128,29 +128,11 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 // TODO better to store nav bar structure in JSON, and then load-and-loop, instead of repeating code
 function SideNav(props) {
   const [openedLegacy, setOpenedLegacy] = useState(false);
-  const [openedProgLang, setOpenedProgLang] = useState(false);
-  const [openedFrameworks, setOpenedFrameworks] = useState(false);
-  const [openedProgPrinc, setOpenedProgPrinc] = useState(false);
 
   const handleClickLegacy = () => {
     setOpenedLegacy(!openedLegacy);
   };
 
-  const handleClickProgLang = () => {
-    setOpenedProgLang(!openedProgLang);
-  };
-
-  const handleClickFrameworks = () => {
-    setOpenedFrameworks(!openedFrameworks);
-  };
-
-  const handleClickProgPrinc = () => {
-    setOpenedProgPrinc(!openedProgPrinc);
-  };
-
-  const handleDifficultySort = (difficulty) => {
-    console.log("handled " + difficulty);
-  };
   //override default mui styling
   const cache = createCache({
     key: "css",
@@ -189,9 +171,7 @@ function SideNav(props) {
             </DrawerHeader>
             <div className={classes.drawerContainer}>
               <div className={classes.toolbarHeader}>
-                <div>
-                  <img src={cakeImage} />
-                </div>
+                
                 <TextField
                   id="filled-basic"
                   label="Search"
@@ -266,11 +246,11 @@ function SideNav(props) {
                 />
                 <FilterDropdown
                   filterTitle="Framework"
-                  filterObjects={languageFilterDescriptions}
+                  filterObjects={frameworkFilterDescriptions}
                 />
                 <FilterDropdown
                   filterTitle="Progress"
-                  filterObjects={languageFilterDescriptions}
+                  filterObjects={progressFilterDescriptions}
                 />
                 <List component="div" disablePadding>
                   <ListItem>Difficulty</ListItem>

@@ -19,7 +19,7 @@ function LearningModuleListItem(props) {
   return (
     <CacheProvider value={cache}>
       <Card raised className="module-list-item">
-        <Link to={"/main-content/learning-module/" + props.moduleMetadata.id}>
+        <Link to={"/main-content/learning-module/module-id=" + props.moduleMetadata.id}>
           <Container className="module-list-item-inner-container">
             <Typography
               variant="h2"

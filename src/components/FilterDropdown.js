@@ -61,7 +61,7 @@ const StyledMenu = styled((props) => (
 
 function FilterDropdown(props) {
   const [anchorEl, setAnchorEl] = useState(null);
-  const [dropDownSelection, setDropDownSelection] = useState("place-holder");
+  const [dropDownSelection, setDropDownSelection] = useState("Select ");
   const [menuArrowDown, setMenuArrowDown] = useState(true);
 
   const open = Boolean(anchorEl);
