@@ -331,7 +331,7 @@ function SideNav(props) {
                       color="gray"
                       size="small"
                       component={NavLink}
-                      to="/main-content/filtered-learning-module/filter-by"
+                      to="/main-content/learning-module/filter-by=beginner"
                       onClick={() => {
                         props.onDifficultyWasSelected("beginner");
                       }}
@@ -343,7 +343,7 @@ function SideNav(props) {
                       color="gray"
                       size="small"
                       component={NavLink}
-                      to="/main-content/filtered-learning-module/filter-by"
+                      to="/main-content/learning-module/filter-by=intermediate"
                       onClick={() => {
                         props.onDifficultyWasSelected("intermediate");
                       }}
@@ -355,7 +355,7 @@ function SideNav(props) {
                       color="gray"
                       size="small"
                       component={NavLink}
-                      to="/main-content/filtered-learning-module/filter-by"
+                      to="/main-content/learning-module/filter-by=advanced"
                       onClick={() => {
                         props.onDifficultyWasSelected("advanced");
                       }}

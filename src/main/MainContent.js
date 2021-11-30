@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Box from "@mui/material/Box";
 
 import FilteredLearningModule from "../modules/FilteredLearningModule";
@@ -65,18 +65,20 @@ function MainContent(props) {
         onDifficultyWasSelected={filterDifficultyHandler} 
       />
       <Main open={open}>
-        <Route exact path={`/main-content/legacy-learn/:tab`}>
+        <Switch>
+        <Route path={`/main-content/legacy-learn/:tab`}>
           <LegacyLearnList />
         </Route>
-        <Route exact path={`/main-content/learning-modules/:category`}>
+        <Route path={`/main-content/learning-modules/:category`}>
           <LearningModuleList />
         </Route>
-        <Route exact path={`/main-content/learning-module/:moduleId`}>
+        <Route path={`/main-content/learning-module/module-id=:moduleId`}>
           <LearningModule />
         </Route>
-        <Route exact path={`/main-content/filtered-learning-module/filter-by`}>
+        <Route path={`/main-content/learning-module/filter-by=:difficulty`}>
           <FilteredLearningModule filterKey={filterKey} />
         </Route>
+        </Switch>
       </Main>
     </Box>
   );
