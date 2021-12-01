@@ -9,7 +9,7 @@ import Container from "@mui/material/Container";
 
 import downArrow from "../images/downArrow.png";
 import classes from "./DarkBanner.module.css";
-import laptopImage from "../images/croppedLaptop.png";
+import laptopImage from "../images/darkenedLaptop.png";
 
 //override default mui styling
 const cache = createCache({
@@ -17,22 +17,27 @@ const cache = createCache({
   prepend: true,
 });
 function DarkBanner() {
+
+  function handleArrowsClicked() {
+    console.log("foo")
+  }
+
   return (
     <>
       <CacheProvider value={cache}>
         <Box className={classes.sloganContainer}>
-          <Box sx={{ display: "flex", flexDirection: "column", width:"50%" }}>
-            <Container sx={{ border:"1px solid white" }}>
+          <Box sx={{ display: "flex", flexDirection: "column", width:"50%", margin:"5px" }}>
+            <Container sx={{ display:"flex", flexDirection:"column", justifyContent:"space-evenly", height:"550px", width:"80%", }}>
             <Typography
-              sx={{ color: "neutral.main" }}
-              variant="h2"
+              sx={{ color: "neutral.main", fontWeight:"800" }}
+              variant="h1"
               color="neutral"
             >
-              With us coding is a piece of cake!
+              With us, coding is a piece of cake!
             </Typography>
             <Typography
               sx={{ color: "neutral.main" }}
-              paragraph
+              variant="h6"
               color="neutral"
             >
               We’re a nonprofit coding platform aimed at bridging opportunity
@@ -50,11 +55,11 @@ function DarkBanner() {
             </Button>
             </Container>
           </Box>
-          <div>
+          <Box sx={{ width:"5%", display:"flex", justifyContent:"space-around"}}><div style={{display:"hidden", width:"50px", height:"50px"}} /><Container sx={{ display:"flex", flexDirection:"column", cursor:"pointer" }} onClick={handleArrowsClicked}>
             <img src={downArrow} alt="null" className={classes.downArrow} />
             <img src={downArrow} alt="null" className={classes.downArrow} />
-          </div>
-          <Container sx={{ width:"30%" }}>
+          </Container></Box>
+          <Container sx={{ width:"30%", }}>
             <img src={laptopImage} alt="null" className={classes.laptopImage}/>
           </Container>
         </Box>

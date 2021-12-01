@@ -18,6 +18,9 @@
   font-weight: 500;
 }
 
+.joinUsButton{
+  width:30%
+}
 .joinUsButton:hover{
   background-color: #FFAB00;
 }
@@ -30,3 +33,6 @@
   width:10px;
 }
 
+.laptopImage{
+  margin:5px;
+}
