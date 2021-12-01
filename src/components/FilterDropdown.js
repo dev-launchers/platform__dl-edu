@@ -24,7 +24,7 @@ const StyledMenu = styled((props) => (
       horizontal: "left",
     }}
     transformOrigin={{
-      vertical: "bottom",
+      vertical: "top",
       horizontal: "right",
     }}
     {...props}
@@ -32,7 +32,7 @@ const StyledMenu = styled((props) => (
 ))(({ theme }) => ({
   "& .MuiPaper-root": {
     borderRadius: 6,
-    marginTop: theme.spacing(15),
+    marginTop: theme.spacing(1),
     minWidth: 232,
     color:
       theme.palette.mode === "light"

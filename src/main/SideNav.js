@@ -3,14 +3,7 @@ import { styled } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import ExpandLess from "@mui/icons-material/ExpandLess";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-import Collapse from "@mui/material/Collapse";
-import StarBorder from "@mui/icons-material/StarBorder";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import Search from "@mui/icons-material/Search";
@@ -23,11 +16,8 @@ import createCache from "@emotion/cache";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import cakeImage from "../images/cake.svg";
 import FilterDropdown from "../components/FilterDropdown";
 import "./SideNav.module.css";
-
-const PREFIX = "SideNav";
 
 const languageFilterDescriptions = [
   { name: "Javascript", link: "/main-content/learning-modules/javascript" },
@@ -38,12 +28,21 @@ const frameworkFilterDescriptions = [
   { name: "Foo", link: "/main-content/learning-modules/javascript" },
   { name: "Roh", link: "/main-content/learning-modules/java" },
   { name: "Bar", link: "/main-content/learning-modules/csharp" },
+  { name: "Bar", link: "/main-content/learning-modules/csharp" },
 ];
 const progressFilterDescriptions = [
   { name: "alpha", link: "/main-content/learning-modules/javascript" },
   { name: "beta", link: "/main-content/learning-modules/java" },
   { name: "gamma", link: "/main-content/learning-modules/csharp" },
 ];
+const dlLearnFilterDescriptions = [
+  { name: "Code", link: "/main-content/legacy-learn/code" },
+  { name: "Design", link: "/main-content/legacy-learn/design" },
+  { name: "Phaser", link: "/main-content/learning-modules/phaser 3" },
+  { name: "React", link: "/main-content/learning-modules/react" },
+];
+
+const PREFIX = "SideNav";
 
 const classes = {
   root: `${PREFIX}-root`,
@@ -51,11 +50,6 @@ const classes = {
   drawerPaper: `${PREFIX}-drawerPaper`,
   drawerContainer: `${PREFIX}-drawerContainer`,
   toolbar: `${PREFIX}-toolbar`,
-  content: `${PREFIX}-content`,
-  nested: `${PREFIX}-nested`,
-  toolbarHeader: `${PREFIX}-toolbarHeader`,
-  active: `${PREFIX}-active`,
-  activeLink: `${PREFIX}-activeLink`,
 };
 
 const Root = styled("div")(({ theme }) => ({
@@ -92,26 +86,6 @@ const Root = styled("div")(({ theme }) => ({
   // necessary for content to be below app bar
   [`& .${classes.toolbar}`]: theme.mixins.toolbar,
 
-  [`& .${classes.content}`]: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-
-  [`& .${classes.nested}`]: {
-    paddingLeft: theme.spacing(4),
-  },
-
-  [`& .${classes.toolbarHeader}`]: {
-    height: "20em",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "space-around",
-    alignItems: "center",
-  },
-
-  [`& .${classes.activeLink} > div`]: {
-    backgroundColor: "#3a7ca524",
-  },
 }));
 
 const drawerWidth = 325;
@@ -161,7 +135,9 @@ function SideNav(props) {
             }}
           >
             <DrawerHeader>
-              <IconButton onClick={props.handleClose}>
+              <IconButton
+                onClick={props.handleClose}
+              >
                 {props.theme.direction === "ltr" ? (
                   <ChevronLeftIcon />
                 ) : (
@@ -170,8 +146,7 @@ function SideNav(props) {
               </IconButton>
             </DrawerHeader>
             <div className={classes.drawerContainer}>
-              <div className={classes.toolbarHeader}>
-                
+              <Container sx={{ width:"100%", alignItems:"center" }}>
                 <TextField
                   id="filled-basic"
                   label="Search"
@@ -183,63 +158,21 @@ function SideNav(props) {
                       </InputAdornment>
                     ),
                   }}
-                  sx={{ paddingBottom: "5px" }}
+                  sx={{ mt:"5px", paddingBottom: "5px", width:"90%", alignItems:"center" }}
                 />
-              </div>
-              <Divider />
-              <List>
-                <ListItem button onClick={handleClickLegacy}>
-                  <ListItemText>DL Learn</ListItemText>
-                  {openedLegacy ? <ExpandLess /> : <ExpandMore />}
-                </ListItem>
-                <Collapse in={openedLegacy} timeout="auto" unmountOnExit>
-                  <List component="div" disablePadding>
-                    <NavLink
-                      to="/main-content/legacy-learn/code"
-                      activeClassName={classes.activeLink}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText>Code</ListItemText>
-                      </ListItem>
-                    </NavLink>
-                    <NavLink
-                      to="/main-content/legacy-learn/design"
-                      activeClassName={classes.activeLink}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText>Design</ListItemText>
-                      </ListItem>
-                    </NavLink>
-                    <NavLink
-                      to="/main-content/legacy-learn/phaser 3"
-                      activeClassName={classes.activeLink}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText>Phaser</ListItemText>
-                      </ListItem>
-                    </NavLink>
-                    <NavLink
-                      to="/main-content/legacy-learn/react"
-                      activeClassName={classes.activeLink}
-                    >
-                      <ListItem button className={classes.nested}>
-                        <ListItemIcon>
-                          <StarBorder />
-                        </ListItemIcon>
-                        <ListItemText>React</ListItemText>
-                      </ListItem>
-                    </NavLink>
-                  </List>
-                </Collapse>
+              </Container>
+              <List
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-evenly",
+                  height: "450px",
+                }}
+              >
+                <FilterDropdown
+                  filterTitle="DL Learn"
+                  filterObjects={dlLearnFilterDescriptions}
+                />
                 <FilterDropdown
                   filterTitle="Language"
                   filterObjects={languageFilterDescriptions}
@@ -252,11 +185,10 @@ function SideNav(props) {
                   filterTitle="Progress"
                   filterObjects={progressFilterDescriptions}
                 />
-                <List component="div" disablePadding>
+                  </List>
+                  <List component="div" disablePadding>
                   <ListItem>Difficulty</ListItem>
-                  <ListItem
-                    sx={{ display: "flex", justifyContent: "space-between" }}
-                  >
+                  <ListItem sx={{ display: "flex", justifyContent: "space-between" }}>
                     <Button
                       variant="contained"
                       color="gray"
@@ -295,8 +227,23 @@ function SideNav(props) {
                     </Button>
                   </ListItem>
                 </List>
-              </List>
-              <Container sx={{ width:"100%", display:"flex", justifyContent:"center", height:"80px" }}><Button variant="contained" color="lightGray" size="large" sx={{ width:"80%" }}>Filter</Button></Container>
+              <Container
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "center",
+                  height: "70px",
+                }}
+              >
+                <Button
+                  variant="contained"
+                  color="lightGray"
+                  size="large"
+                  sx={{ width: "80%", mt:"10px" }}
+                >
+                  Filter
+                </Button>
+              </Container>
             </div>
           </Drawer>
         ) : null}
