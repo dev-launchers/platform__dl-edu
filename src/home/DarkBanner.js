@@ -5,11 +5,11 @@ import createCache from "@emotion/cache";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 
 import downArrow from "../images/downArrow.png";
 import classes from "./DarkBanner.module.css";
-import backGroundImage from "../images/darkenedBackGroundImage.png";
+import laptopImage from "../images/croppedLaptop.png";
 
 //override default mui styling
 const cache = createCache({
@@ -21,35 +21,42 @@ function DarkBanner() {
     <>
       <CacheProvider value={cache}>
         <Box className={classes.sloganContainer}>
-          <Grid
-            container
-            spacing={8}
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            className={classes.bannerTextContainer}
-          >
-            <Grid item>
-              <Typography sx={{ color: 'neutral.main' }} variant="h2" color="neutral">
-                With us coding is a piece of cake!
-              </Typography>
-            </Grid>
-            <Grid item>
-              <NavLink to="/main-content/legacy-learn/code"><Button
-                color="secondary"
-                variant="contained"
-                size="medium"
-                className={classes.joinUsButton}
-              >
-                Join us
-              </Button></NavLink>
-            </Grid>
-            <Grid item sx={{ display:'flex', flexDirection:"column"}}>
-              <img src={downArrow} alt="null" className={classes.downArrow} />
-              <img src={downArrow} alt="null" className={classes.downArrow} />
-            </Grid>
-          </Grid>
-          <img className={classes.image} src={backGroundImage} alt="null"></img>
+          <Box sx={{ display: "flex", flexDirection: "column", width:"50%" }}>
+            <Container sx={{ border:"1px solid white" }}>
+            <Typography
+              sx={{ color: "neutral.main" }}
+              variant="h2"
+              color="neutral"
+            >
+              With us coding is a piece of cake!
+            </Typography>
+            <Typography
+              sx={{ color: "neutral.main" }}
+              paragraph
+              color="neutral"
+            >
+              We’re a nonprofit coding platform aimed at bridging opportunity
+              gaps in the technology industry.
+            </Typography>
+            <Button
+              component={NavLink}
+              to={"/main-content/legacy-learn/code"}
+              color="secondary"
+              variant="contained"
+              size="medium"
+              className={classes.joinUsButton}
+            >
+              Join us
+            </Button>
+            </Container>
+          </Box>
+          <div>
+            <img src={downArrow} alt="null" className={classes.downArrow} />
+            <img src={downArrow} alt="null" className={classes.downArrow} />
+          </div>
+          <Container sx={{ width:"30%" }}>
+            <img src={laptopImage} alt="null" className={classes.laptopImage}/>
+          </Container>
         </Box>
       </CacheProvider>
     </>
