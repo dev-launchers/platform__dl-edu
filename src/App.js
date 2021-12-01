@@ -8,17 +8,13 @@ import DarkBanner from "./home/DarkBanner";
 import DarkHeader from "./main/DarkHeader";
 import DarkFooter from "./main/DarkFooter";
 import MainContent from "./main/MainContent";
-import Login from "./auth/Login";
-import SignUp from "./auth/SignUp";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
 
 import "./styles.css";
 
 function App() {
   const theme = createTheme({
     typography: {
-      fontFamily: ["Poppins"].join(","),
+      fontFamily: ["po"].join(","),
     },
     palette: {
       primary: {

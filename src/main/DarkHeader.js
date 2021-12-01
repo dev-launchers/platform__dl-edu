@@ -25,8 +25,8 @@ function DarkHeader() {
           <Toolbar
             sx={{
               display: "flex",
-              flexDirection: "row",
               justifyContent: "space-between",
+              width:"80%"
             }}
           >
             <span className={classes.dlContainer1}>
@@ -45,18 +45,12 @@ function DarkHeader() {
                 </Typography>
             </span>
             <span className={classes.dlContainer2}>
-              <Link to="/home" className={classes.link} underline="none">
-                <Typography variant="h5" className={classes.linkText}>
+              <Link to="/home" component={Typography} variant={"h5"} className={classes.link} underline="none">
                   Home
-                </Typography>
               </Link>
-              <Link to="/about" className={classes.link} underline="none">
-                <Typography variant="h5" className={classes.linkText}>
+              <Link to="/about" component={Typography} variant={"h5"} className={classes.link} underline="none">
                   About
-                </Typography>
               </Link>
-            </span>
-            <span className={classes.dlContainer3}>
               <Button
                 className={classes.signinButton}
                 size="small"
