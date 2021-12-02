@@ -1,11 +1,7 @@
-.mainContainer {
+.darkLearnContainer {
   width: 100%;
-  height: 1200px;
-  background-color: #222222;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  padding-bottom:"500px"
+  height: 600px;
+  background-color: #181818;
 }
 .learnJavaPythonContainer {
   height: 400px;
@@ -22,18 +18,66 @@
   font-weight: 400;
   color: #ffffff;
 }
-
-.pythonJavaContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  width: 75%;
+.disc {
+  height: 6px;
+  width: 6px;
+  margin-top: 5%;
+  margin-right: 2px;
+  border-radius: 50%;
+  background-color: #81c3d7;
 }
+.disc1 {
+  height: 6px;
+  width: 6px;
+  margin-top: 5%;
+  margin-right: 2px;
+  border-radius: 50%;
+  background-color: #ffab00;
+}
+.disc2 {
+  height: 6px;
+  width: 6px;
+  margin-top: 5%;
+  margin-right: 2px;
+  border-radius: 50%;
+  background-color: #3a7ca5;
+}
+.largeDisc {
+  height: 72px;
+  width: 72px;
+  margin-top: 5%;
+  margin-right: 2px;
+  border-radius: 50%;
+  background-color: #3a7ca5;
+}
+.listTitle {
+  padding-left: 0px;
+  display: flex;
+  justify-content: flex-start;
+}
+.bottomImage {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+.middleImage {
+  position: absolute;
+  top: 200px;
+  z-index: 20;
+}
+.topImage {
+  position: absolute;
+  left: 230px;
+  top: 380px;
+  z-index: 30;
+}
+
 .pythonJavaButton {
   margin: auto;
 }
 .pythonJavaButton:hover {
-  background-color: #FFAB00;
+  background-color: #ffab00;
 }
 .pythonJavaCard {
   display: flex;
@@ -43,64 +87,7 @@
   height: 235px;
   background-color: #222222;
 }
-.pythonJavaImg {
-  width: 50%;
-  height: 50%;
-  margin: auto;
-}
 
-.createDetailContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width:100%;
-}
-.detailTitleContainer {
-  padding-top: 10px;
-  box-shadow: inset 0 -28px #ff7f0e;
-  width: 25%;
-  margin: auto;
-}
-.createText {
-  color: #ffffff;
-  font-weight: 500;
-}
-.detailTextCard {
-  color: #ffffff;
-  background-color: #222222;
-  width: 60%;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.advantagesTitleContainer {
-  padding: 0 10px 0 20px;
-  box-shadow: inset 0 -28px #3a7ca5;
-  width:90%;
-}
-.advantagesCardContainer {
-  display:flex;
-  flex-direction:row;
-  justify-content:space-between;
-}
 .advantagesText {
   color: #ffffff;
-}
-
-.advantagesImage{
-  height:76px;
-  width:76px;
-}
-
-.advantagesCard {
-  color: #ffffff;
-  background-color: #222222;
-  width: 345px;
-  height: 322px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
 }

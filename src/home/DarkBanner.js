@@ -17,50 +17,81 @@ const cache = createCache({
   prepend: true,
 });
 function DarkBanner() {
-
   function handleArrowsClicked() {
-    console.log("foo")
+    console.log("foo");
   }
 
   return (
     <>
       <CacheProvider value={cache}>
         <Box className={classes.sloganContainer}>
-          <Box sx={{ display: "flex", flexDirection: "column", width:"50%", margin:"5px" }}>
-            <Container sx={{ display:"flex", flexDirection:"column", justifyContent:"space-evenly", height:"550px", width:"80%", }}>
-            <Typography
-              sx={{ color: "neutral.main", fontWeight:"800" }}
-              variant="h1"
-              color="neutral"
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              width: "50%",
+              margin: "5px",
+            }}
+          >
+            <Container
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-evenly",
+                height: "550px",
+                width: "80%",
+              }}
             >
-              With us, coding is a piece of cake!
-            </Typography>
-            <Typography
-              sx={{ color: "neutral.main" }}
-              variant="h6"
-              color="neutral"
-            >
-              We’re a nonprofit coding platform aimed at bridging opportunity
-              gaps in the technology industry.
-            </Typography>
-            <Button
-              component={NavLink}
-              to={"/main-content/legacy-learn/code"}
-              color="secondary"
-              variant="contained"
-              size="medium"
-              className={classes.joinUsButton}
-            >
-              Join us
-            </Button>
+              <Typography
+                sx={{ color: "neutral.main", fontWeight: "800" }}
+                variant="h1"
+                color="neutral"
+              >
+                With us, coding is a piece of cake!
+              </Typography>
+              <Typography
+                sx={{ color: "neutral.main" }}
+                variant="h6"
+                color="neutral"
+              >
+                We’re a nonprofit coding platform aimed at bridging opportunity
+                gaps in the technology industry.
+              </Typography>
+              <Button
+                component={NavLink}
+                to={"/main-content/legacy-learn/code"}
+                color="secondary"
+                variant="contained"
+                size="medium"
+                className={classes.joinUsButton}
+              >
+                Join us
+              </Button>
             </Container>
           </Box>
-          <Box sx={{ width:"5%", display:"flex", justifyContent:"space-around"}}><div style={{display:"hidden", width:"50px", height:"50px"}} /><Container sx={{ display:"flex", flexDirection:"column", cursor:"pointer" }} onClick={handleArrowsClicked}>
-            <img src={downArrow} alt="null" className={classes.downArrow} />
-            <img src={downArrow} alt="null" className={classes.downArrow} />
-          </Container></Box>
-          <Container sx={{ width:"30%", }}>
-            <img src={laptopImage} alt="null" className={classes.laptopImage}/>
+          <Box
+            sx={{
+              width: "5%",
+              display: "flex",
+              flexDirection:"column",
+              justifyContent: "space-around",
+            }}
+          >
+            <div style={{ display: "hidden", width: "50px", height: "50px" }} />
+            <Container
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                cursor: "pointer",
+              }}
+              onClick={handleArrowsClicked}
+            >
+              <img src={downArrow} alt="null" className={classes.downArrow} />
+              <img src={downArrow} alt="null" className={classes.downArrow} />
+            </Container>
+          </Box>
+          <Container sx={{ width: "30%" }}>
+            <img src={laptopImage} alt="null" className={classes.laptopImage} />
           </Container>
         </Box>
       </CacheProvider>

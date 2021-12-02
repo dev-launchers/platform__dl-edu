@@ -14,7 +14,7 @@ import "./styles.css";
 function App() {
   const theme = createTheme({
     typography: {
-      fontFamily: ["po"].join(","),
+      fontFamily: ["Inter"].join(","),
     },
     palette: {
       primary: {
@@ -47,7 +47,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-          position: "relative",
+          Intersition: "relative",
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
@@ -68,8 +68,8 @@ function App() {
         <Route path="/main-content">
           <MainContent />
         </Route>
-        <DarkFooter />
-      </Box>
+{/*         <DarkFooter />
+ */}      </Box>
     </ThemeProvider>
   );
 }
