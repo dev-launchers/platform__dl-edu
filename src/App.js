@@ -8,6 +8,7 @@ import DarkBanner from "./home/DarkBanner";
 import DarkHeader from "./main/DarkHeader";
 import DarkFooter from "./main/DarkFooter";
 import MainContent from "./main/MainContent";
+import Create from "./home/Create";
 
 import "./styles.css";
 
@@ -47,7 +48,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <Box
         sx={{
-          Intersition: "relative",
+          position: "relative",
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
@@ -63,13 +64,14 @@ function App() {
           >
             <DarkBanner />
             <DarkLearnSection />
+            <Create />
           </Box>
         </Route>
         <Route path="/main-content">
           <MainContent />
         </Route>
-{/*         <DarkFooter />
- */}      </Box>
+{        <DarkFooter />
+}      </Box>
     </ThemeProvider>
   );
 }

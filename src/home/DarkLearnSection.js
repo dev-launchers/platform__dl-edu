@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { styled } from "@mui/system";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import Button from "@mui/material/Button";
@@ -20,12 +21,13 @@ const cache = createCache({
   key: "css",
   prepend: true,
 });
+
 function DarkLearnSection() {
   return (
     <>
       <CacheProvider value={cache}>
         <Box className={classes.darkLearnContainer}>
-          <Container sx={{ width: "50%" }}>
+          <Container sx={{ width: "50%", mb:"25px" }}>
             <Typography
               variant="h1"
               sx={{ color: "#ffffff", textAlign: "center", fontWeight: "800" }}
@@ -35,10 +37,13 @@ function DarkLearnSection() {
             </Container>
             <Box sx={{ width: "100%", display: "flex", justifyContent:"space-around" }}>
               <Container sx={{ width:"40%"}}>
-                <Container sx={{ position:"relative", height:"500px" }}>
+                <Container sx={{ position:"relative" }}>
                   <img src={bottomImage} alt="null" className={classes.bottomImage} />
                   <img src={middleImage} alt="null" className={classes.middleImage} />
                   <img src={topImage} alt="null" className={classes.topImage} />
+                  <div className={classes.circle1} />
+                  <div className={classes.circle2} />
+                  <div className={classes.circle3} />
                 </Container>
               </Container>
               <Container sx={{ width:"30%" }}>
