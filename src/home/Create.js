@@ -4,8 +4,10 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import SquareDesign1 from "../components/SquareDesign1";
 import SquareDesign2 from "../components/SquareDesign2";
+import SquareDesign3 from "../components/SquareDesign3";
 
 function Create() {
   return (
@@ -33,7 +35,7 @@ function Create() {
           item
           component={Container}
           display="flex"
-          direction="column"
+          flexDirection="column"
           width="33%"
         >
           <Box
@@ -59,7 +61,7 @@ function Create() {
           item
           component={Container}
           display="flex"
-          direction="column"
+          flexDirection="column"
           width="33%"
         >
           <SquareDesign2 />
@@ -71,10 +73,22 @@ function Create() {
             scelerisque at quam congue posuere libero in sit quam.
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid
+          item
+          component={Container}
+          display="flex"
+          flexDirection="column"
+          width="33%"
+        >
+          <SquareDesign3 />
           <Typography variant="h5" sx={{ color: "#ffffff" }}>
             Code Challenge Modules
           </Typography>
+          <Typography paragraph sx={{ color: "#ffffff" }}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis
+            scelerisque at quam congue posuere libero in sit quam.
+          </Typography>
+          <Typography paragraph sx={{ color:"#81C3D7" }}>Try it <ArrowForwardIcon fontsize="medium" /></Typography>
         </Grid>
       </Grid>
     </Box>

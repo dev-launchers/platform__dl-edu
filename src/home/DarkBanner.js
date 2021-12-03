@@ -29,7 +29,7 @@ function DarkBanner() {
             sx={{
               display: "flex",
               flexDirection: "column",
-              width: "50%",
+              width: "60%",
               margin: "5px",
             }}
           >
@@ -38,12 +38,13 @@ function DarkBanner() {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-evenly",
+                alignContent: "flex-end",
                 height: "550px",
-                width: "80%",
+                width: "90%",
               }}
             >
               <Typography
-                sx={{ color: "neutral.main", fontWeight: "800" }}
+                sx={{ color: "neutral.main", fontWeight: "600" }}
                 variant="h1"
                 color="neutral"
               >
@@ -67,27 +68,29 @@ function DarkBanner() {
               >
                 Join us
               </Button>
-            </Container>
-          </Box>
-          <Box
-            sx={{
-              width: "5%",
-              display: "flex",
-              flexDirection:"column",
-              justifyContent: "space-around",
-            }}
-          >
-            <div style={{ display: "hidden", width: "50px", height: "50px" }} />
-            <Container
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                cursor: "pointer",
-              }}
-              onClick={handleArrowsClicked}
-            >
-              <img src={downArrow} alt="null" className={classes.downArrow} />
-              <img src={downArrow} alt="null" className={classes.downArrow} />
+              <Container
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+                onClick={handleArrowsClicked}
+              >
+                <div
+                  style={{ display: "hidden", width: "772px", height: "50px" }}
+                />
+                <Container className={classes.arrowContainer}>
+                  <img
+                    src={downArrow}
+                    alt="null"
+                    className={classes.downArrow}
+                  />
+                  <img
+                    src={downArrow}
+                    alt="null"
+                    className={classes.downArrow}
+                  />
+                </Container>
+              </Container>
             </Container>
           </Box>
           <Container sx={{ width: "30%" }}>

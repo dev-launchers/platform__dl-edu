@@ -18,29 +18,31 @@
   font-weight: 400;
   color: #ffffff;
 }
+.listTitle {
+  padding-left: 0px;
+  display: flex;
+  justify-content: flex-start;
+}
 .disc {
   height: 6px;
   width: 6px;
-  margin-top: 5%;
-  margin-right: 2px;
   border-radius: 50%;
   background-color: #81c3d7;
+  margin: auto;
 }
 .disc1 {
   height: 6px;
   width: 6px;
-  margin-top: 5%;
-  margin-right: 2px;
   border-radius: 50%;
   background-color: #ffab00;
+  margin: auto;
 }
 .disc2 {
   height: 6px;
   width: 6px;
-  margin-top: 5%;
-  margin-right: 2px;
   border-radius: 50%;
   background-color: #3a7ca5;
+  margin: auto;
 }
 .largeDisc {
   height: 72px;
@@ -50,11 +52,7 @@
   border-radius: 50%;
   background-color: #3a7ca5;
 }
-.listTitle {
-  padding-left: 0px;
-  display: flex;
-  justify-content: flex-start;
-}
+
 .bottomImage {
   position: absolute;
   top: 0;
