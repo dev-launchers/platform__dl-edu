@@ -4,24 +4,28 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import ArrowRight from "../images/arrow-right.png";
 import SquareDesign1 from "../components/SquareDesign1";
 import SquareDesign2 from "../components/SquareDesign2";
 import SquareDesign3 from "../components/SquareDesign3";
 
 function Create() {
+  function testFunction() {
+    console.log("object")
+  }
   return (
     <Box
       sx={{
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#181818",
+        height:"350px"
       }}
     >
       <Container
         component={Typography}
         variant={"h2"}
-        sx={{ textAlign: "center", color: "#ffffff", fontWeight: "800" }}
+        sx={{ textAlign: "center", color: "#ffffff", fontWeight: "800", mb:"50px" }}
       >
         Create
       </Container>
@@ -56,6 +60,11 @@ function Create() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis
             scelerisque at quam congue posuere libero in sit quam.
           </Typography>
+          <Box display="flex">
+            <Typography paragraph sx={{ color: "#81C3D7", cursor:"pointer" }} onClick={testFunction}>
+              Try it <img src={ArrowRight} alt="null" />
+            </Typography>
+          </Box>
         </Grid>
         <Grid
           item
@@ -72,6 +81,11 @@ function Create() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis
             scelerisque at quam congue posuere libero in sit quam.
           </Typography>
+          <Box display="flex">
+            <Typography paragraph sx={{ color: "#81C3D7", cursor:"pointer"}} onClick={testFunction}>
+              Try it <img src={ArrowRight} alt="null" />
+            </Typography>
+          </Box>
         </Grid>
         <Grid
           item
@@ -88,7 +102,11 @@ function Create() {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis
             scelerisque at quam congue posuere libero in sit quam.
           </Typography>
-          <Typography paragraph sx={{ color:"#81C3D7" }}>Try it <ArrowForwardIcon fontsize="medium" /></Typography>
+          <Box display="flex">
+            <Typography paragraph sx={{ color: "#81C3D7", cursor:"pointer" }} onClick={testFunction}>
+              Try it <img src={ArrowRight} alt="null" />
+            </Typography>
+          </Box>
         </Grid>
       </Grid>
     </Box>

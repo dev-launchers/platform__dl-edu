@@ -1,0 +1,37 @@
+.designContainer {
+  display: flex;
+  position: relative;
+  width: 50%;
+  margin: auto;
+}
+.circle {
+  height: 351px;
+  width: 351px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  background-color: #81c3d7;
+  top: -137px;
+  left: 152px;
+}
+.great {
+  position: absolute;
+  z-index: 10;
+  width: 152px;
+  height: 186px;
+  top: -53px;
+  right: 387px;
+}
+.mock {
+  position: absolute;
+  z-index: 15;
+  width: 234px;
+  height: 241px;
+  top: 27px;
+  left: 251px
+}
+.arrowRight {
+  width: 22px;
+  height: 12px;
+  cursor: pointer;
+}

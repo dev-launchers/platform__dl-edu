@@ -9,6 +9,7 @@ import DarkHeader from "./main/DarkHeader";
 import DarkFooter from "./main/DarkFooter";
 import MainContent from "./main/MainContent";
 import Create from "./home/Create";
+import Challenge from "./home/Challenge";
 
 import "./styles.css";
 
@@ -65,6 +66,7 @@ function App() {
             <DarkBanner />
             <DarkLearnSection />
             <Create />
+            <Challenge />
           </Box>
         </Route>
         <Route path="/main-content">
