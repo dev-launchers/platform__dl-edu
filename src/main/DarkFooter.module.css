@@ -1,16 +1,30 @@
 .footerContainer {
   background-color: #222222;
+  height: 411px;
   position: absolute;
   bottom: 0;
   width: 100%;
-  z-index:1300;
-  margin:0;
+  z-index: 1300;
+  margin: 0;
+  display: flex;
 }
-
-/* .emailQueryContainer{
-    display:flex;
-    flex-direction: row;
-} */
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rightContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width:70%;
+}
+.imagesContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
 .emailQueryField {
   background-color: #ffffff;
   height: 40px;
@@ -31,6 +45,6 @@
 }
 
 .footerImage {
-  height: 50px;
-  width: 50px;
+  height: 17px;
+  width: 17px;
 }
