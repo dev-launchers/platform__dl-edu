@@ -61,7 +61,7 @@ function App() {
             display="flex"
             flexDirection="column"
             height="auto"
-            paddingBottom="411px"
+            paddingBottom="350px"
           >
             <DarkBanner />
             <DarkLearnSection />

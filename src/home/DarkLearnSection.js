@@ -126,7 +126,7 @@ function DarkLearnSection() {
                     <div className={classes.disc2} />
                     <Typography
                       variant="h6"
-                      sx={{ textAlign: "left", fontWeight: "600", ml:"6px", ml:"5px", width:"98%" }}
+                      sx={{ textAlign: "left", fontWeight: "600", ml:"6px", width:"98%" }}
                     >
                       Exercises
                     </Typography>

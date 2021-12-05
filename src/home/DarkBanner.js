@@ -33,27 +33,16 @@ function DarkBanner() {
               margin: "5px",
             }}
           >
-            <Container
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "space-evenly",
-                alignContent: "flex-end",
-                height: "550px",
-                width: "90%",
-              }}
-            >
+            <Container className={classes.cakeContainer}>
               <Typography
                 sx={{ color: "neutral.main", fontWeight: "600" }}
                 variant="h1"
-                color="neutral"
               >
                 With us, coding is a piece of cake!
               </Typography>
               <Typography
                 sx={{ color: "neutral.main" }}
                 variant="h6"
-                color="neutral"
               >
                 We’re a nonprofit coding platform aimed at bridging opportunity
                 gaps in the technology industry.

@@ -19,7 +19,8 @@ function Create() {
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#181818",
-        height:"350px"
+        height:"350px",
+        paddingBottom:"100px"
       }}
     >
       <Container

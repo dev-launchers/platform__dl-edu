@@ -22,19 +22,11 @@ const cache = createCache({
   prepend: true,
 });
 
-const IconLink = styled("Link")(({ theme }) => ({
-  backgroundColor:"#222222",
-  color:"#ffffff",
-  heigh:"20px",
-  width:"20px",
-  borderRadius:"50%"
-}));
-
 function DarkFooter() {
   return (
     <CacheProvider value={cache}>
       <Box className={classes.footerContainer}>
-        <Container sx={{ width: "20%" }} className={classes.leftContainer}>
+        <Container className={classes.leftContainer}>
           <Stack direction="column" spacing={3}>
             <Box
               display="flex"
@@ -43,11 +35,7 @@ function DarkFooter() {
               alignItems="center"
             >
               <img src={devLaunchersIcon} className={classes.footerImage} />
-              <Typography
-                variant="h5"
-                color="#ffffff"
-                sx={{ fontFamily: "abel", fontWeight: "600" }}
-              >
+              <Typography variant="h5" className={classes.dlBasecamp}>
                 DL Basecamp
               </Typography>
             </Box>
@@ -60,43 +48,34 @@ function DarkFooter() {
               </Typography>
             </Box>
             <Box className={classes.imagesContainer}>
-                <IconLink href="http://www.instagram.com">
-                  <img
-                    src={instagramIcon}
-                    alt="null"
-                    className={classes.footerImage}
-                  />
-                </IconLink>
-              {/* <IconCard raised>
-                <Link href="http://www.linkedin.com">
-                  <img
-                    src={linkedinIcon}
-                    alt="null"
-                    className={classes.footerImage}
-                  />
-                </Link>
-              </IconCard>
-              <IconCard raised>
-                <Link
-                  href="http://www.twitch.com"
-                  sx={{ backgroundColor: "#222222" }}
-                >
-                  <img
-                    src={twitchIcon}
-                    alt="null"
-                    className={classes.footerImage}
-                  />
-                </Link>
-              </IconCard>
-              <IconCard raised >
-                <Link href="http://www.discord.com">
-                  <img
-                    src={discordIcon}
-                    alt="null"
-                    className={classes.footerImage}
-                  />
-                </Link>
-              </IconCard> */}
+              <Link href="http://www.instagram.com" className={classes.iconLink}>
+                <img
+                  src={instagramIcon}
+                  alt="null"
+                  className={classes.footerImage}
+                />
+              </Link>
+              <Link href="http://www.linkedin.com" className={classes.iconLink}>
+                <img
+                  src={linkedinIcon}
+                  alt="null"
+                  className={classes.footerImage}
+                />
+              </Link>
+              <Link href="http://www.twitch.tv" className={classes.iconLink}>
+                <img
+                  src={twitchIcon}
+                  alt="null"
+                  className={classes.footerImage}
+                />
+              </Link>
+              <Link href="http://www.discord.com" className={classes.iconLink}>
+                <img
+                  src={discordIcon}
+                  alt="null"
+                  className={classes.footerImage}
+                />
+              </Link>
             </Box>
           </Stack>
         </Container>
