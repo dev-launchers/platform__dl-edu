@@ -1,6 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { CacheProvider } from "@emotion/react";
+/* I added this package to handle auto-scrolling down the page.  Here's a link to functionality: https://www.npmjs.com/package/react-scroll */
+import { Link } from "react-scroll";
+/* */
 import createCache from "@emotion/cache";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -17,9 +20,6 @@ const cache = createCache({
   prepend: true,
 });
 function DarkBanner() {
-  function handleArrowsClicked() {
-    console.log("foo");
-  }
 
   return (
     <>
@@ -62,7 +62,12 @@ function DarkBanner() {
                   display: "flex",
                   justifyContent: "space-between",
                 }}
-                onClick={handleArrowsClicked}
+                /* Here is the react-scroll component logic */
+                component={Link}
+                to={"target-create"}
+                duration={800}
+                smooth={true}
+                offset={-60}
               >
                 <div
                   style={{ display: "hidden", width: "772px", height: "50px" }}

@@ -15,12 +15,14 @@ function Create() {
   }
   return (
     <Box
+      className="target-create"
       sx={{
         display: "flex",
         flexDirection: "column",
         backgroundColor: "#181818",
         height:"350px",
-        paddingBottom:"100px"
+        paddingBottom:"100px",
+        alignItems:"center"
       }}
     >
       <Container
@@ -32,7 +34,7 @@ function Create() {
       </Container>
       <Grid
         container
-        width="100%"
+        width="90%"
         alignItems="center"
         justifyContent="space-evenly"
       >
