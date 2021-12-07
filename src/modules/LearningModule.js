@@ -1,14 +1,13 @@
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
-import EmbeddedIDE from "../components/EmbeddedIDE/EmbeddedIDE";
-import "./LearningModule.css";
+import React from "react"
+import EmbeddedIDE from "../components/EmbeddedIDE"
+import Markdown from "../components/Markdown"
+import "./LearningModule.css"
 
 import { Link, useParams } from "react-router-dom"
 import { Button } from "@mui/material"
 import { ArrowBack } from "@mui/icons-material"
 
-import 'highlight.js/styles/base16/zenburn.css'
+import "highlight.js/styles/base16/zenburn.css"
 import "./LearningModule.css"
 import ModuleData from "../data/ModuleData"
 
@@ -29,12 +28,9 @@ function LearningModule() {
                         </Button>
                     </Link>
                 </div>
-                <div style={{ display: "flex", height: '800px'}}>
+                <div style={{ display: "flex", height: "800px"}}>
                     <div className="lm-leftcolumn">
-                        <ReactMarkdown
-                            children={moduleDatum.markdown}
-                            rehypePlugins={[rehypeHighlight]}>
-                        </ReactMarkdown>
+                        <Markdown markdown={moduleDatum.markdown} canEdit={true}/>
                     </div>
                     <div className="lm-rightcolumn">
                         <EmbeddedIDE embedURL={moduleDatum.embeddedIDEURL} customIFrameStyle={moduleDatum.embedIDEStyle}/>
