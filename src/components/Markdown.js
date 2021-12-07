@@ -37,9 +37,9 @@ function Markdown(props) {
                 </Fab>
             }
             <div>
-                <ReactMarkdown
+                <ReactMarkdown 
                     children={markdown}
-                    rehypePlugins={[rehypeHighlight]}>
+                    rehypePlugins={[[rehypeHighlight, { ignoreMissing: true }]]}>
                 </ReactMarkdown>
             </div>
         </div>
