@@ -20,7 +20,6 @@ const cache = createCache({
   prepend: true,
 });
 function DarkBanner() {
-
   return (
     <>
       <CacheProvider value={cache}>
@@ -40,10 +39,7 @@ function DarkBanner() {
               >
                 With us, coding is a piece of cake!
               </Typography>
-              <Typography
-                sx={{ color: "neutral.main" }}
-                variant="h6"
-              >
+              <Typography sx={{ color: "neutral.main" }} variant="h6">
                 We’re a nonprofit coding platform aimed at bridging opportunity
                 gaps in the technology industry.
               </Typography>
@@ -62,27 +58,31 @@ function DarkBanner() {
                   display: "flex",
                   justifyContent: "space-between",
                 }}
-                /* Here is the react-scroll component logic */
-                component={Link}
-                to={"target-create"}
-                duration={800}
-                smooth={true}
-                offset={-60}
               >
                 <div
                   style={{ display: "hidden", width: "772px", height: "50px" }}
                 />
                 <Container className={classes.arrowContainer}>
-                  <img
-                    src={downArrow}
-                    alt="null"
-                    className={classes.downArrow}
-                  />
-                  <img
-                    src={downArrow}
-                    alt="null"
-                    className={classes.downArrow}
-                  />
+                  {/* Here is the react-scroll component logic */}
+                  <Link
+                    to="target-create"
+                    duration={800}
+                    smooth={true}
+                    offset={-60}
+                    className={classes.innerArrowContainer}
+                  >
+                    <img
+                      src={downArrow}
+                      alt="null"
+                      className={classes.downArrow}
+                    />
+
+                    <img
+                      src={downArrow}
+                      alt="null"
+                      className={classes.downArrow}
+                    />
+                  </Link>
                 </Container>
               </Container>
             </Container>

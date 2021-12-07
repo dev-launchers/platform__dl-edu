@@ -119,6 +119,7 @@ function FilterDropdown(props) {
           {props.filterObjects.map((item) => {
             return (
               <MenuItem
+                key={item.id}
                 component={NavLink}
                 to={item.link}
                 onClick={handleClose}

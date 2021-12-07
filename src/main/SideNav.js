@@ -20,26 +20,26 @@ import FilterDropdown from "../components/FilterDropdown";
 import "./SideNav.module.css";
 
 const languageFilterDescriptions = [
-  { name: "Javascript", link: "/main-content/learning-modules/javascript" },
-  { name: "Java", link: "/main-content/learning-modules/java" },
-  { name: "C#", link: "/main-content/learning-modules/csharp" },
+  { id:"0", name: "Javascript", link: "/main-content/learning-modules/javascript" },
+  { id:"1", name: "Java", link: "/main-content/learning-modules/java" },
+  { id:"2", name: "C#", link: "/main-content/learning-modules/csharp" },
 ];
 const frameworkFilterDescriptions = [
-  { name: "Foo", link: "/main-content/learning-modules/javascript" },
-  { name: "Roh", link: "/main-content/learning-modules/java" },
-  { name: "Bar", link: "/main-content/learning-modules/csharp" },
-  { name: "Bar", link: "/main-content/learning-modules/csharp" },
+  { id:"3", name: "Foo", link: "/main-content/learning-modules/javascript" },
+  { id:"4", name: "Roh", link: "/main-content/learning-modules/java" },
+  { id:"5", name: "Bar", link: "/main-content/learning-modules/csharp" },
+  { id:"6", name: "Bar", link: "/main-content/learning-modules/csharp" },
 ];
 const progressFilterDescriptions = [
-  { name: "alpha", link: "/main-content/learning-modules/javascript" },
-  { name: "beta", link: "/main-content/learning-modules/java" },
-  { name: "gamma", link: "/main-content/learning-modules/csharp" },
+  { id:"7", name: "alpha", link: "/main-content/learning-modules/javascript" },
+  { id:"8", name: "beta", link: "/main-content/learning-modules/java" },
+  { id:"9", name: "gamma", link: "/main-content/learning-modules/csharp" },
 ];
 const dlLearnFilterDescriptions = [
-  { name: "Code", link: "/main-content/legacy-learn/code" },
-  { name: "Design", link: "/main-content/legacy-learn/design" },
-  { name: "Phaser", link: "/main-content/learning-modules/phaser 3" },
-  { name: "React", link: "/main-content/learning-modules/react" },
+  { id:"10", name: "Code", link: "/main-content/legacy-learn/code" },
+  { id:"11", name: "Design", link: "/main-content/legacy-learn/design" },
+  { id:"12", name: "Phaser", link: "/main-content/learning-modules/phaser 3" },
+  { id:"13", name: "React", link: "/main-content/learning-modules/react" },
 ];
 
 const PREFIX = "SideNav";

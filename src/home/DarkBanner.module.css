@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 50px;
-  padding-top:25px;
+  padding-top: 25px;
 }
 .cakeContainer {
   display: flex;
@@ -37,7 +37,12 @@
   display: flex;
   flex-direction: column;
   width: 10%;
+}
+.innerArrowContainer {
+  height: 10px;
   cursor: pointer;
+  display:flex;
+  flex-direction: column;
 }
 .downArrow {
   height: 5px;
