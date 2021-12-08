@@ -34,18 +34,18 @@ function MainContent(props) {
       marginBottom: "411px",
       backgroundColor: "#ffffff",
       padding: theme.spacing(3),
-      transition: theme.transitions.create("margin", {
+      /* transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
-      }),
+      }), */
       marginLeft: `-${drawerWidth / 10}px`,
       marginBottom: "411px",
       backgroundColor: "#ffffff",
       ...(open && {
-        transition: theme.transitions.create("margin", {
+        /* transition: theme.transitions.create("margin", {
           easing: theme.transitions.easing.easeOut,
           duration: theme.transitions.duration.enteringScreen,
-        }),
+        }), */
         marginLeft: 0,
       }),
     })

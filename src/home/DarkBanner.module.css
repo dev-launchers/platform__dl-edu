@@ -7,6 +7,12 @@
   padding-bottom: 50px;
   padding-top: 25px;
 }
+.leftSloganContainer {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 5px;
+}
 .cakeContainer {
   display: flex;
   flex-direction: column;
@@ -33,6 +39,11 @@
 .joinUsButton:hover {
   background-color: #ffab00;
 }
+.hiddenDiv {
+  display: hidden;
+  width: 772px;
+  height: 50px;
+}
 .arrowContainer {
   display: flex;
   flex-direction: column;
@@ -41,7 +52,7 @@
 .innerArrowContainer {
   height: 10px;
   cursor: pointer;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 .downArrow {

@@ -1,5 +1,6 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
+import { styled } from "@mui/system";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -24,31 +25,36 @@ function DarkHeader() {
       <CacheProvider value={cache}>
         <AppBar className={classes.appBar}>
           <Toolbar
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              width:"80%"
-            }}
+            className={classes.toolbarContainer}
           >
             <Box
-              display="flex"
-              width="20%"
-              justifyContent="space-evenly"
-              alignItems="center"
               component={NavLink}
               to="/"
+              className={classes.basecampContainer}
             >
               <img src={devLaunchersIcon} className={classes.rocketImage} />
-              <Typography variant="h4" className={classes.dlBasecamp}>
+              <Typography variant="h6" className={classes.basecampText}>
                 DL Basecamp
               </Typography>
             </Box>
             <span className={classes.dlContainer2}>
-              <Link to="/home" component={Typography} variant={"h5"} className={classes.link} underline="none">
-                  Home
+              <Link
+                to="/home"
+                component={Typography}
+                variant={"h6"}
+                className={classes.link}
+                underline="none"
+              >
+                Home
               </Link>
-              <Link to="/about" component={Typography} variant={"h5"} className={classes.link} underline="none">
-                  About
+              <Link
+                to="/about"
+                component={Typography}
+                variant={"h6"}
+                className={classes.link}
+                underline="none"
+              >
+                About
               </Link>
               <Button
                 className={classes.signinButton}

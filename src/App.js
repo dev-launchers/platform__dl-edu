@@ -2,6 +2,7 @@ import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Route, Redirect } from "react-router-dom";
 import Box from "@mui/material/Box";
+import { CssBaseline } from "@mui/material";
 
 import DarkLearnSection from "./home/DarkLearnSection";
 import DarkBanner from "./home/DarkBanner";
@@ -47,6 +48,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <CssBaseline />
       <Box
         sx={{
           position: "relative",

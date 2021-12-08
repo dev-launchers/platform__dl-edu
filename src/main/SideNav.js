@@ -11,8 +11,6 @@ import IconButton from "@mui/material/IconButton";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 
-import { CacheProvider } from "@emotion/react";
-import createCache from "@emotion/cache";
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
@@ -20,26 +18,30 @@ import FilterDropdown from "../components/FilterDropdown";
 import "./SideNav.module.css";
 
 const languageFilterDescriptions = [
-  { id:"0", name: "Javascript", link: "/main-content/learning-modules/javascript" },
-  { id:"1", name: "Java", link: "/main-content/learning-modules/java" },
-  { id:"2", name: "C#", link: "/main-content/learning-modules/csharp" },
+  {
+    id: "0",
+    name: "Javascript",
+    link: "/main-content/learning-modules/javascript",
+  },
+  { id: "1", name: "Java", link: "/main-content/learning-modules/java" },
+  { id: "2", name: "C#", link: "/main-content/learning-modules/csharp" },
 ];
 const frameworkFilterDescriptions = [
-  { id:"3", name: "Foo", link: "/main-content/learning-modules/javascript" },
-  { id:"4", name: "Roh", link: "/main-content/learning-modules/java" },
-  { id:"5", name: "Bar", link: "/main-content/learning-modules/csharp" },
-  { id:"6", name: "Bar", link: "/main-content/learning-modules/csharp" },
+  { id: "3", name: "Foo", link: "/main-content/learning-modules/javascript" },
+  { id: "4", name: "Roh", link: "/main-content/learning-modules/java" },
+  { id: "5", name: "Bar", link: "/main-content/learning-modules/csharp" },
+  { id: "6", name: "Bar", link: "/main-content/learning-modules/csharp" },
 ];
 const progressFilterDescriptions = [
-  { id:"7", name: "alpha", link: "/main-content/learning-modules/javascript" },
-  { id:"8", name: "beta", link: "/main-content/learning-modules/java" },
-  { id:"9", name: "gamma", link: "/main-content/learning-modules/csharp" },
+  { id: "7", name: "alpha", link: "/main-content/learning-modules/javascript" },
+  { id: "8", name: "beta", link: "/main-content/learning-modules/java" },
+  { id: "9", name: "gamma", link: "/main-content/learning-modules/csharp" },
 ];
 const dlLearnFilterDescriptions = [
-  { id:"10", name: "Code", link: "/main-content/legacy-learn/code" },
-  { id:"11", name: "Design", link: "/main-content/legacy-learn/design" },
-  { id:"12", name: "Phaser", link: "/main-content/learning-modules/phaser 3" },
-  { id:"13", name: "React", link: "/main-content/learning-modules/react" },
+  { id: "10", name: "Code", link: "/main-content/legacy-learn/code" },
+  { id: "11", name: "Design", link: "/main-content/legacy-learn/design" },
+  { id: "12", name: "Phaser", link: "/main-content/learning-modules/phaser 3" },
+  { id: "13", name: "React", link: "/main-content/learning-modules/react" },
 ];
 
 const PREFIX = "SideNav";
@@ -85,7 +87,6 @@ const Root = styled("div")(({ theme }) => ({
 
   // necessary for content to be below app bar
   [`& .${classes.toolbar}`]: theme.mixins.toolbar,
-
 }));
 
 const drawerWidth = 325;
@@ -107,13 +108,8 @@ function SideNav(props) {
     setOpenedLegacy(!openedLegacy);
   };
 
-  //override default mui styling
-  const cache = createCache({
-    key: "css",
-    prepend: true,
-  });
   return (
-    <CacheProvider value={cache}>
+
       <Root className={classes.root}>
         {!props.checkOpen ? (
           <IconButton
@@ -135,9 +131,7 @@ function SideNav(props) {
             }}
           >
             <DrawerHeader>
-              <IconButton
-                onClick={props.handleClose}
-              >
+              <IconButton onClick={props.handleClose}>
                 {props.theme.direction === "ltr" ? (
                   <ChevronLeftIcon />
                 ) : (
@@ -146,7 +140,7 @@ function SideNav(props) {
               </IconButton>
             </DrawerHeader>
             <div className={classes.drawerContainer}>
-              <Container sx={{ width:"100%", alignItems:"center" }}>
+              <Container sx={{ width: "100%", alignItems: "center" }}>
                 <TextField
                   id="filled-basic"
                   label="Search"
@@ -158,7 +152,12 @@ function SideNav(props) {
                       </InputAdornment>
                     ),
                   }}
-                  sx={{ mt:"5px", paddingBottom: "5px", width:"90%", alignItems:"center" }}
+                  sx={{
+                    mt: "5px",
+                    paddingBottom: "5px",
+                    width: "90%",
+                    alignItems: "center",
+                  }}
                 />
               </Container>
               <List
@@ -185,48 +184,50 @@ function SideNav(props) {
                   filterTitle="Progress"
                   filterObjects={progressFilterDescriptions}
                 />
-                  </List>
-                  <List component="div" disablePadding>
-                  <ListItem>Difficulty</ListItem>
-                  <ListItem sx={{ display: "flex", justifyContent: "space-between" }}>
-                    <Button
-                      variant="contained"
-                      color="gray"
-                      size="small"
-                      component={NavLink}
-                      to="/main-content/learning-module/filter-by=beginner"
-                      onClick={() => {
-                        props.onDifficultyWasSelected("beginner");
-                      }}
-                    >
-                      Beginner
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="gray"
-                      size="small"
-                      component={NavLink}
-                      to="/main-content/learning-module/filter-by=intermediate"
-                      onClick={() => {
-                        props.onDifficultyWasSelected("intermediate");
-                      }}
-                    >
-                      Intermediate
-                    </Button>
-                    <Button
-                      variant="contained"
-                      color="gray"
-                      size="small"
-                      component={NavLink}
-                      to="/main-content/learning-module/filter-by=advanced"
-                      onClick={() => {
-                        props.onDifficultyWasSelected("advanced");
-                      }}
-                    >
-                      Advanced
-                    </Button>
-                  </ListItem>
-                </List>
+              </List>
+              <List component="div" disablePadding>
+                <ListItem>Difficulty</ListItem>
+                <ListItem
+                  sx={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <Button
+                    variant="contained"
+                    color="gray"
+                    size="small"
+                    component={NavLink}
+                    to="/main-content/learning-module/filter-by=beginner"
+                    onClick={() => {
+                      props.onDifficultyWasSelected("beginner");
+                    }}
+                  >
+                    Beginner
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="gray"
+                    size="small"
+                    component={NavLink}
+                    to="/main-content/learning-module/filter-by=intermediate"
+                    onClick={() => {
+                      props.onDifficultyWasSelected("intermediate");
+                    }}
+                  >
+                    Intermediate
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="gray"
+                    size="small"
+                    component={NavLink}
+                    to="/main-content/learning-module/filter-by=advanced"
+                    onClick={() => {
+                      props.onDifficultyWasSelected("advanced");
+                    }}
+                  >
+                    Advanced
+                  </Button>
+                </ListItem>
+              </List>
               <Container
                 sx={{
                   width: "100%",
@@ -239,7 +240,7 @@ function SideNav(props) {
                   variant="contained"
                   color="lightGray"
                   size="large"
-                  sx={{ width: "80%", mt:"10px" }}
+                  sx={{ width: "80%", mt: "10px" }}
                 >
                   Filter
                 </Button>
@@ -248,7 +249,6 @@ function SideNav(props) {
           </Drawer>
         ) : null}
       </Root>
-    </CacheProvider>
   );
 }
 

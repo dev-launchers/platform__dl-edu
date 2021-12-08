@@ -13,10 +13,18 @@
   font-weight: 400;
   color: #ffffff;
 }
+
 .listTitle {
   padding-left: 0px;
   display: flex;
   justify-content: flex-start;
+}
+
+.descriptionTitles {
+  text-align: left;
+  font-weight: 600;
+  margin-left: 6px;
+  width: 98%;
 }
 .disc {
   height: 6px;

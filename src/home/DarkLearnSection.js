@@ -1,9 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { styled } from "@mui/system";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
@@ -74,7 +71,7 @@ function DarkLearnSection() {
                     <div className={classes.disc} />
                     <Typography
                       variant="h6"
-                      sx={{ textAlign: "left", fontWeight: "600", ml:"6px", width:"98%" }}
+                      className={classes.descriptionTitles}
                     >
                       Guides
                     </Typography>
@@ -95,14 +92,10 @@ function DarkLearnSection() {
                   }}
                 >
                   <Container className={classes.listTitle}>
-                      <div className={classes.disc1} />
+                    <div className={classes.disc1} />
                     <Typography
                       variant="h6"
-                      sx={{
-                        textAlign: "left",
-                        fontWeight: "600", ml:"6px",
-                        width: "98%",
-                      }}
+                      className={classes.descriptionTitles}
                     >
                       Interactive Code Examples
                     </Typography>
@@ -126,7 +119,7 @@ function DarkLearnSection() {
                     <div className={classes.disc2} />
                     <Typography
                       variant="h6"
-                      sx={{ textAlign: "left", fontWeight: "600", ml:"6px", width:"98%" }}
+                      className={classes.descriptionTitles}
                     >
                       Exercises
                     </Typography>

@@ -1,0 +1,12 @@
+.create {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 800;
+  margin-bottom: 50px;
+}
+.descriptionsContainer {
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

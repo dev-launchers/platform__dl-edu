@@ -24,14 +24,7 @@ function DarkBanner() {
     <>
       <CacheProvider value={cache}>
         <Box className={classes.sloganContainer}>
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              width: "60%",
-              margin: "5px",
-            }}
-          >
+          <Box className={classes.leftSloganContainer}>
             <Container className={classes.cakeContainer}>
               <Typography
                 sx={{ color: "neutral.main", fontWeight: "600" }}
@@ -59,9 +52,7 @@ function DarkBanner() {
                   justifyContent: "space-between",
                 }}
               >
-                <div
-                  style={{ display: "hidden", width: "772px", height: "50px" }}
-                />
+                <div className={classes.hiddenDiv} />
                 <Container className={classes.arrowContainer}>
                   {/* Here is the react-scroll component logic */}
                   <Link

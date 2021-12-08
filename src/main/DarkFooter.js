@@ -29,10 +29,7 @@ function DarkFooter() {
         <Container className={classes.leftContainer}>
           <Stack direction="column" spacing={3}>
             <Box
-              display="flex"
-              width="65%"
-              justifyContent="space-evenly"
-              alignItems="center"
+            className={classes.logoContainer}
             >
               <img src={devLaunchersIcon} className={classes.footerImage} />
               <Typography variant="h5" className={classes.dlBasecamp}>

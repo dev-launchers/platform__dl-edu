@@ -26,24 +26,18 @@ function Challenge() {
         <Container
           component={Typography}
           variant={"h2"}
-          sx={{ color: "#ffffff", textAlign: "center", fontWeight: "800" }}
+          className={classes.titleContainer}
         >
           Challenge Yourself
         </Container>
-        <Box
-          sx={{
-            display: "flex",
-            width: "100%",
-            height:"400px",
-          }}
-        >
-          <Container className={classes.designContainer}>
+        <Box className={classes.outerDesignContainer}>
+          <Container className={classes.innerDesignContainer}>
             <div className={classes.circle} />
             <img src={Great} alt="null" className={classes.great} />
             <img src={MockCard} alt="null" className={classes.mock} />
           </Container>
           <Container
-            sx={{ width: "50%", display: "flex", flexDirection: "column", justifyContent:"center" }}
+            className={classes.outerDescriptionContainer}
           >
             <Typography variant="h5" color="#ffffff">
               Gain problem solving skills with our code challenges!
@@ -54,7 +48,12 @@ function Challenge() {
               risus, sem egestas odio cras adipiscing vulputate. Nisi, risus in
               suscipit non. Non commodo volutpat, pharetra, vel.
             </Typography>
-            <Typography color="#81C3D7" paragraph sx={{cursor:"pointer"}} onClick={handleGetStarted}>
+            <Typography
+              color="#81C3D7"
+              paragraph
+              sx={{ cursor: "pointer" }}
+              onClick={handleGetStarted}
+            >
               Get started{" "}
               <img src={ArrowRight} alt="null" className={classes.arrowRight} />
             </Typography>
