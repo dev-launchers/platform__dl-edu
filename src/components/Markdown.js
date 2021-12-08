@@ -3,8 +3,8 @@ import ReactMarkdown from "react-markdown"
 import rehypeHighlight from "rehype-highlight"
 import { useState } from "react"
 
-import Fab from "@material-ui/core/Fab"
-import EditIcon from "@material-ui/icons/Edit"
+import Fab from "@mui/material/Fab"
+import EditIcon from "@mui/icons-material/Edit"
 
 import "highlight.js/styles/base16/zenburn.css"
 
