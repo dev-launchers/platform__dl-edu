@@ -1,48 +1,18 @@
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
-import { NavLink } from "react-router-dom";
 import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import TextField from "@mui/material/TextField";
-import InputAdornment from "@mui/material/InputAdornment";
-import Search from "@mui/icons-material/Search";
+import { CssBaseline } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
 
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import FilterDropdown from "../components/FilterDropdown";
 import "./SideNav.module.css";
 
-const languageFilterDescriptions = [
-  {
-    id: "0",
-    name: "Javascript",
-    link: "/main-content/learning-modules/javascript",
-  },
-  { id: "1", name: "Java", link: "/main-content/learning-modules/java" },
-  { id: "2", name: "C#", link: "/main-content/learning-modules/csharp" },
-];
-const frameworkFilterDescriptions = [
-  { id: "3", name: "Foo", link: "/main-content/learning-modules/javascript" },
-  { id: "4", name: "Roh", link: "/main-content/learning-modules/java" },
-  { id: "5", name: "Bar", link: "/main-content/learning-modules/csharp" },
-  { id: "6", name: "Bar", link: "/main-content/learning-modules/csharp" },
-];
-const progressFilterDescriptions = [
-  { id: "7", name: "alpha", link: "/main-content/learning-modules/javascript" },
-  { id: "8", name: "beta", link: "/main-content/learning-modules/java" },
-  { id: "9", name: "gamma", link: "/main-content/learning-modules/csharp" },
-];
-const dlLearnFilterDescriptions = [
-  { id: "10", name: "Code", link: "/main-content/legacy-learn/code" },
-  { id: "11", name: "Design", link: "/main-content/legacy-learn/design" },
-  { id: "12", name: "Phaser", link: "/main-content/learning-modules/phaser 3" },
-  { id: "13", name: "React", link: "/main-content/learning-modules/react" },
-];
+import DifficultyButtons from "../components/sidenav/DifficultyButtons";
+import FilterDropdownMenu from "../components/sidenav/FilterDropdownMenu";
+import FilterButton from "../components/sidenav/FilterButton";
+import SearchBar from "../components/sidenav/SearchBar";
 
 const PREFIX = "SideNav";
 
@@ -104,12 +74,14 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 function SideNav(props) {
   const [openedLegacy, setOpenedLegacy] = useState(false);
 
-  const handleClickLegacy = () => {
-    setOpenedLegacy(!openedLegacy);
+  const handleDifficultyWasSelected = (event) => {
+    const difficulty = event.target.text.toLowerCase();
+    props.onDifficultyWasSelected(difficulty);
   };
 
   return (
-
+    <>
+      <CssBaseline />
       <Root className={classes.root}>
         {!props.checkOpen ? (
           <IconButton
@@ -140,115 +112,15 @@ function SideNav(props) {
               </IconButton>
             </DrawerHeader>
             <div className={classes.drawerContainer}>
-              <Container sx={{ width: "100%", alignItems: "center" }}>
-                <TextField
-                  id="filled-basic"
-                  label="Search"
-                  variant="outlined"
-                  InputProps={{
-                    endAdornment: (
-                      <InputAdornment position="end">
-                        <Search />
-                      </InputAdornment>
-                    ),
-                  }}
-                  sx={{
-                    mt: "5px",
-                    paddingBottom: "5px",
-                    width: "90%",
-                    alignItems: "center",
-                  }}
-                />
-              </Container>
-              <List
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-evenly",
-                  height: "450px",
-                }}
-              >
-                <FilterDropdown
-                  filterTitle="DL Learn"
-                  filterObjects={dlLearnFilterDescriptions}
-                />
-                <FilterDropdown
-                  filterTitle="Language"
-                  filterObjects={languageFilterDescriptions}
-                />
-                <FilterDropdown
-                  filterTitle="Framework"
-                  filterObjects={frameworkFilterDescriptions}
-                />
-                <FilterDropdown
-                  filterTitle="Progress"
-                  filterObjects={progressFilterDescriptions}
-                />
-              </List>
-              <List component="div" disablePadding>
-                <ListItem>Difficulty</ListItem>
-                <ListItem
-                  sx={{ display: "flex", justifyContent: "space-between" }}
-                >
-                  <Button
-                    variant="contained"
-                    color="gray"
-                    size="small"
-                    component={NavLink}
-                    to="/main-content/learning-module/filter-by=beginner"
-                    onClick={() => {
-                      props.onDifficultyWasSelected("beginner");
-                    }}
-                  >
-                    Beginner
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="gray"
-                    size="small"
-                    component={NavLink}
-                    to="/main-content/learning-module/filter-by=intermediate"
-                    onClick={() => {
-                      props.onDifficultyWasSelected("intermediate");
-                    }}
-                  >
-                    Intermediate
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="gray"
-                    size="small"
-                    component={NavLink}
-                    to="/main-content/learning-module/filter-by=advanced"
-                    onClick={() => {
-                      props.onDifficultyWasSelected("advanced");
-                    }}
-                  >
-                    Advanced
-                  </Button>
-                </ListItem>
-              </List>
-              <Container
-                sx={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                  height: "70px",
-                }}
-              >
-                <Button
-                  variant="contained"
-                  color="lightGray"
-                  size="large"
-                  sx={{ width: "80%", mt: "10px" }}
-                >
-                  Filter
-                </Button>
-              </Container>
+              <SearchBar />
+              <FilterDropdownMenu />
+              <DifficultyButtons difficultyWasSelected={handleDifficultyWasSelected} />
+              <FilterButton />
             </div>
           </Drawer>
         ) : null}
       </Root>
+    </>
   );
 }
 

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import { Route, Switch } from "react-router-dom";
 import Box from "@mui/material/Box";
+import { CssBaseline } from "@mui/material";
 
 import FilteredLearningModule from "../modules/FilteredLearningModule";
 import LearningModule from "../modules/LearningModule";
@@ -11,7 +12,7 @@ import SideNav from "./SideNav";
 
 const drawerWidth = 368;
 
-function MainContent(props) {
+function MainContent() {
   const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [filterKey, setFilterKey] = useState("");
@@ -54,31 +55,34 @@ function MainContent(props) {
   // us build relative links.
 
   return (
-    <Box sx={{ display: "flex" }}>
-      <SideNav
-        theme={theme}
-        checkOpen={open}
-        handleOpen={handleDrawerOpen}
-        handleClose={handleDrawerClose}
-        onDifficultyWasSelected={filterDifficultyHandler}
-      />
-      <Main open={open}>
-        <Switch>
-          <Route path={`/main-content/legacy-learn/:tab`}>
-            <LegacyLearnList />
-          </Route>
-          <Route path={`/main-content/learning-modules/:category`}>
-            <LearningModuleList />
-          </Route>
-          <Route path={`/main-content/learning-module/module-id=:moduleId`}>
-            <LearningModule />
-          </Route>
-          <Route path={`/main-content/learning-module/filter-by=:difficulty`}>
-            <FilteredLearningModule filterKey={filterKey} />
-          </Route>
-        </Switch>
-      </Main>
-    </Box>
+    <>
+      <CssBaseline />
+      <Box sx={{ display: "flex" }}>
+        <SideNav
+          theme={theme}
+          checkOpen={open}
+          handleOpen={handleDrawerOpen}
+          handleClose={handleDrawerClose}
+          onDifficultyWasSelected={filterDifficultyHandler}
+        />
+        <Main open={open}>
+          <Switch>
+            <Route path={`/main-content/legacy-learn/:tab`}>
+              <LegacyLearnList />
+            </Route>
+            <Route path={`/main-content/learning-modules/:category`}>
+              <LearningModuleList />
+            </Route>
+            <Route path={`/main-content/learning-module/module-id=:moduleId`}>
+              <LearningModule />
+            </Route>
+            <Route path={`/main-content/learning-module/filter-by=:difficulty`}>
+              <FilteredLearningModule filterKey={filterKey} />
+            </Route>
+          </Switch>
+        </Main>
+      </Box>
+    </>
   );
 }
 
