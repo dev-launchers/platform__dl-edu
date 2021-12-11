@@ -22,7 +22,7 @@ function Challenge() {
 
   return (
     <CacheProvider value={cache}>
-      <Box sx={{ backgroundColor: "#181818", height: "570px" }}>
+      <Box className={classes.challengeContainer}>
         <Container
           component={Typography}
           variant={"h2"}
@@ -31,14 +31,10 @@ function Challenge() {
           Challenge Yourself
         </Container>
         <Box className={classes.outerDesignContainer}>
-          <Container className={classes.innerDesignContainer}>
-            <div className={classes.circle} />
+          <Box className={classes.innerDesignContainer}>
             <img src={Great} alt="null" className={classes.great} />
-            <img src={MockCard} alt="null" className={classes.mock} />
-          </Container>
-          <Container
-            className={classes.outerDescriptionContainer}
-          >
+          </Box>
+          <Container className={classes.outerDescriptionContainer}>
             <Typography variant="h5" color="#ffffff">
               Gain problem solving skills with our code challenges!
             </Typography>

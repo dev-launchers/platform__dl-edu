@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { styled } from "@mui/material/styles";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 
@@ -18,19 +19,32 @@ const cache = createCache({
   prepend: true,
 });
 
+const ResponsiveBox = styled("Box")(({ theme }) => ({
+  width: "100%",
+  display:"flex",
+  alignItems: "center",
+  justifyContent: "space-evenly",
+  [theme.breakpoints.down('md')]: {
+    display:"flex",
+     flexDirection:"column",
+     alignItems: "center",
+     justifyContent: "space-evenly", 
+  }
+}));
+
 function Create() {
   function testFunction() {
     console.log("object");
   }
+
   return (
     <CacheProvider value={cache}>
-      <Box
+      <ResponsiveBox
         className="target-create"
         sx={{
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#181818",
-          height: "350px",
           paddingBottom: "100px",
           alignItems: "center",
         }}
@@ -44,9 +58,6 @@ function Create() {
         </Container>
         <Grid
           container
-          width="90%"
-          alignItems="center"
-          justifyContent="space-evenly"
         >
           <Grid
             item
@@ -127,7 +138,7 @@ function Create() {
             </Box>
           </Grid>
         </Grid>
-      </Box>
+      </ResponsiveBox>
     </CacheProvider>
   );
 }

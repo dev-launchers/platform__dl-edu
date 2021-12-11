@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 
-import bottomImage from "../images/bottomcomputerimage.png";
+import computerImage from "../images/computer-image.png";
 import middleImage from "../images/middlecomputerimage.png";
 import topImage from "../images/topcomputerimage.png";
 
@@ -39,25 +39,12 @@ function DarkLearnSection() {
               justifyContent: "space-around",
             }}
           >
-            <Container sx={{ width: "40%" }}>
+            <Container className={classes.designContainer}>
               <Container sx={{ position: "relative" }}>
-                <img
-                  src={bottomImage}
-                  alt="null"
-                  className={classes.bottomImage}
-                />
-                <img
-                  src={middleImage}
-                  alt="null"
-                  className={classes.middleImage}
-                />
-                <img src={topImage} alt="null" className={classes.topImage} />
-                <div className={classes.circle1} />
-                <div className={classes.circle2} />
-                <div className={classes.circle3} />
+                <img src={computerImage} alt="null" className="classes.computerImage"/>
               </Container>
             </Container>
-            <Container sx={{ width: "30%" }}>
+            <Container className={classes.descriptionContainer} sx={{ width: "30%", maxHeight:"500px" }}>
               <List>
                 <ListItem
                   sx={{

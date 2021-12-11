@@ -1,0 +1,17 @@
+.appWrapper{
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width:850px) {
+      .appWrapper{
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        flex-wrap:wrap;
+        overflow: hidden;
+      }
+  }
