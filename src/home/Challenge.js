@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 
 import classes from "./Challenge.module.css";
 import Great from "../images/do-what-is-great.png";
-import MockCard from "../images/mock-card.png";
 import ArrowRight from "../images/arrow-right.png";
 
 const cache = createCache({
