@@ -24,7 +24,7 @@ function DarkBanner() {
       <CacheProvider value={cache}>
         <Box className={classes.sloganContainer}>
           <Box className={classes.leftSloganContainer}>
-            <Container className={classes.cakeContainer}>
+            <Box className={classes.cakeContainer}>
               <Typography
                 sx={{ color: "neutral.main", fontWeight: "600" }}
                 variant="h1"
@@ -75,7 +75,7 @@ function DarkBanner() {
                   </Link>
                 </Container>
               </Container>
-            </Container>
+            </Box>
           </Box>
           <Box className={classes.laptopImageContainer}>
             <img src={laptopImage} alt="null"  />

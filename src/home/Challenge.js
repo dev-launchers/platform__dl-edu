@@ -33,7 +33,7 @@ function Challenge() {
           <Box className={classes.innerDesignContainer}>
             <img src={Great} alt="null" className={classes.great} />
           </Box>
-          <Container className={classes.outerDescriptionContainer}>
+          <Box className={classes.outerDescriptionContainer}>
             <Typography variant="h5" color="#ffffff">
               Gain problem solving skills with our code challenges!
             </Typography>
@@ -49,10 +49,10 @@ function Challenge() {
               sx={{ cursor: "pointer" }}
               onClick={handleGetStarted}
             >
-              Get started{" "}
+              Get started
               <img src={ArrowRight} alt="null" className={classes.arrowRight} />
             </Typography>
-          </Container>
+          </Box>
         </Box>
       </Box>
     </CacheProvider>

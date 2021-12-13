@@ -8,8 +8,6 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 
 import computerImage from "../images/computer-image.png";
-import middleImage from "../images/middlecomputerimage.png";
-import topImage from "../images/topcomputerimage.png";
 
 import classes from "./DarkLearnSection.module.css";
 
@@ -24,14 +22,13 @@ function DarkLearnSection() {
     <>
       <CacheProvider value={cache}>
         <Box className={classes.darkLearnContainer}>
-          <Container sx={{ width: "50%", mb: "25px" }}>
-            <Typography
-              variant="h1"
-              sx={{ color: "#ffffff", textAlign: "center", fontWeight: "800" }}
-            >
-              Learn With Our Modules
-            </Typography>
-          </Container>
+          <Box
+            component={Typography}
+            variant={"h2"}
+            className={classes.learnWithUsText}
+          >
+            Learn With Our Modules
+          </Box>
           <Box
             sx={{
               width: "100%",
@@ -39,21 +36,18 @@ function DarkLearnSection() {
               justifyContent: "space-around",
             }}
           >
-            <Container className={classes.designContainer}>
-              <Container sx={{ position: "relative" }}>
-                <img src={computerImage} alt="null" className="classes.computerImage"/>
+            <Container className={classes.imageContainer}>
+              <Container sx={{ display:"flex", justifyContent:"center", alignItems:"center" }}>
+                <img
+                  src={computerImage}
+                  alt="null"
+                  className="classes.computerImage"
+                />
               </Container>
             </Container>
-            <Container className={classes.descriptionContainer} sx={{ width: "30%", maxHeight:"500px" }}>
+            <Box className={classes.descriptionContainer}>
               <List>
-                <ListItem
-                  sx={{
-                    color: "#ffffff",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "start",
-                  }}
-                >
+                <ListItem className={classes.rightGuideContainer}>
                   <Container className={classes.listTitle}>
                     <div className={classes.disc} />
                     <Typography
@@ -70,14 +64,7 @@ function DarkLearnSection() {
                     senectus.
                   </Typography>
                 </ListItem>
-                <ListItem
-                  sx={{
-                    color: "#ffffff",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "start",
-                  }}
-                >
+                <ListItem className={classes.rightGuideContainer}>
                   <Container className={classes.listTitle}>
                     <div className={classes.disc1} />
                     <Typography
@@ -94,14 +81,7 @@ function DarkLearnSection() {
                     senectus.
                   </Typography>
                 </ListItem>
-                <ListItem
-                  sx={{
-                    color: "#ffffff",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "start",
-                  }}
-                >
+                <ListItem className={classes.rightGuideContainer}>
                   <Container className={classes.listTitle}>
                     <div className={classes.disc2} />
                     <Typography
@@ -119,7 +99,7 @@ function DarkLearnSection() {
                   </Typography>
                 </ListItem>
               </List>
-            </Container>
+            </Box>
           </Box>
         </Box>
       </CacheProvider>

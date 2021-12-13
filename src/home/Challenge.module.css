@@ -1,6 +1,7 @@
 .challengeContainer {
   background-color: #181818;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+  width:100%;
   display: flex;
   flex-direction: column;
 }
@@ -13,6 +14,7 @@
   color: #ffffff;
   text-align: center;
   font-weight: 800;
+  margin-bottom:25px;
 }
 .circle {
   height: 351px;
@@ -30,18 +32,11 @@
   justify-content: center;
 }
 .great {
-  width: 70%;
+  width: 60%;
 }
-.mock {
-  position: absolute;
-  z-index: 15;
-  width: 234px;
-  height: 241px;
-  top: 27px;
-  left: 251px;
-}
+
 .outerDescriptionContainer {
-  width: 40%;
+  width: 30%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,7 +48,25 @@
 }
 
 @media screen and (max-width: 900px) {
+  .titleContainer {
+    color: #ffffff;
+    text-align: left;
+    font-weight: 800;
+  }
+  .outerDesignContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
   .innerDesignContainer {
     display: none;
   }
+  
+.outerDescriptionContainer {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 30px;
+}
 }

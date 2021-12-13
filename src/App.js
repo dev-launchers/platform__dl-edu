@@ -58,7 +58,6 @@ function App() {
           <Box
             display="flex"
             flexDirection="column"
-            height="auto"
             paddingBottom="350px"
           >
             <DarkBanner />
@@ -70,8 +69,8 @@ function App() {
         <Route path="/main-content">
           <MainContent />
         </Route>
-{        <DarkFooter />
-}      </Box>
+        <DarkFooter />
+      </Box>
     </ThemeProvider>
   );
 }
