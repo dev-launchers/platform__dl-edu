@@ -63,14 +63,20 @@ function LearningModule(props) {
           </Button>
         </Link>
         <Box sx={{ width: "100%" }}>
-          <Box sx={{ display:"flex", justifyContent: "flex-end", marginRight:"100px" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginRight: "100px",
+            }}
+          >
             <Tabs
               value={value}
               onChange={handleChange}
               aria-label="module tabs"
-              textColor="dark"
+              selectionFollowsFocus
             >
-              <Tab label="Guide" className="tab-box"  {...allyProps(0)} />
+              <Tab label="Guide" className="tab-box" {...allyProps(0)} />
               <Tab label="Engagement" className="tab-box" {...allyProps(1)} />
               <Tab label="Exercises" className="tab-box" {...allyProps(2)} />
             </Tabs>
