@@ -18,7 +18,8 @@
   flex-direction: column;
   justify-content: space-evenly;
   height: 550px;
-  width: 90%;
+  width: 80%;
+  margin:50px;
 }
 
 .joinUsButton {
