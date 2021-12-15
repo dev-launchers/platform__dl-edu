@@ -22,13 +22,13 @@
 
 @media screen and (max-width: 850px) {
   .create {
-    text-align: left;
+    text-align: center;
     color: #ffffff;
     font-weight: 800;
   }
   .createContainer {
     display: flex;
     flex-direction: column;
-    padding-left: 30px;
+    align-items: center;
   }
 }

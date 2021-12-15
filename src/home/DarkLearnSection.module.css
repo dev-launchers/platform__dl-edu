@@ -107,6 +107,7 @@
   .darkLearnContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 100%;
     background-color: #181818;
   }
@@ -115,13 +116,15 @@
   }
   .learnWithUsText {
     display:flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding-left: 30px;
+    align-items: center;
+  }
+  .listContainer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
   }
   .descriptionContainer {
     display: flex;
-    flex-direction: column;
-    padding-left: 20px;
+    align-items: center;
   }
 }

@@ -21,7 +21,10 @@
   width: 80%;
   margin:50px;
 }
-
+.cakeText{
+  color: #ffffff;
+  font-weight: 600;
+}
 .joinUsButton {
   width: 20%;
 }
@@ -62,8 +65,19 @@
     display: flex;
     flex-direction: column;
     background-color: #181818;
+    align-items: center;
     padding-bottom: 175px;
-    padding-top: 25px;
+    padding-top:200px;
+  }
+  .cakeText{
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 24;
+  }
+  .leftSloganContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
   }
   .cakeContainer{
     padding-left: 30px;
