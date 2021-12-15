@@ -43,8 +43,8 @@ function DarkBanner() {
               >
                 With us, coding is a piece of cake!
               </BannerTitle>
-              <Typography sx={{ color: "neutral.main" }} variant="h6">
-                We’re a nonprofit coding platform aimed at bridging opportunity
+              <Typography sx={{ color: "neutral.main", marginBottom:"30px" }} variant="h6">
+                We're a nonprofit coding platform aimed at bridging opportunity
                 gaps in the technology industry.
               </Typography>
               <Button
