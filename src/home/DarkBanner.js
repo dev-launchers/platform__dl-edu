@@ -1,9 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { CacheProvider } from "@emotion/react";
-/* I added this package to handle auto-scrolling down the page.  Here's a link to functionality: https://www.npmjs.com/package/react-scroll */
+/* I added this package to handle auto-scrolling down the page.  Here's a link to api: https://www.npmjs.com/package/react-scroll */
 import { Link } from "react-scroll";
-/* */
 import createCache from "@emotion/cache";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -25,7 +24,7 @@ function DarkBanner() {
       <CacheProvider value={cache}>
         <Box className={classes.sloganContainer}>
           <Box className={classes.leftSloganContainer}>
-            <Container className={classes.cakeContainer}>
+            <Box className={classes.cakeContainer}>
               <Typography
                 sx={{ color: "neutral.main", fontWeight: "600" }}
                 variant="h1"
@@ -76,11 +75,11 @@ function DarkBanner() {
                   </Link>
                 </Container>
               </Container>
-            </Container>
+            </Box>
           </Box>
-          <Container sx={{ width: "30%" }}>
-            <img src={laptopImage} alt="null" className={classes.laptopImage} />
-          </Container>
+          <Box className={classes.laptopImageContainer}>
+            <img src={laptopImage} alt="null"  />
+          </Box>
         </Box>
       </CacheProvider>
     </>

@@ -120,7 +120,7 @@ function DarkFooter() {
             <Typography variant="h6" sx={{ color: "#ffffff" }}>
               Sign up for our newsletter!
             </Typography>
-            <Box display="flex">
+            <Box className={classes.emailQueryContainer}>
               <input
                 placeholder="Enter your email"
                 className={classes.emailQueryField}

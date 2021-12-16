@@ -37,7 +37,7 @@ function DarkHeader() {
                 DL Basecamp
               </Typography>
             </Box>
-            <span className={classes.dlContainer2}>
+            <Box className={classes.dlContainer1}>
               <Link
                 to="/home"
                 component={Typography}
@@ -72,7 +72,7 @@ function DarkHeader() {
               >
                 Login
               </Button>
-            </span>
+            </Box>
           </Toolbar>
         </AppBar>
       </CacheProvider>

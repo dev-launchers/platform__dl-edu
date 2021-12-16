@@ -1,8 +1,8 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import { styled } from "@mui/material/styles";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
 
@@ -18,19 +18,33 @@ const cache = createCache({
   prepend: true,
 });
 
+const ResponsiveBox = styled("div")(({ theme }) => ({
+  width: "100%",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-evenly",
+  [theme.breakpoints.down("md")]: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "space-evenly",
+  },
+}));
+
 function Create() {
   function testFunction() {
     console.log("object");
   }
+
   return (
     <CacheProvider value={cache}>
-      <Box
+      <ResponsiveBox
         className="target-create"
         sx={{
           display: "flex",
           flexDirection: "column",
           backgroundColor: "#181818",
-          height: "350px",
           paddingBottom: "100px",
           alignItems: "center",
         }}
@@ -42,19 +56,8 @@ function Create() {
         >
           Create
         </Container>
-        <Grid
-          container
-          width="90%"
-          alignItems="center"
-          justifyContent="space-evenly"
-        >
-          <Grid
-            item
-            component={Container}
-            display="flex"
-            flexDirection="column"
-            width="33%"
-          >
+        <Box className={classes.createContainer}>
+          <Box className={classes.createDescriptionContainer}>
             <Box className={classes.descriptionsContainer}>
               <SquareDesign1 />
               <SquareDesign1 />
@@ -75,14 +78,8 @@ function Create() {
                 Try it <img src={ArrowRight} alt="null" />
               </Typography>
             </Box>
-          </Grid>
-          <Grid
-            item
-            component={Container}
-            display="flex"
-            flexDirection="column"
-            width="33%"
-          >
+          </Box>
+          <Box className={classes.createDescriptionContainer}>
             <SquareDesign2 />
             <Typography variant="h5" sx={{ color: "#ffffff" }}>
               Program Modules
@@ -100,14 +97,8 @@ function Create() {
                 Try it <img src={ArrowRight} alt="null" />
               </Typography>
             </Box>
-          </Grid>
-          <Grid
-            item
-            component={Container}
-            display="flex"
-            flexDirection="column"
-            width="33%"
-          >
+          </Box>
+          <Box className={classes.createDescriptionContainer}>
             <SquareDesign3 />
             <Typography variant="h5" sx={{ color: "#ffffff" }}>
               Code Challenge Modules
@@ -125,9 +116,9 @@ function Create() {
                 Try it <img src={ArrowRight} alt="null" />
               </Typography>
             </Box>
-          </Grid>
-        </Grid>
-      </Box>
+          </Box>
+        </Box>
+      </ResponsiveBox>
     </CacheProvider>
   );
 }

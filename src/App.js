@@ -13,6 +13,7 @@ import Create from "./home/Create";
 import Challenge from "./home/Challenge";
 
 import "./styles.css";
+import classes from "./App.module.css";
 
 function App() {
   const theme = createTheme({
@@ -50,19 +51,13 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box
-        sx={{
-          position: "relative",
-          minHeight: "100vh",
-          display: "flex",
-          flexDirection: "column",
-        }}
+        className={classes.appWrapper}
       >
         <DarkHeader />
         <Route exact path="/">
           <Box
             display="flex"
             flexDirection="column"
-            height="auto"
             paddingBottom="350px"
           >
             <DarkBanner />
@@ -74,8 +69,8 @@ function App() {
         <Route path="/main-content">
           <MainContent />
         </Route>
-{        <DarkFooter />
-}      </Box>
+        <DarkFooter />
+      </Box>
     </ThemeProvider>
   );
 }

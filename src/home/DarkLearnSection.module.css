@@ -1,25 +1,35 @@
 .darkLearnContainer {
   width: 100%;
-  height: 950px;
+  padding-bottom: 50px;
   background-color: #181818;
+  display: flex;
+  flex-direction: column;
 }
-
-.learnTextContainer {
-  padding: 0px 10px 0px 20px;
-  box-shadow: inset 0 -28px #3a7ca5;
-  width: 20%;
-}
-.learnText {
-  font-weight: 400;
+.learnWithUsText {
   color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  margin-bottom: 20px;
 }
-
 .listTitle {
   padding-left: 0px;
   display: flex;
   justify-content: flex-start;
 }
 
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+}
+.rightGuideContainer {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width:50%;
+}
 .descriptionTitles {
   text-align: left;
   font-weight: 600;
@@ -56,23 +66,12 @@
   background-color: #3a7ca5;
 }
 
-.bottomImage {
+.computerImage {
   position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 10;
+  height: 633px;
+  width: 500px;
 }
-.middleImage {
-  position: absolute;
-  top: 200px;
-  z-index: 20;
-}
-.topImage {
-  position: absolute;
-  left: 230px;
-  top: 380px;
-  z-index: 30;
-}
+
 .circle1 {
   background-color: #5d3ff9;
   height: 72px;
@@ -104,6 +103,25 @@
   left: 385px;
 }
 
-.advantagesText {
-  color: #ffffff;
+@media screen and (max-width: 850px) {
+  .darkLearnContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #181818;
+  }
+  .imageContainer {
+    display: none;
+  }
+  .learnWithUsText {
+    display:flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 30px;
+  }
+  .descriptionContainer {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+  }
 }

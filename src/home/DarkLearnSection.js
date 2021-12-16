@@ -7,9 +7,7 @@ import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 
-import bottomImage from "../images/bottomcomputerimage.png";
-import middleImage from "../images/middlecomputerimage.png";
-import topImage from "../images/topcomputerimage.png";
+import computerImage from "../images/computer-image.png";
 
 import classes from "./DarkLearnSection.module.css";
 
@@ -24,14 +22,13 @@ function DarkLearnSection() {
     <>
       <CacheProvider value={cache}>
         <Box className={classes.darkLearnContainer}>
-          <Container sx={{ width: "50%", mb: "25px" }}>
-            <Typography
-              variant="h1"
-              sx={{ color: "#ffffff", textAlign: "center", fontWeight: "800" }}
-            >
-              Learn With Our Modules
-            </Typography>
-          </Container>
+          <Box
+            component={Typography}
+            variant={"h2"}
+            className={classes.learnWithUsText}
+          >
+            Learn With Our Modules
+          </Box>
           <Box
             sx={{
               width: "100%",
@@ -39,34 +36,18 @@ function DarkLearnSection() {
               justifyContent: "space-around",
             }}
           >
-            <Container sx={{ width: "40%" }}>
-              <Container sx={{ position: "relative" }}>
+            <Container className={classes.imageContainer}>
+              <Container sx={{ display:"flex", justifyContent:"center", alignItems:"center" }}>
                 <img
-                  src={bottomImage}
+                  src={computerImage}
                   alt="null"
-                  className={classes.bottomImage}
+                  className="classes.computerImage"
                 />
-                <img
-                  src={middleImage}
-                  alt="null"
-                  className={classes.middleImage}
-                />
-                <img src={topImage} alt="null" className={classes.topImage} />
-                <div className={classes.circle1} />
-                <div className={classes.circle2} />
-                <div className={classes.circle3} />
               </Container>
             </Container>
-            <Container sx={{ width: "30%" }}>
+            <Box className={classes.descriptionContainer}>
               <List>
-                <ListItem
-                  sx={{
-                    color: "#ffffff",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "start",
-                  }}
-                >
+                <ListItem className={classes.rightGuideContainer}>
                   <Container className={classes.listTitle}>
                     <div className={classes.disc} />
                     <Typography
@@ -83,14 +64,7 @@ function DarkLearnSection() {
                     senectus.
                   </Typography>
                 </ListItem>
-                <ListItem
-                  sx={{
-                    color: "#ffffff",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "start",
-                  }}
-                >
+                <ListItem className={classes.rightGuideContainer}>
                   <Container className={classes.listTitle}>
                     <div className={classes.disc1} />
                     <Typography
@@ -107,14 +81,7 @@ function DarkLearnSection() {
                     senectus.
                   </Typography>
                 </ListItem>
-                <ListItem
-                  sx={{
-                    color: "#ffffff",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "start",
-                  }}
-                >
+                <ListItem className={classes.rightGuideContainer}>
                   <Container className={classes.listTitle}>
                     <div className={classes.disc2} />
                     <Typography
@@ -132,7 +99,7 @@ function DarkLearnSection() {
                   </Typography>
                 </ListItem>
               </List>
-            </Container>
+            </Box>
           </Box>
         </Box>
       </CacheProvider>
