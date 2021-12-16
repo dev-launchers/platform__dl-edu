@@ -12,9 +12,8 @@ import { Link, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 
-import "./LearningModule.css";
+import classes from "./LearningModule.module.css";
 import "highlight.js/styles/base16/zenburn.css";
-import "./LearningModule.css";
 import ModuleData from "../data/ModuleData";
 import TabPanel from "../components/TabPanel";
 import allyProps from "../components/allyProps";
@@ -54,7 +53,7 @@ function LearningModule(props) {
     <>
       <CacheProvider value={cache}>
         <Link
-          className="back-button"
+          className={classes.backButton}
           to={`/main-content/learning-modules/${moduleDirector}`}
         >
           <Button>
@@ -62,29 +61,39 @@ function LearningModule(props) {
           </Button>
         </Link>
         <Box sx={{ width: "100%" }}>
-          <Box sx={{ display:"flex", justifyContent: "flex-end", marginRight:"100px" }}>
+          <Box className={classes.tabsContainer}>
             <Tabs
               value={value}
               onChange={handleChange}
               aria-label="module tabs"
-              textColor="dark"
+              TabIndicatorProps={{style: {background:'transparent'}}}
             >
-              <Tab label="Guide" className="tab-box"  {...allyProps(0)} />
-              <Tab label="Engagement" className="tab-box" {...allyProps(1)} />
-              <Tab label="Exercises" className="tab-box" {...allyProps(2)} />
+              <Tab label="Guide" disableRipple autoFocus className={classes.tabBox} {...allyProps(0)} />
+              <Tab
+                label="Engagement"
+                disableRipple
+                className={classes.tabBox}
+                {...allyProps(1)}
+              />
+              <Tab
+                label="Exercises"
+                disableRipple
+                className={classes.tabBox}
+                {...allyProps(2)}
+              />
             </Tabs>
           </Box>
-          <TabPanel value={value} index={0} className="tab-panels">
-            <div className="learning-module-header">
-              <div className="lm-leftcolumn">
+          <TabPanel value={value} index={0} className={classes.tabPanels}>
+            <div className={classes.learningModuleHeader}>
+              <div className={classes.lmLeftcolumn}>
                 <Markdown markdown={moduleDatum.markdown} canEdit={true}/>
                 <Typography paragraph>{DUMMY_TEXT}</Typography>
               </div>
             </div>
           </TabPanel>
-          <TabPanel value={value} index={1} className="tab-panels">
+          <TabPanel value={value} index={1} className={classes.tabPanels}>
             <div style={{ display: "flex", height: "800px" }}>
-              <div className="lm-rightcolumn">
+              <div className={classes.lmRightcolumn}>
                 <EmbeddedIDE
                   embedURL={moduleDatum.embeddedIDEURL}
                   customIFrameStyle={moduleDatum.embedIDEStyle}
@@ -92,7 +101,7 @@ function LearningModule(props) {
               </div>
             </div>
           </TabPanel>
-          <TabPanel value={value} index={2} className="tab-panels">
+          <TabPanel value={value} index={2} className={classes.tabPanels}>
             <Typography paragraph>{DUMMY_TEXT}</Typography>
           </TabPanel>
         </Box>

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { CacheProvider } from "@emotion/react";
+import { styled } from "@mui/system";
 /* I added this package to handle auto-scrolling down the page.  Here's a link to api: https://www.npmjs.com/package/react-scroll */
 import { Link } from "react-scroll";
 import createCache from "@emotion/cache";
@@ -18,6 +19,19 @@ const cache = createCache({
   key: "css",
   prepend: true,
 });
+
+const BannerTitle = styled("h1")(({ theme }) => ({
+    color: "#ffffff",
+    fontWeight: "600",
+    fontFamily:"inter",
+    fontSize:"95px",
+  [theme.breakpoints.down("md")]: {
+    color: "#ffffff",
+    fontFamily:"inter",
+    fontWeight: "600",
+    fontSize:"48px",
+  },
+}));
 function DarkBanner() {
   return (
     <>
@@ -25,12 +39,10 @@ function DarkBanner() {
         <Box className={classes.sloganContainer}>
           <Box className={classes.leftSloganContainer}>
             <Box className={classes.cakeContainer}>
-              <Typography
-                sx={{ color: "neutral.main", fontWeight: "600" }}
-                variant="h1"
+              <BannerTitle
               >
                 With us, coding is a piece of cake!
-              </Typography>
+              </BannerTitle>
               <Typography sx={{ color: "neutral.main" }} variant="h6">
                 We’re a nonprofit coding platform aimed at bridging opportunity
                 gaps in the technology industry.

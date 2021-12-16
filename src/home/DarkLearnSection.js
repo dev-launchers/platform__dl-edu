@@ -46,7 +46,7 @@ function DarkLearnSection() {
               </Container>
             </Container>
             <Box className={classes.descriptionContainer}>
-              <List>
+              <List className={classes.listContainer}>
                 <ListItem className={classes.rightGuideContainer}>
                   <Container className={classes.listTitle}>
                     <div className={classes.disc} />

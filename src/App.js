@@ -42,24 +42,18 @@ function App() {
       },
       lightGray: {
         main: "#d8d8d8",
-        contrastText:"#222222"
-      }
+        contrastText: "#222222",
+      },
     },
   });
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box
-        className={classes.appWrapper}
-      >
+      <Box className={classes.appWrapper}>
         <DarkHeader />
         <Route exact path="/">
-          <Box
-            display="flex"
-            flexDirection="column"
-            paddingBottom="350px"
-          >
+          <Box className={classes.homeComponentsWrapper}>
             <DarkBanner />
             <DarkLearnSection />
             <Create />

@@ -1,18 +1,22 @@
-.appWrapper{
+.appWrapper {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.homeComponentsWrapper {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 350px;
+  width: 100%;
+}
+@media screen and (max-width: 850px) {
+  .appWrapper {
     position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
   }
-
-  @media screen and (max-width:850px) {
-      .appWrapper{
-        position: relative;
-        max-width: 1200px;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        flex-wrap:wrap;
-        overflow: hidden;
-      }
-  }
+}
