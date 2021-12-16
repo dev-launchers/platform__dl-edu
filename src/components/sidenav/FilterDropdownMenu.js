@@ -26,8 +26,8 @@ const languageFilterDescriptions = [
   const dlLearnFilterDescriptions = [
     { id: "10", name: "Code", link: "/main-content/legacy-learn/code" },
     { id: "11", name: "Design", link: "/main-content/legacy-learn/design" },
-    { id: "12", name: "Phaser", link: "/main-content/learning-modules/phaser 3" },
-    { id: "13", name: "React", link: "/main-content/learning-modules/react" },
+    { id: "12", name: "Phaser", link: "/main-content/legacy-learn/phaser 3" },
+    { id: "13", name: "React", link: "/main-content/legacy-learn/react" },
   ]
   
 function FilterDropdownMenu() {
