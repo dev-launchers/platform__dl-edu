@@ -3,10 +3,32 @@
     flex-direction: column;
 }
 
+.back-button{
+    display:flex;
+    justify-content:flex-end;
+}
+
+.tab-panels{
+    margin-top: -24px;
+}
+
+.tab-box{
+    color:black;
+    background-color: #efefefbe;
+    border-radius: 5px;
+    margin:2px;
+}
+/*This was my solution for focusing elements like in our figma page, but I couldn't get it to work when the page first loads, so I'm just defaulting to the MUI tab component api for now
+
+ .tab-box:focus{
+    color:black;
+    background-color:darkgray;
+} */
+
 /* Left column */
 .lm-leftcolumn {
     float: left;
-    width: 50%;
+    width: 100%;
     height: 90%;
     background-color: rgb(206, 206, 206);
     overflow-y: auto;
@@ -15,7 +37,7 @@
 /* Right column */
 .lm-rightcolumn {
     float: left;
-    width: 50%;
+    width: 100%;
     height: 90%;
 }
 

@@ -1,23 +1,73 @@
 .footerContainer {
   background-color: #222222;
+  height: 350px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 1300;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
-/* .emailQueryContainer{
-    display:flex;
-    flex-direction: row;
-} */
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 190px;
+  width: 20%;
+}
+.logoContainer {
+  display: flex;
+  width: 65%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.dlBasecamp {
+  color: #ffffff;
+  font-family: "abel";
+  font-weight: 600;
+}
+.rightContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  width: 70%;
+  height: 190px;
+}
+.imagesContainer {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+}
+
+.iconLink {
+  background-color: rgba(169, 169, 169, 0.253);
+  height: 35px;
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
 .emailQueryField {
-  background-color: #ffffff;
-  height: 40px;
-  text-align: center;
+  background-color: #ffffff57;
+  color: #ffffff;
+  height: 35px;
+  border-radius: 5px;
+  font-family: "Inter";
+}
+.emailQueryField::placeholder {
+  color: #ffffff;
+  font-family: "Inter";
 }
 .emailQueryButton {
-  height: 40px;
+  height: 35px;
 }
 .emailQueryButton:hover {
-  background-color: #FFAB00;
+  background-color: #ffab00;
 }
-
 
 .quoteText {
   color: #ffffff;
@@ -26,7 +76,7 @@
   text-align: center;
 }
 
-.footerImage{
-    height:50px;
-    width:50px;
+.footerImage {
+  height: 17px;
+  width: 17px;
 }

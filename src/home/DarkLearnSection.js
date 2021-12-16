@@ -1,17 +1,15 @@
 import React from "react";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
-import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
-import { Link } from 'react-router-dom'
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
 
-import explorationIcon from "../images/exploration.png";
-import implementationIcon from "../images/Implementation.png";
-import sharingIcon from "../images/sharing.png";
-import javaScriptLogo from "../images/javascript-logo 1.png";
-import pythonLogo from "../images/python-logo 1.png";
+import bottomImage from "../images/bottomcomputerimage.png";
+import middleImage from "../images/middlecomputerimage.png";
+import topImage from "../images/topcomputerimage.png";
 
 import classes from "./DarkLearnSection.module.css";
 
@@ -20,113 +18,123 @@ const cache = createCache({
   key: "css",
   prepend: true,
 });
+
 function DarkLearnSection() {
   return (
     <>
       <CacheProvider value={cache}>
-        <Container maxWidth={false} className={classes.mainContainer}>
-          <Container className={classes.learnJavaPythonContainer}>
-            <Container className={classes.learnTextContainer}>
-              <Typography variant="h2" className={classes.learnText}>
-                Learn
-              </Typography>
-            </Container>
-            <Container className={classes.pythonJavaContainer}>
-              <Card raised={true} className={classes.pythonJavaCard}>
-                <img
-                  className={classes.pythonJavaImg}
-                  src={javaScriptLogo}
-                  alt="null"
-                />
-                <Typography
-                  variant="h5"
-                  sx={{ margin: "auto", color: "#ffffff" }}
-                >
-                  Java
-                </Typography>
-                <Button variant='contained' color='secondary' className={classes.pythonJavaButton} component={Link} to="main/learning-modules/javascript">
-                    Start now
-                </Button>
-              </Card>
-              <Card raised={true} className={classes.pythonJavaCard}>
-                <img
-                  className={classes.pythonJavaImg}
-                  src={pythonLogo}
-                  alt="null"
-                />
-                <Typography
-                  variant="h5"
-                  sx={{ margin: "auto", color: "#ffffff" }}
-                >
-                  Python
-                </Typography>
-                <Button variant='contained' color='secondary' className={classes.pythonJavaButton} component={Link} to="main/learning-modules/python">
-                    Start now
-                </Button>
-              </Card>
-            </Container>
-          </Container>
-          <Container className={classes.createDetailContainer}>
-            <Container className={classes.detailTitleContainer}>
-              <Typography variant="h2" className={classes.createText}>
-                Create
-              </Typography>
-            </Container>
-            <Card raised={true} className={classes.detailTextCard}>
-              <Typography variant="h4" align="center">
-                Module builder allows you to create your own modules!
-              </Typography>
-              <br />
-              <Typography variant="h5" align="center">
-                Learn through practice and application and contribuite to the
-                community at the same time.
-              </Typography>
-            </Card>
-          </Container>
-          <Container className={classes.advantagesTitleContainer}>
-            <Typography className={classes.advantagesText} variant="h2">
-              Advantages of learning with us
+        <Box className={classes.darkLearnContainer}>
+          <Container sx={{ width: "50%", mb: "25px" }}>
+            <Typography
+              variant="h1"
+              sx={{ color: "#ffffff", textAlign: "center", fontWeight: "800" }}
+            >
+              Learn With Our Modules
             </Typography>
           </Container>
-          <Container className={classes.advantagesCardContainer}>
-            <Card raised={true} className={classes.advantagesCard}>
-              <img
-                className={classes.advantagesImage}
-                src={explorationIcon}
-                alt="null"
-              />
-              <Typography variant="h4">Explore</Typography>
-              <Typography align='center' paragraph={true}>
-                Eget id massa, non diam quam egestas. Tortor commodo nam
-                tristique ipsum odio lorem.
-              </Typography>
-            </Card>
-            <Card raised={true} className={classes.advantagesCard}>
-              <img
-                className={classes.advantagesImage}
-                src={implementationIcon}
-                alt="null"
-              />
-              <Typography variant="h4">Implementation</Typography>
-              <Typography align='center' paragraph={true}>
-                Eget id massa, non diam quam egestas. Tortor commodo nam
-                tristique ipsum odio lorem.
-              </Typography>
-            </Card>
-            <Card raised={true} className={classes.advantagesCard}>
-              <img
-                className={classes.advantagesImage}
-                src={sharingIcon}
-                alt="null"
-              />
-              <Typography variant="h4">Sharing</Typography>
-              <Typography align='center' paragraph={true}>
-                Eget id massa, non diam quam egestas. Tortor commodo nam
-                tristique ipsum odio lorem.
-              </Typography>
-            </Card>
-          </Container>
-        </Container>
+          <Box
+            sx={{
+              width: "100%",
+              display: "flex",
+              justifyContent: "space-around",
+            }}
+          >
+            <Container sx={{ width: "40%" }}>
+              <Container sx={{ position: "relative" }}>
+                <img
+                  src={bottomImage}
+                  alt="null"
+                  className={classes.bottomImage}
+                />
+                <img
+                  src={middleImage}
+                  alt="null"
+                  className={classes.middleImage}
+                />
+                <img src={topImage} alt="null" className={classes.topImage} />
+                <div className={classes.circle1} />
+                <div className={classes.circle2} />
+                <div className={classes.circle3} />
+              </Container>
+            </Container>
+            <Container sx={{ width: "30%" }}>
+              <List>
+                <ListItem
+                  sx={{
+                    color: "#ffffff",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "start",
+                  }}
+                >
+                  <Container className={classes.listTitle}>
+                    <div className={classes.disc} />
+                    <Typography
+                      variant="h6"
+                      className={classes.descriptionTitles}
+                    >
+                      Guides
+                    </Typography>
+                  </Container>
+                  <Typography paragraph sx={{ fontWeight: "400" }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Venenatis scelerisque at quam congue posuere libero in sit
+                    quam. Consequat, scelerisque non tincidunt sit lectus
+                    senectus.
+                  </Typography>
+                </ListItem>
+                <ListItem
+                  sx={{
+                    color: "#ffffff",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "start",
+                  }}
+                >
+                  <Container className={classes.listTitle}>
+                    <div className={classes.disc1} />
+                    <Typography
+                      variant="h6"
+                      className={classes.descriptionTitles}
+                    >
+                      Interactive Code Examples
+                    </Typography>
+                  </Container>
+                  <Typography paragraph sx={{ fontWeight: "400" }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Venenatis scelerisque at quam congue posuere libero in sit
+                    quam. Consequat, scelerisque non tincidunt sit lectus
+                    senectus.
+                  </Typography>
+                </ListItem>
+                <ListItem
+                  sx={{
+                    color: "#ffffff",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "start",
+                  }}
+                >
+                  <Container className={classes.listTitle}>
+                    <div className={classes.disc2} />
+                    <Typography
+                      variant="h6"
+                      className={classes.descriptionTitles}
+                    >
+                      Exercises
+                    </Typography>
+                  </Container>
+                  <Typography paragraph sx={{ fontWeight: "400" }}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Venenatis scelerisque at quam congue posuere libero in sit
+                    quam. Consequat, scelerisque non tincidunt sit lectus
+                    senectus.
+                  </Typography>
+                </ListItem>
+              </List>
+            </Container>
+          </Box>
+        </Box>
       </CacheProvider>
     </>
   );

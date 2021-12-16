@@ -1,14 +1,18 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import { CacheProvider } from "@emotion/react";
+/* I added this package to handle auto-scrolling down the page.  Here's a link to functionality: https://www.npmjs.com/package/react-scroll */
+import { Link } from "react-scroll";
+/* */
 import createCache from "@emotion/cache";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Grid from "@mui/material/Grid";
+import Container from "@mui/material/Container";
 
 import downArrow from "../images/downArrow.png";
 import classes from "./DarkBanner.module.css";
-import backGroundImage from "../images/darkenedBackGroundImage.png";
+import laptopImage from "../images/darkenedLaptop.png";
 
 //override default mui styling
 const cache = createCache({
@@ -20,21 +24,21 @@ function DarkBanner() {
     <>
       <CacheProvider value={cache}>
         <Box className={classes.sloganContainer}>
-          <Grid
-            container
-            spacing={8}
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            className={classes.bannerTextContainer}
-          >
-            <Grid item>
-              <Typography sx={{ color: 'neutral.main' }} variant="h2" color="neutral">
-                With us coding is a piece of cake!
+          <Box className={classes.leftSloganContainer}>
+            <Container className={classes.cakeContainer}>
+              <Typography
+                sx={{ color: "neutral.main", fontWeight: "600" }}
+                variant="h1"
+              >
+                With us, coding is a piece of cake!
               </Typography>
-            </Grid>
-            <Grid item>
+              <Typography sx={{ color: "neutral.main" }} variant="h6">
+                We’re a nonprofit coding platform aimed at bridging opportunity
+                gaps in the technology industry.
+              </Typography>
               <Button
+                component={NavLink}
+                to={"/main-content/legacy-learn/code"}
                 color="secondary"
                 variant="contained"
                 size="medium"
@@ -42,13 +46,41 @@ function DarkBanner() {
               >
                 Join us
               </Button>
-            </Grid>
-            <Grid item sx={{ display:'flex', flexDirection:"column"}}>
-              <img src={downArrow} alt="null" className={classes.downArrow} />
-              <img src={downArrow} alt="null" className={classes.downArrow} />
-            </Grid>
-          </Grid>
-          <img className={classes.image} src={backGroundImage} alt="null"></img>
+              <Container
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                }}
+              >
+                <div className={classes.hiddenDiv} />
+                <Container className={classes.arrowContainer}>
+                  {/* Here is the react-scroll component logic */}
+                  <Link
+                    to="target-create"
+                    duration={800}
+                    smooth={true}
+                    offset={-60}
+                    className={classes.innerArrowContainer}
+                  >
+                    <img
+                      src={downArrow}
+                      alt="null"
+                      className={classes.downArrow}
+                    />
+
+                    <img
+                      src={downArrow}
+                      alt="null"
+                      className={classes.downArrow}
+                    />
+                  </Link>
+                </Container>
+              </Container>
+            </Container>
+          </Box>
+          <Container sx={{ width: "30%" }}>
+            <img src={laptopImage} alt="null" className={classes.laptopImage} />
+          </Container>
         </Box>
       </CacheProvider>
     </>

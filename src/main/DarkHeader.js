@@ -1,55 +1,77 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
+import { styled } from "@mui/system";
 import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import { Link } from 'react-router-dom'
 
-import rocketIcon from "../images/dev_launchers_rocket_small.png";
+import devLaunchersIcon from "../images/dev_launchers_rocket_small.png";
 import classes from "./DarkHeader.module.css";
+import { NavLink } from "react-router-dom";
 
 //override default mui styling
 const cache = createCache({
-    key: "css",
-    prepend: true,
+  key: "css",
+  prepend: true,
 });
-  
-function DarkHeader() {
 
+function DarkHeader() {
   return (
     <>
       <CacheProvider value={cache}>
         <AppBar className={classes.appBar}>
           <Toolbar
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
-            }}
+            className={classes.toolbarContainer}
           >
-            <span className={classes.dlContainer1}>
-              <img src={rocketIcon} alt="null" className={classes.rocketIcon} />
-              <Typography variant="h3" className={classes.dev_launchers_title}>
+            <Box
+              component={NavLink}
+              to="/"
+              className={classes.basecampContainer}
+            >
+              <img src={devLaunchersIcon} className={classes.rocketImage} />
+              <Typography variant="h6" className={classes.basecampText}>
                 DL Basecamp
               </Typography>
-            </span>
+            </Box>
             <span className={classes.dlContainer2}>
-              <Link to="/home" className={classes.link} underline="none">
-                <Typography variant='h5' className={classes.linkText}>Home</Typography>
+              <Link
+                to="/home"
+                component={Typography}
+                variant={"h6"}
+                className={classes.link}
+                underline="none"
+              >
+                Home
               </Link>
-              <Link to="/about" className={classes.link} underline="none">
-              <Typography variant='h5' className={classes.linkText}>About</Typography>
+              <Link
+                to="/about"
+                component={Typography}
+                variant={"h6"}
+                className={classes.link}
+                underline="none"
+              >
+                About
               </Link>
-            </span>
-            <span className={classes.dlContainer3}>
-                <Button className={classes.signinButton} size='small' color='primary' variant='contained' component={Link} to="/sign-up">
-                    Sign up
-                </Button>
-                <Button className={classes.loginButton} size='small' color='secondary' variant = 'contained' component={Link} to="/login">
-                    Login
-                </Button>
+              <Button
+                className={classes.signinButton}
+                size="small"
+                color="primary"
+                variant="contained"
+              >
+                Sign up
+              </Button>
+              <Button
+                className={classes.loginButton}
+                size="small"
+                color="secondary"
+                variant="contained"
+              >
+                Login
+              </Button>
             </span>
           </Toolbar>
         </AppBar>

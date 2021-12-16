@@ -1,0 +1,30 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 26px;
+  height: 26px;
+}
+
+.orangeSquare {
+  background-color: #ffab00;
+  height: 16px;
+  width: 27px;
+  border-radius: 1px;
+}
+
+.lightBlueSquare {
+  background-color: #81c3d7;
+  height: 5px;
+  width: 27px;
+  margin-bottom: 1.5px;
+  border-radius: 1px;
+}
+.blueSquare1 {
+  background-color: #3a7ca5;
+  height: 5px;
+  width: 15px;
+  margin: 1.5px;
+  border-radius: 1px;
+}

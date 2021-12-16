@@ -1,70 +1,72 @@
 .appBar {
-  background-color: #222222;
+  background-color: #181818;
   box-shadow: 0px 4px 8px rgba(34, 34, 34, 0.25);
-  position:sticky;
-  z-index: 1201; /* +1 the sidenav */
+  position: sticky;
+  z-index: 1301; /* +1 the sidenav */
+  width: 100%;
+  align-items: center;
+  height: 60px;
 }
-.toolBar {
+.toolbarContainer {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  width: 80%;
 }
+.rocketImage {
+  height: 25px;
+  width: 25px;
+}
+
 .dlContainer1 {
-  width: 350px;
+  width: 25%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   margin: 10px;
+  text-decoration: none;
 }
-
+.dlLinkContainer {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  text-decoration: none;
+}
+.basecampContainer {
+  display: flex;
+  width: 20%;
+  align-items: center;
+}
 .rocketIcon {
   width: 55px;
   height: 55px;
 }
 
-.dev_launchers_title {
+.basecampText {
   font-family: "Abel", sans-serif;
-  font-weight: 700;
-  line-height: 46px;
-  letter-spacing: 0em;
-  text-align: left;
-}
-.dlContainer2 {
-  width: 350px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 10px;
+  margin-left: 10px;
 }
 
 .link {
   color: #ffffff;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 24px;
-  line-height: 36px;
   cursor: pointer;
-  height: 22px;
-  width: 100px;
-  border-bottom: 4px solid #3a7ca5;
 }
 
-.linkText {
-  color: #ffffff;
-  width: 75px;
-  margin-left: 4px;
-  margin-bottom: 4px;
-}
-
-.dlContainer3 {
-  width: 150px;
+.dlContainer2 {
+  width: 27%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.signinButton:hover{
-  background-color: #81C3D7;
+.signinButton {
+  font-weight: 600;
 }
-.loginButton:hover{
-  background-color: #FFAB00;
+
+.loginButton {
+  font-weight: 600;
+}
+.signinButton:hover {
+  background-color: #81c3d7;
+}
+.loginButton:hover {
+  background-color: #ffab00;
 }

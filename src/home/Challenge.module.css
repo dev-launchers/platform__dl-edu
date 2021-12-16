@@ -1,0 +1,53 @@
+.outerDesignContainer {
+  display: flex;
+  width: 100%;
+  height: 400px;
+}
+.innerDesignContainer {
+  display: flex;
+  position: relative;
+  width: 50%;
+  margin: auto;
+}
+.titleContainer {
+  color: #ffffff;
+  text-align: center;
+  font-weight: 800;
+}
+.circle {
+  height: 351px;
+  width: 351px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+  background-color: #81c3d7;
+  top: -137px;
+  left: 152px;
+}
+.great {
+  position: absolute;
+  z-index: 10;
+  width: 152px;
+  height: 186px;
+  top: -53px;
+  right: 387px;
+}
+.mock {
+  position: absolute;
+  z-index: 15;
+  width: 234px;
+  height: 241px;
+  top: 27px;
+  left: 251px;
+}
+.outerDescriptionContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.arrowRight {
+  width: 22px;
+  height: 12px;
+  cursor: pointer;
+}
