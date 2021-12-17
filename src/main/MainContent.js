@@ -57,7 +57,7 @@ function MainContent() {
   return (
     <>
       <CssBaseline />
-      <Box className="foo" sx={{ display: "flex", width:"100%" }}>
+      <Box sx={{ display: "flex", width:"100%" }}>
         <SideNav
           theme={theme}
           checkOpen={open}
