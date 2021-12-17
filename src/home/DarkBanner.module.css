@@ -1,0 +1,91 @@
+.sloganContainer {
+  width: 100%;
+  height: 100%;
+  background-color: #181818;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+  padding-top: 25px;
+}
+.leftSloganContainer {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 5px;
+}
+.cakeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 550px;
+  width: 80%;
+  margin:50px;
+}
+.cakeText{
+  color: #ffffff;
+  font-weight: 600;
+}
+.joinUsButton {
+  width: 20%;
+}
+.joinUsButton:hover {
+  background-color: #ffab00;
+}
+.hiddenDiv {
+  display: hidden;
+  width: 772px;
+  height: 50px;
+}
+.arrowContainer {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+.innerArrowContainer {
+  height: 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+.downArrow {
+  height: 5px;
+  width: 10px;
+}
+
+.laptopImageContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+}
+
+@media screen and (max-width: 900px) {
+  .sloganContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #181818;
+    align-items: center;
+    padding-bottom: 175px;
+    padding-top:200px;
+  }
+  .cakeText{
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 24;
+  }
+  .leftSloganContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+  }
+  .cakeContainer{
+    padding-left: 30px;
+  }
+  .joinUsButton {
+    width: 50%;
+  }
+  .laptopImageContainer {
+    display: none;
+  }
+}

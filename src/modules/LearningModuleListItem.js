@@ -1,26 +1,63 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
+import { CssBaseline } from "@mui/material";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
+import Container from "@mui/material/Container";
+import Button from "@mui/material/Button";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
 
-import "./LearningModuleListItem.css"
+import "./LearningModuleListItem.css";
 
 function LearningModuleListItem(props) {
-    const keyWordComponents = props.moduleMetadata.keyWords.map((keyword, index) =>
-        <div className="keyword-chip" key={index}>{keyword}</div>
-    )
+  //override default mui styling
+  const cache = createCache({
+    key: "css",
+    prepend: true,
+  });
 
-    return (
-        <Link to={"/learning-module/" + props.moduleMetadata.id}>        
-            <div className="module-list-item">
-                <h2 style={{ alignSelf: "center" }}>{props.moduleMetadata.title}</h2>
-                <img src={props.moduleMetadata.thumbnail} className="module-img" />
-                <h5>{props.moduleMetadata.description}</h5>
-                <div className="keyword-container">
-                    <div>Keywords:</div>
-                    {keyWordComponents}
-                </div>
-            </div>
-        </Link>
-    )
+  return (
+    <>
+      <CssBaseline />
+      <CacheProvider value={cache}>
+        <Card raised className="module-list-item">
+          <Link
+            to={
+              "/main-content/learning-module/module-id=" +
+              props.moduleMetadata.id
+            }
+          >
+            <Container className="module-list-item-inner-container">
+              <Typography
+                variant="h2"
+                sx={{ fontFamily: "Roboto", fontWeight: "500" }}
+              >
+                {props.moduleMetadata.title}
+              </Typography>
+              <Typography variant="h5" sx={{ fontFamily: "Roboto" }}>
+                {props.moduleMetadata.description}
+              </Typography>
+              <Container className="keyword-container">
+                {props.moduleMetadata.keyWords.map((keyword, index) => {
+                  return (
+                    <Button
+                      size="small"
+                      variant="contained"
+                      className="keyword-chip"
+                      key={index}
+                    >
+                      {keyword}
+                    </Button>
+                  );
+                })}
+              </Container>
+            </Container>
+          </Link>
+        </Card>
+      </CacheProvider>
+    </>
+  );
 }
 
-export default LearningModuleListItem
+export default LearningModuleListItem;

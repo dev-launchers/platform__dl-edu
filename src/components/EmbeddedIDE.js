@@ -1,6 +1,3 @@
-import React from "react"
-import "./EmbeddedIDE.css";
-
 function EmbeddedIDE(props) {
     const defaultStyle = { width: "100%", height: "100%", border: "none" };
 

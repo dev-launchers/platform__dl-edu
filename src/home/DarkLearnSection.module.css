@@ -1,0 +1,130 @@
+.darkLearnContainer {
+  width: 100%;
+  padding-bottom: 50px;
+  background-color: #181818;
+  display: flex;
+  flex-direction: column;
+}
+.learnWithUsText {
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.listTitle {
+  padding-left: 0px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+}
+.rightGuideContainer {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width:50%;
+}
+.descriptionTitles {
+  text-align: left;
+  font-weight: 600;
+  margin-left: 6px;
+  width: 98%;
+}
+.disc {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #81c3d7;
+  margin: auto;
+}
+.disc1 {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #ffab00;
+  margin: auto;
+}
+.disc2 {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background-color: #3a7ca5;
+  margin: auto;
+}
+.largeDisc {
+  height: 72px;
+  width: 72px;
+  margin-top: 5%;
+  margin-right: 2px;
+  border-radius: 50%;
+  background-color: #3a7ca5;
+}
+
+.computerImage {
+  position: absolute;
+  height: 633px;
+  width: 500px;
+}
+
+.circle1 {
+  background-color: #5d3ff9;
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  top: 204px;
+  left: 510px;
+}
+.circle2 {
+  background-color: #d08e87;
+  height: 72px;
+  width: 72px;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  right: 490px;
+  top: 350px;
+}
+.circle3 {
+  background-color: #8312fe;
+  height: 56px;
+  width: 56px;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  top: 538px;
+  left: 385px;
+}
+
+@media screen and (max-width: 850px) {
+  .darkLearnContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #181818;
+  }
+  .imageContainer {
+    display: none;
+  }
+  .learnWithUsText {
+    display:flex;
+    align-items: center;
+  }
+  .listContainer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .descriptionContainer {
+    display: flex;
+    align-items: center;
+  }
+}

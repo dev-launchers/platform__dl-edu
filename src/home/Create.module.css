@@ -1,0 +1,34 @@
+.create {
+  text-align: center;
+  color: #ffffff;
+  font-weight: 800;
+}
+.createContainer {
+  display: flex;
+  width:90%;
+}
+.createDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  width: 33%;
+  margin:10px;
+}
+.descriptionsContainer {
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 850px) {
+  .create {
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+  }
+  .createContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,9 +1,7 @@
-import React from 'react'
-
 function Login() {
     return (
         <div>
-            Login Screen (TODO)
+            <h1 style={{padding: '1em'}}>Login Screen (TODO)</h1>
         </div>
     )
 }
