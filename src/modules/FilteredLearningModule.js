@@ -10,6 +10,7 @@ function FilteredLearningModule(props) {
     <LearningModuleListItem key={metaDatum.id} moduleMetadata={metaDatum} />
   ));
 
+  
   return (
     <>
       <CssBaseline />
