@@ -1,18 +1,24 @@
 import React from "react";
-import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
-import ModuleMetaData from "../../data/ModuleMetadata";
 
 import Tags from "./Tags";
 
 function TagContainer() {
   return (
-    <Container>
-      <Typography paragraph sx={{ color: "theme.dark" }}>
-        Tags
-      </Typography>
-      <Tags />
-    </Container>
+    <Box >
+      <List component="div" disablePadding>
+        <ListItem divider />
+        <ListItem component={Typography} variant={"h6"} sx={{ color: "theme.dark" }}>
+            Tags
+        </ListItem>
+        <ListItem sx={{ display: "flex", flexDirection: "column", alignItems:"flex-start" }}>
+          <Tags />
+        </ListItem>
+      </List>
+    </Box>
   );
 }
 
