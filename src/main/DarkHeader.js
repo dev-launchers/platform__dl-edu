@@ -57,7 +57,7 @@ function DarkHeader() {
                 About
               </Link>
               <Button
-                className={classes.signinButton}
+                className={classes.signupButton}
                 size="small"
                 color="primary"
                 variant="contained"

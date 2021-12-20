@@ -40,16 +40,17 @@
 .dlContainer1 {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   width: 30%;
 }
-.signinButton {
+.signupButton {
   font-weight: 600;
 }
 
 .loginButton {
   font-weight: 600;
 }
-.signinButton:hover {
+.signupButton:hover {
   background-color: #81c3d7;
 }
 .loginButton:hover {
@@ -57,9 +58,37 @@
 }
 
 @media screen and (max-width: 900px) {
+  .appBar{
+    position:static;
+  }
+  .toolbarContainer{
+    width:100%;
+  }
+  .basecampContainer {
+    width: 30%;
+  }
+  .rocketImage {
+    display:none;
+  }
+  .basecampText {
+    margin-left:0px;  
+  }
   .dlContainer1 {
     display: flex;
     justify-content: space-evenly;
-    width: 50%;
+    align-items: center;
+    width: 70%;
+  }
+  .link {
+    font-size: small;
+  }
+  .signupButton {
+    font-weight: 600;
+    width: 90px;
+  }
+
+  .loginButton {
+    font-weight: 600;
+    width: 20px;
   }
 }
