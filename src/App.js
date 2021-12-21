@@ -64,7 +64,10 @@ function App() {
         <Route path="/main-content">
           <MainContent />
         </Route>
-        <Route path="/auth/google/callback">
+        <Route path="/users/me">
+          <GoogleAuthCallback />
+        </Route>
+        <Route path="/signup">
           <GoogleAuthCallback />
         </Route>
         <DarkFooter />
