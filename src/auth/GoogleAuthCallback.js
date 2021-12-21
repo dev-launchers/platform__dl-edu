@@ -23,35 +23,36 @@ const DEFAULT_USER = {
   };
 
 function GoogleAuthCallback() {
+  console.log('here');
 
-    const [userData, setUserData] = useState(DEFAULT_USER);
+  //   const [userData, setUserData] = useState(DEFAULT_USER);
 
-    useEffect(() => {
-        // Setting timeout because of environment variable hack
-        axios(`http://localhost:1337/users/current`, {
-          withCredentials: true,
-        })
-          .then(({ data: currentUser }) => {
-            setUserData({
-              id: currentUser.id,
-              name: currentUser.profile.displayName,
-              username: currentUser.username,
-              email: currentUser.email,
-              bio: currentUser.profile.bio,
-              profilePictureUrl: currentUser.profile.profilePictureUrl,
-              socialMediaLinks: currentUser.profile.socialMediaLinks,
-              totalPoints: currentUser.point.totalPoints,
-              totalSeasonPoints: currentUser.point.totalSeasonPoints,
-              availablePoints: currentUser.point.availablePoints,
-              volunteerHours: currentUser.point.volunteerHours,
-            });
-          })
-          .catch(() => {
-            // setUserData({ id: "invalid" });
-          });
-      }, []);
+  //   useEffect(() => {
+  //       // Setting timeout because of environment variable hack
+  //       axios(`http://localhost:1337/users/current`, {
+  //         withCredentials: true,
+  //       })
+  //         .then(({ data: currentUser }) => {
+  //           setUserData({
+  //             id: currentUser.id,
+  //             name: currentUser.profile.displayName,
+  //             username: currentUser.username,
+  //             email: currentUser.email,
+  //             bio: currentUser.profile.bio,
+  //             profilePictureUrl: currentUser.profile.profilePictureUrl,
+  //             socialMediaLinks: currentUser.profile.socialMediaLinks,
+  //             totalPoints: currentUser.point.totalPoints,
+  //             totalSeasonPoints: currentUser.point.totalSeasonPoints,
+  //             availablePoints: currentUser.point.availablePoints,
+  //             volunteerHours: currentUser.point.volunteerHours,
+  //           });
+  //         })
+  //         .catch(() => {
+  //           // setUserData({ id: "invalid" });
+  //         });
+  //     }, []);
 
-      console.log(userData);
+  //     console.log(userData);
 
 //     const { data } = await axios.get('http://localhost:1337/users/me', {
 //         headers: {
@@ -79,20 +80,20 @@ function GoogleAuthCallback() {
 
 
 // ORIGINAL
-//   const [auth, setAuth] = useState()
-//   const location = useLocation()
-//   useEffect(() => {
-//     if (!location) {
-//       return
-//     }
-//     const { search } = location
-//     axios({
-//       method: 'GET',
-//       url: `http://localhost:1337/auth/google/callback?${search}`,
-//     })
-//       .then((res) => res.data)
-//       .then(setAuth)
-//   }, [location])
+  const [auth, setAuth] = useState()
+  const location = useLocation()
+  useEffect(() => {
+    if (!location) {
+      return
+    }
+    const { search } = location
+    axios({
+      method: 'GET',
+      url: `http://localhost:1337/auth/google/callback?${search}`,
+    })
+      .then((res) => res.data)
+      .then(setAuth)
+  }, [location])
 
   return (
     <div>

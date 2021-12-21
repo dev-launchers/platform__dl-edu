@@ -11,6 +11,7 @@ import DarkFooter from "./main/DarkFooter";
 import MainContent from "./main/MainContent";
 import Create from "./home/Create";
 import Challenge from "./home/Challenge";
+import GoogleAuthCallback from "./auth/GoogleAuthCallback";
 
 import "./styles.css";
 import classes from "./App.module.css";
@@ -62,6 +63,9 @@ function App() {
         </Route>
         <Route path="/main-content">
           <MainContent />
+        </Route>
+        <Route path="/auth/google/callback">
+          <GoogleAuthCallback />
         </Route>
         <DarkFooter />
       </Box>
