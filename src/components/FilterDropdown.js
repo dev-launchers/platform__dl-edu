@@ -113,7 +113,6 @@ function FilterDropdown(props) {
                           to={item.link}
                           onClick={handleClick}
                           disableRipple
-                          className={classes.menuItemControl}
                         >
                           {item.name}
                         </MenuItem>
