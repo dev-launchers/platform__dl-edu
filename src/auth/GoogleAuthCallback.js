@@ -39,7 +39,7 @@ function GoogleAuthCallback() {
 
     axios({
       method: 'GET',
-      url: "http://localhost:1337/users/me",
+      url: env().API_URL + "/users/me",
       withCredentials: true,
     })
     .then(({ data: currentUser }) => {
