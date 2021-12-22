@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
+import { env } from "../utils/EnvironmentVariables.js";
+
+//User Data Model
 const DEFAULT_USER = {
     id: 0,
     name: "",
@@ -25,31 +28,35 @@ const DEFAULT_USER = {
    * Currently executes anytime "/users/me" or "/profile" is called from the backend. See App.js for Route triggers.
    * Code yoinked from UserDataContext in 'platform__website' repo.
    * @TODO Should probably implement this code similar to to how it's done in UserDataContext.js, Signup.js and UserProfiles.js. Currently there is no return, which is probably necessary for global access to logged in user data.
+   * @TODO url param needs to be set using an environmet variable, see EnvironmentVariables.js in 'platform__website'.
    * @returns TODO.
    */
 function GoogleAuthCallback() {
+
   const [userData, setUserData] = useState(DEFAULT_USER);
+
   useEffect(() => {
 
     axios({
       method: 'GET',
-      url: `http://localhost:1337/users/me`,
+      url: "http://localhost:1337/users/me",
       withCredentials: true,
     })
     .then(({ data: currentUser }) => {
       setUserData({
         id: currentUser.id,
-        name: currentUser.displayName,
+        name: currentUser.profile.displayName,
         username: currentUser.username,
         email: currentUser.email,
-        bio: currentUser.bio,
+        bio: currentUser.profile.bio,
+        zipCode: currentUser.zipCode,
         profilePictureUrl: currentUser.profilePictureUrl,
         socialMediaLinks: currentUser.socialMediaLinks,
         totalPoints: currentUser.totalPoints,
         totalSeasonPoints: currentUser.totalSeasonPoints,
         availablePoints: currentUser.availablePoints,
         volunteerHours: currentUser.volunteerHours,
-        discord: currentUser.discord
+        discordId: currentUser.discordId
       });
     })
     .catch(err => {
@@ -59,11 +66,17 @@ function GoogleAuthCallback() {
   }, [])
 
   return (
+
     <div>
-        test
-        {console.log(userData)}
-        {console.log(userData.email)}
+      {console.log(userData)}
+      <div>Name: {userData.name}</div>
+      <div>Username: {userData.username}</div>
+      <div>Email: {userData.email}</div>
+      <div>DiscordID: {userData.discordId}</div>
+      <div>Bio: {userData.bio}</div>
+      <div>Zip: {userData.zipCode}</div>
     </div>
+
   )
 }
 
