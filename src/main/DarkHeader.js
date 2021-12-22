@@ -69,6 +69,9 @@ function DarkHeader() {
                 size="small"
                 color="secondary"
                 variant="contained"
+                onClick={() =>
+                  (window.location = 'http://localhost:1337/connect/google')
+                }
               >
                 Login
               </Button>
