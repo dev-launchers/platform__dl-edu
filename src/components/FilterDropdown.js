@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { styled, alpha } from "@mui/material/styles";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import Popper from "@mui/material/Popper";
+import Paper from "@mui/material/Paper";
+import Grow from "@mui/material/Grow";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
@@ -16,68 +19,39 @@ const cache = createCache({
   prepend: true,
 });
 
-const StyledMenu = styled((props) => (
-  <Menu
-    elevation={0}
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "left",
-    }}
-    transformOrigin={{
-      vertical: "top",
-      horizontal: "right",
-    }}
-    {...props}
-  />
-))(({ theme }) => ({
-  "& .MuiPaper-root": {
-    borderRadius: 6,
-    marginTop: theme.spacing(1),
-    minWidth: 232,
-    color:
-      theme.palette.mode === "light"
-        ? "rgb(55, 65, 81)"
-        : theme.palette.grey[300],
-    boxShadow:
-      "rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
-    "& .MuiMenu-list": {
-      padding: "4px 0",
-    },
-    "& .MuiMenuItem-root": {
-      "& .MuiSvgIcon-root": {
-        fontSize: 18,
-        color: theme.palette.text.secondary,
-        marginRight: theme.spacing(1.5),
-      },
-      "&:active": {
-        backgroundColor: alpha(
-          theme.palette.primary.main,
-          theme.palette.action.selectedOpacity
-        ),
-      },
-    },
-  },
-}));
-
 function FilterDropdown(props) {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+  const anchorRef = React.useRef(null);
   const [dropDownSelection, setDropDownSelection] = useState("Select ");
   const [menuArrowDown, setMenuArrowDown] = useState(true);
 
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setMenuArrowDown(false);
-    setAnchorEl(event.currentTarget);
+  const handleToggle = () => {
+    setOpen((prevOpen) => !prevOpen);
   };
+
   const handleClose = (event) => {
-    if (event.target.textContent === "") {
-      setMenuArrowDown(true);
-      setAnchorEl(null);
-    } else {
-      setDropDownSelection(event.target.textContent);
-      setMenuArrowDown(true);
-      setAnchorEl(null);
+    console.log("here");
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
     }
+    setMenuArrowDown(true);
+    setDropDownSelection("Select ");
+    setOpen(false);
+  };
+
+  const handleListKeyDown = (event) => {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpen(false);
+    } else if (event.key === "Escape") {
+      setOpen(false);
+    }
+  };
+
+  const handleClick = (event) => {
+    setDropDownSelection(event.target.text);
+    setMenuArrowDown(true);
+    setOpen(false);
   };
 
   return (
@@ -87,14 +61,14 @@ function FilterDropdown(props) {
           <label className={classes.filterLabel}>{props.filterTitle}</label>
           <Button
             id="demo-customized-button"
-            aria-controls="demo-customized-menu"
+            aria-controls={open ? "menu-list-grow" : undefined}
             aria-haspopup="true"
-            aria-expanded={open ? "true" : undefined}
             variant="contained"
+            ref={anchorRef}
             color="neutral"
             size="large"
             disableElevation
-            onClick={handleClick}
+            onClick={handleToggle}
             endIcon={
               menuArrowDown ? (
                 <KeyboardArrowDownIcon />
@@ -107,29 +81,50 @@ function FilterDropdown(props) {
             {dropDownSelection}
           </Button>
         </div>
-        <StyledMenu
-          id="demo-customized-menu"
-          MenuListProps={{
-            "aria-labelledby": "demo-customized-button",
-          }}
-          anchorEl={anchorEl}
+        <Popper
           open={open}
-          onClose={handleClose}
+          anchorEl={anchorRef.current}
+          placement="left-end"
+          transition
+          disablePortal
         >
-          {props.filterObjects.map((item) => {
-            return (
-              <MenuItem
-                key={item.id}
-                component={NavLink}
-                to={item.link}
-                onClick={handleClose}
-                disableRipple
-              >
-                {item.name}
-              </MenuItem>
-            );
-          })}
-        </StyledMenu>
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              style={{
+                transformOrigin:
+                  placement === "bottom" ? "center top" : "center bottom",
+              }}
+            >
+              <Paper className={classes.menuListParent}>
+                <ClickAwayListener onClickAway={handleClose}>
+                  <MenuList
+                    autoFocusItem={open}
+                    id="composition-menu"
+                    aria-labelledby="composition-button"
+                    onKeyDown={handleListKeyDown}
+                    className={classes.menuListChild}
+                  >
+                    {props.filterObjects.map((item) => {
+                      return (
+                        <MenuItem
+                          key={item.id}
+                          component={NavLink}
+                          to={item.link}
+                          onClick={handleClick}
+                          disableRipple
+                          className={classes.menuItemControl}
+                        >
+                          {item.name}
+                        </MenuItem>
+                      );
+                    })}
+                  </MenuList>
+                </ClickAwayListener>
+              </Paper>
+            </Grow>
+          )}
+        </Popper>
       </div>
     </CacheProvider>
   );
