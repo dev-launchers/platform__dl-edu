@@ -114,13 +114,11 @@ function SideNav(props) {
                 )}
               </IconButton>
             </DrawerHeader>
-            <div className={classes.drawerContainer}>
               <SearchBar />
               <FilterDropdownMenu />
               <DifficultyButtons difficultyWasSelected={handleDifficultyWasSelected} />
               <FilterButton />
               <TagContainer handleTagWasSelected={handleTagWasSelected}/>
-            </div>
           </Drawer>
         ) : null}
       </Root>
