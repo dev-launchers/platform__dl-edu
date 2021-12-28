@@ -1,6 +1,7 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
 import Drawer from "@mui/material/Drawer";
+import Container from "@mui/material/Container";
 import { CssBaseline } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 
@@ -28,7 +29,7 @@ const classes = {
 const Root = styled("div")(({ theme }) => ({
   [`&.${classes.root}`]: {
     display: "flex",
-    minHeight:"1550px"
+    minHeight: "1550px",
   },
 
   [`& .${classes.drawer}`]: {
@@ -73,7 +74,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 // TODO better to store nav bar structure in JSON, and then load-and-loop, instead of repeating code
 function SideNav(props) {
-
   const handleDifficultyWasSelected = (event) => {
     const difficulty = event.target.text.toLowerCase();
     props.onDifficultyWasSelected(difficulty);
@@ -114,11 +114,15 @@ function SideNav(props) {
                 )}
               </IconButton>
             </DrawerHeader>
-              <SearchBar />
+            <Container>
+              <SearchBar handleTagWasSelected={handleTagWasSelected} />
               <FilterDropdownMenu />
-              <DifficultyButtons difficultyWasSelected={handleDifficultyWasSelected} />
+              <DifficultyButtons
+                difficultyWasSelected={handleDifficultyWasSelected}
+              />
               <FilterButton />
-              <TagContainer handleTagWasSelected={handleTagWasSelected}/>
+              <TagContainer handleTagWasSelected={handleTagWasSelected} />
+            </Container>
           </Drawer>
         ) : null}
       </Root>

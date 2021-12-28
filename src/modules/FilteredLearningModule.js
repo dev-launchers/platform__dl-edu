@@ -4,6 +4,7 @@ import ModuleMetadata from "../data/ModuleMetadata";
 import LearningModuleListItem from "./LearningModuleListItem";
 
 function FilteredLearningModule(props) {
+  
   let learningModuleListItemComponents;
   if (
     props.filterKey === "beginner" ||
@@ -15,13 +16,12 @@ function FilteredLearningModule(props) {
     ).map((metaDatum) => (
       <LearningModuleListItem key={metaDatum.id} moduleMetadata={metaDatum} />
     ));
-  } else {
+  } else {console.log(props.filterKey)
     learningModuleListItemComponents = ModuleMetadata.filter((module) => {
       return module.keyWords.some((keyWord) => keyWord === props.filterKey)
     }).map((module) => (
       <LearningModuleListItem key={module.id} moduleMetadata={module} />
     ));
-    console.log(learningModuleListItemComponents);
   }
 
   return (

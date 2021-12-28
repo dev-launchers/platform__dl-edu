@@ -13,6 +13,7 @@
   justify-content: space-between;
   text-transform: none;
   position: static;
+  width:250px;
 }
 .menuListParent {
   position: absolute;

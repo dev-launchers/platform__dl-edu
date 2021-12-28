@@ -25,10 +25,7 @@ function MainContent() {
     setOpen(false);
   };
 
-  const filterDifficultyHandler = (key) => {
-    setFilterKey(key);
-  };
-  const filterTagHandler = (key) => {
+  const filterHandler = (key) => {
     setFilterKey(key);
   };
 
@@ -60,14 +57,14 @@ function MainContent() {
   return (
     <>
       <CssBaseline />
-      <Box sx={{ display: "flex", width:"100%" }}>
+      <Box sx={{ display: "flex", width: "100%" }}>
         <SideNav
           theme={theme}
           checkOpen={open}
           handleOpen={handleDrawerOpen}
           handleClose={handleDrawerClose}
-          onDifficultyWasSelected={filterDifficultyHandler}
-          onTagWasSelected={filterTagHandler}
+          onDifficultyWasSelected={filterHandler}
+          onTagWasSelected={filterHandler}
         />
         <Main open={open}>
           <Switch>
@@ -94,4 +91,3 @@ function MainContent() {
 }
 
 export default MainContent;
-/* =:${filterKey} */
