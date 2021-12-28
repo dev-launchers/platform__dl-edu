@@ -31,6 +31,7 @@ function DifficultyButtons(props) {
             display: "flex",
             justifyContent: "space-between",
             position: "static",
+            width:"300px"
           }}
         >
           {ButtonDescriptions.map((item, index) => {
@@ -43,7 +44,7 @@ function DifficultyButtons(props) {
                 component={NavLink}
                 to={item.linkTo}
                 onClick={props.difficultyWasSelected}
-                sx={{ position: "static" }}
+                sx={{ position: "static", fontSize:"10px" }}
               >
                 {item.difficulty}
               </Button>

@@ -121,7 +121,8 @@ function SideNav(props) {
                 difficultyWasSelected={handleDifficultyWasSelected}
               />
               <FilterButton />
-              <TagContainer handleTagWasSelected={handleTagWasSelected} />
+              {/* Removing this section for now <TagContainer handleTagWasSelected={handleTagWasSelected} />
+               */}{" "}
             </Container>
           </Drawer>
         ) : null}
