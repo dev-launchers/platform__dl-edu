@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -7,6 +8,7 @@ import Search from "@mui/icons-material/Search";
 import ModuleMetaData from "../../data/ModuleMetadata";
 
 function SearchBar(props) {
+  let history = useHistory();
   const tagHolder = [];
   const frequencyArray = [];
   let found;
@@ -53,6 +55,7 @@ function SearchBar(props) {
 
   function tagWasSelected(event, value) {
     props.handleTagWasSelected(value);
+    history.push(`/main-content/learning-module/filter-by=${value.toLowerCase()}`);
   }
   return (
       <Autocomplete

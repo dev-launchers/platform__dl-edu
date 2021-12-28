@@ -53,7 +53,6 @@ function MainContent() {
   ); // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
   // us build relative links.
-
   return (
     <>
       <CssBaseline />
@@ -77,10 +76,8 @@ function MainContent() {
             <Route path={`/main-content/learning-module/module-id=:moduleId`}>
               <LearningModule />
             </Route>
-            <Route path={`/main-content/learning-module/filter-by=:difficulty`}>
-              <FilteredLearningModule filterKey={filterKey} />
-            </Route>
-            <Route path={`/main-content/learning-module/filter-by=:tag`}>
+
+            <Route path={`/main-content/learning-module/filter-by=:filterKey`}>
               <FilteredLearningModule filterKey={filterKey} />
             </Route>
           </Switch>
