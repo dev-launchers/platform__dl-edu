@@ -26,7 +26,7 @@ function DarkFooter() {
   return (
     <CacheProvider value={cache}>
       <Box className={classes.footerContainer}>
-        <Container className={classes.leftContainer}>
+        <Box className={classes.leftContainer}>
           <Stack direction="column" spacing={3}>
             <Box
             className={classes.logoContainer}
@@ -75,7 +75,7 @@ function DarkFooter() {
               </Link>
             </Box>
           </Stack>
-        </Container>
+        </Box>
         <Box className={classes.rightContainer}>
           <Stack direction="column" width="15%" spacing={2}>
             <Typography color="#ffffff" variant="h6">
