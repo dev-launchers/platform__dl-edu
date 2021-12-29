@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 .innerSortWrapper {
-  margin: auto;
+  margin-bottom:10px;
   width: 90%;
 }
 

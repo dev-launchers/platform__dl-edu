@@ -12,8 +12,8 @@ import "./SideNav.module.css";
 
 import DifficultyButtons from "../components/sidenav/DifficultyButtons";
 import FilterDropdownMenu from "../components/sidenav/FilterDropdownMenu";
-import FilterButton from "../components/sidenav/FilterButton";
-import SearchBar from "../components/sidenav/SearchBar";
+/* import FilterButton from "../components/sidenav/FilterButton";
+ */import SearchBar from "../components/sidenav/SearchBar";
 import TagContainer from "../components/sidenav/TagContainer";
 
 const PREFIX = "SideNav";
@@ -120,8 +120,8 @@ function SideNav(props) {
               <DifficultyButtons
                 difficultyWasSelected={handleDifficultyWasSelected}
               />
-              <FilterButton />
-             <TagContainer handleTagWasSelected={handleTagWasSelected} />
+{/*               <FilterButton />
+ */}             <TagContainer handleTagWasSelected={handleTagWasSelected} />
              
             </Container>
           </Drawer>

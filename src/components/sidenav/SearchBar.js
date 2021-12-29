@@ -5,36 +5,12 @@ import Autocomplete from "@mui/material/Autocomplete";
 import InputAdornment from "@mui/material/InputAdornment";
 import Search from "@mui/icons-material/Search";
 
-import ModuleMetaData from "../../data/ModuleMetadata";
+import frequencyArray from "../../data/FrequencyArray";
 
 function SearchBar(props) {
   let history = useHistory();
-  const tagHolder = [];
-  const frequencyArray = [];
-  let found;
   const [inputValue, setInputValue] = useState("");
   const [open, setOpen] = useState(false);
-
-  //take each metadata object and extract the keywords from each.  place keywords in tagHolder array
-  ModuleMetaData.forEach((item) => {
-    item.keyWords.forEach((tag) => tagHolder.push(tag));
-  });
-  tagHolder.forEach((tag) => {
-    //look for matching tag already in array
-    found = frequencyArray.findIndex(
-      (searchedForTag) => searchedForTag.name === tag
-    );
-    //if not found, push tag into array, frequency = 1
-    if (found === -1) {
-      frequencyArray.push({ name: tag, frequency: 1 });
-    } else {
-      frequencyArray[found].frequency++;
-    }
-  });
-  //sort the array in descending order
-  frequencyArray.sort(function (a, b) {
-    return b.frequency - a.frequency;
-  });
 
   const handleOpen = () => {
     if (inputValue.length > 0) {
