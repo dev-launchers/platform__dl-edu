@@ -18,6 +18,7 @@ import "highlight.js/styles/base16/zenburn.css";
 import ModuleData from "../data/ModuleData";
 import TabPanel from "../components/TabPanel";
 import allyProps from "../components/allyProps";
+import ExercisesHome from "../components/exercises/ExercisesHome";
 import DUMMY_TEXT from "../data/placeholdertext";
 
 const cache = createCache({
@@ -106,7 +107,7 @@ function LearningModule(props) {
             </div>
           </TabPanel>
           <TabPanel value={value} index={2} className={classes.tabPanels}>
-            <Typography paragraph>{DUMMY_TEXT}</Typography>
+            <ExercisesHome />
           </TabPanel>
         </Box>
       </CacheProvider>

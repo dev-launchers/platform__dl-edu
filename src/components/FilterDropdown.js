@@ -30,7 +30,6 @@ function FilterDropdown(props) {
   };
 
   const handleClose = (event) => {
-    console.log("here");
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
