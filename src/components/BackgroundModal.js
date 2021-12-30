@@ -5,10 +5,10 @@ function BackgroundModal(props) {
     <div
       style={{
         backgroundColor: "rgb(0, 0, 0, .5)",
-        height: "100vh",
+        height: "190vh",
         width: "100%",
-        position:"absolute",
-        zIndex:"3000"
+        position:"fixed",
+        zIndex:"3000",
       }}
       onClick={props.closeModal}
     />

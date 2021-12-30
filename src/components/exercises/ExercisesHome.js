@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom"
+import ReactDOM from "react-dom";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
@@ -35,7 +35,7 @@ function ExercisesHome() {
   });
 
   function handleModalWasOpened(type) {
-    setQuestionType(type)
+    setQuestionType(type);
     setShowCreateMenu(true);
   }
   function handleModalWasClosed() {
@@ -44,18 +44,20 @@ function ExercisesHome() {
 
   return (
     <Container>
-      {showCreateMenu
-        ? ReactDOM.createPortal(
-            <BackgroundModal closeModal={handleModalWasClosed} />,
-            document.getElementById("background-modal")
-          )
-        : null}
-    {showCreateMenu
-        ? ReactDOM.createPortal(
-            <CreateQuestions questionType={questionType} closeMenu={handleModalWasClosed} />,
-            document.getElementById("exercise-creator")
-          )
-        : null}
+      {showCreateMenu ? (
+        <>
+          {ReactDOM.createPortal(
+          <BackgroundModal closeModal={handleModalWasClosed} />,
+          document.getElementById("background-modal"))} 
+          {ReactDOM.createPortal(
+          <CreateQuestions
+            onClose={handleModalWasClosed}
+            questionType={questionType}
+            closeMenu={handleModalWasClosed}
+          />
+          , document.getElementById("exercise-creator"))}
+        </>
+      ) : null}
       <Stack spacing={2}>{mappedExercises}</Stack>
     </Container>
   );
