@@ -6,27 +6,28 @@ import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 import { Link, useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 
-import classes from "./LearningModule.module.css";
+import classes from "./LearningModuleHome.module.css";
 import "highlight.js/styles/base16/zenburn.css";
 import ModuleData from "../data/ModuleData";
-import TabPanel from "../components/TabPanel";
-import allyProps from "../components/allyProps";
+import TabPanel from "../components/tabhelpers/TabPanel";
+import allyProps from "../components/tabhelpers/allyProps";
 import ExercisesHome from "../components/exercises/ExercisesHome";
-import DUMMY_TEXT from "../data/placeholdertext";
+import ModuleBuilderIntroduction from "../components/modulebuilder/ModuleBuilderIntroduction";
+import Handoff from "../components/modulebuilder/Handoff";
 
 const cache = createCache({
   key: "css",
   prepend: true,
 });
+const TABVALUES = [ { index:1, title:"Guide" },{ index:2, title:"Engagement" },{ index:3, title:"Exercises" },{ index:4, title:"Handoff" },];
 
-function LearningModule(props) {
+function LearningModuleBuild(props) {
   //dynamically route user back to module starting point
   const [moduleDirector, setModuleDirector] = useState("");
   const [value, setValue] = useState(0);
@@ -46,6 +47,12 @@ function LearningModule(props) {
       setModuleDirector("csharp");
     }
   }, [checkParams]);
+
+  const mappedTabValues = TABVALUES.map(tab => {
+    return(
+      <Tab label={tab.title} disableRipple className={classes.tabBox} {...allyProps(tab.index)} key={tab.index} />
+    )
+  });
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -70,33 +77,24 @@ function LearningModule(props) {
               aria-label="module tabs"
               TabIndicatorProps={{style: {background:'transparent'}}}
             >
-              <Tab label="Guide" disableRipple autoFocus className={classes.tabBox} {...allyProps(0)} />
-              <Tab
-                label="Engagement"
-                disableRipple
-                className={classes.tabBox}
-                {...allyProps(1)}
-              />
-              <Tab
-                label="Exercises"
-                disableRipple
-                className={classes.tabBox}
-                {...allyProps(2)}
-              />
+              <Tab label="Introduction" disableRipple autoFocus className={classes.tabBox} {...allyProps(0)} />
+              {mappedTabValues}
             </Tabs>
           </Box>
-          <TabPanel value={value} index={0} className={classes.tabPanels}>
+          <Box border="1px solid black"><TabPanel value={value} index={0} className={classes.tabPanels}>
+            <ModuleBuilderIntroduction />
+          </TabPanel>
+          <TabPanel value={value} index={1} className={classes.tabPanels}>
             <div className={classes.learningModuleHeader}>
               <div className={classes.lmLeftcolumn}>
                 <ReactMarkdown
                   children={moduleDatum.markdown}
                   rehypePlugins={[rehypeHighlight]}
                 ></ReactMarkdown>
-                <Typography paragraph>{DUMMY_TEXT}</Typography>
               </div>
             </div>
           </TabPanel>
-          <TabPanel value={value} index={1} className={classes.tabPanels}>
+          <TabPanel value={value} index={2} className={classes.tabPanels}>
             <div style={{ display: "flex", height: "800px" }}>
               <div className={classes.lmRightcolumn}>
                 <EmbeddedIDE
@@ -106,13 +104,16 @@ function LearningModule(props) {
               </div>
             </div>
           </TabPanel>
-          <TabPanel value={value} index={2} className={classes.tabPanels}>
+          <TabPanel value={value} index={3} className={classes.tabPanels}>
             <ExercisesHome />
           </TabPanel>
+          <TabPanel value={value} index={4} className={classes.tabPanels}>
+            <Handoff />
+          </TabPanel></Box>
         </Box>
       </CacheProvider>
     </>
   );
 }
 
-export default LearningModule;
+export default LearningModuleBuild;

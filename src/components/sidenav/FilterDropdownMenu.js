@@ -1,7 +1,7 @@
 import React from 'react';
 import List from "@mui/material/List";
 
-import FilterDropdown from '../FilterDropdown';
+import FilterDropdown from './FilterDropdown';
 
 const languageFilterDescriptions = [
     {

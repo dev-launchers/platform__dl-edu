@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import { CssBaseline } from "@mui/material";
 
 import FilteredLearningModule from "../modules/FilteredLearningModule";
-import LearningModule from "../modules/LearningModule";
+import LearningModuleHome from "../modules/LearningModuleHome";
 import LearningModuleList from "../modules/LearningModuleList";
 import LegacyLearnList from "../legacyLearn/LegacyLearnList";
 import SideNav from "./SideNav";
@@ -74,7 +74,7 @@ function MainContent() {
               <LearningModuleList />
             </Route>
             <Route path={`/main-content/learning-module/module-id=:moduleId`}>
-              <LearningModule />
+              <LearningModuleHome />
             </Route>
 
             <Route path={`/main-content/learning-module/filter-by=:filterKey`}>

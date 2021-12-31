@@ -8,9 +8,9 @@ import { CacheProvider } from "@emotion/react";
 
 import classes from "./Create.module.css";
 import ArrowRight from "../images/arrow-right.png";
-import SquareDesign1 from "../components/SquareDesign1";
-import SquareDesign2 from "../components/SquareDesign2";
-import SquareDesign3 from "../components/SquareDesign3";
+import SquareDesign1 from "../components/designsquares/SquareDesign1";
+import SquareDesign2 from "../components/designsquares/SquareDesign2";
+import SquareDesign3 from "../components/designsquares/SquareDesign3";
 
 //override default mui styling
 const cache = createCache({

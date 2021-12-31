@@ -44,6 +44,10 @@ function App() {
         main: "#d8d8d8",
         contrastText: "#222222",
       },
+      brightBlue:{
+        main:"#0058DB",
+        contrastText:"#ffffff"
+      }
     },
   });
 
