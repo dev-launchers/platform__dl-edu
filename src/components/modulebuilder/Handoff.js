@@ -1,20 +1,50 @@
 import React, { useState } from "react";
 import Grid from "@mui/material/Grid";
+import Badge from "@mui/material/Badge";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import Button from "@mui/material/Button";
+import HandoffDropdowns from "./HandoffDropdowns";
+import ModuleTags from "./ModuleTags";
+
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import { Box } from "@mui/system";
+
+const languageFilterDescriptions = [
+  {
+    id: "0",
+    name: "Javascript",
+    link: "/main-content/learning-modules/javascript",
+  },
+  { id: "1", name: "Java", link: "/main-content/learning-modules/java" },
+  { id: "2", name: "C#", link: "/main-content/learning-modules/csharp" },
+];
+const frameworkFilterDescriptions = [
+  { id: "3", name: "Foo", link: "/main-content/learning-modules/javascript" },
+  { id: "4", name: "Roh", link: "/main-content/learning-modules/java" },
+  { id: "5", name: "Bar", link: "/main-content/learning-modules/csharp" },
+  { id: "6", name: "Bar", link: "/main-content/learning-modules/csharp" },
+];
 
 function Handoff() {
   const [language, setLanguage] = useState("");
-  const [frameWork, setFramework] = useState("");
+  const [framework, setFramework] = useState("");
+  const [userSelectedTags, setUserSelectedTags] = useState([]);
+  const styledPlayButton = <Badge color="brightBlue" badgeContent={<PlayArrowIcon />} />
 
-  function handleLanguageWasSelected(event) {
-    setLanguage(event.target.value);
+  function handleItemWasSelected(item) {
+    if (item === "Java" || item === "JavaScript" || item === "C#") {
+      setLanguage(item);
+      return;
+    }
+    setFramework(item);
   }
-  function handleFrameworkWasSelected(event) {
-    setFramework(event.target.value);
+
+  function userSubmittedTag(tag) {
+    const tagSelected = userSelectedTags;
+    console.log(tagSelected)
+    tagSelected.push(tag);
+    setUserSelectedTags(tagSelected);
   }
 
   return (
@@ -42,41 +72,29 @@ function Handoff() {
           />
         </Grid>
       </Grid>
-      <Grid item container xs={12}>
-        <Grid item xs={12}>
-          <label>Language</label>
-        </Grid>
-        <Grid item xs={5}>
-          <Select
-            labelId="select-language"
-            id="select-language-id"
-            value={language}
-            label="Language"
-            onChange={handleLanguageWasSelected}
-          >
-            <MenuItem value={"JavaScript"}>JavaScript</MenuItem>
-            <MenuItem value={"Java"}>Java</MenuItem>
-            <MenuItem value={"C#"}>C#</MenuItem>
-          </Select>
-        </Grid>
+      <Grid item xs={12}>
+        <HandoffDropdowns
+          title="Language"
+          items={languageFilterDescriptions}
+          handleItemWasSelected={handleItemWasSelected}
+        />
       </Grid>
-      <Grid item container xs={12}>
-        <Grid item xs={12}>
-          <label>Framework</label>
-        </Grid>
-        <Grid item>
-          <Select
-            labelId="select-framework"
-            id="select-framework-id"
-            value={language}
-            label="Framework"
-            onChange={handleFrameworkWasSelected}
-          >
-            <MenuItem value={"Foo"}>Foo</MenuItem>
-            <MenuItem value={"Roh"}>Roh</MenuItem>
-            <MenuItem value={"Bar"}>Bar</MenuItem>
-          </Select>
-        </Grid>
+      <Grid>
+        <HandoffDropdowns
+          title="Framework"
+          items={frameworkFilterDescriptions}
+          handleItemWasSelected={handleItemWasSelected}
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <ModuleTags userSubmittedTag={userSubmittedTag}/>
+      </Grid>
+      <Grid item xs={12}>
+        <Box sx={{ mr:"30px" }}>{styledPlayButton}<Button>Preview</Button></Box>
+      </Grid>
+      <Grid item xs={5}>
+        <Button variant="contained" color="brightBlue" sx={{ mr:"5px" }}>Save</Button>
+        <Button variant="contained" color="brightBlue">Submit</Button>
       </Grid>
     </Grid>
   );
