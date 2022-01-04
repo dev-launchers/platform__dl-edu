@@ -55,7 +55,7 @@ function ExercisesHome() {
             questionType={questionType}
             closeMenu={handleModalWasClosed}
           />
-          , document.getElementById("exercise-creator"))}
+          , document.getElementById("description-modal"))}
         </>
       ) : null}
       <Stack spacing={2}>{mappedExercises}</Stack>
