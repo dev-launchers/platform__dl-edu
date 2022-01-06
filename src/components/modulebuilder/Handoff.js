@@ -84,21 +84,27 @@ function Handoff() {
     setUserSelectedTags([]);
     //display success modal and notification
     setModuleCreateSuccessful(true);
+    document.body.style.overflow = "hidden";
   }
 
   function userClosedSuccessModal() {
     setModuleCreateSuccessful(false);
+    document.body.style.overflow = "unset";
   }
   return (
     <>
-      {moduleCreateSuccessful
-        ? <>
-        {ReactDOM.createPortal(
+      {moduleCreateSuccessful ? (
+        <>
+          {ReactDOM.createPortal(
             <BackgroundModal closeModal={userClosedSuccessModal} />,
-            document.getElementById("background-modal"))}
-        {ReactDOM.createPortal(<SuccessNotification closeModal={userClosedSuccessModal} />, document.getElementById("description-modal"))}
-           </>
-        : null}
+            document.getElementById("background-modal")
+          )}
+          {ReactDOM.createPortal(
+            <SuccessNotification closeModal={userClosedSuccessModal} />,
+            document.getElementById("description-modal")
+          )}
+        </>
+      ) : null}
 
       <Grid
         container

@@ -37,9 +37,11 @@ function ExercisesHome() {
   function handleModalWasOpened(type) {
     setQuestionType(type);
     setShowCreateMenu(true);
+    document.body.style.overflow = 'hidden';    
   }
   function handleModalWasClosed() {
     setShowCreateMenu(false);
+    document.body.style.overflow = 'unset';    
   }
 
   return (
@@ -47,7 +49,7 @@ function ExercisesHome() {
       {showCreateMenu ? (
         <>
           {ReactDOM.createPortal(
-          <BackgroundModal closeModal={handleModalWasClosed} />,
+          <BackgroundModal modalIsOpen={showCreateMenu} closeModal={handleModalWasClosed} />,
           document.getElementById("background-modal"))} 
           {ReactDOM.createPortal(
           <CreateQuestions

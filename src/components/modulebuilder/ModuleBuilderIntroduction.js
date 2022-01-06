@@ -5,7 +5,11 @@ import Button from "@mui/material/Button";
 
 import ModuleBuilderIntroductionSections from "./ModuleBuilderIntroductionSections";
 
-function ModuleBuilderIntroduction() {
+function ModuleBuilderIntroduction(props) {
+
+  function handleClick() {
+    props.advanceToNextTab();
+  }
   return (
     <Grid container rowSpacing={5} columnSpacing={2}>
       <Grid item xs={12}>
@@ -18,7 +22,7 @@ function ModuleBuilderIntroduction() {
         <ModuleBuilderIntroductionSections />
       </Grid>
       <Grid item xs={4}>
-        <Button color="brightBlue" variant="contained" size="small">
+        <Button color="brightBlue" variant="contained" size="small" onClick={handleClick}>
           Start Creating
         </Button>
       </Grid>
