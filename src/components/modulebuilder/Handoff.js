@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Grid from "@mui/material/Grid";
-import Badge from "@mui/material/Badge";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
@@ -9,26 +8,12 @@ import Box from "@mui/material/Box";
 import HandoffDropdowns from "./HandoffDropdowns";
 import ModuleTags from "./ModuleTags";
 
+import ScrollToTop from "../ScrollToTop";
 import BackgroundModal from "../BackgroundModal";
 import SuccessNotification from "./SuccessNotification";
 
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-
-const languageFilterDescriptions = [
-  {
-    id: "0",
-    name: "Javascript",
-    link: "/main-content/learning-modules/javascript",
-  },
-  { id: "1", name: "Java", link: "/main-content/learning-modules/java" },
-  { id: "2", name: "C#", link: "/main-content/learning-modules/csharp" },
-];
-const frameworkFilterDescriptions = [
-  { id: "3", name: "Foo", link: "/main-content/learning-modules/javascript" },
-  { id: "4", name: "Roh", link: "/main-content/learning-modules/java" },
-  { id: "5", name: "Bar", link: "/main-content/learning-modules/csharp" },
-  { id: "6", name: "Bar", link: "/main-content/learning-modules/csharp" },
-];
+import { languageFilterDescriptions, frameworkFilterDescriptions } from "../../data/MenuSelectors";
 
 function Handoff() {
   const [title, setTitle] = useState("");
@@ -65,7 +50,6 @@ function Handoff() {
 
   function handleUserSubmittedModule(event) {
     event.preventDefault();
-
     const userModuleData = {
       moduleTitle: event.target[0].value,
       moduleDescription: event.target[2].value,
@@ -177,7 +161,7 @@ function Handoff() {
           <Button variant="contained" color="brightBlue" sx={{ mr: "5px" }}>
             Save
           </Button>
-          <Button variant="contained" color="brightBlue" type="submit">
+          <Button variant="contained" color="brightBlue" type="submit" onClick={ScrollToTop}>
             Submit
           </Button>
         </Grid>

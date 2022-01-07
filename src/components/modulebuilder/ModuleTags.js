@@ -43,6 +43,7 @@ function ModuleTags(props) {
                   variant="contained"
                   color="gray"
                   onClick={handleUserSubmittedTag}
+                  sx={{ position:"static" }}
                 >
                   {tag}
                 </Button>
@@ -51,11 +52,11 @@ function ModuleTags(props) {
           })}
         </ButtonGroup>
       </Grid>
-      <Grid item xs={8} sx={{ display: "flex", alignItems: "center" }}>
+      <Grid item xs={8} sx={{ display: "flex", alignItems: "center", position:"static" }}>
         <TextField
           onChange={handleUserUpdatedTag}
           placeholder="+ Add your own tag"
-          sx={{ mr: "10px" }}
+          sx={{ mr: "10px", position:"static" }}
           value={newTag}
         ></TextField>
         {newTag !== "" ? (

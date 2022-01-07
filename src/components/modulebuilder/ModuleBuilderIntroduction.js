@@ -4,11 +4,13 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 
 import ModuleBuilderIntroductionSections from "./ModuleBuilderIntroductionSections";
+import ScrollToTop from "../ScrollToTop";
 
 function ModuleBuilderIntroduction(props) {
 
   function handleClick() {
     props.advanceToNextTab();
+    ScrollToTop();
   }
   return (
     <Grid container rowSpacing={5} columnSpacing={2}>

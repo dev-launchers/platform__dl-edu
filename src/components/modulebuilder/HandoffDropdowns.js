@@ -77,7 +77,7 @@ function HandoffDropdowns(props) {
           <Popper
             open={open}
             anchorEl={anchorRef.current}
-            placement="bottom"
+            placement="bottom-start"
             transition
             disablePortal
             sx={{ position: "absolute" }}

@@ -9,6 +9,7 @@ import Link from "@mui/material/Link";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
+import ScrollToTop from "../components/ScrollToTop";
 import devLaunchersIcon from "../images/dev_launchers_rocket_small.png";
 import classes from "./DarkHeader.module.css";
 import { NavLink } from "react-router-dom";
@@ -31,6 +32,7 @@ function DarkHeader() {
               component={NavLink}
               to="/"
               className={classes.basecampContainer}
+              onClick={ScrollToTop}
             >
               <img src={devLaunchersIcon} className={classes.rocketImage} />
               <Typography variant="h6" className={classes.basecampText}>
