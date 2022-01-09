@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
@@ -8,12 +8,16 @@ import Box from "@mui/material/Box";
 import HandoffDropdowns from "./HandoffDropdowns";
 import ModuleTags from "./ModuleTags";
 
+import useForceRender from "../ForceRender";
 import ScrollToTop from "../ScrollToTop";
 import BackgroundModal from "../BackgroundModal";
 import SuccessNotification from "./SuccessNotification";
 
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
-import { languageFilterDescriptions, frameworkFilterDescriptions } from "../../data/MenuSelectors";
+import {
+  languageFilterDescriptions,
+  frameworkFilterDescriptions,
+} from "../../data/MenuSelectors";
 
 function Handoff() {
   const [title, setTitle] = useState("");
@@ -22,6 +26,7 @@ function Handoff() {
   const [framework, setFramework] = useState("");
   const [userSelectedTags, setUserSelectedTags] = useState([]);
   const [moduleCreateSuccessful, setModuleCreateSuccessful] = useState(false);
+  const forceRender = useForceRender();
 
   let found;
 
@@ -31,6 +36,7 @@ function Handoff() {
   function handleTitleWasUpdated(event) {
     setTitle(event.target.value);
   }
+
   function handleItemWasSelected(item) {
     if (item === "Java" || item === "JavaScript" || item === "C#") {
       setLanguage(item);
@@ -39,13 +45,33 @@ function Handoff() {
     setFramework(item);
   }
 
-  function userSubmittedTag(tag) {
+  function userSelectedTag(tag) {
     //don't add tag more than once
     found = userSelectedTags.includes(tag);
     if (found) return;
+    //add new tag to users tag array
     const tagSelected = userSelectedTags;
     tagSelected.push(tag);
     setUserSelectedTags(tagSelected);
+  }
+
+  function handleUserRemovedTag(tag) {
+    if (userSelectedTags.length === 1) {
+      console.log("here");
+      forceRender();
+    }
+    const tagSelected = userSelectedTags.filter((queryTag) => {
+      return queryTag !== tag;
+    });
+    setUserSelectedTags(tagSelected);
+    /* const tagIndex = tagSelected.indexOf(tag);
+    if(tagIndex === 0) setUserSelectedTags([]);
+    //if tag isn't in array/error handling
+    if (tagIndex > 0) {
+      tagSelected.splice(tagIndex-1, 1);
+      console.log(tagSelected)
+      setUserSelectedTags(tagSelected);
+    }*/
   }
 
   function handleUserSubmittedModule(event) {
@@ -140,7 +166,11 @@ function Handoff() {
           />
         </Grid>
         <Grid item xs={12}>
-          <ModuleTags userSubmittedTag={userSubmittedTag} />
+          <ModuleTags
+            userTags={userSelectedTags}
+            userRemovedTag={handleUserRemovedTag}
+            userSelectedTag={userSelectedTag}
+          />
         </Grid>
         <Grid item xs={12}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
@@ -161,7 +191,12 @@ function Handoff() {
           <Button variant="contained" color="brightBlue" sx={{ mr: "5px" }}>
             Save
           </Button>
-          <Button variant="contained" color="brightBlue" type="submit" onClick={ScrollToTop}>
+          <Button
+            variant="contained"
+            color="brightBlue"
+            type="submit"
+            onClick={ScrollToTop}
+          >
             Submit
           </Button>
         </Grid>

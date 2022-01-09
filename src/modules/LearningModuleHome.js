@@ -20,7 +20,7 @@ const cache = createCache({
 function LearningModuleHome(props) {
   //dynamically route user back to module starting point
   const [moduleDirector, setModuleDirector] = useState("");
-  const [builderMode, setBuilderMode] = useState(true);
+  const [builderMode, setBuilderMode] = useState(false);
 
   const params = useParams();
   // TODO replace by API call once we have a back-end

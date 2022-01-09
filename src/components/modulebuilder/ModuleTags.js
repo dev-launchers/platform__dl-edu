@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
+
+import useForceRender from "../ForceRender";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const tagHolder = [
   "Beginner",
@@ -13,9 +16,11 @@ const tagHolder = [
   "Loops",
 ];
 
+
 function ModuleTags(props) {
   const [dynamicTagHolder, setDynamicTagHolder] = useState(tagHolder);
   const [newTag, setNewTag] = useState("");
+  const forceRender = useForceRender();
 
   function handleUserCreatedTag() {
     tagHolder.push(newTag);
@@ -25,8 +30,14 @@ function ModuleTags(props) {
   function handleUserUpdatedTag(event) {
     setNewTag(event.target.value);
   }
-  function handleUserSubmittedTag(event) {
-    props.userSubmittedTag(event.target.textContent);
+  function handleUserSelectedTag(event) {
+    props.userSelectedTag(event.target.textContent);
+    //force component to re-render so user can view which tags have been selected
+    forceRender();
+  }
+  function handleUserRemovedTag(tag) {
+    props.userRemovedTag(tag);
+    forceRender();
   }
 
   return (
@@ -36,14 +47,20 @@ function ModuleTags(props) {
       </Grid>
       <Grid item xs={12}>
         <ButtonGroup>
-          {dynamicTagHolder.map((tag) => {
+          {dynamicTagHolder.map((tag, index) => {
             return (
-              <Box sx={{ marginRight: "10px" }}>
+              <Box sx={{ marginRight: "10px" }} key={index}>
                 <Button
                   variant="contained"
                   color="gray"
-                  onClick={handleUserSubmittedTag}
-                  sx={{ position:"static" }}
+                  disableRipple
+                  onClick={handleUserSelectedTag}
+                  sx={{ position: "static" }}
+                  endIcon={
+                    props.userTags.includes(tag) ? (
+                      <DeleteIcon onClick={() => handleUserRemovedTag(tag)} />
+                    ) : null
+                  }
                 >
                   {tag}
                 </Button>
@@ -52,11 +69,15 @@ function ModuleTags(props) {
           })}
         </ButtonGroup>
       </Grid>
-      <Grid item xs={8} sx={{ display: "flex", alignItems: "center", position:"static" }}>
+      <Grid
+        item
+        xs={8}
+        sx={{ display: "flex", alignItems: "center", position: "static" }}
+      >
         <TextField
           onChange={handleUserUpdatedTag}
           placeholder="+ Add your own tag"
-          sx={{ mr: "10px", position:"static" }}
+          sx={{ mr: "10px", position: "static" }}
           value={newTag}
         ></TextField>
         {newTag !== "" ? (
