@@ -55,19 +55,11 @@ function Handoff() {
     setUserSelectedTags(tagSelected);
   }
 
-  function handleUserRemovedTag(tag) {
+  function handleUserDeletedTag(tag) {
     const tagSelected = userSelectedTags.filter((queryTag) => {
       return queryTag !== tag;
     });
     setUserSelectedTags(tagSelected);
-    /* const tagIndex = tagSelected.indexOf(tag);
-    if(tagIndex === 0) setUserSelectedTags([]);
-    //if tag isn't in array/error handling
-    if (tagIndex > 0) {
-      tagSelected.splice(tagIndex-1, 1);
-      console.log(tagSelected)
-      setUserSelectedTags(tagSelected);
-    }*/
   }
 
   function handleUserSubmittedModule(event) {
@@ -164,7 +156,7 @@ function Handoff() {
         <Grid item xs={12}>
           <ModuleTags
             userTags={userSelectedTags}
-            userRemovedTag={handleUserRemovedTag}
+            userDeletedTag={handleUserDeletedTag}
             userSelectedTag={userSelectedTag}
           />
         </Grid>

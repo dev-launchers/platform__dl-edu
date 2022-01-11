@@ -26,20 +26,20 @@ function ModuleTags(props) {
     tagHolder.push(tempTag);
     setDynamicTagHolder(tagHolder);
     setNewTag("");
-    
+    props.userSelectedTag(newTag);
   }
   function handleUserUpdatedTag(event) {
     setNewTag(event.target.value);
   }
   const handleUserSelectedTag = (tag) => () => {
-    /* props.userSelectedTag(event.target.textContent); */
     //force component to re-render so user can view which tags have been selected
-
+    
     const tempTagHolder = dynamicTagHolder;
     const tagIndex = tempTagHolder.indexOf(tag);
     tempTagHolder[tagIndex].deleteable = true;
     //update the deleteable object in the array
     setDynamicTagHolder((tags) => (tags = tempTagHolder));
+    props.userSelectedTag(tag.label);
     forceRender();
   };
 
@@ -54,6 +54,7 @@ function ModuleTags(props) {
         return tag.label !== tagToDelete.label;
       })
     );
+    props.userDeletedTag(tagToDelete.label)
   };
 
   return (
