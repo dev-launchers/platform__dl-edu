@@ -2,43 +2,59 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
+import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 
 import useForceRender from "../ForceRender";
-import DeleteIcon from "@mui/icons-material/Delete";
-
-const tagHolder = [
-  "Beginner",
-  "Intermediate",
-  "Advanced",
-  "Functions",
-  "Loops",
-];
-
 
 function ModuleTags(props) {
-  const [dynamicTagHolder, setDynamicTagHolder] = useState(tagHolder);
+  const [dynamicTagHolder, setDynamicTagHolder] = useState([
+    { deleteable: false, label: "Beginner" },
+    { deleteable: false, label: "Intermediate" },
+    { deleteable: false, label: "Advanced" },
+    { deleteable: false, label: "Functions" },
+    { deleteable: false, label: "Loops" },
+  ]);
   const [newTag, setNewTag] = useState("");
   const forceRender = useForceRender();
 
   function handleUserCreatedTag() {
-    tagHolder.push(newTag);
+    const tempTag = { deleteable: true, label: newTag };
+    const tagHolder = dynamicTagHolder;
+    tagHolder.push(tempTag);
     setDynamicTagHolder(tagHolder);
     setNewTag("");
+    
   }
   function handleUserUpdatedTag(event) {
     setNewTag(event.target.value);
   }
-  function handleUserSelectedTag(event) {
-    props.userSelectedTag(event.target.textContent);
+  const handleUserSelectedTag = (tag) => () => {
+    /* props.userSelectedTag(event.target.textContent); */
     //force component to re-render so user can view which tags have been selected
+
+    const tempTagHolder = dynamicTagHolder;
+    const tagIndex = tempTagHolder.indexOf(tag);
+    tempTagHolder[tagIndex].deleteable = true;
+    //update the deleteable object in the array
+    setDynamicTagHolder((tags) => (tags = tempTagHolder));
     forceRender();
-  }
-  function handleUserRemovedTag(tag) {
-    props.userRemovedTag(tag);
-    forceRender();
-  }
+  };
+
+  const handleUserDeletedTag = (tagToDelete) => () => {
+    /* const tempTagHolder = dynamicTagHolder;
+    const tagIndex = tempTagHolder.indexOf(tagToDelete);
+    tempTagHolder[tagIndex].deleteable = false;
+    setDynamicTagHolder((tags) => (tags = tempTagHolder));
+    forceRender(); */
+    setDynamicTagHolder((tags) =>
+      tags.filter((tag) => {
+        return tag.label !== tagToDelete.label;
+      })
+    );
+  };
 
   return (
     <Grid container rowSpacing={2}>
@@ -46,28 +62,19 @@ function ModuleTags(props) {
         <label>Module Tags</label>
       </Grid>
       <Grid item xs={12}>
-        <ButtonGroup>
+        {dynamicTagHolder.length > 0 ? <ButtonGroup>
           {dynamicTagHolder.map((tag, index) => {
             return (
               <Box sx={{ marginRight: "10px" }} key={index}>
-                <Button
-                  variant="contained"
-                  color="gray"
-                  disableRipple
-                  onClick={handleUserSelectedTag}
-                  sx={{ position: "static" }}
-                  endIcon={
-                    props.userTags.includes(tag) ? (
-                      <DeleteIcon onClick={() => handleUserRemovedTag(tag)} />
-                    ) : null
-                  }
-                >
-                  {tag}
-                </Button>
+                <Chip
+                  label={tag.label}
+                  onClick={handleUserSelectedTag(tag)}
+                  onDelete={tag.deleteable ? handleUserDeletedTag(tag) : null}
+                />
               </Box>
             );
-          })}
-        </ButtonGroup>
+          })} 
+        </ButtonGroup> : <Typography paragraph>No tags yet! Click below to add your own!</Typography>}
       </Grid>
       <Grid
         item

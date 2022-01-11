@@ -56,10 +56,6 @@ function Handoff() {
   }
 
   function handleUserRemovedTag(tag) {
-    if (userSelectedTags.length === 1) {
-      console.log("here");
-      forceRender();
-    }
     const tagSelected = userSelectedTags.filter((queryTag) => {
       return queryTag !== tag;
     });

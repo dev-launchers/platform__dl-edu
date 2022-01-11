@@ -12,7 +12,6 @@ import classes from "./LearningModuleHome.module.css";
 import "highlight.js/styles/base16/zenburn.css";
 import TabPanel from "../components/tabhelpers/TabPanel";
 import allyProps from "../components/tabhelpers/allyProps";
-import ExercisesHome from "../components/exercises/ExercisesHome";
 
 const cache = createCache({
   key: "css",
