@@ -62,8 +62,8 @@
     flex-direction: column;
     background-color: #181818;
     align-items: center;
-    padding-bottom: 175px;
-    padding-top:200px;
+    padding-bottom: 75px;
+    padding-top:50px;
   }
   .cakeText{
     color: #ffffff;
@@ -73,7 +73,7 @@
   .leftSloganContainer {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    width: 90%;
   }
   .cakeContainer{
     padding-left: 30px;
