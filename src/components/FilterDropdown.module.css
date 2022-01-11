@@ -2,30 +2,24 @@
   display: flex;
   flex-direction: column;
 }
-.innerSortWrapper{
-    margin:auto;
-    width:90%;
+.innerSortWrapper {
+  margin: auto;
+  width: 90%;
 }
 
-.menuListParent{
-  position: absolute;
-  width:250px;
-  background-color: aliceblue;
-  z-index: 2000;
-}
-.menuListChild{
-  display:flex;
-  flex-direction: column;
-}
-.menuItemControl{
-/*   position: absolute;
-  z-index: 201; */
-}
 .filterButtons {
   width: 80%;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   text-transform: none;
-  position:absolute;
-  z-index: 100;
+  position: static;
+}
+.menuListParent {
+  position: absolute;
+  width: 234px;
+  z-index: 2000;
+}
+.menuListChild {
+  display: flex;
+  flex-direction: column;
 }

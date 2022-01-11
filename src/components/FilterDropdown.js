@@ -68,6 +68,7 @@ function FilterDropdown(props) {
             color="neutral"
             size="large"
             disableElevation
+            disableRipple
             onClick={handleToggle}
             endIcon={
               menuArrowDown ? (
@@ -112,8 +113,8 @@ function FilterDropdown(props) {
                           component={NavLink}
                           to={item.link}
                           onClick={handleClick}
+                          sx={{ backgroundColor:"#ffffff" }}
                           disableRipple
-                          className={classes.menuItemControl}
                         >
                           {item.name}
                         </MenuItem>

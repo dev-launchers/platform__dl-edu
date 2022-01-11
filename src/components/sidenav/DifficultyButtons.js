@@ -24,9 +24,15 @@ function DifficultyButtons(props) {
   return (
     <>
       <CssBaseline />
-      <List component="div" disablePadding>
-        <ListItem>Difficulty</ListItem>
-        <ListItem sx={{ display: "flex", justifyContent: "space-between" }}>
+      <List component="div" sx={{ position: "static" }} disablePadding>
+        <ListItem sx={{ position: "static" }}>Difficulty</ListItem>
+        <ListItem
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            position: "static",
+          }}
+        >
           {ButtonDescriptions.map((item, index) => {
             return (
               <Button
@@ -37,6 +43,7 @@ function DifficultyButtons(props) {
                 component={NavLink}
                 to={item.linkTo}
                 onClick={props.difficultyWasSelected}
+                sx={{ position: "static" }}
               >
                 {item.difficulty}
               </Button>
