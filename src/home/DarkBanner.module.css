@@ -5,11 +5,8 @@
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 50px;
-  padding-top: 25px;
 }
 .leftSloganContainer {
-  display: flex;
-  flex-direction: column;
   width: 60%;
   margin: 5px;
 }
@@ -17,9 +14,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  height: 550px;
   width: 80%;
-  margin:50px;
+  margin:auto;
 }
 .cakeText{
   color: #ffffff;
