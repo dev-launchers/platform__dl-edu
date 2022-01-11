@@ -28,6 +28,9 @@ function MainContent() {
   const filterDifficultyHandler = (key) => {
     setFilterKey(key);
   };
+  const filterTagHandler = (key) => {
+    setFilterKey(key);
+  };
 
   const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     ({ theme, open }) => ({
@@ -64,6 +67,7 @@ function MainContent() {
           handleOpen={handleDrawerOpen}
           handleClose={handleDrawerClose}
           onDifficultyWasSelected={filterDifficultyHandler}
+          onTagWasSelected={filterTagHandler}
         />
         <Main open={open}>
           <Switch>
@@ -77,6 +81,9 @@ function MainContent() {
               <LearningModule />
             </Route>
             <Route path={`/main-content/learning-module/filter-by=:difficulty`}>
+              <FilteredLearningModule filterKey={filterKey} />
+            </Route>
+            <Route path={`/main-content/learning-module/filter-by=:tag`}>
               <FilteredLearningModule filterKey={filterKey} />
             </Route>
           </Switch>

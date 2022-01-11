@@ -7,9 +7,25 @@
     width:90%;
 }
 
+.menuListParent{
+  position: absolute;
+  width:250px;
+  background-color: aliceblue;
+  z-index: 2000;
+}
+.menuListChild{
+  display:flex;
+  flex-direction: column;
+}
+.menuItemControl{
+/*   position: absolute;
+  z-index: 201; */
+}
 .filterButtons {
   width: 80%;
   display:flex;
   justify-content: space-between;
   text-transform: none;
+  position:absolute;
+  z-index: 100;
 }

@@ -4,13 +4,26 @@ import ModuleMetadata from "../data/ModuleMetadata";
 import LearningModuleListItem from "./LearningModuleListItem";
 
 function FilteredLearningModule(props) {
-  const learningModuleListItemComponents = ModuleMetadata.filter(
-    (metaDatum) => metaDatum.difficulty === props.filterKey
-  ).map((metaDatum) => (
-    <LearningModuleListItem key={metaDatum.id} moduleMetadata={metaDatum} />
-  ));
+  let learningModuleListItemComponents;
+  if (
+    props.filterKey === "beginner" ||
+    props.filterKey === "intermediate" ||
+    props.filterKey === "advanced"
+  ) {
+    learningModuleListItemComponents = ModuleMetadata.filter(
+      (metaDatum) => metaDatum.difficulty === props.filterKey
+    ).map((metaDatum) => (
+      <LearningModuleListItem key={metaDatum.id} moduleMetadata={metaDatum} />
+    ));
+  } else {
+    learningModuleListItemComponents = ModuleMetadata.filter((module) => {
+      return module.keyWords.some((keyWord) => keyWord === props.filterKey)
+    }).map((module) => (
+      <LearningModuleListItem key={module.id} moduleMetadata={module} />
+    ));
+    console.log(learningModuleListItemComponents);
+  }
 
-  
   return (
     <>
       <CssBaseline />

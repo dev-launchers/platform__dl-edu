@@ -18,11 +18,7 @@ const languageFilterDescriptions = [
     { id: "5", name: "Bar", link: "/main-content/learning-modules/csharp" },
     { id: "6", name: "Bar", link: "/main-content/learning-modules/csharp" },
   ];
-  const progressFilterDescriptions = [
-    { id: "7", name: "alpha", link: "/main-content/learning-modules/javascript" },
-    { id: "8", name: "beta", link: "/main-content/learning-modules/java" },
-    { id: "9", name: "gamma", link: "/main-content/learning-modules/csharp" },
-  ];
+
   const dlLearnFilterDescriptions = [
     { id: "10", name: "Code", link: "/main-content/legacy-learn/code" },
     { id: "11", name: "Design", link: "/main-content/legacy-learn/design" },
@@ -51,10 +47,6 @@ function FilterDropdownMenu() {
                 <FilterDropdown
                   filterTitle="Framework"
                   filterObjects={frameworkFilterDescriptions}
-                />
-                <FilterDropdown
-                  filterTitle="Progress"
-                  filterObjects={progressFilterDescriptions}
                 />
               </List>
     )
