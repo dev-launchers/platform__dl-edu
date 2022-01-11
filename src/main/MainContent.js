@@ -25,10 +25,7 @@ function MainContent() {
     setOpen(false);
   };
 
-  const filterDifficultyHandler = (key) => {
-    setFilterKey(key);
-  };
-  const filterTagHandler = (key) => {
+  const filterHandler = (key) => {
     setFilterKey(key);
   };
 
@@ -56,18 +53,17 @@ function MainContent() {
   ); // The `path` lets us build <Route> paths that are
   // relative to the parent route, while the `url` lets
   // us build relative links.
-
   return (
     <>
       <CssBaseline />
-      <Box sx={{ display: "flex", width:"100%" }}>
+      <Box sx={{ display: "flex", width: "100%" }}>
         <SideNav
           theme={theme}
           checkOpen={open}
           handleOpen={handleDrawerOpen}
           handleClose={handleDrawerClose}
-          onDifficultyWasSelected={filterDifficultyHandler}
-          onTagWasSelected={filterTagHandler}
+          onDifficultyWasSelected={filterHandler}
+          onTagWasSelected={filterHandler}
         />
         <Main open={open}>
           <Switch>
@@ -80,10 +76,8 @@ function MainContent() {
             <Route path={`/main-content/learning-module/module-id=:moduleId`}>
               <LearningModule />
             </Route>
-            <Route path={`/main-content/learning-module/filter-by=:difficulty`}>
-              <FilteredLearningModule filterKey={filterKey} />
-            </Route>
-            <Route path={`/main-content/learning-module/filter-by=:tag`}>
+
+            <Route path={`/main-content/learning-module/filter-by=:filterKey`}>
               <FilteredLearningModule filterKey={filterKey} />
             </Route>
           </Switch>
@@ -94,4 +88,3 @@ function MainContent() {
 }
 
 export default MainContent;
-/* =:${filterKey} */
