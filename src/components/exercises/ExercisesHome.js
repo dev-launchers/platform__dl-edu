@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 
+import ScrollToTop from "../ScrollToTop";
 import BackgroundModal from "../BackgroundModal";
 import CreateQuestions from "./CreateQuestions";
 
@@ -36,12 +37,16 @@ function ExercisesHome() {
 
   function handleModalWasOpened(type) {
     setQuestionType(type);
+    console.log(type)
     setShowCreateMenu(true);
-    document.body.style.overflow = 'hidden';    
+    ScrollToTop();
+    if (type === "True or False Questions") {
+      document.body.style.overflow = "hidden";
+    }
   }
   function handleModalWasClosed() {
     setShowCreateMenu(false);
-    document.body.style.overflow = 'unset';    
+    document.body.style.overflow = "unset";
   }
 
   return (
@@ -49,15 +54,20 @@ function ExercisesHome() {
       {showCreateMenu ? (
         <>
           {ReactDOM.createPortal(
-          <BackgroundModal modalIsOpen={showCreateMenu} closeModal={handleModalWasClosed} />,
-          document.getElementById("background-modal"))} 
+            <BackgroundModal
+              modalIsOpen={showCreateMenu}
+              closeModal={handleModalWasClosed}
+            />,
+            document.getElementById("background-modal")
+          )}
           {ReactDOM.createPortal(
-          <CreateQuestions
-            onClose={handleModalWasClosed}
-            questionType={questionType}
-            closeMenu={handleModalWasClosed}
-          />
-          , document.getElementById("description-modal"))}
+            <CreateQuestions
+              onClose={handleModalWasClosed}
+              questionType={questionType}
+              closeMenu={handleModalWasClosed}
+            />,
+            document.getElementById("description-modal")
+          )}
         </>
       ) : null}
       <Stack spacing={2}>{mappedExercises}</Stack>
