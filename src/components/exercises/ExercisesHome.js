@@ -16,28 +16,36 @@ const exerciseTitles = ["Multiple Choice Questions", "True or False Questions"];
 function ExercisesHome() {
   const [showCreateMenu, setShowCreateMenu] = useState(false);
   const [questionType, setQuestionType] = useState("");
+  const [mCQuestions, setMCQuestions] = useState([]);
+  const [tFQuestions, setTFQuestions] = useState([]);
 
-  const mappedExercises = exerciseTitles.map((exercise) => {
-    return (
-      <Box display="flex" flexDirection="column">
-        <Box display="flex" alignItems="center">
-          <Typography variant="h3" margin="10px">
-            {exercise}
-          </Typography>
-          <Button color="dark" onClick={() => handleModalWasOpened(exercise)}>
-            <AddIcon fontSize="large" />
-          </Button>
-        </Box>
-        <Typography paragraph color="gray" margin="25px">
-          It's empty here! Add some exercises by clicking “+”
-        </Typography>
-      </Box>
-    );
-  });
-
+  function userSubmittedQuestion(question) {
+    let tempArray;
+    //add question to the pertinent exercise array
+    if (question.questionQuantity === 2) {
+      tempArray = tFQuestions;
+      tempArray.push(question);
+      setTFQuestions(tempArray);
+    } else {
+      tempArray = mCQuestions;
+      tempArray.push(question);
+      setMCQuestions(tempArray);
+    }
+    //if user wants to add another question
+    if (question.addAnother) {
+      //close modal, open modal, ie, reset the form for the next question
+      setShowCreateMenu(false);
+      setTimeout(function handleAddAnother() {
+        setShowCreateMenu(true);
+        ScrollToTop();
+      }, 100);
+    } else {
+      setShowCreateMenu(false);
+      ScrollToTop();
+    }
+  }
   function handleModalWasOpened(type) {
     setQuestionType(type);
-    console.log(type)
     setShowCreateMenu(true);
     ScrollToTop();
     if (type === "True or False Questions") {
@@ -65,12 +73,40 @@ function ExercisesHome() {
               onClose={handleModalWasClosed}
               questionType={questionType}
               closeMenu={handleModalWasClosed}
+              userSubmittedQuestion={userSubmittedQuestion}
             />,
             document.getElementById("description-modal")
           )}
         </>
       ) : null}
-      <Stack spacing={2}>{mappedExercises}</Stack>
+      <Stack spacing={2}>
+        {exerciseTitles.map((exercise, index) => {
+          return (
+            <Box key={index} display="flex" flexDirection="column">
+              <Box display="flex" alignItems="center">
+                <Typography variant="h3" margin="10px">
+                  {exercise}
+                </Typography>
+                <Button
+                  color="dark"
+                  onClick={() => handleModalWasOpened(exercise)}
+                >
+                  <AddIcon fontSize="large" />
+                </Button>
+              </Box>
+              {index === 0 && mCQuestions.length > 0 ? (
+                <h3>{mCQuestions[0].title}</h3>
+              ) : index === 1 && tFQuestions.length > 0 ? (
+                <h3>{tFQuestions[0].title}</h3>
+              ) : (
+                <Typography paragraph color="gray" margin="25px">
+                  It's empty here! Add some exercises by clicking “+”
+                </Typography>
+              )}
+            </Box>
+          );
+        })}
+      </Stack>
     </Container>
   );
 }
