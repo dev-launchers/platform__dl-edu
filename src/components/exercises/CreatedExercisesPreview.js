@@ -6,22 +6,25 @@ import Box from "@mui/material/Box";
 import CheckIcon from '@mui/icons-material/Check';
 
 function CreatedExercisesPreview(props) {
-  props.questionInformation;
+  console.log(props.questionInformation[0].isCorrectAnswer);
   return (
     <Stack>
       {props.questionInformation.map((question) => {
         return (
-          <>
-            <Typography variant="h5">{question.title}</Typography>
+          <Box key={Math.random()}>
+            <Typography variant="h5" sx={{mb:"10px"}}>{question.title}</Typography>
             <Typography paragraph>Answers</Typography>
             {question.answers.map((answer, index) => {
               return (
                 <Box
+                key={index}
                   sx={{
                     display: "flex",
                     alignItems:"center",
                     backgroundColor: "#ebebeb",
-                    mb: "5px",
+                    borderRadius:"2%",
+                    mb: "10px",
+                    padding:"10px",
                     width: "50%",
                   }}
                 >
@@ -36,11 +39,11 @@ function CreatedExercisesPreview(props) {
                     {String.fromCharCode(65 + index)}
                   </Typography>
                   <Typography paragraph sx={{ margin:"5px" }}>{answer.answer}</Typography>
-                  {answer.isCorrectAnswer ? <CheckIcon sx={{ color:"theme.success" }}/> : null}
+                  {index == question.isCorrectAnswer ? <Box sx={{display:"flex", justifyContent:"flex-end", width:"100%"}}> <CheckIcon sx={{ color:"green" }} /></Box> : null}
                 </Box>
               );
             })}
-          </>
+          </Box>
         );
       })}
     </Stack>

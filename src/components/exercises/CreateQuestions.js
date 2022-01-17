@@ -53,13 +53,13 @@ function CreateQuestions(props) {
     setAnswerFields(tempAnswerValue);
   }
   function handleUserSelectedCorrectAnswer(index) {
-    setRadioTracker(index)
+    setRadioTracker(index);
   }
   function handleUserAddedAnswerField() {
     if (answerFields.length >= 6) {
       return;
     }
-    setAnswerFieldQuantity(oldValue => oldValue + 1);
+    setAnswerFieldQuantity((oldValue) => oldValue + 1);
     const tempAnswerField = answerFields.slice();
     tempAnswerField.push({ id: Math.random(), answer: "" });
     setAnswerFields(tempAnswerField);
@@ -68,7 +68,7 @@ function CreateQuestions(props) {
   function handleUserRemovedAnswerField(index) {
     //can't have less than 2 answers
     if (answerFields.length < 2) return;
-    setAnswerFieldQuantity(oldValue => oldValue - 1);
+    setAnswerFieldQuantity((oldValue) => oldValue - 1);
     const tempAnswers = answerFields.slice();
     //slice everything before and after the index
     tempAnswers.splice(index, 1);
@@ -82,7 +82,8 @@ function CreateQuestions(props) {
       addAnother: addAnother,
       answerQuantity: answerFieldQuantity,
       title: title,
-      answers: answerFields
+      answers: answerFields,
+      isCorrectAnswer: radioTracker,
     };
     console.log(userQuestion);
     //determine if the user is going to submit another quesion
@@ -138,7 +139,9 @@ function CreateQuestions(props) {
                     <AnswerField
                       key={answer.id}
                       radioIndex={radioTracker}
-                      userSelectedCorrectAnswer={handleUserSelectedCorrectAnswer}
+                      userSelectedCorrectAnswer={
+                        handleUserSelectedCorrectAnswer
+                      }
                       id={index}
                       handleUserTypedAnswer={handleUserTypedAnswer}
                       answer={answer.answer}
@@ -150,7 +153,9 @@ function CreateQuestions(props) {
                     <AnswerField
                       key={answer.id}
                       radioIndex={radioTracker}
-                      userSelectedCorrectAnswer={handleUserSelectedCorrectAnswer}
+                      userSelectedCorrectAnswer={
+                        handleUserSelectedCorrectAnswer
+                      }
                       handleUserTypedAnswer={handleUserTypedAnswer}
                       handleUserRemovedAnswerField={
                         handleUserRemovedAnswerField
