@@ -5,82 +5,29 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-import Radio from "@mui/material/Radio";
 
-import CloseIcon from "@mui/icons-material/Close";
 import DeleteIcon from "@mui/icons-material/Delete";
+import CloseIcon from "@mui/icons-material/Close";
 import InfoIcon from "@mui/icons-material/Info";
-import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
 import AddIcon from '@mui/icons-material/Add';
 import classes from "./CreateQuestions.module.css";
+import AnswerField from "./AnswerField";
+import useForceRender from "../ForceRender";
 
 function CreateQuestions(props) {
   const [title, setTitle] = useState("");
   const [addAnother, setAddAnother] = useState(false);
+  const [answerFields, setAnswerFields] = useState([ {id: 0, answer:""},{id: 1, answer:""},{id: 2, answer:""}, ]);
+  const [answerCounter, setAnswerCounter] = useState(3);
   const [answerFieldQuantity, setAnswerFieldQuantity] = useState(
     props.questionType === "True or False Questions" ? 2 : 3
   );
-  const [selectedAnswer, setSelectedAnswer] = useState(0);
-
-  function handleChangeRadioAnswer(event) {
-    setSelectedAnswer(event.target.value);
-  };
-
-  let answerFields = [];
-  for (let i = 0; i < answerFieldQuantity; i++) {
-    answerFields.push(
-      <Box sx={{ display: "flex", margin:"10px" }}>
-        <TextField
-          size="medium"
-          sx={{ backgroundColor: "#EBEBEB", width: "60%" }}
-          placeholder="eg. how to write an if statement"
-          InputProps={{
-            startAdornment: (
-              <Typography
-                paragraph
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  fontWeight: "800",
-                  margin: "auto",
-                  mr: "10px",
-                }}
-              >
-                {String.fromCharCode(65 + i)}
-              </Typography>
-            ),
-          }}
-        />
-        <Box
-          sx={{
-            width: "40%",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-evenly",
-          }}
-        >
-          <Radio
-            checked={selectedAnswer == i}
-            onChange={handleChangeRadioAnswer}
-            value={i}
-            name="correct-answer-buttons"
-            inputProps={{ "aria-label": i }}
-            icon={<CheckBoxOutlineBlankIcon />}
-            checkedIcon={<CheckBoxIcon />}
-            sx={{ height:"16px", width:"16px" }}
-          />
-          <Typography>Mark as correct answer</Typography>
-          <DeleteIcon sx={{cursor:"pointer"}} onClick={() => handleUserRemovedAnswer(i)}/>
-        </Box>
-      </Box>
-    );
-  }
+  const forceRender = useForceRender();
 
   //show "add more answers button if the question is MC"
   const moreAnswersButton =
     props.questionType === "True or False Questions" ? null : (
-      <Button startIcon={<AddIcon />} variant="outlined" color="gray" onClick={handleUserAddedQuestion}>Add more answers</Button>
+      <Button startIcon={<AddIcon />} variant="outlined" color="gray" onClick={handleUserAddedAnswerField}>Add more answers</Button>
     );
 
     function handleUserClickedInfoButton() {
@@ -90,18 +37,30 @@ function CreateQuestions(props) {
     event.preventDefault();
     setTitle(event.target.value);
   }
-  function handleUserAddedQuestion() {
-    //user can create no more than 6 answers
-    if (answerFieldQuantity < 6) {
-      const updatedAnswerQuantity = answerFieldQuantity + 1;
-      setAnswerFieldQuantity(updatedAnswerQuantity);
+  function handleUserTypedAnswer(answer, index){
+    const tempAnswerValue = answerFields.slice();
+    tempAnswerValue[index].answer = answer
+    setAnswerFields(tempAnswerValue);
+  }
+  function handleUserAddedAnswerField() {
+    if(answerFields.length >= 6){
+      return;
     }
+    const tempAnswerField = answerFields.slice();
+    tempAnswerField.push({ id: answerFields.length , answer:""});
+    setAnswerFields(tempAnswerField);
   }
-  function handleUserRemovedAnswer(index) {
-    console.log(index)
-    answerFields = answerFields.splice(index, 1);
-    setAnswerFieldQuantity(oldAnswerQuantity => oldAnswerQuantity - 1);
+  
+  function handleUserRemovedAnswerField(index) {
+    //can't have less than 2 answers  
+    if(answerFields.length < 2) return;
+      const tempAnswers = answerFields.slice();
+      //slice everything before and after the index
+      tempAnswers.splice(index, 1);
+      setAnswerFields(tempAnswers);
+      console.log(answerFields);
   }
+
   function handleQuestionWasSubmitted(event) {
     event.preventDefault();
     const userQuestion = {
@@ -151,7 +110,16 @@ function CreateQuestions(props) {
           ></TextField>
           <Typography paragraph>Answers</Typography>
           <Box sx={{ width: "100%", display: "flex", flexDirection: "column" }}>
-            {answerFields}
+            {props.questionType === "True or False Questions" ? 
+            answerFields.slice(0, 2).map((answer) => {
+              return(
+                <AnswerField key={answer.id} number={answer.id} answer={answer.answer} />
+              )
+            }) : answerFields.map((answer, index) => {
+              return(
+                <AnswerField key={answer.id} handleUserTypedAnswer={handleUserTypedAnswer} handleUserRemovedAnswerField={handleUserRemovedAnswerField} id={index} answer={answer.answer} />
+              )
+            })}
           </Box>
 
           <Box

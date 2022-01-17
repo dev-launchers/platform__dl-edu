@@ -44,11 +44,6 @@ function ModuleTags(props) {
   };
 
   const handleUserDeletedTag = (tagToDelete) => () => {
-    /* const tempTagHolder = dynamicTagHolder;
-    const tagIndex = tempTagHolder.indexOf(tagToDelete);
-    tempTagHolder[tagIndex].deleteable = false;
-    setDynamicTagHolder((tags) => (tags = tempTagHolder));
-    forceRender(); */
     setDynamicTagHolder((tags) =>
       tags.filter((tag) => {
         return tag.label !== tagToDelete.label;
