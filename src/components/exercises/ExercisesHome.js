@@ -10,6 +10,7 @@ import AddIcon from "@mui/icons-material/Add";
 import ScrollToTop from "../ScrollToTop";
 import BackgroundModal from "../BackgroundModal";
 import CreateQuestions from "./CreateQuestions";
+import CreatedExercisesPreview from "./CreatedExercisesPreview";
 
 const exerciseTitles = ["Multiple Choice Questions", "True or False Questions"];
 
@@ -23,7 +24,7 @@ function ExercisesHome() {
     let tempArray;
     //add question to the pertinent exercise array
     if (question.questionQuantity === 2) {
-      tempArray = tFQuestions;
+      tempArray = tFQuestions.slice();
       tempArray.push(question);
       setTFQuestions(tempArray);
     } else {
@@ -95,9 +96,9 @@ function ExercisesHome() {
                 </Button>
               </Box>
               {index === 0 && mCQuestions.length > 0 ? (
-                <h3>{mCQuestions[0].title}</h3>
+                <CreatedExercisesPreview questionInformation={mCQuestions} />
               ) : index === 1 && tFQuestions.length > 0 ? (
-                <h3>{tFQuestions[0].title}</h3>
+                <CreatedExercisesPreview questionInformation={tFQuestions} />
               ) : (
                 <Typography paragraph color="gray" margin="25px">
                   It's empty here! Add some exercises by clicking “+”

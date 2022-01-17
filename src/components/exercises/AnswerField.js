@@ -10,10 +10,11 @@ import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 function AnswerField(props) {
   const [userAnswer, setUserAnswer] = useState("");
-  const [selectedAnswer, setSelectedAnswer] = useState(0);
+  const [selectedAnswer, setSelectedAnswer] = useState(-2);
 
   function handleChangeRadioAnswer(event) {
     setSelectedAnswer(event.target.value);
+    props.userSelectedCorrectAnswer(event.target.value);
   }
   
   function handleUserTypedAnswer(event) {
@@ -36,7 +37,7 @@ function AnswerField(props) {
       <TextField
         size="medium"
         sx={{ backgroundColor: "#EBEBEB", width: "60%" }}
-        placeholder="eg. how to write an if statement"
+        placeholder="eg. If condition: action "
         onBlur={handleUserFinishedTypingAnswer}
         onChange={handleUserTypedAnswer}
         value={props.answer}
@@ -66,7 +67,7 @@ function AnswerField(props) {
         }}
       >
         <Radio
-          checked={selectedAnswer == props.answer}
+          checked={selectedAnswer === props.radioIndex}
           onChange={handleChangeRadioAnswer}
           value={props.id}
           name="correct-answer-buttons"
