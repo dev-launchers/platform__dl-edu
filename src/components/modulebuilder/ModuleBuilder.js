@@ -75,7 +75,7 @@ function ModuleBuilder(props) {
           </div>
         </TabPanel>
         <TabPanel value={value} index={3} className={classes.tabPanels}>
-          <ExercisesHome />
+          <ExercisesHome advanceToNextTab={advanceToNextTab}/>
         </TabPanel>
         <TabPanel value={value} index={4} className={classes.tabPanels}>
           <Handoff />

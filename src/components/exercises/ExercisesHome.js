@@ -14,7 +14,7 @@ import CreatedExercisesPreview from "./CreatedExercisesPreview";
 
 const exerciseTitles = ["Multiple Choice Questions", "True or False Questions"];
 
-function ExercisesHome() {
+function ExercisesHome(props) {
   const [showCreateMenu, setShowCreateMenu] = useState(false);
   const [questionType, setQuestionType] = useState("");
   const [mCQuestions, setMCQuestions] = useState([]);
@@ -58,6 +58,10 @@ function ExercisesHome() {
     document.body.style.overflow = "unset";
   }
 
+  function handleUserFinishedCreatingQuestions() {
+    props.advanceToNextTab();
+    ScrollToTop();
+  }
   return (
     <Container>
       {showCreateMenu ? (
@@ -107,6 +111,16 @@ function ExercisesHome() {
             </Box>
           );
         })}
+        {tFQuestions.length > 0 || mCQuestions.length > 0 ? (
+          <Button
+            color="brightBlue"
+            variant="contained"
+            sx={{ width: "25%" }}
+            onClick={handleUserFinishedCreatingQuestions}
+          >
+            Next slide
+          </Button>
+        ) : null}
       </Stack>
     </Container>
   );
