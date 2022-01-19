@@ -85,7 +85,6 @@ function CreateQuestions(props) {
       answers: answerFields,
       isCorrectAnswer: radioTracker,
     };
-    console.log(userQuestion);
     //determine if the user is going to submit another quesion
     if (addAnother) {
       setAddAnother(false);

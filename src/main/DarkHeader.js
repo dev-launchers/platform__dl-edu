@@ -1,6 +1,5 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
-import { styled } from "@mui/system";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -41,8 +40,8 @@ function DarkHeader() {
             </Box>
             <Box className={classes.dlContainer1}>
               <Link
+                component={NavLink}
                 to="/home"
-                component={Typography}
                 variant={"h6"}
                 className={classes.link}
                 underline="none"
@@ -50,8 +49,8 @@ function DarkHeader() {
                 Home
               </Link>
               <Link
+                component={NavLink}
                 to="/about"
-                component={Typography}
                 variant={"h6"}
                 className={classes.link}
                 underline="none"

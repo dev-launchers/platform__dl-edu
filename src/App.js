@@ -1,6 +1,6 @@
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Route, Redirect } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { CssBaseline } from "@mui/material";
 
@@ -11,6 +11,7 @@ import DarkFooter from "./main/DarkFooter";
 import MainContent from "./main/MainContent";
 import Create from "./home/Create";
 import Challenge from "./home/Challenge";
+import About from "./pages/About";
 
 import "./styles.css";
 import classes from "./App.module.css";
@@ -63,6 +64,9 @@ function App() {
             <Create />
             <Challenge />
           </Box>
+        </Route>
+        <Route path="/about">
+          <About />
         </Route>
         <Route path="/main-content">
           <MainContent />

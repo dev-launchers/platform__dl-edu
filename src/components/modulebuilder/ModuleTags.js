@@ -33,7 +33,7 @@ function ModuleTags(props) {
   }
   const handleUserSelectedTag = (tag) => () => {
     //force component to re-render so user can view which tags have been selected
-    
+
     const tempTagHolder = dynamicTagHolder;
     const tagIndex = tempTagHolder.indexOf(tag);
     tempTagHolder[tagIndex].deleteable = true;
@@ -49,7 +49,7 @@ function ModuleTags(props) {
         return tag.label !== tagToDelete.label;
       })
     );
-    props.userDeletedTag(tagToDelete.label)
+    props.userDeletedTag(tagToDelete.label);
   };
 
   return (
@@ -58,19 +58,26 @@ function ModuleTags(props) {
         <label>Module Tags</label>
       </Grid>
       <Grid item xs={12}>
-        {dynamicTagHolder.length > 0 ? <ButtonGroup>
-          {dynamicTagHolder.map((tag, index) => {
-            return (
-              <Box sx={{ marginRight: "10px" }} key={index}>
-                <Chip
-                  label={tag.label}
-                  onClick={handleUserSelectedTag(tag)}
-                  onDelete={tag.deleteable ? handleUserDeletedTag(tag) : null}
-                />
-              </Box>
-            );
-          })} 
-        </ButtonGroup> : <Typography paragraph>No tags yet! Click below to add your own!</Typography>}
+        {dynamicTagHolder.length > 0 ? (
+          <ButtonGroup>
+            {dynamicTagHolder.map((tag, index) => {
+              return (
+                <Box sx={{ marginRight: "10px" }} key={index}>
+                  <Chip
+                    label={tag.label}
+                    onClick={handleUserSelectedTag(tag)}
+                    sx={{ position:"static" }}
+                    onDelete={tag.deleteable ? handleUserDeletedTag(tag) : null}
+                  />
+                </Box>
+              );
+            })}
+          </ButtonGroup>
+        ) : (
+          <Typography paragraph>
+            No tags yet! Click below to add your own!
+          </Typography>
+        )}
       </Grid>
       <Grid
         item

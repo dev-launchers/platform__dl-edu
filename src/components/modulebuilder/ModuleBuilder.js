@@ -67,10 +67,7 @@ function ModuleBuilder(props) {
         <TabPanel value={value} index={2} className={classes.tabPanels}>
           <div style={{ display: "flex", height: "800px" }}>
             <div className={classes.lmRightcolumn}>
-              <EmbeddedIDE
-                embedURL={props.moduleDatum.embeddedIDEURL}
-                customIFrameStyle={props.moduleDatum.embedIDEStyle}
-              />
+              
             </div>
           </div>
         </TabPanel>

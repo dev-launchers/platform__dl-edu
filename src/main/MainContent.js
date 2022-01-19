@@ -8,6 +8,7 @@ import FilteredLearningModule from "../modules/FilteredLearningModule";
 import LearningModuleHome from "../modules/LearningModuleHome";
 import LearningModuleList from "../modules/LearningModuleList";
 import LegacyLearnList from "../legacyLearn/LegacyLearnList";
+import ModuleBuilder from "../components/modulebuilder/ModuleBuilder";
 import SideNav from "./SideNav";
 
 const drawerWidth = 368;
@@ -76,9 +77,11 @@ function MainContent() {
             <Route path={`/main-content/learning-module/module-id=:moduleId`}>
               <LearningModuleHome />
             </Route>
-
             <Route path={`/main-content/learning-module/filter-by=:filterKey`}>
               <FilteredLearningModule filterKey={filterKey} />
+            </Route>
+            <Route path="/main-content/build">
+              <ModuleBuilder />
             </Route>
           </Switch>
         </Main>

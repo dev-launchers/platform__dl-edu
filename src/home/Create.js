@@ -1,10 +1,12 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
+import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 import { styled } from "@mui/material/styles";
 import createCache from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
+import { NavLink } from "react-router-dom";
 
 import classes from "./Create.module.css";
 import ArrowRight from "../images/arrow-right.png";
@@ -33,9 +35,33 @@ const ResponsiveBox = styled("div")(({ theme }) => ({
 }));
 
 function Create() {
-  function testFunction() {
-    console.log("object");
-  }
+  const CREATEBOX = [
+    {
+      title: "Concept Modules",
+      design: (
+        <Box className={classes.descriptionsContainer}>
+          <SquareDesign1 />
+          <SquareDesign1 />
+        </Box>
+      ),
+    },
+    {
+      title: "Program Modules",
+      design: (
+        <>
+          <SquareDesign2 />
+        </>
+      ),
+    },
+    {
+      title: "Code Challenge Modules",
+      design: (
+        <>
+          <SquareDesign3 />
+        </>
+      ),
+    },
+  ];
 
   return (
     <CacheProvider value={cache}>
@@ -57,66 +83,32 @@ function Create() {
           Create
         </Container>
         <Box className={classes.createContainer}>
-          <Box className={classes.createDescriptionContainer}>
-            <Box className={classes.descriptionsContainer}>
-              <SquareDesign1 />
-              <SquareDesign1 />
-            </Box>
-            <Typography variant="h5" sx={{ color: "#ffffff" }}>
-              Concept Modules
-            </Typography>
-            <Typography paragraph sx={{ color: "#ffffff" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis
-              scelerisque at quam congue posuere libero in sit quam.
-            </Typography>
-            <Box display="flex">
-              <Typography
-                paragraph
-                sx={{ color: "#81C3D7", cursor: "pointer" }}
-                onClick={testFunction}
-              >
-                Try it <img src={ArrowRight} alt="null" />
-              </Typography>
-            </Box>
-          </Box>
-          <Box className={classes.createDescriptionContainer}>
-            <SquareDesign2 />
-            <Typography variant="h5" sx={{ color: "#ffffff" }}>
-              Program Modules
-            </Typography>
-            <Typography paragraph sx={{ color: "#ffffff" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis
-              scelerisque at quam congue posuere libero in sit quam.
-            </Typography>
-            <Box display="flex">
-              <Typography
-                paragraph
-                sx={{ color: "#81C3D7", cursor: "pointer" }}
-                onClick={testFunction}
-              >
-                Try it <img src={ArrowRight} alt="null" />
-              </Typography>
-            </Box>
-          </Box>
-          <Box className={classes.createDescriptionContainer}>
-            <SquareDesign3 />
-            <Typography variant="h5" sx={{ color: "#ffffff" }}>
-              Code Challenge Modules
-            </Typography>
-            <Typography paragraph sx={{ color: "#ffffff" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis
-              scelerisque at quam congue posuere libero in sit quam.
-            </Typography>
-            <Box display="flex">
-              <Typography
-                paragraph
-                sx={{ color: "#81C3D7", cursor: "pointer" }}
-                onClick={testFunction}
-              >
-                Try it <img src={ArrowRight} alt="null" />
-              </Typography>
-            </Box>
-          </Box>
+          {CREATEBOX.map((createBox) => {
+            return (
+              <Box className={classes.createDescriptionContainer}>
+                {createBox.design}
+                <Typography variant="h5" sx={{ color: "#ffffff" }}>
+                  {createBox.title}
+                </Typography>
+                <Typography paragraph sx={{ color: "#ffffff" }}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Venenatis scelerisque at quam congue posuere libero in sit
+                  quam.
+                </Typography>
+                <Box display="flex">
+                  <Link
+                    component={NavLink}
+                    to="/main-content/build"
+                    paragraph
+                    underline="none"
+                    sx={{ color: "#81C3D7", cursor: "pointer" }}
+                  >
+                    Try it <img src={ArrowRight} alt="null" />
+                  </Link>
+                </Box>
+              </Box>
+            );
+          })}
         </Box>
       </ResponsiveBox>
     </CacheProvider>

@@ -12,7 +12,10 @@ import BackgroundModal from "../BackgroundModal";
 import CreateQuestions from "./CreateQuestions";
 import CreatedExercisesPreview from "./CreatedExercisesPreview";
 
-const exerciseTitles = ["Multiple Choice Questions", "True or False Questions"];
+const TITLES = [
+  { title: "Multiple Choice Questions" },
+  { title: "True or False Questions" },
+];
 
 function ExercisesHome(props) {
   const [showCreateMenu, setShowCreateMenu] = useState(false);
@@ -23,12 +26,12 @@ function ExercisesHome(props) {
   function userSubmittedQuestion(question) {
     let tempArray;
     //add question to the pertinent exercise array
-    if (question.questionQuantity === 2) {
+    if (question.answerQuantity === 2) {
       tempArray = tFQuestions.slice();
       tempArray.push(question);
       setTFQuestions(tempArray);
     } else {
-      tempArray = mCQuestions;
+      tempArray = mCQuestions.slice();
       tempArray.push(question);
       setMCQuestions(tempArray);
     }
@@ -44,18 +47,16 @@ function ExercisesHome(props) {
       setShowCreateMenu(false);
       ScrollToTop();
     }
+    console.log(mCQuestions);
+    console.log(tFQuestions);
   }
   function handleModalWasOpened(type) {
     setQuestionType(type);
     setShowCreateMenu(true);
     ScrollToTop();
-    if (type === "True or False Questions") {
-      document.body.style.overflow = "hidden";
-    }
   }
   function handleModalWasClosed() {
     setShowCreateMenu(false);
-    document.body.style.overflow = "unset";
   }
 
   function handleUserFinishedCreatingQuestions() {
@@ -85,28 +86,24 @@ function ExercisesHome(props) {
         </>
       ) : null}
       <Stack spacing={2}>
-        {exerciseTitles.map((exercise, index) => {
+        {TITLES.map((title, index) => {
           return (
-            <Box key={index} display="flex" flexDirection="column">
+            <Box display="flex" flexDirection="column">
               <Box display="flex" alignItems="center">
                 <Typography variant="h3" margin="10px">
-                  {exercise}
+                  {title.title}
                 </Typography>
                 <Button
                   color="dark"
-                  onClick={() => handleModalWasOpened(exercise)}
+                  onClick={() => handleModalWasOpened(TITLES[index].title)}
                 >
                   <AddIcon fontSize="large" />
                 </Button>
               </Box>
-              {index === 0 && mCQuestions.length > 0 ? (
+              {index === 0 ? (
                 <CreatedExercisesPreview questionInformation={mCQuestions} />
-              ) : index === 1 && tFQuestions.length > 0 ? (
-                <CreatedExercisesPreview questionInformation={tFQuestions} />
               ) : (
-                <Typography paragraph color="gray" margin="25px">
-                  It's empty here! Add some exercises by clicking “+”
-                </Typography>
+                <CreatedExercisesPreview questionInformation={tFQuestions} />
               )}
             </Box>
           );
