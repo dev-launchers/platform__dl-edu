@@ -13,6 +13,7 @@ import ArrowRight from "../images/arrow-right.png";
 import SquareDesign1 from "../components/designsquares/SquareDesign1";
 import SquareDesign2 from "../components/designsquares/SquareDesign2";
 import SquareDesign3 from "../components/designsquares/SquareDesign3";
+import ScrollToTop from "../components/ScrollToTop";
 
 //override default mui styling
 const cache = createCache({
@@ -102,6 +103,7 @@ function Create() {
                     paragraph
                     underline="none"
                     sx={{ color: "#81C3D7", cursor: "pointer" }}
+                    onClick={() => ScrollToTop()}
                   >
                     Try it <img src={ArrowRight} alt="null" />
                   </Link>

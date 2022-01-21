@@ -26,7 +26,6 @@ function Handoff() {
   const [framework, setFramework] = useState("");
   const [userSelectedTags, setUserSelectedTags] = useState([]);
   const [moduleCreateSuccessful, setModuleCreateSuccessful] = useState(false);
-  const forceRender = useForceRender();
 
   let found;
 
@@ -50,7 +49,7 @@ function Handoff() {
     found = userSelectedTags.includes(tag);
     if (found) return;
     //add new tag to users tag array
-    const tagSelected = userSelectedTags;
+    const tagSelected = userSelectedTags.slice();
     tagSelected.push(tag);
     setUserSelectedTags(tagSelected);
   }

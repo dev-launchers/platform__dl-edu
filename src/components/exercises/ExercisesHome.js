@@ -44,6 +44,7 @@ function ExercisesHome(props) {
         ScrollToTop();
       }, 100);
     } else {
+      document.body.style.overflow = "visible"
       setShowCreateMenu(false);
       ScrollToTop();
     }
@@ -51,15 +52,18 @@ function ExercisesHome(props) {
     console.log(tFQuestions);
   }
   function handleModalWasOpened(type) {
+    document.body.style.overflow = "hidden"
     setQuestionType(type);
     setShowCreateMenu(true);
     ScrollToTop();
   }
   function handleModalWasClosed() {
+    document.body.style.overflow = "visible"
     setShowCreateMenu(false);
   }
 
   function handleUserFinishedCreatingQuestions() {
+    document.body.style.overflow = "visible"
     props.advanceToNextTab();
     ScrollToTop();
   }
@@ -78,7 +82,6 @@ function ExercisesHome(props) {
             <CreateQuestions
               onClose={handleModalWasClosed}
               questionType={questionType}
-              closeMenu={handleModalWasClosed}
               userSubmittedQuestion={userSubmittedQuestion}
             />,
             document.getElementById("description-modal")
@@ -115,7 +118,7 @@ function ExercisesHome(props) {
             sx={{ width: "25%" }}
             onClick={handleUserFinishedCreatingQuestions}
           >
-            Next slide
+            All set!
           </Button>
         ) : null}
       </Stack>

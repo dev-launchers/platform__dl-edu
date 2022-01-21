@@ -12,17 +12,17 @@ import InfoIcon from "@mui/icons-material/Info";
 import AddIcon from "@mui/icons-material/Add";
 import classes from "./CreateQuestions.module.css";
 import AnswerField from "./AnswerField";
-import useForceRender from "../ForceRender";
 
 function CreateQuestions(props) {
   const [title, setTitle] = useState("");
+  const [titleError, setTitleError] = useState(false);
   const [addAnother, setAddAnother] = useState(false);
   const [answerFields, setAnswerFields] = useState([
     { id: Math.random(), answer: "" },
     { id: Math.random(), answer: "" },
     { id: Math.random(), answer: "" },
   ]);
-  const [radioTracker, setRadioTracker] = useState(0);
+  const [radioTracker, setRadioTracker] = useState(-1);
   const [answerFieldQuantity, setAnswerFieldQuantity] = useState(
     props.questionType === "True or False Questions" ? 2 : 3
   );
@@ -35,6 +35,7 @@ function CreateQuestions(props) {
         variant="outlined"
         color="gray"
         onClick={handleUserAddedAnswerField}
+        sx={{ mb:"10px" }}
       >
         Add more answers
       </Button>
@@ -44,8 +45,13 @@ function CreateQuestions(props) {
     window.alert("Testing!");
   }
   function handleUserChandedTitle(event) {
-    event.preventDefault();
+    setTitleError(false);
     setTitle(event.target.value);
+  }
+  function handleValidateTitle() {
+    if(title.length < 5){
+      setTitleError(true);
+    }
   }
   function handleUserTypedAnswer(answer, index) {
     const tempAnswerValue = answerFields.slice();
@@ -73,11 +79,14 @@ function CreateQuestions(props) {
     //slice everything before and after the index
     tempAnswers.splice(index, 1);
     setAnswerFields(tempAnswers);
-    console.log(answerFields);
+    setRadioTracker(-1)
   }
 
   function handleQuestionWasSubmitted(event) {
     event.preventDefault();
+    //don't allow user to submit a question title < 5 chars
+    if(titleError || radioTracker === -1) return;
+    
     const userQuestion = {
       addAnother: addAnother,
       answerQuantity: answerFieldQuantity,
@@ -99,7 +108,7 @@ function CreateQuestions(props) {
         onSubmit={handleQuestionWasSubmitted}
         className={classes.createForm}
       >
-        <Stack spacing={3} component={Card} padding="24px">
+        <Stack spacing={3} component={Card} padding="24px" sx={{ overflowY:"scroll", height:"80vh" }}>
           <Box width="100%" display="flex" justifyContent="flex-end">
             <CloseIcon
               onClick={props.onClose}
@@ -124,12 +133,15 @@ function CreateQuestions(props) {
             />
           </Typography>
           <TextField
+            error= {titleError ? titleError : titleError}
+            helperText={titleError ? "Error: title must be at least five letters long" : null}
             size="medium"
             sx={{ backgroundColor: "theme.gray" }}
             placeholder="e.g. how to write an if statement"
             onChange={handleUserChandedTitle}
+            onBlur={handleValidateTitle}
             value={title}
-          ></TextField>
+          />
           <Typography paragraph>Answers</Typography>
           <Box sx={{ width: "100%", display: "flex", flexDirection: "column" }}>
             {props.questionType === "True or False Questions"
@@ -186,6 +198,7 @@ function CreateQuestions(props) {
                 Save and back
               </Button>
             </Box>
+            {radioTracker === -1 ? <Typography color="red">Remember to mark a correct answer!</Typography> : null}
           </Box>
         </Stack>
       </form>
