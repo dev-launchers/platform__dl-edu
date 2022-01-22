@@ -146,6 +146,15 @@ const ModuleMetadata = [
     description: "A short introduction to the advanced of Java",
     keyWords: ["Java", "walter", "jesse", "gus"],
   },
+  {
+    id: 15,
+    thumbnail: "https://www.oracle.com/a/ocom/img/obic-java-cup.svg",
+    category: "JavaScript, HTML, CSS",
+    title: "Hangman Module",
+    difficulty: "beginner",
+    description: "A hangman game guessing JavaScript, HTML, and CSS keywords",
+    keyWords: ["JavaScript", "HTML", "CSS", "Hangman"],
+  },
 ];
 
 export default ModuleMetadata;
