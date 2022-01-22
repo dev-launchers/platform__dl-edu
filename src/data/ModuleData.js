@@ -129,7 +129,6 @@ markdown: `
     title: "JS Comments",
     markdown: `
 # Learning Module 4
-Hangman Module
 `,
     embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
