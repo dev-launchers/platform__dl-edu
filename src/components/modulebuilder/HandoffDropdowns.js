@@ -15,7 +15,6 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 function HandoffDropdowns(props) {
   const [open, setOpen] = useState(false);
   const anchorRef = React.useRef(null);
-  const [dropDownSelection, setDropDownSelection] = useState("Select ");
   const [menuArrowDown, setMenuArrowDown] = useState(true);
 
   const handleToggle = () => {
@@ -26,7 +25,6 @@ function HandoffDropdowns(props) {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-    setDropDownSelection("Select ");
     setOpen(false);
   };
 
@@ -41,7 +39,6 @@ function HandoffDropdowns(props) {
 
   const handleClick = (event) => {
     const selection = event.target.textContent;
-    setDropDownSelection(selection);
     setOpen(false);
     props.handleItemWasSelected(selection);
   };
@@ -72,7 +69,7 @@ function HandoffDropdowns(props) {
               )
             }
           >
-            Select {props.title}
+            {props.choice}
           </Button>
           <Popper
             open={open}

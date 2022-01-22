@@ -32,15 +32,12 @@ function ModuleTags(props) {
     setNewTag(event.target.value);
   }
   const handleUserSelectedTag = (tag) => () => {
-    //force component to re-render so user can view which tags have been selected
-
-    const tempTagHolder = dynamicTagHolder;
+    const tempTagHolder = dynamicTagHolder.slice();
     const tagIndex = tempTagHolder.indexOf(tag);
     tempTagHolder[tagIndex].deleteable = true;
     //update the deleteable object in the array
-    setDynamicTagHolder((tags) => (tags = tempTagHolder));
+    setDynamicTagHolder(tempTagHolder);
     props.userSelectedTag(tag.label);
-    forceRender();
   };
 
   const handleUserDeletedTag = (tagToDelete) => () => {

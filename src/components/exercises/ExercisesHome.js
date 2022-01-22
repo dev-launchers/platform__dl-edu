@@ -20,20 +20,19 @@ const TITLES = [
 function ExercisesHome(props) {
   const [showCreateMenu, setShowCreateMenu] = useState(false);
   const [questionType, setQuestionType] = useState("");
-  const [mCQuestions, setMCQuestions] = useState([]);
-  const [tFQuestions, setTFQuestions] = useState([]);
 
   function userSubmittedQuestion(question) {
     let tempArray;
+    console.log(question)
     //add question to the pertinent exercise array
     if (question.answerQuantity === 2) {
-      tempArray = tFQuestions.slice();
+      tempArray = props.userQuestions[0].questions.slice();
       tempArray.push(question);
-      setTFQuestions(tempArray);
+      props.userSubmittedQuestion(question)
     } else {
-      tempArray = mCQuestions.slice();
+      tempArray = props.userQuestions[1].questions.slice();
       tempArray.push(question);
-      setMCQuestions(tempArray);
+      props.userSubmittedQuestion(question)
     }
     //if user wants to add another question
     if (question.addAnother) {
@@ -48,8 +47,6 @@ function ExercisesHome(props) {
       setShowCreateMenu(false);
       ScrollToTop();
     }
-    console.log(mCQuestions);
-    console.log(tFQuestions);
   }
   function handleModalWasOpened(type) {
     document.body.style.overflow = "hidden"
@@ -103,15 +100,15 @@ function ExercisesHome(props) {
                   <AddIcon fontSize="large" />
                 </Button>
               </Box>
-              {index === 0 ? (
-                <CreatedExercisesPreview questionInformation={mCQuestions} />
+              {index === 1 ? (
+                <CreatedExercisesPreview questionInformation={props.userQuestions[0].questions} />
               ) : (
-                <CreatedExercisesPreview questionInformation={tFQuestions} />
+                <CreatedExercisesPreview questionInformation={props.userQuestions[1].questions} />
               )}
             </Box>
           );
         })}
-        {tFQuestions.length > 0 || mCQuestions.length > 0 ? (
+        {props.userQuestions[0].questions.length > 0 || props.userQuestions[1].questions.length > 0 ? (
           <Button
             color="brightBlue"
             variant="contained"

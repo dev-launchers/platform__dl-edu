@@ -56,7 +56,6 @@ function LearningModuleHome(props) {
       <Tab
         label={tab.title}
         disableRipple
-        className={classes.tabBox}
         {...allyProps(tab.index)}
         key={tab.index}
       />
@@ -81,12 +80,11 @@ function LearningModuleHome(props) {
               value={value}
               onChange={handleChange}
               aria-label="module tabs"
-              TabIndicatorProps={{ style: { background: "transparent" } }}
             >
               {learnTabValues}
             </Tabs>
           </Box>
-          <TabPanel value={value} index={0} className={classes.tabPanels}>
+          <TabPanel value={value} index={0}>
             <div className={classes.learningModuleHeader}>
               <div className={classes.lmLeftcolumn}>
                 <ReactMarkdown

@@ -16,17 +16,13 @@ function AnswerField(props) {
     setSelectedAnswer(event.target.value);
     props.userSelectedCorrectAnswer(event.target.value);
   }
-  
+
   function handleUserTypedAnswer(event) {
-      const typedAnswer = event.target.value
-      setUserAnswer(typedAnswer);
-      props.handleUserTypedAnswer(typedAnswer, props.id);
+    const typedAnswer = event.target.value;
+    setUserAnswer(typedAnswer);
   }
-  //for validation
-  function handleUserFinishedTypingAnswer(event) {
-    
-    /* const temporaryUserAnswer = event.target.value;
-    setUserAnswer(temporaryUserAnswer); */
+  function handleUserFinishedTypingAnswer() {
+    props.handleUserTypedAnswer(userAnswer, props.id);
   }
   function handleUserRemovedAnswer(index) {
     props.handleUserRemovedAnswerField(index, userAnswer);
@@ -40,8 +36,8 @@ function AnswerField(props) {
         placeholder="eg. If condition: action "
         onBlur={handleUserFinishedTypingAnswer}
         onChange={handleUserTypedAnswer}
-        value={props.answer}
-         InputProps={{
+        value={userAnswer}
+        InputProps={{
           startAdornment: (
             <Typography
               paragraph
@@ -56,7 +52,7 @@ function AnswerField(props) {
               {String.fromCharCode(65 + props.id)}
             </Typography>
           ),
-        }} 
+        }}
       />
       <Box
         sx={{
@@ -77,10 +73,12 @@ function AnswerField(props) {
           sx={{ height: "16px", width: "16px" }}
         />
         <Typography>Mark as correct answer</Typography>
-        <DeleteIcon
-          sx={{ cursor: "pointer" }}
-          onClick={() => handleUserRemovedAnswer(props.id)}
-        />
+        {!props.isMultipleChoice ? (
+          <DeleteIcon
+            sx={{ cursor: "pointer" }}
+            onClick={() => handleUserRemovedAnswer(props.id)}
+          />
+        ) : null}
       </Box>
     </Box>
   );

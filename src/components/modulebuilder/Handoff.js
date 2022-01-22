@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
@@ -7,8 +7,9 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import HandoffDropdowns from "./HandoffDropdowns";
 import ModuleTags from "./ModuleTags";
+import { useFormik } from "formik";
+import * as yup from "yup";
 
-import useForceRender from "../ForceRender";
 import ScrollToTop from "../ScrollToTop";
 import BackgroundModal from "../BackgroundModal";
 import SuccessNotification from "./SuccessNotification";
@@ -19,28 +20,62 @@ import {
   frameworkFilterDescriptions,
 } from "../../data/MenuSelectors";
 
-function Handoff() {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [language, setLanguage] = useState("");
-  const [framework, setFramework] = useState("");
+let validationSchema = yup.object({
+  title: yup
+    .string("invalid title")
+    .min(3, "title should be longer")
+    .required("please enter a title"),
+  description: yup
+    .string("please enter a valid description")
+    .min(10, "description should be at least 10 characters")
+    .max(300, "description has a maximum number of 300 characters")
+    .required("please enter a description"),
+});
+const DROPDOWNS = [
+  { title: "Language", choices: languageFilterDescriptions },
+  { title: "Framework", choices: frameworkFilterDescriptions },
+];
+function Handoff(props) {
+  const formik = useFormik({
+    initialValues: {
+      title: "",
+      description: "",
+      userTags: [],
+    },
+    validationSchema: validationSchema,
+    onSubmit: (values) => {
+      //check to see if user has made a language/framework selection
+      if (!noSelection) {
+        return;
+      }
+      const userModuleData = {
+        moduleTitle: values.title,
+        moduleDescription: values.description,
+        language: language,
+        framework: framework,
+        tags: userSelectedTags,
+      };
+      props.userSubmittedModule(userModuleData);
+      //display success modal and notification
+      setModuleCreateSuccessful(true);
+      document.body.style.overflow = "hidden";
+    },
+  });
   const [userSelectedTags, setUserSelectedTags] = useState([]);
   const [moduleCreateSuccessful, setModuleCreateSuccessful] = useState(false);
+  const [language, setLanguage] = useState("Select language");
+  const [framework, setFramework] = useState("Select framework");
+  const [noSelection, setNoSelection] = useState(true);
 
   let found;
 
-  function handleDescriptionWasUpdated(event) {
-    setDescription(event.target.value);
-  }
-  function handleTitleWasUpdated(event) {
-    setTitle(event.target.value);
-  }
-
   function handleItemWasSelected(item) {
     if (item === "Java" || item === "JavaScript" || item === "C#") {
+      setNoSelection(false);
       setLanguage(item);
       return;
     }
+    setNoSelection(false);
     setFramework(item);
   }
 
@@ -61,33 +96,11 @@ function Handoff() {
     setUserSelectedTags(tagSelected);
   }
 
-  function handleUserSubmittedModule(event) {
-    event.preventDefault();
-    const userModuleData = {
-      moduleTitle: event.target[0].value,
-      moduleDescription: event.target[2].value,
-      language: language,
-      framework: framework,
-      tags: userSelectedTags,
-    };
-    //take all user created data and send it to back-end with fetch, axios, etc.
-    console.log(userModuleData);
-
-    //reset all fields
-    setTitle("");
-    setDescription("");
-    setLanguage("");
-    setFramework("");
-    setUserSelectedTags([]);
-    //display success modal and notification
-    setModuleCreateSuccessful(true);
-    document.body.style.overflow = "hidden";
-  }
-
   function userClosedSuccessModal() {
     setModuleCreateSuccessful(false);
-    document.body.style.overflow = "unset";
+    document.body.style.overflow = "visible";
   }
+
   return (
     <>
       {moduleCreateSuccessful ? (
@@ -107,7 +120,7 @@ function Handoff() {
         container
         rowSpacing={4}
         component="form"
-        onSubmit={handleUserSubmittedModule}
+        onSubmit={formik.handleSubmit}
       >
         <Grid item xs={12}>
           <Typography variant="h5">
@@ -117,9 +130,12 @@ function Handoff() {
         <Grid item xs={3}>
           <label>Module Title</label>
           <TextField
+            id="title"
             placeholder="eg. Java Fundamentals"
-            onChange={handleTitleWasUpdated}
-            value={title}
+            value={formik.values.title}
+            onChange={formik.handleChange}
+            error={formik.touched.title && Boolean(formik.errors.title)}
+            helperText={formik.touched.title && formik.errors.title}
           />
         </Grid>
         <Grid item container xs={12}>
@@ -128,30 +144,35 @@ function Handoff() {
           </Grid>
           <Grid item xs={8}>
             <TextField
+              id="description"
               placeholder="Add a short description of your modules"
               size="medium"
               multiline
               minRows={5}
               fullWidth
-              value={description}
-              onChange={handleDescriptionWasUpdated}
+              value={formik.values.description}
+              onChange={formik.handleChange}
+              error={
+                formik.touched.description && Boolean(formik.errors.description)
+              }
+              helperText={
+                formik.touched.description && formik.errors.description
+              }
             />
           </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <HandoffDropdowns
-            title="Language"
-            items={languageFilterDescriptions}
-            handleItemWasSelected={handleItemWasSelected}
-          />
-        </Grid>
-        <Grid>
-          <HandoffDropdowns
-            title="Framework"
-            items={frameworkFilterDescriptions}
-            handleItemWasSelected={handleItemWasSelected}
-          />
-        </Grid>
+        {DROPDOWNS.map((dropdown, index) => {
+          return (
+            <Grid key={index} item xs={12}>
+              <HandoffDropdowns
+                choice={index === 0 ? language : framework}
+                title={dropdown.title}
+                items={dropdown.choices}
+                handleItemWasSelected={handleItemWasSelected}
+              />
+            </Grid>
+          );
+        })}
         <Grid item xs={12}>
           <ModuleTags
             userTags={userSelectedTags}
@@ -187,6 +208,13 @@ function Handoff() {
             Submit
           </Button>
         </Grid>
+        {noSelection ? (
+          <Grid item xs={5}>
+            <Typography color="warning">
+              Error: you didn't pick a framework or language!
+            </Typography>
+          </Grid>
+        ) : null}
       </Grid>
     </>
   );

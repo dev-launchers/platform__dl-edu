@@ -28,14 +28,16 @@ const buildTabValues = TABVALUES.map((tab) => {
     <Tab
       label={tab.title}
       disableRipple
-      className={classes.tabBox}
       {...allyProps(tab.index)}
       key={tab.index}
     />
   );
 });
 function ModuleBuilder(props) {
-
+  const [questionTracker, setQuestionTracker] = useState([
+    { questions: [] },
+    { questions: [] },
+  ]);
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -43,41 +45,68 @@ function ModuleBuilder(props) {
   const advanceToNextTab = () => {
     const userPage = value;
     setValue(userPage + 1);
+  };
+  function handleUserSubmittedQuestion(question) {
+    //decide if multiple choice
+    if (question.answerQuantity === 2) {
+      const tmp = questionTracker.slice();
+      tmp[0].questions.push(question);
+      setQuestionTracker(tmp);
+      return;
+    } else {
+      const tmp = questionTracker.slice();
+      tmp[1].questions.push(question);
+      setQuestionTracker(tmp);
+      return;
+    }
   }
+
+  function handleUserSubmittedModule(module) {
+    const userModuleData = {
+      moduleData: module,
+      questions: questionTracker,
+    };
+    //take all user created data and send it to back-end with fetch, axios, etc.
+    console.log(userModuleData);
+  }
+
   return (
     <Box sx={{ width: "100%" }}>
       <Box className={classes.tabsContainer}>
-        <Tabs
-          value={value}
-          onChange={handleChange}
-          aria-label="module tabs"
-          TabIndicatorProps={{ style: { background: "transparent" } }}
-        >
+        <Tabs value={value} onChange={handleChange} aria-label="module tabs">
           {buildTabValues}
         </Tabs>
       </Box>
-      <Box border="1px solid black">
-        <TabPanel value={value} index={0} className={classes.tabPanels}>
-          <ModuleBuilderIntroduction advanceToNextTab={advanceToNextTab}/>
-        </TabPanel>
-        <TabPanel value={value} index={1} className={classes.tabPanels}>
-          <Typography variant="h5">Write your guide here or <Link>add your own</Link></Typography>
-          <Button variant="contained" color="brightBlue" onClick={advanceToNextTab}>Save</Button>
-        </TabPanel>
-        <TabPanel value={value} index={2} className={classes.tabPanels}>
-          <div style={{ display: "flex", height: "800px" }}>
-            <div className={classes.lmRightcolumn}>
-              
-            </div>
-          </div>
-        </TabPanel>
-        <TabPanel value={value} index={3} className={classes.tabPanels}>
-          <ExercisesHome advanceToNextTab={advanceToNextTab}/>
-        </TabPanel>
-        <TabPanel value={value} index={4} className={classes.tabPanels}>
-          <Handoff />
-        </TabPanel>
-      </Box>
+      <TabPanel value={value} index={0} className={classes.tabPanels}>
+        <ModuleBuilderIntroduction advanceToNextTab={advanceToNextTab} />
+      </TabPanel>
+      <TabPanel value={value} index={1} className={classes.tabPanels}>
+        <Typography variant="h5">
+          Write your guide here or <Link>add your own</Link>
+        </Typography>
+        <Button
+          variant="contained"
+          color="brightBlue"
+          onClick={advanceToNextTab}
+        >
+          Save
+        </Button>
+      </TabPanel>
+      <TabPanel value={value} index={2} className={classes.tabPanels}>
+        <div style={{ display: "flex", height: "800px" }}>
+          <div className={classes.lmRightcolumn}></div>
+        </div>
+      </TabPanel>
+      <TabPanel value={value} index={3} className={classes.tabPanels}>
+        <ExercisesHome
+          advanceToNextTab={advanceToNextTab}
+          userSubmittedQuestion={handleUserSubmittedQuestion}
+          userQuestions={questionTracker}
+        />
+      </TabPanel>
+      <TabPanel value={value} index={4} className={classes.tabPanels}>
+        <Handoff userSubmittedModule={handleUserSubmittedModule} />
+      </TabPanel>
     </Box>
   );
 }

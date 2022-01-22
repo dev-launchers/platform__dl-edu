@@ -156,6 +156,7 @@ function CreateQuestions(props) {
                       id={index}
                       handleUserTypedAnswer={handleUserTypedAnswer}
                       answer={answer.answer}
+                      isMultipleChoice={true}
                     />
                   );
                 })

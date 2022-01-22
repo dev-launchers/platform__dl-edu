@@ -1,7 +1,7 @@
 export const languageFilterDescriptions = [
     {
       id: "0",
-      name: "Javascript",
+      name: "JavaScript",
       link: "/main-content/learning-modules/javascript",
     },
     { id: "1", name: "Java", link: "/main-content/learning-modules/java" },

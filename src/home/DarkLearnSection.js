@@ -37,7 +37,13 @@ function DarkLearnSection() {
             }}
           >
             <Container className={classes.imageContainer}>
-              <Container sx={{ display:"flex", justifyContent:"center", alignItems:"center" }}>
+              <Container
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <img
                   src={computerImage}
                   alt="null"
@@ -48,7 +54,13 @@ function DarkLearnSection() {
             <Box className={classes.descriptionContainer}>
               <List className={classes.listContainer}>
                 <ListItem className={classes.rightGuideContainer}>
-                  <Container className={classes.listTitle}>
+                  <Box
+                    sx={{
+                      paddingLeft: "0px",
+                      display: "flex",
+                      justifyContent: "flex-start",
+                    }}
+                  >
                     <div className={classes.disc} />
                     <Typography
                       variant="h6"
@@ -56,7 +68,7 @@ function DarkLearnSection() {
                     >
                       Guides
                     </Typography>
-                  </Container>
+                  </Box>
                   <Typography paragraph sx={{ fontWeight: "400" }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Venenatis scelerisque at quam congue posuere libero in sit
@@ -65,7 +77,11 @@ function DarkLearnSection() {
                   </Typography>
                 </ListItem>
                 <ListItem className={classes.rightGuideContainer}>
-                  <Container className={classes.listTitle}>
+                  <Box sx={{
+                      paddingLeft: "0px",
+                      display: "flex",
+                      justifyContent: "flex-start",
+                    }}>
                     <div className={classes.disc1} />
                     <Typography
                       variant="h6"
@@ -73,7 +89,7 @@ function DarkLearnSection() {
                     >
                       Interactive Code Examples
                     </Typography>
-                  </Container>
+                  </Box>
                   <Typography paragraph sx={{ fontWeight: "400" }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Venenatis scelerisque at quam congue posuere libero in sit
@@ -82,7 +98,11 @@ function DarkLearnSection() {
                   </Typography>
                 </ListItem>
                 <ListItem className={classes.rightGuideContainer}>
-                  <Container className={classes.listTitle}>
+                  <Box sx={{
+                      paddingLeft: "0px",
+                      display: "flex",
+                      justifyContent: "flex-start",
+                    }}>
                     <div className={classes.disc2} />
                     <Typography
                       variant="h6"
@@ -90,7 +110,7 @@ function DarkLearnSection() {
                     >
                       Exercises
                     </Typography>
-                  </Container>
+                  </Box>
                   <Typography paragraph sx={{ fontWeight: "400" }}>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                     Venenatis scelerisque at quam congue posuere libero in sit
