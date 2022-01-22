@@ -129,6 +129,7 @@ markdown: `
     title: "JS Comments",
     markdown: `
 # Learning Module 4
+Hangman Module
 `,
     embeddedIDEURL:
       "https://codesandbox.io/embed/red-https-knd21?expanddevtools=1&fontsize=14&hidenavigation=1&theme=dark&view=editor",
@@ -314,12 +315,12 @@ when you need the value of a variable to change frequently
   },
   {
     id: 10,
-    title: "TODO",
+    title: "Hangman Module",
     markdown: `
-    # TODO
+    # Hangman Module
     `,
     embeddedIDEURL:
-      "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
+      "https://codepen.io/jasonkx9/pen/ZEXJwpp",
     customIFrameStyle: null
   },
   {
