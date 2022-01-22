@@ -315,12 +315,12 @@ when you need the value of a variable to change frequently
   },
   {
     id: 10,
-    title: "Hangman Module",
+    title: "TODO",
     markdown: `
-    # Hangman Module
+    # TODO
     `,
     embeddedIDEURL:
-      "https://codepen.io/jasonkx9/pen/ZEXJwpp",
+      "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
     customIFrameStyle: null
   },
   {
@@ -361,6 +361,16 @@ when you need the value of a variable to change frequently
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
+    customIFrameStyle: null
+  },
+  {
+    id: 15,
+    title: "Hangman Module",
+    markdown: `
+    # Hangman Module
+    `,
+    embeddedIDEURL:
+      "https://codepen.io/jasonkx9/pen/ZEXJwpp",
     customIFrameStyle: null
   }
 ];
