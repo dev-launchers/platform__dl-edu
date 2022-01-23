@@ -117,20 +117,19 @@ function CreateQuestions(props) {
             />
           </Box>
           <Typography variant="h4">{props.questionType}</Typography>
-          <Typography>
+          <Typography sx={{ display:"flex", width:"20%", justifyContent:"space-evenly" }}>
             Question
             <InfoIcon
-              sx={{ mr: "10px", ml: "10px" }}
               fontSize="small"
               sx={{ cursor: "pointer" }}
               onClick={handleUserClickedInfoButton}
             />
-            <DeleteIcon
+            {/* Not sure if this delete icon is necessary...what will happen when clicked? <DeleteIcon
               onClick={props.onClose}
-              sx={{ mr: "10px", cursor: "pointer" }}
+              sx={{ cursor: "pointer" }}
               color="gray"
               fontSize="small"
-            />
+            /> */}
           </Typography>
           <TextField
             error= {titleError ? titleError : titleError}

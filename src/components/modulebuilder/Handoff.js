@@ -75,8 +75,13 @@ function Handoff(props) {
       setLanguage(item);
       return;
     }
-    setNoSelection(false);
-    setFramework(item);
+    if (item === "Foo" || item === "Roh" || item === "Bar") {
+      setNoSelection(false);
+      setFramework(item);
+      return;
+    }
+    setNoSelection(true);
+    setFramework(item)
   }
 
   function userSelectedTag(tag) {
@@ -209,9 +214,9 @@ function Handoff(props) {
           </Button>
         </Grid>
         {noSelection ? (
-          <Grid item xs={5}>
-            <Typography color="warning">
-              Error: you didn't pick a framework or language!
+          <Grid item xs={12}>
+            <Typography sx={{ color: "error.main" }}>
+              Remember to pick a framework or language!
             </Typography>
           </Grid>
         ) : null}

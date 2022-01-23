@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { CssBaseline } from "@mui/material";
 
@@ -67,23 +67,13 @@ function MainContent() {
           onTagWasSelected={filterHandler}
         />
         <Main open={open}>
-          <Switch>
-            <Route path={`/main-content/legacy-learn/:tab`}>
-              <LegacyLearnList />
-            </Route>
-            <Route path={`/main-content/learning-modules/:category`}>
-              <LearningModuleList />
-            </Route>
-            <Route path={`/main-content/learning-module/module-id=:moduleId`}>
-              <LearningModuleHome />
-            </Route>
-            <Route path={`/main-content/learning-module/filter-by=:filterKey`}>
-              <FilteredLearningModule filterKey={filterKey} />
-            </Route>
-            <Route path="/main-content/build">
-              <ModuleBuilder />
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path={`/legacy-learn/:tab/`} element={<LegacyLearnList />} />
+            <Route path={`/learning-modules/:category`} element={<LearningModuleList />} />
+            <Route path={`/learning-module/module-id=:moduleId`} element={<LearningModuleHome />} />
+            <Route path={`/learning-module/filter-by=:filterKey`} element={<FilteredLearningModule filterKey={filterKey} />} />
+            <Route path="/build/" element={<ModuleBuilder />} />
+          </Routes>
         </Main>
       </Box>
     </>

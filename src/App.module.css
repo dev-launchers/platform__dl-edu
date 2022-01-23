@@ -5,12 +5,7 @@
   flex-direction: column;
   width: 100%;
 }
-.homeComponentsWrapper {
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 350px;
-  width: 100%;
-}
+
 @media screen and (max-width: 850px) {
   .appWrapper {
     position: relative;

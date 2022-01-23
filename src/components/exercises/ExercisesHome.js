@@ -88,7 +88,7 @@ function ExercisesHome(props) {
       <Stack spacing={2}>
         {TITLES.map((title, index) => {
           return (
-            <Box display="flex" flexDirection="column">
+            <Box key={index} display="flex" flexDirection="column">
               <Box display="flex" alignItems="center">
                 <Typography variant="h3" margin="10px">
                   {title.title}

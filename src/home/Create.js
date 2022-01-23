@@ -84,9 +84,9 @@ function Create() {
           Create
         </Container>
         <Box className={classes.createContainer}>
-          {CREATEBOX.map((createBox) => {
+          {CREATEBOX.map((createBox, index) => {
             return (
-              <Box className={classes.createDescriptionContainer}>
+              <Box key={index} className={classes.createDescriptionContainer}>
                 {createBox.design}
                 <Typography variant="h5" sx={{ color: "#ffffff" }}>
                   {createBox.title}

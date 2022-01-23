@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -8,7 +8,7 @@ import Search from "@mui/icons-material/Search";
 import frequencyArray from "../../data/FrequencyArray";
 
 function SearchBar(props) {
-  let history = useHistory();
+  let navigate = useNavigate();
   const [inputValue, setInputValue] = useState("");
   const [open, setOpen] = useState(false);
 
@@ -31,7 +31,7 @@ function SearchBar(props) {
 
   function tagWasSelected(event, value) {
     props.handleTagWasSelected(value);
-    history.push(`/main-content/learning-module/filter-by=${value.toLowerCase()}`);
+    navigate(`/main-content/learning-module/filter-by=${value.toLowerCase()}`);
   }
   return (
       <Autocomplete

@@ -86,7 +86,7 @@ function ModuleTags(props) {
           placeholder="+ Add your own tag"
           sx={{ mr: "10px", position: "static" }}
           value={newTag}
-        ></TextField>
+        />
         {newTag !== "" ? (
           <Button
             variant="contained"
