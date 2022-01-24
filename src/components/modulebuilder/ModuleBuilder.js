@@ -7,11 +7,11 @@ import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 
 import TabPanel from "../tabhelpers/TabPanel";
-import EmbeddedIDE from "../EmbeddedIDE/EmbeddedIDE";
 import allyProps from "../tabhelpers/allyProps";
 
 import classes from "./ModuleBuilder.module.css";
 import ModuleBuilderIntroduction from "./ModuleBuilderIntroduction";
+import Guide from "../Guide";
 import ExercisesHome from "../exercises/ExercisesHome";
 import Handoff from "./Handoff";
 
@@ -81,21 +81,21 @@ function ModuleBuilder(props) {
         <ModuleBuilderIntroduction advanceToNextTab={advanceToNextTab} />
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.tabPanels}>
-        <Typography variant="h5">
-          Write your guide here or <Link>add your own</Link>
-        </Typography>
-        <Button
-          variant="contained"
-          color="brightBlue"
-          onClick={advanceToNextTab}
-        >
-          Save
-        </Button>
-      </TabPanel>
+{/*         <Guide />
+ */}      </TabPanel>
       <TabPanel value={value} index={2} className={classes.tabPanels}>
-        <div style={{ display: "flex", height: "800px" }}>
-          <div className={classes.lmRightcolumn}></div>
-        </div>
+        <>
+          <Typography variant="h5">
+            Write your guide here or <Link>add your own</Link>
+          </Typography>
+          <Button
+            variant="contained"
+            color="brightBlue"
+            onClick={advanceToNextTab}
+          >
+            Save
+          </Button>
+        </>
       </TabPanel>
       <TabPanel value={value} index={3} className={classes.tabPanels}>
         <ExercisesHome

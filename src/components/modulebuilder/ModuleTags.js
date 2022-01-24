@@ -81,10 +81,10 @@ function ModuleTags(props) {
         xs={8}
         sx={{ display: "flex", alignItems: "center", position: "static" }}
       >
-        <TextField
+        <input
           onChange={handleUserUpdatedTag}
           placeholder="+ Add your own tag"
-          sx={{ mr: "10px", position: "static" }}
+          style={{ marginRight:"10px", height:"50px", width:"35%" }}
           value={newTag}
         />
         {newTag !== "" ? (

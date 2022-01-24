@@ -94,6 +94,7 @@ function HandoffDropdowns(props) {
                       id="composition-menu"
                       aria-labelledby="composition-button"
                       onKeyDown={handleListKeyDown}
+                      sx={{ zIndex: "800" }}
                     >
                       {props.items.map((item) => {
                         return (
