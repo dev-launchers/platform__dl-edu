@@ -151,7 +151,6 @@ function Handoff(props) {
             <TextField
               id="description"
               placeholder="Add a short description of your modules"
-              size="medium"
               multiline
               minRows={5}
               fullWidth

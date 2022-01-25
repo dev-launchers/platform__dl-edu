@@ -11,7 +11,8 @@ import allyProps from "../tabhelpers/allyProps";
 
 import classes from "./ModuleBuilder.module.css";
 import ModuleBuilderIntroduction from "./ModuleBuilderIntroduction";
-import Guide from "../Guide";
+import Engagement from "./Engagement";
+import Guide from "./Guide";
 import ExercisesHome from "../exercises/ExercisesHome";
 import Handoff from "./Handoff";
 
@@ -34,6 +35,7 @@ const buildTabValues = TABVALUES.map((tab) => {
   );
 });
 function ModuleBuilder(props) {
+  const [userUrl, setUserUrl] = useState("");
   const [questionTracker, setQuestionTracker] = useState([
     { questions: [] },
     { questions: [] },
@@ -42,10 +44,14 @@ function ModuleBuilder(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-  const advanceToNextTab = () => {
-    const userPage = value;
-    setValue(userPage + 1);
+  function advanceToNextTab() {
+    setValue(oldValue => oldValue + 1);
   };
+  function handleUserSumbittedUrl(url) {
+    console.log(url);
+    setUserUrl(url);
+    setValue(oldValue => oldValue + 1);
+  }
   function handleUserSubmittedQuestion(question) {
     //decide if multiple choice
     if (question.answerQuantity === 2) {
@@ -65,6 +71,7 @@ function ModuleBuilder(props) {
     const userModuleData = {
       moduleData: module,
       questions: questionTracker,
+      url:userUrl,
     };
     //take all user created data and send it to back-end with fetch, axios, etc.
     console.log(userModuleData);
@@ -81,21 +88,10 @@ function ModuleBuilder(props) {
         <ModuleBuilderIntroduction advanceToNextTab={advanceToNextTab} />
       </TabPanel>
       <TabPanel value={value} index={1} className={classes.tabPanels}>
-{/*         <Guide />
- */}      </TabPanel>
+        {/* <Guide /> */}
+      </TabPanel>
       <TabPanel value={value} index={2} className={classes.tabPanels}>
-        <>
-          <Typography variant="h5">
-            Write your guide here or <Link>add your own</Link>
-          </Typography>
-          <Button
-            variant="contained"
-            color="brightBlue"
-            onClick={advanceToNextTab}
-          >
-            Save
-          </Button>
-        </>
+        <Engagement userSumbittedUrl={handleUserSumbittedUrl} />
       </TabPanel>
       <TabPanel value={value} index={3} className={classes.tabPanels}>
         <ExercisesHome
