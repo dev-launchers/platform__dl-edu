@@ -16,8 +16,8 @@ import SuccessNotification from "./SuccessNotification";
 
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import {
-  handoffLanguageFilterDescriptions,
-  handoffFrameworkFilterDescriptions,
+  languageFilterDescriptions,
+  frameworkFilterDescriptions,
 } from "../../data/MenuSelectors";
 
 let validationSchema = yup.object({
@@ -32,8 +32,8 @@ let validationSchema = yup.object({
     .required("please enter a description"),
 });
 const DROPDOWNS = [
-  { title: "Language", choices: handoffLanguageFilterDescriptions },
-  { title: "Framework", choices: handoffFrameworkFilterDescriptions },
+  { title: "Language", choices: languageFilterDescriptions },
+  { title: "Framework", choices: frameworkFilterDescriptions },
 ];
 function Handoff(props) {
   const formik = useFormik({

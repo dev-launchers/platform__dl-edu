@@ -5,6 +5,8 @@ import FilterDropdown from './FilterDropdown';
 import { languageFilterDescriptions, frameworkFilterDescriptions, dlLearnFilterDescriptions } from '../../data/MenuSelectors';
   
 function FilterDropdownMenu() {
+  const language = languageFilterDescriptions.slice(1);
+  const framework = frameworkFilterDescriptions.slice(1);
     return (
         <List
                 sx={{
@@ -20,11 +22,11 @@ function FilterDropdownMenu() {
                 />
                 <FilterDropdown
                   filterTitle="Language"
-                  filterObjects={languageFilterDescriptions}
+                  filterObjects={language}
                 />
                 <FilterDropdown
                   filterTitle="Framework"
-                  filterObjects={frameworkFilterDescriptions}
+                  filterObjects={framework}
                 />
               </List>
     )

@@ -1,4 +1,4 @@
-export const handoffLanguageFilterDescriptions = [
+export const languageFilterDescriptions = [
   {
     id: "50",
     name: "Select language",
@@ -11,25 +11,11 @@ export const handoffLanguageFilterDescriptions = [
   { id: "1", name: "Java", link: "/main-content/learning-modules/java" },
   { id: "2", name: "C#", link: "/main-content/learning-modules/csharp" },
 ];
-export const handoffFrameworkFilterDescriptions = [
+export const frameworkFilterDescriptions = [
   {
     id: "51",
     name: "Select framework",
   },
-  { id: "3", name: "Foo", link: "/main-content/learning-modules/javascript" },
-  { id: "4", name: "Roh", link: "/main-content/learning-modules/java" },
-  { id: "5", name: "Bar", link: "/main-content/learning-modules/csharp" },
-];
-export const languageFilterDescriptions = [
-  {
-    id: "0",
-    name: "JavaScript",
-    link: "/main-content/learning-modules/javascript",
-  },
-  { id: "1", name: "Java", link: "/main-content/learning-modules/java" },
-  { id: "2", name: "C#", link: "/main-content/learning-modules/csharp" },
-];
-export const frameworkFilterDescriptions = [
   { id: "3", name: "Foo", link: "/main-content/learning-modules/javascript" },
   { id: "4", name: "Roh", link: "/main-content/learning-modules/java" },
   { id: "5", name: "Bar", link: "/main-content/learning-modules/csharp" },
