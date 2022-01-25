@@ -6,7 +6,6 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-import DeleteIcon from "@mui/icons-material/Delete";
 import CloseIcon from "@mui/icons-material/Close";
 import InfoIcon from "@mui/icons-material/Info";
 import AddIcon from "@mui/icons-material/Add";
@@ -16,15 +15,23 @@ import AnswerField from "./AnswerField";
 function CreateQuestions(props) {
   const [title, setTitle] = useState("");
   const [titleError, setTitleError] = useState(false);
+  const [answerError, setAnswerError] = useState(false);
   const [addAnother, setAddAnother] = useState(false);
-  const [answerFields, setAnswerFields] = useState([
-    { id: Math.random(), answer: "" },
-    { id: Math.random(), answer: "" },
-    { id: Math.random(), answer: "" },
-  ]);
   const [radioTracker, setRadioTracker] = useState(-1);
   const [answerFieldQuantity, setAnswerFieldQuantity] = useState(
     props.questionType === "True or False Questions" ? 2 : 3
+  );
+  const [answerFields, setAnswerFields] = useState(
+    answerFieldQuantity === 3
+      ? [
+          { id: Math.random(), answer: "" },
+          { id: Math.random(), answer: "" },
+          { id: Math.random(), answer: "" },
+        ]
+      : [
+          { id: Math.random(), answer: "" },
+          { id: Math.random(), answer: "" },
+        ]
   );
 
   //show "add more answers button if the question is MC"
@@ -35,7 +42,7 @@ function CreateQuestions(props) {
         variant="outlined"
         color="gray"
         onClick={handleUserAddedAnswerField}
-        sx={{ mb:"10px" }}
+        sx={{ mb: "10px" }}
       >
         Add more answers
       </Button>
@@ -49,7 +56,7 @@ function CreateQuestions(props) {
     setTitle(event.target.value);
   }
   function handleValidateTitle() {
-    if(title.length < 5){
+    if (title.length < 5) {
       setTitleError(true);
     }
   }
@@ -79,14 +86,22 @@ function CreateQuestions(props) {
     //slice everything before and after the index
     tempAnswers.splice(index, 1);
     setAnswerFields(tempAnswers);
-    setRadioTracker(-1)
+    setRadioTracker(-1);
   }
 
   function handleQuestionWasSubmitted(event) {
     event.preventDefault();
+    setAnswerError(false);
     //don't allow user to submit a question title < 5 chars
-    if(titleError || radioTracker === -1) return;
-    
+    if (titleError || radioTracker === -1) return;
+    //validate answers are not blank
+    for(let i = 0; i < answerFields.length; i++) {
+      if(answerFields[i].answer.length === 0) {
+        //set error here
+        setAnswerError(true);
+        return;
+      }
+    }
     const userQuestion = {
       addAnother: addAnother,
       answerQuantity: answerFieldQuantity,
@@ -108,7 +123,12 @@ function CreateQuestions(props) {
         onSubmit={handleQuestionWasSubmitted}
         className={classes.createForm}
       >
-        <Stack spacing={3} component={Card} padding="24px" sx={{ overflowY:"scroll", height:"80vh" }}>
+        <Stack
+          spacing={3}
+          component={Card}
+          padding="24px"
+          sx={{ overflowY: "scroll", height: "80vh" }}
+        >
           <Box width="100%" display="flex" justifyContent="flex-end">
             <CloseIcon
               onClick={props.onClose}
@@ -117,7 +137,13 @@ function CreateQuestions(props) {
             />
           </Box>
           <Typography variant="h4">{props.questionType}</Typography>
-          <Typography sx={{ display:"flex", width:"20%", justifyContent:"space-evenly" }}>
+          <Typography
+            sx={{
+              display: "flex",
+              width: "20%",
+              justifyContent: "space-evenly",
+            }}
+          >
             Question
             <InfoIcon
               fontSize="small"
@@ -132,8 +158,12 @@ function CreateQuestions(props) {
             /> */}
           </Typography>
           <TextField
-            error= {titleError ? titleError : titleError}
-            helperText={titleError ? "Error: title must be at least five letters long" : null}
+            error={titleError ? titleError : titleError}
+            helperText={
+              titleError
+                ? "Error: title must be at least five letters long"
+                : null
+            }
             size="medium"
             sx={{ backgroundColor: "theme.gray" }}
             placeholder="e.g. how to write an if statement"
@@ -198,7 +228,16 @@ function CreateQuestions(props) {
                 Save and back
               </Button>
             </Box>
-            {radioTracker === -1 ? <Typography color="red">Remember to mark a correct answer!</Typography> : null}
+            {radioTracker === -1 ? (
+              <Typography color="red">
+                Remember to mark a correct answer!
+              </Typography>
+            ) : null}
+            {answerError && (
+              <Typography color="red">
+                Answer fields are required, please delete if not using
+              </Typography>
+            )}
           </Box>
         </Stack>
       </form>

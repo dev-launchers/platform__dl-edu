@@ -2,9 +2,6 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Link from "@mui/material/Link";
 
 import TabPanel from "../tabhelpers/TabPanel";
 import allyProps from "../tabhelpers/allyProps";
