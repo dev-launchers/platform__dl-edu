@@ -24,17 +24,29 @@ function ModuleTags(props) {
     { deleteable: false, label: "functions" },
     { deleteable: false, label: "loops" },
   ]);
-
+  const [repeatTag, setRepeatTag] = useState(false);
   const formik = useFormik({
     initialValues: {
       userTag: "",
     },
     validationSchema: validationSchema,
     onSubmit: (value) => {
-      const tempTag = { deleteable: true, label: value.userTag };
+      //no repeat tags
+      const found = dynamicTagHolder.find(
+        (element) => element.label === value.userTag
+      );
+      console.log(found);
+      if (found != null) {
+        setRepeatTag(true);
+        return;
+      }
+      //add to tagholder, pass user tag to parent
+      setRepeatTag(false);
+      const tempTag = { deleteable: true, label: value.userTag.toLowerCase() };
       const tagHolder = dynamicTagHolder.slice();
       tagHolder.push(tempTag);
       setDynamicTagHolder(tagHolder);
+      formik.values.userTag = "";
       props.userSelectedTag(tempTag);
     },
   });
@@ -103,13 +115,20 @@ function ModuleTags(props) {
             }}
           />
           {formik.values.userTag !== "" && (
-            <Button
-              variant="contained"
-              color="brightBlue"
-              onClick={formik.handleSubmit}
-            >
-              Add tag
-            </Button>
+            <>
+              <Button
+                variant="contained"
+                color="brightBlue"
+                onClick={formik.handleSubmit}
+              >
+                Add tag
+              </Button>
+              {repeatTag && (
+                <Typography paragraph sx={{ color: "#d32f2f" }}>
+                  Tag is already available!
+                </Typography>
+              )}
+            </>
           )}
         </form>
       </Grid>

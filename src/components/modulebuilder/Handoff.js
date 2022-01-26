@@ -14,7 +14,6 @@ import ScrollToTop from "../ScrollToTop";
 import BackgroundModal from "../BackgroundModal";
 import SuccessNotification from "./SuccessNotification";
 
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import {
   languageFilterDescriptions,
   frameworkFilterDescriptions,
@@ -43,10 +42,10 @@ function Handoff(props) {
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
-      //check to see if user has made a language/framework selection
-      if (!noSelection) {
-        return;
-      }
+      //check to see if user has made a language/framework selection and if user has added a tag
+      if (!noSelection) return;
+      if(userSelectedTags.length === 0) return;
+
       const userModuleData = {
         moduleTitle: values.title,
         moduleDescription: values.description,
@@ -87,7 +86,7 @@ function Handoff(props) {
     //don't add tag more than once
     found = userSelectedTags.includes(tag);
     if (found) return;
-    //add new tag to users tag array
+    //add new tag to user's tag array
     const tagSelected = userSelectedTags.slice();
     tagSelected.push(tag);
     setUserSelectedTags(tagSelected);
@@ -203,6 +202,12 @@ function Handoff(props) {
             </Typography>
           </Grid>
         ) : null}
+        {userSelectedTags.length === 0 && 
+          <Grid item xs={12}>
+            <Typography sx={{ color: "error.main" }}>
+              Remember to select a tag!!
+            </Typography>
+          </Grid>}
       </Grid>
     </>
   );
