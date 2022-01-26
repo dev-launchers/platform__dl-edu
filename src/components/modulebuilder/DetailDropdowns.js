@@ -12,7 +12,7 @@ import classes from "../sidenav/FilterDropdown";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 
-function HandoffDropdowns(props) {
+function DetailDropdowns(props) {
   const [open, setOpen] = useState(false);
   const anchorRef = React.useRef(null);
   const [menuArrowDown, setMenuArrowDown] = useState(true);
@@ -120,4 +120,4 @@ function HandoffDropdowns(props) {
   );
 }
 
-export default HandoffDropdowns;
+export default DetailDropdowns;

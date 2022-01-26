@@ -4,8 +4,12 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-import HandoffDropdowns from "./HandoffDropdowns";
+import Radio from "@mui/material/Radio";
+import FormControl from "@mui/material/FormControl";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import FormLabel from "@mui/material/FormLabel";
+import RadioGroup from "@mui/material/RadioGroup";
+import DetailDropdowns from "./DetailDropdowns";
 import ModuleTags from "./ModuleTags";
 import { useFormik } from "formik";
 import * as yup from "yup";
@@ -34,7 +38,16 @@ const DROPDOWNS = [
   { title: "Language", choices: languageFilterDescriptions },
   { title: "Framework", choices: frameworkFilterDescriptions },
 ];
-function Handoff(props) {
+function Details(props) {
+  const [difficultyValue, setDifficultyValue] = useState("");
+  const [userSelectedTags, setUserSelectedTags] = useState([]);
+  const [moduleCreateSuccessful, setModuleCreateSuccessful] = useState(false);
+  const [language, setLanguage] = useState("Select language");
+  const [framework, setFramework] = useState("Select framework");
+  const [noSelection, setNoSelection] = useState(true);
+
+  let found;
+  //formik form validation
   const formik = useFormik({
     initialValues: {
       title: "",
@@ -43,8 +56,12 @@ function Handoff(props) {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       //check to see if user has made a language/framework selection and if user has added a tag
-      if (!noSelection) return;
-      if(userSelectedTags.length === 0) return;
+      if (
+        !noSelection ||
+        difficultyValue === "" ||
+        userSelectedTags.length === 0
+      )
+        return;
 
       const userModuleData = {
         moduleTitle: values.title,
@@ -59,13 +76,6 @@ function Handoff(props) {
       document.body.style.overflow = "hidden";
     },
   });
-  const [userSelectedTags, setUserSelectedTags] = useState([]);
-  const [moduleCreateSuccessful, setModuleCreateSuccessful] = useState(false);
-  const [language, setLanguage] = useState("Select language");
-  const [framework, setFramework] = useState("Select framework");
-  const [noSelection, setNoSelection] = useState(true);
-
-  let found;
 
   function handleItemWasSelected(item) {
     if (item === "Java" || item === "JavaScript" || item === "C#") {
@@ -79,9 +89,11 @@ function Handoff(props) {
       return;
     }
     setNoSelection(true);
-    setFramework(item)
+    setFramework(item);
   }
-
+  function handleChangeDifficulty(event) {
+    setDifficultyValue(event.target.value);
+  }
   function userSelectedTag(tag) {
     //don't add tag more than once
     found = userSelectedTags.includes(tag);
@@ -166,7 +178,7 @@ function Handoff(props) {
         {DROPDOWNS.map((dropdown, index) => {
           return (
             <Grid key={index} item xs={12}>
-              <HandoffDropdowns
+              <DetailDropdowns
                 choice={index === 0 ? language : framework}
                 title={dropdown.title}
                 items={dropdown.choices}
@@ -175,6 +187,28 @@ function Handoff(props) {
             </Grid>
           );
         })}
+        <Grid item xs={12} >
+          <FormControl component="fieldset" sx={{ position:"static" }}>
+            <FormLabel component="legend" sx={{ position:"static" }}>Difficulty</FormLabel>
+            <RadioGroup
+              row
+              aria-label="difficulty"
+              name="difficulty-buttons-group"
+              value={difficultyValue}
+              onChange={handleChangeDifficulty}
+              sx={{ position:"static" }}
+            >
+              <FormControlLabel value="easy" control={<Radio  />} label="Easy" sx={{ position:"static" }} />
+              <FormControlLabel
+                value="medium"
+                control={<Radio />}
+                label="Medium"
+                sx={{ position:"static" }}
+              />
+              <FormControlLabel value="hard" control={<Radio />} label="Hard"  sx={{ position:"static" }}/>
+            </RadioGroup>
+          </FormControl>
+        </Grid>
         <Grid item xs={12}>
           <ModuleTags
             userTags={userSelectedTags}
@@ -202,15 +236,23 @@ function Handoff(props) {
             </Typography>
           </Grid>
         ) : null}
-        {userSelectedTags.length === 0 && 
+        {userSelectedTags.length === 0 && (
           <Grid item xs={12}>
             <Typography sx={{ color: "error.main" }}>
-              Remember to select a tag!!
+              Remember to select a tag!
             </Typography>
-          </Grid>}
+          </Grid>
+        )}
+        {difficultyValue === "" && (
+          <Grid item xs={12}>
+            <Typography sx={{ color: "error.main" }}>
+              Remember to set a difficulty!{" "}
+            </Typography>
+          </Grid>
+        )}
       </Grid>
     </>
   );
 }
 
-export default Handoff;
+export default Details;

@@ -65,7 +65,7 @@ function ExercisesHome(props) {
     ScrollToTop();
   }
   return (
-    <Container>
+    <Box>
       {showCreateMenu ? (
         <>
           {ReactDOM.createPortal(
@@ -119,7 +119,7 @@ function ExercisesHome(props) {
           </Button>
         ) : null}
       </Stack>
-    </Container>
+    </Box>
   );
 }
 
