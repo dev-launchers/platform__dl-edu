@@ -40,7 +40,6 @@ function Handoff(props) {
     initialValues: {
       title: "",
       description: "",
-      userTags: [],
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -183,21 +182,6 @@ function Handoff(props) {
             userDeletedTag={handleUserDeletedTag}
             userSelectedTag={userSelectedTag}
           />
-        </Grid>
-        <Grid item xs={12}>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Box
-              sx={{
-                height: "25px",
-                width: "25px",
-                borderRadius: "50%",
-                backgroundColor: "#0058DB",
-              }}
-            >
-              <PlayArrowIcon color="neutral" />
-            </Box>
-            <Button>Preview</Button>
-          </Box>
         </Grid>
         <Grid item xs={5}>
           <Button variant="contained" color="brightBlue" sx={{ mr: "5px" }}>

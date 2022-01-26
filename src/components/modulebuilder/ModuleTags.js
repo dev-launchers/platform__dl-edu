@@ -4,33 +4,41 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
-import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
+import * as yup from "yup";
+import { useFormik } from "formik";
 
-import useForceRender from "../ForceRender";
+const validationSchema = yup.object({
+  userTag: yup
+    .string("Error, invalid format")
+    .max(10, "tag is too long")
+    .min(2, "tag is too short!")
+    .lowercase("foo"),
+});
 
 function ModuleTags(props) {
   const [dynamicTagHolder, setDynamicTagHolder] = useState([
-    { deleteable: false, label: "Beginner" },
-    { deleteable: false, label: "Intermediate" },
-    { deleteable: false, label: "Advanced" },
-    { deleteable: false, label: "Functions" },
-    { deleteable: false, label: "Loops" },
+    { deleteable: false, label: "beginner" },
+    { deleteable: false, label: "intermediate" },
+    { deleteable: false, label: "advanced" },
+    { deleteable: false, label: "functions" },
+    { deleteable: false, label: "loops" },
   ]);
-  const [newTag, setNewTag] = useState("");
-  const forceRender = useForceRender();
 
-  function handleUserCreatedTag() {
-    const tempTag = { deleteable: true, label: newTag };
-    const tagHolder = dynamicTagHolder;
-    tagHolder.push(tempTag);
-    setDynamicTagHolder(tagHolder);
-    setNewTag("");
-    props.userSelectedTag(newTag);
-  }
-  function handleUserUpdatedTag(event) {
-    setNewTag(event.target.value);
-  }
+  const formik = useFormik({
+    initialValues: {
+      userTag: "",
+    },
+    validationSchema: validationSchema,
+    onSubmit: (value) => {
+      const tempTag = { deleteable: true, label: value.userTag };
+      const tagHolder = dynamicTagHolder.slice();
+      tagHolder.push(tempTag);
+      setDynamicTagHolder(tagHolder);
+      props.userSelectedTag(tempTag);
+    },
+  });
+
   const handleUserSelectedTag = (tag) => () => {
     const tempTagHolder = dynamicTagHolder.slice();
     const tagIndex = tempTagHolder.indexOf(tag);
@@ -63,7 +71,7 @@ function ModuleTags(props) {
                   <Chip
                     label={tag.label}
                     onClick={handleUserSelectedTag(tag)}
-                    sx={{ position:"static" }}
+                    sx={{ position: "static" }}
                     onDelete={tag.deleteable ? handleUserDeletedTag(tag) : null}
                   />
                 </Box>
@@ -81,22 +89,37 @@ function ModuleTags(props) {
         xs={8}
         sx={{ display: "flex", alignItems: "center", position: "static" }}
       >
-        <input
-          onChange={handleUserUpdatedTag}
-          placeholder="+ Add your own tag"
-          style={{ marginRight:"10px", height:"50px", width:"35%" }}
-          value={newTag}
-        />
-        {newTag !== "" ? (
-          <Button
-            variant="contained"
-            color="brightBlue"
-            onClick={handleUserCreatedTag}
-          >
-            Add tag
-          </Button>
-        ) : null}
+        <form style={{ width: "100%" }}>
+          <input
+            name="userTag"
+            onChange={formik.handleChange}
+            value={formik.values.userTag}
+            placeholder="+ Add your own tag"
+            style={{
+              marginRight: "10px",
+              height: "50px",
+              width: "35%",
+              padding: "5px",
+            }}
+          />
+          {formik.values.userTag !== "" && (
+            <Button
+              variant="contained"
+              color="brightBlue"
+              onClick={formik.handleSubmit}
+            >
+              Add tag
+            </Button>
+          )}
+        </form>
       </Grid>
+      {formik.touched.userTag && formik.errors.userTag && (
+        <Grid item xs={12}>
+          <Typography paragraph sx={{ color: "#d32f2f" }}>
+            {formik.touched.userTag && formik.errors.userTag}
+          </Typography>
+        </Grid>
+      )}
     </Grid>
   );
 }
