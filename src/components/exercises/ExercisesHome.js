@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -9,12 +8,13 @@ import AddIcon from "@mui/icons-material/Add";
 
 import ScrollToTop from "../ScrollToTop";
 import BackgroundModal from "../BackgroundModal";
-import CreateQuestions from "./CreateQuestions";
+import CreateMCQuestion from "./CreateMCQuestion";
+import CreateTFQuestion from "./CreateTFQuestion";
 import CreatedExercisesPreview from "./CreatedExercisesPreview";
 
 const TITLES = [
-  { title: "Multiple Choice Questions" },
-  { title: "True or False Questions" },
+  { title: "Multiple Choice" },
+  { title: "True or False" },
 ];
 
 function ExercisesHome(props) {
@@ -23,9 +23,8 @@ function ExercisesHome(props) {
 
   function userSubmittedQuestion(question) {
     let tempArray;
-    console.log(question)
     //add question to the pertinent exercise array
-    if (question.answerQuantity === 2) {
+    if (question.answers == null) {
       tempArray = props.userQuestions[0].questions.slice();
       tempArray.push(question);
       props.userSubmittedQuestion(question)
@@ -50,6 +49,7 @@ function ExercisesHome(props) {
   }
   function handleModalWasOpened(type) {
     document.body.style.overflow = "hidden"
+    console.log(type);
     setQuestionType(type);
     setShowCreateMenu(true);
     ScrollToTop();
@@ -66,7 +66,7 @@ function ExercisesHome(props) {
   }
   return (
     <Box>
-      {showCreateMenu ? (
+      {showCreateMenu &&
         <>
           {ReactDOM.createPortal(
             <BackgroundModal
@@ -75,16 +75,22 @@ function ExercisesHome(props) {
             />,
             document.getElementById("background-modal")
           )}
-          {ReactDOM.createPortal(
-            <CreateQuestions
+          {questionType === "Multiple Choicez" ? ReactDOM.createPortal(
+            <CreateMCQuestion
               onClose={handleModalWasClosed}
-              questionType={questionType}
+              userSubmittedQuestion={userSubmittedQuestion}
+            />,
+            document.getElementById("description-modal")
+          )
+           : ReactDOM.createPortal(
+            <CreateTFQuestion
+              onClose={handleModalWasClosed}
               userSubmittedQuestion={userSubmittedQuestion}
             />,
             document.getElementById("description-modal")
           )}
         </>
-      ) : null}
+      }
       <Stack spacing={2}>
         {TITLES.map((title, index) => {
           return (
@@ -100,7 +106,7 @@ function ExercisesHome(props) {
                   <AddIcon fontSize="large" />
                 </Button>
               </Box>
-              {index === 1 ? (
+              {index === 0 ? (
                 <CreatedExercisesPreview questionInformation={props.userQuestions[0].questions} />
               ) : (
                 <CreatedExercisesPreview questionInformation={props.userQuestions[1].questions} />

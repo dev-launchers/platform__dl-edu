@@ -9,11 +9,11 @@ import FormControl from "@mui/material/FormControl";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormLabel from "@mui/material/FormLabel";
 import RadioGroup from "@mui/material/RadioGroup";
-import DetailDropdowns from "./DetailDropdowns";
-import ModuleTags from "./ModuleTags";
 import { useFormik } from "formik";
 import * as yup from "yup";
 
+import DetailDropdowns from "./DetailDropdowns";
+import ModuleTags from "./ModuleTags";
 import ScrollToTop from "../ScrollToTop";
 import BackgroundModal from "../BackgroundModal";
 import SuccessNotification from "./SuccessNotification";
@@ -188,24 +188,24 @@ function Details(props) {
           );
         })}
         <Grid item xs={12} >
-          <FormControl component="fieldset" sx={{ position:"static" }}>
-            <FormLabel component="legend" sx={{ position:"static" }}>Difficulty</FormLabel>
+          <FormControl component="fieldset" >
+            <FormLabel component="legend" >Difficulty</FormLabel>
             <RadioGroup
               row
               aria-label="difficulty"
               name="difficulty-buttons-group"
               value={difficultyValue}
               onChange={handleChangeDifficulty}
-              sx={{ position:"static" }}
+              
             >
-              <FormControlLabel value="easy" control={<Radio  />} label="Easy" sx={{ position:"static" }} />
+              <FormControlLabel value="easy" control={<Radio  />} label="Easy"  />
               <FormControlLabel
                 value="medium"
                 control={<Radio />}
                 label="Medium"
-                sx={{ position:"static" }}
+                
               />
-              <FormControlLabel value="hard" control={<Radio />} label="Hard"  sx={{ position:"static" }}/>
+              <FormControlLabel value="hard" control={<Radio />} label="Hard"  />
             </RadioGroup>
           </FormControl>
         </Grid>

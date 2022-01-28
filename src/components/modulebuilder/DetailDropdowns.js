@@ -76,8 +76,6 @@ function DetailDropdowns(props) {
             anchorEl={anchorRef.current}
             placement="bottom-start"
             transition
-            disablePortal
-            sx={{ position: "absolute" }}
           >
             {({ TransitionProps, placement }) => (
               <Grow

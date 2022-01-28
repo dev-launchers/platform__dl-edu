@@ -9,45 +9,34 @@ import Button from "@mui/material/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import InfoIcon from "@mui/icons-material/Info";
 import AddIcon from "@mui/icons-material/Add";
-import classes from "./CreateQuestions.module.css";
+import classes from "./CreateMCQuestion.module.css";
 import AnswerField from "./AnswerField";
 
-function CreateQuestions(props) {
+function CreateMCQuestion(props) {
   const [title, setTitle] = useState("");
   const [titleError, setTitleError] = useState(false);
   const [answerError, setAnswerError] = useState(false);
   const [addAnother, setAddAnother] = useState(false);
   const [radioTracker, setRadioTracker] = useState(-1);
-  const [answerFieldQuantity, setAnswerFieldQuantity] = useState(
-    props.questionType === "True or False Questions" ? 2 : 3
-  );
-  const [answerFields, setAnswerFields] = useState(
-    answerFieldQuantity === 3
-      ? [
-          { id: Math.random(), answer: "" },
-          { id: Math.random(), answer: "" },
-          { id: Math.random(), answer: "" },
-        ]
-      : [
-          { id: Math.random(), answer: "" },
-          { id: Math.random(), answer: "" },
-        ]
-  );
+  const [answerFieldQuantity, setAnswerFieldQuantity] = useState(3);
+  const [answerFields, setAnswerFields] = useState([
+    { id: Math.random(), answer: "" },
+    { id: Math.random(), answer: "" },
+    { id: Math.random(), answer: "" },
+  ]);
 
   //show "add more answers button if the question is MC"
-  const moreAnswersButton =
-    props.questionType === "True or False Questions" ? null : (
-      <Button
-        startIcon={<AddIcon />}
-        variant="outlined"
-        color="gray"
-        onClick={handleUserAddedAnswerField}
-        sx={{ mb: "10px" }}
-      >
-        Add more answers
-      </Button>
-    );
-
+  const moreAnswersButton = (
+    <Button
+      startIcon={<AddIcon />}
+      variant="outlined"
+      color="gray"
+      onClick={handleUserAddedAnswerField}
+      sx={{ mb: "10px" }}
+    >
+      Add more answers
+    </Button>
+  );
   function handleUserClickedInfoButton() {
     window.alert("Testing!");
   }
@@ -95,8 +84,8 @@ function CreateQuestions(props) {
     //don't allow user to submit a question title < 5 chars
     if (titleError || radioTracker === -1) return;
     //validate answers are not blank
-    for(let i = 0; i < answerFields.length; i++) {
-      if(answerFields[i].answer.length === 0) {
+    for (let i = 0; i < answerFields.length; i++) {
+      if (answerFields[i].answer.length === 0) {
         //set error here
         setAnswerError(true);
         return;
@@ -172,41 +161,19 @@ function CreateQuestions(props) {
             value={title}
           />
           <Typography paragraph>Answers</Typography>
-          <Box sx={{ width: "100%", display: "flex", flexDirection: "column" }}>
-            {props.questionType === "True or False Questions"
-              ? answerFields.slice(0, 2).map((answer, index) => {
-                  return (
-                    <AnswerField
-                      key={answer.id}
-                      radioIndex={radioTracker}
-                      userSelectedCorrectAnswer={
-                        handleUserSelectedCorrectAnswer
-                      }
-                      id={index}
-                      handleUserTypedAnswer={handleUserTypedAnswer}
-                      answer={answer.answer}
-                      isMultipleChoice={true}
-                    />
-                  );
-                })
-              : answerFields.map((answer, index) => {
-                  return (
-                    <AnswerField
-                      key={answer.id}
-                      radioIndex={radioTracker}
-                      userSelectedCorrectAnswer={
-                        handleUserSelectedCorrectAnswer
-                      }
-                      handleUserTypedAnswer={handleUserTypedAnswer}
-                      handleUserRemovedAnswerField={
-                        handleUserRemovedAnswerField
-                      }
-                      id={index}
-                      answer={answer.answer}
-                    />
-                  );
-                })}
-          </Box>
+            {answerFields.map((answer, index) => {
+              return (
+                <AnswerField
+                  key={answer.id}
+                  radioIndex={radioTracker}
+                  userSelectedCorrectAnswer={handleUserSelectedCorrectAnswer}
+                  handleUserTypedAnswer={handleUserTypedAnswer}
+                  handleUserRemovedAnswerField={handleUserRemovedAnswerField}
+                  id={index}
+                  answer={answer.answer}
+                />
+              );
+            })}
 
           <Box
             display="flex"
@@ -216,7 +183,7 @@ function CreateQuestions(props) {
             height="105px"
           >
             {moreAnswersButton}
-            <Box width="50%" display="flex" justifyContent="space-evenly">
+            <Box display="flex" justifyContent="space-evenly">
               <Button
                 variant="contained"
                 type="submit"
@@ -245,4 +212,4 @@ function CreateQuestions(props) {
   );
 }
 
-export default CreateQuestions;
+export default CreateMCQuestion;

@@ -73,12 +73,6 @@ function AnswerField(props) {
           sx={{ height: "16px", width: "16px" }}
         />
         <Typography>Mark as correct answer</Typography>
-        {!props.isMultipleChoice ? (
-          <DeleteIcon
-            sx={{ cursor: "pointer" }}
-            onClick={() => handleUserRemovedAnswer(props.id)}
-          />
-        ) : null}
       </Box>
     </Box>
   );

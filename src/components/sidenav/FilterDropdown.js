@@ -87,7 +87,6 @@ function FilterDropdown(props) {
           anchorEl={anchorRef.current}
           placement="left-end"
           transition
-          disablePortal
         >
           {({ TransitionProps, placement }) => (
             <Grow
