@@ -11,6 +11,7 @@ import FormLabel from "@mui/material/FormLabel";
 import RadioGroup from "@mui/material/RadioGroup";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 import DetailDropdowns from "./DetailDropdowns";
 import ModuleTags from "./ModuleTags";
@@ -39,12 +40,23 @@ const DROPDOWNS = [
   { title: "Framework", choices: frameworkFilterDescriptions },
 ];
 function Details(props) {
-  const [difficultyValue, setDifficultyValue] = useState("");
+  const navigate = useNavigate();
+  const [difficultyValue, setDifficultyValue] = useState();
+  const [noDifficultySelected, setNoDifficultySelected] = useState(null);
   const [userSelectedTags, setUserSelectedTags] = useState([]);
+  const [noTagSelected, setNoTagSelected] = useState(null);
   const [moduleCreateSuccessful, setModuleCreateSuccessful] = useState(false);
   const [language, setLanguage] = useState("Select language");
   const [framework, setFramework] = useState("Select framework");
-  const [noSelection, setNoSelection] = useState(true);
+  const [noSelection, setNoSelection] = useState("");
+  const [validator, setValidator] = useState([
+    {
+      selectionValidated: false,
+      message: "Remember to pick a framework or language!",
+    },
+    { difficultyValidated: false, message: "Remember to pick a difficulty!" },
+    { tagValidated: false, message: "Remember to select a tag!" },
+  ]);
 
   let found;
   //formik form validation
@@ -56,12 +68,18 @@ function Details(props) {
     validationSchema: validationSchema,
     onSubmit: (values) => {
       //check to see if user has made a language/framework selection and if user has added a tag
-      if (
-        !noSelection ||
-        difficultyValue === "" ||
-        userSelectedTags.length === 0
-      )
+      if (!validator[0].selectionValidated) {
+        setNoSelection(true);
         return;
+      }
+      if (!validator[1].difficultyValidated) {
+        setNoDifficultySelected(true);
+        return;
+      }
+      if (!validator[2].tagValidated) {
+        setNoTagSelected(true);
+        return;
+      }
 
       const userModuleData = {
         moduleTitle: values.title,
@@ -79,11 +97,17 @@ function Details(props) {
 
   function handleItemWasSelected(item) {
     if (item === "Java" || item === "JavaScript" || item === "C#") {
+      const tmp = validator;
+      tmp[0].selectionValidated = true;
+      setValidator(tmp);
       setNoSelection(false);
       setLanguage(item);
       return;
     }
     if (item === "Foo" || item === "Roh" || item === "Bar") {
+      const tmp = validator;
+      tmp[0].selectionValidated = true;
+      setValidator(tmp);
       setNoSelection(false);
       setFramework(item);
       return;
@@ -92,6 +116,10 @@ function Details(props) {
     setFramework(item);
   }
   function handleChangeDifficulty(event) {
+    const tmp = validator.slice();
+    tmp[1].difficultyValidated = true;
+    setValidator(tmp);
+    setNoDifficultySelected(false);
     setDifficultyValue(event.target.value);
   }
   function userSelectedTag(tag) {
@@ -101,6 +129,9 @@ function Details(props) {
     //add new tag to user's tag array
     const tagSelected = userSelectedTags.slice();
     tagSelected.push(tag);
+    const tmp = validator.slice();
+    tmp[2].tagValidated = true;
+    setNoTagSelected(false);
     setUserSelectedTags(tagSelected);
   }
 
@@ -112,7 +143,8 @@ function Details(props) {
   }
 
   function userClosedSuccessModal() {
-    setModuleCreateSuccessful(false);
+    console.log(language === "Select language" ? framework : language)
+    navigate(`/main-content/learning-modules/${language === "Select language" ? framework.toLowerCase() : language.toLowerCase()}`);
     document.body.style.overflow = "visible";
   }
 
@@ -125,7 +157,7 @@ function Details(props) {
             document.getElementById("background-modal")
           )}
           {ReactDOM.createPortal(
-            <SuccessNotification closeModal={userClosedSuccessModal} />,
+            <SuccessNotification paramater={language==="Select language" ? framework : language} closeModal={userClosedSuccessModal} />,
             document.getElementById("description-modal")
           )}
         </>
@@ -187,28 +219,40 @@ function Details(props) {
             </Grid>
           );
         })}
-        <Grid item xs={12} >
-          <FormControl component="fieldset" >
-            <FormLabel component="legend" >Difficulty</FormLabel>
+        {noSelection ? (
+          <Grid item xs={12}>
+            <Typography sx={{ color: "error.main" }}>
+              {validator[0].message}
+            </Typography>
+          </Grid>
+        ) : null}
+        <Grid item xs={12}>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">Difficulty</FormLabel>
             <RadioGroup
               row
               aria-label="difficulty"
               name="difficulty-buttons-group"
               value={difficultyValue}
               onChange={handleChangeDifficulty}
-              
             >
-              <FormControlLabel value="easy" control={<Radio  />} label="Easy"  />
+              <FormControlLabel value="easy" control={<Radio />} label="Easy" />
               <FormControlLabel
                 value="medium"
                 control={<Radio />}
                 label="Medium"
-                
               />
-              <FormControlLabel value="hard" control={<Radio />} label="Hard"  />
+              <FormControlLabel value="hard" control={<Radio />} label="Hard" />
             </RadioGroup>
           </FormControl>
         </Grid>
+        {noDifficultySelected && (
+          <Grid item xs={12}>
+            <Typography sx={{ color: "error.main" }}>
+              here{validator[1].message}
+            </Typography>
+          </Grid>
+        )}
         <Grid item xs={12}>
           <ModuleTags
             userTags={userSelectedTags}
@@ -216,6 +260,20 @@ function Details(props) {
             userSelectedTag={userSelectedTag}
           />
         </Grid>
+        {noDifficultySelected && (
+          <Grid item xs={12}>
+            <Typography sx={{ color: "error.main" }}>
+              here{validator[1].message}
+            </Typography>
+          </Grid>
+        )}
+        {noTagSelected && (
+          <Grid item xs={12}>
+            <Typography sx={{ color: "error.main" }}>
+              {validator[2].message}
+            </Typography>
+          </Grid>
+        )}
         <Grid item xs={5}>
           <Button variant="contained" color="brightBlue" sx={{ mr: "5px" }}>
             Save
@@ -229,27 +287,6 @@ function Details(props) {
             Submit
           </Button>
         </Grid>
-        {noSelection ? (
-          <Grid item xs={12}>
-            <Typography sx={{ color: "error.main" }}>
-              Remember to pick a framework or language!
-            </Typography>
-          </Grid>
-        ) : null}
-        {userSelectedTags.length === 0 && (
-          <Grid item xs={12}>
-            <Typography sx={{ color: "error.main" }}>
-              Remember to select a tag!
-            </Typography>
-          </Grid>
-        )}
-        {difficultyValue === "" && (
-          <Grid item xs={12}>
-            <Typography sx={{ color: "error.main" }}>
-              Remember to set a difficulty!{" "}
-            </Typography>
-          </Grid>
-        )}
       </Grid>
     </>
   );
