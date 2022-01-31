@@ -1,26 +1,38 @@
 import React from "react";
 import Stackedit from "stackedit-js";
+import Fab from "@mui/material/Fab";
+import EditIcon from "@mui/icons-material/Edit";
 
 function Guide() {
-    console.log(document.getElementById("my-textarea"))
-    const el = document.getElementById("my-textarea");
-    const stackedit = new Stackedit();
+  const [markdown, setMarkdown] = React.useState("");
 
-  // Open the iframe
+  const openStackedit = () => {
+    const stackedit = new Stackedit();
     stackedit.openFile({
-      name: "Userguide", // with an optional filename
+      name: "user-guide",
       content: {
-        text: el.value, // and the Markdown content.
+        text: markdown,
       },
     });
 
-  stackedit.on('fileChange', (file) => {
-    el.value = file.content.text;
-  });
+    stackedit.on("fileChange", (file) => {
+      setMarkdown(file.content.text);
+    });
+
+    stackedit.on("close", () => {
+      // TODO when user closes modal, post to backend to save changes
+    });
+  };
 
   return (
     <div>
-      {/* <textarea id="my-textarea" value={el.value}></textarea> */}
+      <Fab
+        color="primary"
+        style={{ float: "right", right: "10px" }}
+        onClick={openStackedit}
+      >
+        <EditIcon />
+      </Fab>
     </div>
   );
 }

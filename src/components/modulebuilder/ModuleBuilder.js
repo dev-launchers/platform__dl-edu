@@ -88,6 +88,7 @@ function ModuleBuilder(props) {
         <Details userSubmittedModule={handleUserSubmittedModule} />
       </TabPanel>
       <TabPanel value={value} index={2} className={classes.tabPanels}>
+        <Guide />
       </TabPanel>
       <TabPanel value={value} index={3} className={classes.tabPanels}>
         <Engagement userSumbittedUrl={handleUserSumbittedUrl} />
