@@ -5,6 +5,7 @@ import EditIcon from "@mui/icons-material/Edit";
 
 function Guide() {
   const [markdown, setMarkdown] = React.useState("");
+  let tmpText;
 
   const openStackedit = () => {
     const stackedit = new Stackedit();
@@ -16,24 +17,28 @@ function Guide() {
     });
 
     stackedit.on("fileChange", (file) => {
-      setMarkdown(file.content.text);
+      tmpText = file.content.text;
     });
 
     stackedit.on("close", () => {
       // TODO when user closes modal, post to backend to save changes
+      setMarkdown(test);
     });
   };
 
   return (
-    <div>
-      <Fab
-        color="primary"
-        style={{ float: "right", right: "10px" }}
-        onClick={openStackedit}
-      >
-        <EditIcon />
-      </Fab>
-    </div>
+    <>
+      <div>
+        <Fab
+          color="primary"
+          style={{ float: "right", right: "10px" }}
+          onClick={openStackedit}
+        >
+          <EditIcon />
+        </Fab>
+      </div>
+      <div>{markdown}</div>
+    </>
   );
 }
 
