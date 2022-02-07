@@ -16,8 +16,9 @@ http://localhost:3000
 
 # Project Architecture
 
-React JS
-https://reactjs.org/
+React JS: https://reactjs.org/
+
+Thinking in React: https://reactjs.org/docs/hello-world.html
 
 Functional Components
 https://www.telerik.com/blogs/react-class-component-vs-functional-component-how-choose-whats-difference
