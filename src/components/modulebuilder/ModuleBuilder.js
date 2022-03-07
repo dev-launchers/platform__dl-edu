@@ -45,13 +45,12 @@ function ModuleBuilder(props) {
     setValue((oldValue) => oldValue + 1);
   }
   function handleUserSumbittedUrl(url) {
-    console.log(url);
     setUserUrl(url);
     setValue((oldValue) => oldValue + 1);
   }
   function handleUserSubmittedQuestion(question) {
     //decide if multiple choice
-    if (question.answerQuantity === 2) {
+    if (question.answerQuantity) {
       const tmp = questionTracker.slice();
       tmp[0].questions.push(question);
       setQuestionTracker(tmp);
@@ -71,7 +70,6 @@ function ModuleBuilder(props) {
       url: userUrl,
     };
     //take all user created data and send it to back-end with fetch, axios, etc.
-    console.log(userModuleData);
   }
 
   return (

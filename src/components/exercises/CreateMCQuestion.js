@@ -23,20 +23,10 @@ function CreateMCQuestion(props) {
     { id: Math.random(), answer: "" },
     { id: Math.random(), answer: "" },
     { id: Math.random(), answer: "" },
+    { id: Math.random(), answer: "" },
   ]);
 
-  //show "add more answers button if the question is MC"
-  const moreAnswersButton = (
-    <Button
-      startIcon={<AddIcon />}
-      variant="outlined"
-      color="gray"
-      onClick={handleUserAddedAnswerField}
-      sx={{ mb: "10px" }}
-    >
-      Add more answers
-    </Button>
-  );
+  
   function handleUserClickedInfoButton() {
     window.alert("Testing!");
   }
@@ -125,7 +115,7 @@ function CreateMCQuestion(props) {
               fontSize="large"
             />
           </Box>
-          <Typography variant="h4">{props.questionType}</Typography>
+          <Typography variant="h4">Multiple Choice</Typography>
           <Typography
             sx={{
               display: "flex",
@@ -182,7 +172,6 @@ function CreateMCQuestion(props) {
             alignItems="flex-start"
             height="105px"
           >
-            {moreAnswersButton}
             <Box display="flex" justifyContent="space-evenly">
               <Button
                 variant="contained"
@@ -191,7 +180,7 @@ function CreateMCQuestion(props) {
               >
                 Save and add another
               </Button>
-              <Button variant="contained" type="submit">
+              <Button variant="contained" type="submit" onClick={handleQuestionWasSubmitted}>
                 Save and back
               </Button>
             </Box>

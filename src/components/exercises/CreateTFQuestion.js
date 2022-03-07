@@ -36,7 +36,6 @@ function CreateTFQuestion(props) {
   }
 
   function handleChangeRadioAnswer(event) {
-    console.log(event);
     setRadioValue(event.target.value);
   }
 

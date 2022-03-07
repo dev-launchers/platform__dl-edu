@@ -16,7 +16,6 @@ const cache = createCache({
 
 function Challenge() {
   function handleGetStarted() {
-    console.log("object");
   }
 
   return (

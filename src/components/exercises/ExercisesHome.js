@@ -23,8 +23,9 @@ function ExercisesHome(props) {
 
   function userSubmittedQuestion(question) {
     let tempArray;
+
     //add question to the pertinent exercise array
-    if (question.answers == null) {
+    if (question.answersQuantity) {
       tempArray = props.userQuestions[0].questions.slice();
       tempArray.push(question);
       props.userSubmittedQuestion(question)
@@ -49,7 +50,6 @@ function ExercisesHome(props) {
   }
   function handleModalWasOpened(type) {
     document.body.style.overflow = "hidden"
-    console.log(type);
     setQuestionType(type);
     setShowCreateMenu(true);
     ScrollToTop();
@@ -75,7 +75,7 @@ function ExercisesHome(props) {
             />,
             document.getElementById("background-modal")
           )}
-          {questionType === "Multiple Choicez" ? ReactDOM.createPortal(
+          {questionType === "Multiple Choice" ? ReactDOM.createPortal(
             <CreateMCQuestion
               onClose={handleModalWasClosed}
               userSubmittedQuestion={userSubmittedQuestion}

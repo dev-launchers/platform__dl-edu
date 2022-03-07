@@ -143,7 +143,6 @@ function Details(props) {
   }
 
   function userClosedSuccessModal() {
-    console.log(language === "Select language" ? framework : language)
     navigate(`/main-content/learning-modules/${language === "Select language" ? framework.toLowerCase() : language.toLowerCase()}`);
     document.body.style.overflow = "visible";
   }

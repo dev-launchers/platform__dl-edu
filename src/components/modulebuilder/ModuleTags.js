@@ -35,7 +35,6 @@ function ModuleTags(props) {
       const found = dynamicTagHolder.find(
         (element) => element.label === value.userTag
       );
-      console.log(found);
       if (found != null) {
         setRepeatTag(true);
         return;
