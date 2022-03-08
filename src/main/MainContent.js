@@ -51,9 +51,7 @@ function MainContent() {
         marginLeft: 0,
       }),
     })
-  ); // The `path` lets us build <Route> paths that are
-  // relative to the parent route, while the `url` lets
-  // us build relative links.
+  );
   return (
     <>
       <CssBaseline />
