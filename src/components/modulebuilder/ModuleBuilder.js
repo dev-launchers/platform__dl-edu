@@ -28,6 +28,7 @@ const buildTabValues = TABVALUES.map((tab) => {
       disableRipple
       {...allyProps(tab.index)}
       key={tab.index}
+      sx={{color:"neutral.main"}}
     />
   );
 });

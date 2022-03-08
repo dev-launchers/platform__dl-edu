@@ -33,16 +33,16 @@ function MainContent() {
   const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     ({ theme, open }) => ({
       flexGrow: 1,
-      marginBottom: "411px",
-      backgroundColor: "#ffffff",
+      marginBottom: "350px",
+      backgroundColor: "#181818",
       padding: theme.spacing(3),
       /* transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }), */
       marginLeft: `-${drawerWidth / 10}px`,
-      marginBottom: "411px",
-      backgroundColor: "#ffffff",
+      marginBottom: "350px",
+      backgroundColor: "#181818",
       ...(open && {
         /* transition: theme.transitions.create("margin", {
           easing: theme.transitions.easing.easeOut,

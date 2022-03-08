@@ -1,15 +1,10 @@
-import React from "react";
+/* import React from "react";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Link from "@mui/material/Link";
 import Typography from "@mui/material/Typography";
 
-const SECTIONTITLES = [
-  { index: 1, title: "Guide Section" },
-  { index: 2, title: "Engagement Section" },
-  { index: 3, title: "Exercises" },
-  { index: 4, title: "Handoff" },
-];
+
 function ModuleBuilderIntroductionSections() {
   const introSections = SECTIONTITLES.map((section) => {
     return (
@@ -36,10 +31,9 @@ function ModuleBuilderIntroductionSections() {
   });
 
   return (
-    <Grid container rowSpacing={4} columnSpacing={3}>
-      {introSections}
-    </Grid>
+    
   );
 }
 
 export default ModuleBuilderIntroductionSections;
+ */
