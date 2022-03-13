@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
+import { styled } from "@mui/material";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 
@@ -20,15 +21,18 @@ const TABVALUES = [
   { index: 3, title: "Engagement" },
   { index: 4, title: "Exercises" },
 ];
-
-const buildTabValues = TABVALUES.map((tab) => {
+const StyledTab = styled(Tab)({
+  color: "#ababab",
+  backgroundColor: "#222222",
+  
+});
+const TabValues = TABVALUES.map((tab) => {
   return (
-    <Tab
+    <StyledTab
       label={tab.title}
       disableRipple
       {...allyProps(tab.index)}
       key={tab.index}
-      sx={{color:"neutral.main"}}
     />
   );
 });
@@ -45,7 +49,7 @@ function ModuleBuilder(props) {
   function advanceToNextTab() {
     setValue((oldValue) => oldValue + 1);
   }
-  function handleUserSumbittedUrl(url) {
+  function handleUserSubmittedUrl(url) {
     setUserUrl(url);
     setValue((oldValue) => oldValue + 1);
   }
@@ -76,32 +80,29 @@ function ModuleBuilder(props) {
   return (
     <Box sx={{ width: "100%" }}>
       <Box className={classes.tabsContainer}>
-        <Tabs value={value} onChange={handleChange} aria-label="module tabs">
-          {buildTabValues}
+        <Tabs value={value} onChange={handleChange} aria-label="module tabs" sx={{"& .Mui-selected": { color: "#ffffff" }, }}>
+          {TabValues}
         </Tabs>
       </Box>
-      <TabPanel value={value} index={0} className={classes.tabPanels}>
+      <TabPanel value={value} index={0}>
         <Introduction advanceToNextTab={advanceToNextTab} />
       </TabPanel>
-      <TabPanel value={value} index={1} className={classes.tabPanels}>
+      <TabPanel value={value} index={1}>
         <Details userSubmittedModule={handleUserSubmittedModule} />
       </TabPanel>
-      <TabPanel value={value} index={2} className={classes.tabPanels}>
+      <TabPanel value={value} index={2}>
         <Guide />
       </TabPanel>
-      <TabPanel value={value} index={3} className={classes.tabPanels}>
-        <Engagement userSumbittedUrl={handleUserSumbittedUrl} />
+      <TabPanel value={value} index={3}>
+        <Engagement userSumbittedUrl={handleUserSubmittedUrl} />
       </TabPanel>
-      <TabPanel
-        value={value}
-        index={4}
-        className={classes.tabPanels}
-      >
+      <TabPanel value={value} index={4}>
         <ExercisesHome
           advanceToNextTab={advanceToNextTab}
           userSubmittedQuestion={handleUserSubmittedQuestion}
           userQuestions={questionTracker}
-        /></TabPanel>
+        />
+      </TabPanel>
     </Box>
   );
 }

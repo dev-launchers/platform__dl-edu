@@ -7,16 +7,12 @@
     display: flex;
     justify-content: flex-end;
   }
-  
-  .tabPanels {
-    margin-top:5px;
-    border:1px solid black;
-  }
+
   .tabsContainer {
     display: flex;
     justify-content: flex-end;
-    margin-right: 100px;
-    margin-bottom: 25px;
+    margin-right: 80px;
+    margin-bottom: 8px;
   }
   .tabBox {
     color: black;

@@ -47,7 +47,7 @@ function DetailDropdowns(props) {
     <Grid container marginBottom="20px">
       <Grid item container rowSpacing={1} xs={12}>
         <Grid item xs={12}>
-          <label>{props.title}</label>
+          <label style={{ color: "#ffffff" }}>{props.title}</label>
         </Grid>
         <Grid item xs={12}>
           <Button
@@ -59,7 +59,7 @@ function DetailDropdowns(props) {
             size="large"
             disableElevation
             disableRipple
-            sx={{ position: "static" }}
+            sx={{ position: "static", backgroundColor:"#4e4e4e", color:"#cacaca", border:"1px solid white" }}
             onClick={handleToggle}
             endIcon={
               menuArrowDown ? (

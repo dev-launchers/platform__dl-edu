@@ -11,14 +11,18 @@ import engagementPhoto from "../../images/engagement-photo.png";
 import exercisePhoto from "../../images/exercise-photo.png";
 import handoffPhoto from "../../images/handoff-photo.png";
 
-
 const SECTIONTITLES = [
   { index: 1, title: "Guide Section" },
   { index: 2, title: "Engagement Section" },
   { index: 3, title: "Exercises" },
   { index: 4, title: "Handoff" },
 ];
-const SECTIONPHOTOS = [guidePhoto, engagementPhoto, exercisePhoto, handoffPhoto]
+const SECTIONPHOTOS = [
+  guidePhoto,
+  engagementPhoto,
+  exercisePhoto,
+  handoffPhoto,
+];
 
 function ModuleBuilderIntroduction(props) {
   function handleClick() {
@@ -34,7 +38,7 @@ function ModuleBuilderIntroduction(props) {
           </Link>
         </Grid>
         <Grid item xs={4}>
-            <img src={SECTIONPHOTOS[index]} alt="display photo" />
+          <img src={SECTIONPHOTOS[index]} alt="display photo" />
         </Grid>
         <Grid item xs={8} component={Box}>
           <Typography paragraph sx={{ color: "neutral.main" }}>
@@ -48,12 +52,13 @@ function ModuleBuilderIntroduction(props) {
       </React.Fragment>
     );
   });
+
   return (
     <Grid
       container
       rowSpacing={5}
       columnSpacing={2}
-      sx={{ backgroundColor: "#262626", padding: "20px" }}
+      sx={{ backgroundColor: "#262626", padding: "20px",  }}
     >
       <Grid item xs={12}>
         <Typography variant="h5" sx={{ color: "neutral.main" }}>

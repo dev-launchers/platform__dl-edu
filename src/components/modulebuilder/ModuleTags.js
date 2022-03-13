@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Button from "@mui/material/Button";
 import Chip from "@mui/material/Chip";
 import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import { styled } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import * as yup from "yup";
 import { useFormik } from "formik";
@@ -14,6 +16,39 @@ const validationSchema = yup.object({
     .max(10, "tag is too long")
     .min(2, "tag is too short!")
     .lowercase("foo"),
+});
+
+const StyledTextField = styled(TextField)`
+  background: #4e4e4e;
+
+  & .MuiInput-underline:after {
+    border-bottom-color: white;
+  }
+  & .MuiOutlinedInput-root {
+    /* & fieldset {
+        border-color: white;
+      } */
+    &:hover fieldset {
+      border-color: white;
+    }
+    &.Mui-focused fieldset {
+      border-color: white;
+    }
+  }
+`;
+
+const TAGCOLORS = [
+  "#C4F1C4",
+  "#FDECC8",
+  "#FFBBAF",
+  "#D3E5EF",
+  "#BCB6FF",
+  "#F5E0E9",
+  "#FFE09F",
+];
+const StyledChip = styled(Chip)({
+  marginRight: "3px",
+  borderRadius: "5%",
 });
 
 function ModuleTags(props) {
@@ -71,19 +106,23 @@ function ModuleTags(props) {
   return (
     <Grid container rowSpacing={2}>
       <Grid item xs={12}>
-        <label>Module Tags</label>
+        <label style={{ color: "#ffffff" }}>Module Tags</label>
       </Grid>
       <Grid item xs={12}>
         {dynamicTagHolder.length > 0 ? (
           <ButtonGroup>
             {dynamicTagHolder.map((tag, index) => {
+              const selectedColor = TAGCOLORS[index % 7]
               return (
                 <Box sx={{ marginRight: "10px" }} key={index}>
-                  <Chip
+                  <StyledChip
                     label={tag.label}
                     onClick={handleUserSelectedTag(tag)}
-                    sx={{ position: "static" }}
                     onDelete={tag.deleteable ? handleUserDeletedTag(tag) : null}
+                    sx={{
+                      backgroundColor: selectedColor,
+                      "&:hover": { backgroundColor: selectedColor },
+                    }}
                   />
                 </Box>
               );
@@ -101,17 +140,12 @@ function ModuleTags(props) {
         sx={{ display: "flex", alignItems: "center", position: "static" }}
       >
         <form style={{ width: "100%" }}>
-          <input
-            name="userTag"
+          <StyledTextField
+            id="userTag"
+            placeholder="+ Add your own tag"
             onChange={formik.handleChange}
             value={formik.values.userTag}
-            placeholder="+ Add your own tag"
-            style={{
-              marginRight: "10px",
-              height: "50px",
-              width: "35%",
-              padding: "5px",
-            }}
+            inputProps={{ style: { color: "#ffffff" } }}
           />
           {formik.values.userTag !== "" && (
             <>

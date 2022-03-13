@@ -1,6 +1,7 @@
 import React from "react";
 import Stackedit from "stackedit-js";
 import Fab from "@mui/material/Fab";
+import Typography from "@mui/material/Typography";
 import EditIcon from "@mui/icons-material/Edit";
 
 function Guide() {
@@ -22,13 +23,14 @@ function Guide() {
 
     stackedit.on("close", () => {
       // TODO when user closes modal, post to backend to save changes
-      setMarkdown(test);
+      setMarkdown("test");
     });
   };
 
   return (
     <>
-      <div>
+      <div style={{ width:"100%", display:"flex", justifyContent:"space-around", backgroundColor:"#262626" }}>
+        <Typography variant="h6" sx={{ color:"neutral.main"}}>Edit your guide here</Typography>
         <Fab
           color="primary"
           style={{ float: "right", right: "10px" }}
