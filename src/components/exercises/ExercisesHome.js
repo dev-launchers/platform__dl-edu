@@ -89,7 +89,7 @@ function ExercisesHome(props) {
               )}
         </>
       )}
-      <Stack spacing={2} sx={{ backgroundColor:"#262626", padding:"20px"}}>
+      <Stack spacing={2} sx={{ backgroundColor:"#262626", padding:"20px", mt:"-32px"}}>
         {TITLES.map((title, index) => {
           return (
             <Box key={index} display="flex" flexDirection="column">
