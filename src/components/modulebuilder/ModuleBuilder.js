@@ -24,8 +24,12 @@ const TABVALUES = [
 const StyledTab = styled(Tab)({
   color: "#ababab",
   backgroundColor: "#222222",
-  
+  '&.Mui-selected': {color: "white"}
 });
+
+const StyledTabs = styled(Tabs)({
+  '& .MuiBox-root': { padding: "0px" }
+})
 const TabValues = TABVALUES.map((tab) => {
   return (
     <StyledTab
@@ -37,6 +41,7 @@ const TabValues = TABVALUES.map((tab) => {
   );
 });
 function ModuleBuilder(props) {
+  
   const [userUrl, setUserUrl] = useState("");
   const [questionTracker, setQuestionTracker] = useState([
     { questions: [] },
@@ -80,9 +85,15 @@ function ModuleBuilder(props) {
   return (
     <Box sx={{ width: "100%" }}>
       <Box className={classes.tabsContainer}>
-        <Tabs value={value} onChange={handleChange} aria-label="module tabs" sx={{"& .Mui-selected": { color: "#ffffff" }, }}>
+        <StyledTabs
+          value={value}
+          onChange={handleChange}
+          aria-label="module tabs"
+          TabIndicatorProps={{ style: { background: "transparent" } }}
+          
+        >
           {TabValues}
-        </Tabs>
+        </StyledTabs>
       </Box>
       <TabPanel value={value} index={0}>
         <Introduction advanceToNextTab={advanceToNextTab} />

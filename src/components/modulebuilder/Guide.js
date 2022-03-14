@@ -29,8 +29,19 @@ function Guide() {
 
   return (
     <>
-      <div style={{ width:"100%", display:"flex", justifyContent:"space-around", backgroundColor:"#262626" }}>
-        <Typography variant="h6" sx={{ color:"neutral.main"}}>Edit your guide here</Typography>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "space-around",
+          backgroundColor: "#262626",
+          padding:"40px",
+          marginTop:"-32px"
+        }}
+      >
+        <Typography variant="h6" sx={{ color: "neutral.main" }}>
+          Click the button to get started
+        </Typography>
         <Fab
           color="primary"
           style={{ float: "right", right: "10px" }}

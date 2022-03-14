@@ -64,7 +64,7 @@ function CreatedExercisesPreview(props) {
           })}
         </Stack>
       ) : (
-        <Typography paragraph color="gray" margin="25px">
+        <Typography paragraph margin="25px" sx={{ color:"#c9c9c9"}}>
           It's empty here! Add some exercises by clicking “+”
         </Typography>
       )}

@@ -12,10 +12,7 @@ import CreateMCQuestion from "./CreateMCQuestion";
 import CreateTFQuestion from "./CreateTFQuestion";
 import CreatedExercisesPreview from "./CreatedExercisesPreview";
 
-const TITLES = [
-  { title: "Multiple Choice" },
-  { title: "True or False" },
-];
+const TITLES = [{ title: "Multiple Choice" }, { title: "True or False" }];
 
 function ExercisesHome(props) {
   const [showCreateMenu, setShowCreateMenu] = useState(false);
@@ -28,11 +25,11 @@ function ExercisesHome(props) {
     if (question.answersQuantity) {
       tempArray = props.userQuestions[0].questions.slice();
       tempArray.push(question);
-      props.userSubmittedQuestion(question)
+      props.userSubmittedQuestion(question);
     } else {
       tempArray = props.userQuestions[1].questions.slice();
       tempArray.push(question);
-      props.userSubmittedQuestion(question)
+      props.userSubmittedQuestion(question);
     }
     //if user wants to add another question
     if (question.addAnother) {
@@ -43,30 +40,30 @@ function ExercisesHome(props) {
         ScrollToTop();
       }, 100);
     } else {
-      document.body.style.overflow = "visible"
+      document.body.style.overflow = "visible";
       setShowCreateMenu(false);
       ScrollToTop();
     }
   }
   function handleModalWasOpened(type) {
-    document.body.style.overflow = "hidden"
+    document.body.style.overflow = "hidden";
     setQuestionType(type);
     setShowCreateMenu(true);
     ScrollToTop();
   }
   function handleModalWasClosed() {
-    document.body.style.overflow = "visible"
+    document.body.style.overflow = "visible";
     setShowCreateMenu(false);
   }
 
   function handleUserFinishedCreatingQuestions() {
-    document.body.style.overflow = "visible"
+    document.body.style.overflow = "visible";
     props.advanceToNextTab();
     ScrollToTop();
   }
   return (
     <Box>
-      {showCreateMenu &&
+      {showCreateMenu && (
         <>
           {ReactDOM.createPortal(
             <BackgroundModal
@@ -75,46 +72,62 @@ function ExercisesHome(props) {
             />,
             document.getElementById("background-modal")
           )}
-          {questionType === "Multiple Choice" ? ReactDOM.createPortal(
-            <CreateMCQuestion
-              onClose={handleModalWasClosed}
-              userSubmittedQuestion={userSubmittedQuestion}
-            />,
-            document.getElementById("description-modal")
-          )
-           : ReactDOM.createPortal(
-            <CreateTFQuestion
-              onClose={handleModalWasClosed}
-              userSubmittedQuestion={userSubmittedQuestion}
-            />,
-            document.getElementById("description-modal")
-          )}
+          {questionType === "Multiple Choice"
+            ? ReactDOM.createPortal(
+                <CreateMCQuestion
+                  onClose={handleModalWasClosed}
+                  userSubmittedQuestion={userSubmittedQuestion}
+                />,
+                document.getElementById("description-modal")
+              )
+            : ReactDOM.createPortal(
+                <CreateTFQuestion
+                  onClose={handleModalWasClosed}
+                  userSubmittedQuestion={userSubmittedQuestion}
+                />,
+                document.getElementById("description-modal")
+              )}
         </>
-      }
-      <Stack spacing={2}>
+      )}
+      <Stack spacing={2} sx={{ backgroundColor:"#262626", padding:"20px"}}>
         {TITLES.map((title, index) => {
           return (
             <Box key={index} display="flex" flexDirection="column">
               <Box display="flex" alignItems="center">
-                <Typography variant="h3" margin="10px">
+                <Typography
+                  variant="h3"
+                  margin="10px"
+                  sx={{ color: "neutral.main" }}
+                >
                   {title.title}
                 </Typography>
                 <Button
-                  color="dark"
+                  sx={{
+                    backgroundColor: "#464646",
+                    borderRadius: "50%",
+                    height: "65px",
+                    width: "65px",
+                    "&:hover": { backgroundColor: "#464646" },
+                  }}
                   onClick={() => handleModalWasOpened(TITLES[index].title)}
                 >
-                  <AddIcon fontSize="large" />
+                  <AddIcon fontSize="large" sx={{ color: "neutral.main" }} />
                 </Button>
               </Box>
               {index === 0 ? (
-                <CreatedExercisesPreview questionInformation={props.userQuestions[0].questions} />
+                <CreatedExercisesPreview
+                  questionInformation={props.userQuestions[0].questions}
+                />
               ) : (
-                <CreatedExercisesPreview questionInformation={props.userQuestions[1].questions} />
+                <CreatedExercisesPreview
+                  questionInformation={props.userQuestions[1].questions}
+                />
               )}
             </Box>
           );
         })}
-        {props.userQuestions[0].questions.length > 0 || props.userQuestions[1].questions.length > 0 ? (
+        {props.userQuestions[0].questions.length > 0 ||
+        props.userQuestions[1].questions.length > 0 ? (
           <Button
             color="brightBlue"
             variant="contained"

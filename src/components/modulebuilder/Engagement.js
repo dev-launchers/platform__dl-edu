@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import {styled} from "@mui/material";
+import { styled } from "@mui/material";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import ScrollToTop from "../ScrollToTop";
@@ -49,7 +49,12 @@ function Engagement(props) {
   return (
     <>
       <Stack
-        sx={{ width: "100%", backgroundColor:"#262626", padding:"20px" }}
+        sx={{
+          width: "100%",
+          backgroundColor: "#262626",
+          padding: "20px",
+          marginTop: "-32px",
+        }}
         component={"form"}
         onSubmit={formik.handleSubmit}
         spacing={3}
@@ -61,7 +66,7 @@ function Engagement(props) {
           id="myurl"
           value={formik.values.myurl}
           onChange={formik.handleChange}
-          placeholder="codesandbox please!"
+          placeholder="your link:"
           error={formik.touched.myurl && Boolean(formik.errors.myurl)}
           helperText={formik.touched.myurl && formik.errors.myurl}
           inputProps={{ style: { color: "#ffffff" } }}
@@ -76,11 +81,7 @@ function Engagement(props) {
           <Button variant="contained" type="submit">
             Go back
           </Button>
-          <Button
-            variant="contained"
-            color="secondary"
-            type="submit"
-          >
+          <Button variant="contained" color="secondary" type="submit">
             Go to exercises section
           </Button>
         </Box>

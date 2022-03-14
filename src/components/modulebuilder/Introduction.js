@@ -58,7 +58,7 @@ function ModuleBuilderIntroduction(props) {
       container
       rowSpacing={5}
       columnSpacing={2}
-      sx={{ backgroundColor: "#262626", padding: "20px",  }}
+      sx={{ backgroundColor: "#262626", padding: "20px", mt:"-32px" }}
     >
       <Grid item xs={12}>
         <Typography variant="h5" sx={{ color: "neutral.main" }}>
