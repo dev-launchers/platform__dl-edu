@@ -4,6 +4,26 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import InputAdornment from "@mui/material/InputAdornment";
 import Search from "@mui/icons-material/Search";
+import { styled } from "@mui/material";
+
+const StyledTextField = styled(TextField)`
+  background: #4e4e4e;
+
+  & .MuiInput-underline:after {
+    border-bottom-color: white;
+  }
+  & .MuiOutlinedInput-root {
+    /* & fieldset {
+      border-color: white;
+    } */
+    &:hover fieldset {
+      border-color: white;
+    }
+    &.Mui-focused fieldset {
+      border-color: white;
+    }
+  }
+`;
 
 import frequencyArray from "../../data/FrequencyArray";
 
@@ -34,6 +54,7 @@ function SearchBar(props) {
     navigate(`/main-content/learning-module/filter-by=${value.toLowerCase()}`);
   }
   return (
+    <>
       <Autocomplete
         freeSolo
         id="keyWord-search"
@@ -45,21 +66,23 @@ function SearchBar(props) {
         onOpen={handleOpen}
         onClose={handleClose}
         renderInput={(params) => (
-          <TextField
+          <StyledTextField
             {...params}
-            label="Search for a keyword"
+            placeholder="search for a keyword"
             InputProps={{
               ...params.InputProps,
               type: "search",
               endAdornment: (
                 <InputAdornment position="end">
-                  <Search />
+                  <Search sx={{ color: "#ffffff" }} />
                 </InputAdornment>
               ),
+              style: { color: "#ffffff" },
             }}
           />
         )}
       />
+    </>
   );
 }
 

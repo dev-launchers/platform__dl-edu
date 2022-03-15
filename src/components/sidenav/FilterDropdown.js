@@ -58,14 +58,14 @@ function FilterDropdown(props) {
     <CacheProvider value={cache}>
       <div className={classes.sortWrapper}>
         <div className={classes.innerSortWrapper}>
-          <label className={classes.filterLabel}>{props.filterTitle}</label>
+          <label className={classes.filterLabel} style={{ color:"#ffffff" }}>{props.filterTitle}</label>
           <Button
             id="demo-customized-button"
             aria-controls={open ? "menu-list-grow" : undefined}
             aria-haspopup="true"
             variant="contained"
             ref={anchorRef}
-            color="neutral"
+            sx={{backgroundColor:"#4e4e4e", "&:hover": { backgroundColor:"#4e4e4e" } }}
             size="large"
             disableElevation
             disableRipple
@@ -112,7 +112,7 @@ function FilterDropdown(props) {
                           component={NavLink}
                           to={item.link}
                           onClick={handleClick}
-                          sx={{ backgroundColor:"#ffffff" }}
+                          sx={{ backgroundColor:"#4e4e4e", color:"#ffffff" }}
                           disableRipple
                         >
                           {item.name}
