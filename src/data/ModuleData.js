@@ -314,9 +314,9 @@ when you need the value of a variable to change frequently
   },
   {
     id: 10,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
@@ -324,9 +324,9 @@ when you need the value of a variable to change frequently
   },
   {
     id: 11,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
@@ -334,9 +334,9 @@ when you need the value of a variable to change frequently
   },
   {
     id: 12,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
@@ -344,9 +344,9 @@ when you need the value of a variable to change frequently
   },
   {
     id: 13,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
@@ -354,9 +354,9 @@ when you need the value of a variable to change frequently
   },
   {
     id: 14,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",

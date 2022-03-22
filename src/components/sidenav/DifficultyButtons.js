@@ -24,8 +24,8 @@ function DifficultyButtons(props) {
   return (
     <>
       <CssBaseline />
-      <List component="div" sx={{ position: "static" }} disablePadding>
-        <ListItem sx={{ position: "static" }}>Difficulty</ListItem>
+      <List component="div"  disablePadding>
+        <ListItem >Difficulty</ListItem>
         <ListItem
           sx={{
             display: "flex",

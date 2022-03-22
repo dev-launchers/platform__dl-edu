@@ -1,39 +1,44 @@
 import React, { useState, useEffect } from "react";
-import Markdown from "../components/Markdown";
-import EmbeddedIDE from "../components/EmbeddedIDE";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
+import ReactMarkdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
+import EmbeddedIDE from "../components/EmbeddedIDE/EmbeddedIDE";
 
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 
-import classes from "./LearningModule.module.css";
+import classes from "./LearningModuleHome.module.css";
+import TabPanel from "../components/tabhelpers/TabPanel";
+import allyProps from "../components/tabhelpers/allyProps";
 import "highlight.js/styles/base16/zenburn.css";
 import ModuleData from "../data/ModuleData";
-import TabPanel from "../components/TabPanel";
-import allyProps from "../components/allyProps";
-import ExercisesHome from "../components/exercises/ExercisesHome";
-import DUMMY_TEXT from "../data/placeholdertext";
 
 const cache = createCache({
   key: "css",
   prepend: true,
 });
-
-function LearningModule(props) {
+const TABVALUES = [
+  { index: 0, title: "Guide" },
+  { index: 1, title: "Engagement" },
+  { index: 2, title: "Exercises" },
+];
+function LearningModuleHome(props) {
   //dynamically route user back to module starting point
   const [moduleDirector, setModuleDirector] = useState("");
   const [value, setValue] = useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
 
   const params = useParams();
   // TODO replace by API call once we have a back-end
-  const moduleDatum = ModuleData.find((data) => data.id == params.moduleId);
   const checkParams = params.moduleId;
+  const moduleDatum = ModuleData.find((data) => data.id == params.moduleId);
 
   //back button logic here
   useEffect(() => {
@@ -46,49 +51,46 @@ function LearningModule(props) {
     }
   }, [checkParams]);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
+  const learnTabValues = TABVALUES.map((tab) => {
+    return (
+      <Tab
+        label={tab.title}
+        disableRipple
+        {...allyProps(tab.index)}
+        key={tab.index}
+      />
+    );
+  });
   return (
     <>
       <CacheProvider value={cache}>
-        <Link
-          className={classes.backButton}
-          to={`/main-content/learning-modules/${moduleDirector}`}
+        <Box
+          sx={{ display: "flex", justifyContent: "flex-end", width: "100%" }}
         >
-          <Button>
-            <ArrowBack /> Back
+          <Button
+            endIcon={<ArrowBack />}
+            href={`/main-content/learning-modules/${moduleDirector}`}
+          >
+            Back
           </Button>
-        </Link>
+        </Box>
         <Box sx={{ width: "100%" }}>
           <Box className={classes.tabsContainer}>
             <Tabs
               value={value}
               onChange={handleChange}
               aria-label="module tabs"
-              TabIndicatorProps={{style: {background:'transparent'}}}
             >
-              <Tab label="Guide" disableRipple autoFocus className={classes.tabBox} {...allyProps(0)} />
-              <Tab
-                label="Engagement"
-                disableRipple
-                className={classes.tabBox}
-                {...allyProps(1)}
-              />
-              <Tab
-                label="Exercises"
-                disableRipple
-                className={classes.tabBox}
-                {...allyProps(2)}
-              />
+              {learnTabValues}
             </Tabs>
           </Box>
-          <TabPanel value={value} index={0} className={classes.tabPanels}>
+          <TabPanel value={value} index={0}>
             <div className={classes.learningModuleHeader}>
               <div className={classes.lmLeftcolumn}>
-                <Markdown markdown={moduleDatum.markdown} canEdit={true}/>
-                <Typography paragraph>{DUMMY_TEXT}</Typography>
+                <ReactMarkdown
+                  children={moduleDatum.markdown}
+                  rehypePlugins={[rehypeHighlight]}
+                ></ReactMarkdown>
               </div>
             </div>
           </TabPanel>
@@ -103,7 +105,9 @@ function LearningModule(props) {
             </div>
           </TabPanel>
           <TabPanel value={value} index={2} className={classes.tabPanels}>
-            <ExercisesHome />
+            <>
+              <h1>Here are the exercises!</h1>
+            </>
           </TabPanel>
         </Box>
       </CacheProvider>
@@ -111,4 +115,4 @@ function LearningModule(props) {
   );
 }
 
-export default LearningModule;
+export default LearningModuleHome;

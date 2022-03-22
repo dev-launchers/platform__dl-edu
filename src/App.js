@@ -1,16 +1,14 @@
 import React from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { Route, Redirect } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { CssBaseline } from "@mui/material";
 
-import DarkLearnSection from "./home/DarkLearnSection";
-import DarkBanner from "./home/DarkBanner";
 import DarkHeader from "./main/DarkHeader";
 import DarkFooter from "./main/DarkFooter";
+import HomeScreen from "./home/HomeScreen";
 import MainContent from "./main/MainContent";
-import Create from "./home/Create";
-import Challenge from "./home/Challenge";
+import About from "./pages/About";
 import GoogleAuthCallback from "./auth/GoogleAuthCallback";
 
 import "./styles.css";
@@ -45,6 +43,10 @@ function App() {
         main: "#d8d8d8",
         contrastText: "#222222",
       },
+      brightBlue: {
+        main: "#0058DB",
+        contrastText: "#ffffff",
+      },
     },
   });
 
@@ -53,23 +55,12 @@ function App() {
       <CssBaseline />
       <Box className={classes.appWrapper}>
         <DarkHeader />
-        <Route exact path="/">
-          <Box className={classes.homeComponentsWrapper}>
-            <DarkBanner />
-            <DarkLearnSection />
-            <Create />
-            <Challenge />
-          </Box>
-        </Route>
-        <Route path="/main-content">
-          <MainContent />
-        </Route>
-        <Route path="/users/me">
-          <GoogleAuthCallback />
-        </Route>
-        <Route path="/signup">
-          <GoogleAuthCallback />
-        </Route>
+        <Routes>
+          <Route path="/" element={<HomeScreen />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/main-content/*" element={<MainContent />} />
+          <Route path="/signup" element={<GoogleAuthCallback />} />
+        </Routes>
         <DarkFooter />
       </Box>
     </ThemeProvider>

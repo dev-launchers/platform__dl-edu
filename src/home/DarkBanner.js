@@ -10,6 +10,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 
+import ScrollToTop from "../components/ScrollToTop";
 import downArrow from "../images/downArrow.png";
 import classes from "./DarkBanner.module.css";
 import laptopImage from "../images/darkenedLaptop.png";
@@ -21,29 +22,37 @@ const cache = createCache({
 });
 
 const BannerTitle = styled("h1")(({ theme }) => ({
-    color: "#ffffff",
-    fontWeight: "600",
-    fontFamily:"inter",
-    fontSize:"95px",
+  color: "#ffffff",
+  fontWeight: "600",
+  fontFamily: "inter",
+  fontSize: "95px",
   [theme.breakpoints.down("md")]: {
     color: "#ffffff",
-    fontFamily:"inter",
+    fontFamily: "inter",
     fontWeight: "600",
-    fontSize:"48px",
+    fontSize: "48px",
   },
 }));
+
 function DarkBanner() {
+  function handleScroll() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
+
   return (
     <>
       <CacheProvider value={cache}>
         <Box className={classes.sloganContainer}>
           <Box className={classes.leftSloganContainer}>
             <Box className={classes.cakeContainer}>
-              <BannerTitle
+              <BannerTitle>With us, coding is a piece of cake!</BannerTitle>
+              <Typography
+                sx={{ color: "neutral.main", marginBottom: "30px" }}
+                variant="h6"
               >
-                With us, coding is a piece of cake!
-              </BannerTitle>
-              <Typography sx={{ color: "neutral.main", marginBottom:"30px" }} variant="h6">
                 We're a nonprofit coding platform aimed at bridging opportunity
                 gaps in the technology industry.
               </Typography>
@@ -54,6 +63,7 @@ function DarkBanner() {
                 variant="contained"
                 size="medium"
                 className={classes.joinUsButton}
+                onClick={ScrollToTop}
               >
                 Join us
               </Button>
@@ -90,7 +100,7 @@ function DarkBanner() {
             </Box>
           </Box>
           <Box className={classes.laptopImageContainer}>
-            <img src={laptopImage} alt="null"  />
+            <img src={laptopImage} alt="null" />
           </Box>
         </Box>
       </CacheProvider>

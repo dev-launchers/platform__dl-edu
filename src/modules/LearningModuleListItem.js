@@ -8,6 +8,8 @@ import Button from "@mui/material/Button";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
+import ScrollToTop from "../components/ScrollToTop";
+
 import "./LearningModuleListItem.css";
 
 function LearningModuleListItem(props) {
@@ -27,6 +29,7 @@ function LearningModuleListItem(props) {
               "/main-content/learning-module/module-id=" +
               props.moduleMetadata.id
             }
+            onClick={ScrollToTop}
           >
             <Container className="module-list-item-inner-container">
               <Typography

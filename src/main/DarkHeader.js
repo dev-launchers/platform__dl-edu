@@ -1,6 +1,5 @@
 import React from "react";
 import AppBar from "@mui/material/AppBar";
-import { styled } from "@mui/system";
 import Toolbar from "@mui/material/Toolbar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -9,6 +8,7 @@ import Link from "@mui/material/Link";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
+import ScrollToTop from "../components/ScrollToTop";
 import devLaunchersIcon from "../images/dev_launchers_rocket_small.png";
 import classes from "./DarkHeader.module.css";
 import { NavLink } from "react-router-dom";
@@ -31,6 +31,7 @@ function DarkHeader() {
               component={NavLink}
               to="/"
               className={classes.basecampContainer}
+              onClick={ScrollToTop}
             >
               <img src={devLaunchersIcon} className={classes.rocketImage} />
               <Typography variant="h6" className={classes.basecampText}>
@@ -39,8 +40,8 @@ function DarkHeader() {
             </Box>
             <Box className={classes.dlContainer1}>
               <Link
+                component={NavLink}
                 to="/home"
-                component={Typography}
                 variant={"h6"}
                 className={classes.link}
                 underline="none"
@@ -48,8 +49,8 @@ function DarkHeader() {
                 Home
               </Link>
               <Link
+                component={NavLink}
                 to="/about"
-                component={Typography}
                 variant={"h6"}
                 className={classes.link}
                 underline="none"
