@@ -5,12 +5,30 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import { styled } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
-import InfoIcon from "@mui/icons-material/Info";
-import AddIcon from "@mui/icons-material/Add";
 import classes from "./CreateMCQuestion.module.css";
 import AnswerField from "./AnswerField";
+
+const StyledTextField = styled(TextField)`
+  background: #4e4e4e;
+
+  & .MuiInput-underline:after {
+    border-bottom-color: white;
+  }
+  & .MuiOutlinedInput-root {
+    /* & fieldset {
+        border-color: white;
+      } */
+    &:hover fieldset {
+      border-color: white;
+    }
+    &.Mui-focused fieldset {
+      border-color: white;
+    }
+  }
+`;
 
 function CreateMCQuestion(props) {
   const [title, setTitle] = useState("");
@@ -26,10 +44,6 @@ function CreateMCQuestion(props) {
     { id: Math.random(), answer: "" },
   ]);
 
-  
-  function handleUserClickedInfoButton() {
-    window.alert("Testing!");
-  }
   function handleUserChandedTitle(event) {
     setTitleError(false);
     setTitle(event.target.value);
@@ -106,7 +120,7 @@ function CreateMCQuestion(props) {
           spacing={3}
           component={Card}
           padding="24px"
-          sx={{ overflowY: "scroll", height: "80vh" }}
+          sx={{ overflowY: "scroll", height: "80vh", backgroundColor:"#262626" }}
         >
           <Box width="100%" display="flex" justifyContent="flex-end">
             <CloseIcon
@@ -115,28 +129,15 @@ function CreateMCQuestion(props) {
               fontSize="large"
             />
           </Box>
-          <Typography variant="h4">Multiple Choice</Typography>
+          <Typography variant="h4" sx={{ color:"neutral.main" }}>Multiple Choice</Typography>
           <Typography
             sx={{
-              display: "flex",
-              width: "20%",
-              justifyContent: "space-evenly",
+              color:"neutral.main"
             }}
           >
             Question
-            <InfoIcon
-              fontSize="small"
-              sx={{ cursor: "pointer" }}
-              onClick={handleUserClickedInfoButton}
-            />
-            {/* Not sure if this delete icon is necessary...what will happen when clicked? <DeleteIcon
-              onClick={props.onClose}
-              sx={{ cursor: "pointer" }}
-              color="gray"
-              fontSize="small"
-            /> */}
           </Typography>
-          <TextField
+          <StyledTextField
             error={titleError ? titleError : titleError}
             helperText={
               titleError
@@ -149,8 +150,9 @@ function CreateMCQuestion(props) {
             onChange={handleUserChandedTitle}
             onBlur={handleValidateTitle}
             value={title}
+            inputProps={{ style: { color: "#ffffff" } }}
           />
-          <Typography paragraph>Answers</Typography>
+          <Typography paragraph sx={{ color:"neutral.main" }}>Answers</Typography>
             {answerFields.map((answer, index) => {
               return (
                 <AnswerField
@@ -176,11 +178,14 @@ function CreateMCQuestion(props) {
               <Button
                 variant="contained"
                 type="submit"
+                color="secondary"
                 onClick={() => setAddAnother(true)}
-              >
+                sx={{ mr: "5px" }}
+                >
                 Save and add another
               </Button>
-              <Button variant="contained" type="submit" onClick={handleQuestionWasSubmitted}>
+                
+              <Button variant="contained" color="primary" type="submit" onClick={handleQuestionWasSubmitted}>
                 Save and back
               </Button>
             </Box>

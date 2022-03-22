@@ -4,11 +4,10 @@ import Grid from "@mui/material/Grid";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import Radio from "@mui/material/Radio";
-import FormControl from "@mui/material/FormControl";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormLabel from "@mui/material/FormLabel";
-import RadioGroup from "@mui/material/RadioGroup";
+import Box from "@mui/material/Box";
+import Chip from "@mui/material/Chip";
+import { styled } from "@mui/material";
+
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
@@ -39,9 +38,40 @@ const DROPDOWNS = [
   { title: "Language", choices: languageFilterDescriptions },
   { title: "Framework", choices: frameworkFilterDescriptions },
 ];
+
+const DIFFICULTIES = [
+  { title: "Beginner", color: "#C4F1C4" },
+  { title: "Intermediate", color: "#FDECC8" },
+  { title: "Advanced", color: "#FFBBAF" },
+];
+
+const StyledTextField = styled(TextField)`
+  background: #4e4e4e;
+
+  & .MuiInput-underline:after {
+    border-bottom-color: white;
+  }
+  & .MuiOutlinedInput-root {
+    /* & fieldset {
+        border-color: white;
+      } */
+    &:hover fieldset {
+      border-color: white;
+    }
+    &.Mui-focused fieldset {
+      border-color: white;
+    }
+  }
+`;
+
+const StyledChip = styled(Chip)({
+  marginRight: "3px",
+  borderRadius: "5%",
+});
+
 function Details(props) {
   const navigate = useNavigate();
-  const [difficultyValue, setDifficultyValue] = useState();
+  const [difficultyValue, setDifficultyValue] = useState("Beginner");
   const [noDifficultySelected, setNoDifficultySelected] = useState(null);
   const [userSelectedTags, setUserSelectedTags] = useState([]);
   const [noTagSelected, setNoTagSelected] = useState(null);
@@ -120,7 +150,7 @@ function Details(props) {
     tmp[1].difficultyValidated = true;
     setValidator(tmp);
     setNoDifficultySelected(false);
-    setDifficultyValue(event.target.value);
+    setDifficultyValue(event.target.textContent);
   }
   function userSelectedTag(tag) {
     //don't add tag more than once
@@ -143,10 +173,15 @@ function Details(props) {
   }
 
   function userClosedSuccessModal() {
-    navigate(`/main-content/learning-modules/${language === "Select language" ? framework.toLowerCase() : language.toLowerCase()}`);
+    navigate(
+      `/main-content/learning-modules/${
+        language === "Select language"
+          ? framework.toLowerCase()
+          : language.toLowerCase()
+      }`
+    );
     document.body.style.overflow = "visible";
   }
-
   return (
     <>
       {moduleCreateSuccessful ? (
@@ -156,7 +191,10 @@ function Details(props) {
             document.getElementById("background-modal")
           )}
           {ReactDOM.createPortal(
-            <SuccessNotification paramater={language==="Select language" ? framework : language} closeModal={userClosedSuccessModal} />,
+            <SuccessNotification
+              paramater={language === "Select language" ? framework : language}
+              closeModal={userClosedSuccessModal}
+            />,
             document.getElementById("description-modal")
           )}
         </>
@@ -167,29 +205,29 @@ function Details(props) {
         rowSpacing={4}
         component="form"
         onSubmit={formik.handleSubmit}
+        sx={{ backgroundColor: "#262626", padding: "20px" }}
       >
         <Grid item xs={12}>
-          <Typography variant="h5">
+          <Typography variant="h5" sx={{ color: "neutral.main" }}>
             Here you can submit final information about your module:
           </Typography>
         </Grid>
         <Grid item xs={3}>
-          <label>Module Title</label>
-          <TextField
+          <label style={{ color: "white" }}>Module Title</label>
+          <StyledTextField
             id="title"
             placeholder="eg. Java Fundamentals"
             value={formik.values.title}
             onChange={formik.handleChange}
             error={formik.touched.title && Boolean(formik.errors.title)}
             helperText={formik.touched.title && formik.errors.title}
+            inputProps={{ style: { color: "#ffffff" } }}
           />
         </Grid>
         <Grid item container xs={12}>
-          <Grid item xs={12}>
-            <label>Module Description</label>
-          </Grid>
           <Grid item xs={8}>
-            <TextField
+            <label style={{ color: "white" }}>Description</label>
+            <StyledTextField
               id="description"
               placeholder="Add a short description of your modules"
               multiline
@@ -203,6 +241,7 @@ function Details(props) {
               helperText={
                 formik.touched.description && formik.errors.description
               }
+              inputProps={{ style: { color: "#ffffff" } }}
             />
           </Grid>
         </Grid>
@@ -225,30 +264,35 @@ function Details(props) {
             </Typography>
           </Grid>
         ) : null}
-        <Grid item xs={12}>
-          <FormControl component="fieldset">
-            <FormLabel component="legend">Difficulty</FormLabel>
-            <RadioGroup
-              row
-              aria-label="difficulty"
-              name="difficulty-buttons-group"
-              value={difficultyValue}
-              onChange={handleChangeDifficulty}
-            >
-              <FormControlLabel value="easy" control={<Radio />} label="Easy" />
-              <FormControlLabel
-                value="medium"
-                control={<Radio />}
-                label="Medium"
-              />
-              <FormControlLabel value="hard" control={<Radio />} label="Hard" />
-            </RadioGroup>
-          </FormControl>
+        <Grid item xs={4}>
+          <Box sx={{ display: "flex", flexDirection: "column" }}>
+            <label style={{ color: "#ffffff", marginBottom: "10px" }}>
+              Select Difficulty
+            </label>
+            <Box sx={{ display: "flex" }}>
+              {DIFFICULTIES.map((chip) => {
+                return (
+                  <StyledChip
+                    label={chip.title}
+                    sx={{
+                      backgroundColor: chip.color,
+                      border:
+                        difficultyValue === chip.title
+                          ? "3px solid #FF7F0E"
+                          : null,
+                      "&:hover": { backgroundColor: chip.color }
+                    }}
+                    onClick={handleChangeDifficulty}
+                  />
+                );
+              })}
+            </Box>
+          </Box>
         </Grid>
         {noDifficultySelected && (
           <Grid item xs={12}>
             <Typography sx={{ color: "error.main" }}>
-              here{validator[1].message}
+              {validator[1].message}
             </Typography>
           </Grid>
         )}
@@ -262,7 +306,7 @@ function Details(props) {
         {noDifficultySelected && (
           <Grid item xs={12}>
             <Typography sx={{ color: "error.main" }}>
-              here{validator[1].message}
+              {validator[1].message}
             </Typography>
           </Grid>
         )}
@@ -274,12 +318,12 @@ function Details(props) {
           </Grid>
         )}
         <Grid item xs={5}>
-          <Button variant="contained" color="brightBlue" sx={{ mr: "5px" }}>
+          <Button variant="contained" sx={{ mr: "5px" }}>
             Save
           </Button>
           <Button
             variant="contained"
-            color="brightBlue"
+            color="secondary"
             type="submit"
             onClick={ScrollToTop}
           >

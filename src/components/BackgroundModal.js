@@ -5,7 +5,7 @@ function BackgroundModal(props) {
   return (
     <div
       style={{
-        backgroundColor: "rgb(0, 0, 0, .5)",
+        backgroundColor: "#000000",
         height: "190vh",
         width: "100%",
         position:"fixed",

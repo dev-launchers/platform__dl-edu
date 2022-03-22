@@ -4,7 +4,6 @@ import TextField from "@mui/material/TextField";
 import Radio from "@mui/material/Radio";
 import Box from "@mui/material/Box";
 
-import DeleteIcon from "@mui/icons-material/Delete";
 import CheckBoxOutlineBlankIcon from "@mui/icons-material/CheckBoxOutlineBlank";
 import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
@@ -23,9 +22,6 @@ function AnswerField(props) {
   }
   function handleUserFinishedTypingAnswer() {
     props.handleUserTypedAnswer(userAnswer, props.id);
-  }
-  function handleUserRemovedAnswer(index) {
-    props.handleUserRemovedAnswerField(index, userAnswer);
   }
 
   return (

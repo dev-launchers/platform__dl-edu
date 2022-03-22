@@ -9,14 +9,13 @@ function CreatedExercisesPreview(props) {
   return (
     <>
       {props.questionInformation.length > 0 ? (
-        <Stack>
+        <Stack sx={{ ml:"12px" }}>
           {props.questionInformation.map((question) => {
             return (
               <Box key={Math.random()}>
-                <Typography variant="h5" sx={{ mb: "10px" }}>
+                <Typography variant="h5" sx={{ mb: "10px", color:"neutral.main" }}>
                   {question.title}
                 </Typography>
-                <Typography paragraph>Answers</Typography>
                 {question.answers.map((answer, index) => {
                   return (
                     <Box
@@ -24,7 +23,7 @@ function CreatedExercisesPreview(props) {
                       sx={{
                         display: "flex",
                         alignItems: "center",
-                        backgroundColor: "#ebebeb",
+                        backgroundColor: "#464646",
                         borderRadius: "2%",
                         mb: "10px",
                         padding: "10px",
@@ -37,11 +36,12 @@ function CreatedExercisesPreview(props) {
                           fontWeight: "800",
                           margin: "5px",
                           mr: "10px",
+                          color:"neutral.main"
                         }}
                       >
                         {String.fromCharCode(65 + index)}
                       </Typography>
-                      <Typography paragraph sx={{ margin: "5px" }}>
+                      <Typography paragraph sx={{ margin: "5px", color:"neutral.main" }}>
                         {answer.answer}
                       </Typography>
                       {index == question.isCorrectAnswer ? (
@@ -64,7 +64,7 @@ function CreatedExercisesPreview(props) {
           })}
         </Stack>
       ) : (
-        <Typography paragraph color="gray" margin="25px">
+        <Typography paragraph margin="25px" sx={{ color:"#c9c9c9"}}>
           It's empty here! Add some exercises by clicking “+”
         </Typography>
       )}

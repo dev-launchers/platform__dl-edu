@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { styled, useTheme } from "@mui/material/styles";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useParams } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { CssBaseline } from "@mui/material";
 
@@ -14,6 +14,8 @@ import SideNav from "./SideNav";
 const drawerWidth = 368;
 
 function MainContent() {
+  const params = useParams();
+  const paramValue = Object.values(params);
   const theme = useTheme();
   const [open, setOpen] = useState(true);
   const [filterKey, setFilterKey] = useState("");
@@ -29,20 +31,20 @@ function MainContent() {
   const filterHandler = (key) => {
     setFilterKey(key);
   };
-
+  const checkParams = paramValue[0].includes("legacy");
   const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     ({ theme, open }) => ({
       flexGrow: 1,
-      marginBottom: "411px",
-      backgroundColor: "#ffffff",
+      marginBottom: "350px",
+      backgroundColor: "#181818",
       padding: theme.spacing(3),
       /* transition: theme.transitions.create("margin", {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
       }), */
       marginLeft: `-${drawerWidth / 10}px`,
-      marginBottom: "411px",
-      backgroundColor: "#ffffff",
+      marginBottom: "350px",
+      backgroundColor: "#181818",
       ...(open && {
         /* transition: theme.transitions.create("margin", {
           easing: theme.transitions.easing.easeOut,
@@ -56,14 +58,14 @@ function MainContent() {
     <>
       <CssBaseline />
       <Box sx={{ display: "flex", width: "100%" }}>
-        <SideNav
+        {checkParams && <SideNav
           theme={theme}
           checkOpen={open}
           handleOpen={handleDrawerOpen}
           handleClose={handleDrawerClose}
           onDifficultyWasSelected={filterHandler}
           onTagWasSelected={filterHandler}
-        />
+        />}
         <Main open={open}>
           <Routes>
             <Route path={`/legacy-learn/:tab/`} element={<LegacyLearnList />} />
