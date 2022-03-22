@@ -6,7 +6,7 @@ import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
-import EmbeddedIDE from "../components/EmbeddedIDE/EmbeddedIDE";
+import EmbeddedIDE from "../components/EmbeddedIDE";
 
 import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
