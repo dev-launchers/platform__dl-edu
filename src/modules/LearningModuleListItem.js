@@ -4,6 +4,7 @@ import { CssBaseline } from "@mui/material";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
@@ -23,7 +24,7 @@ function LearningModuleListItem(props) {
     <>
       <CssBaseline />
       <CacheProvider value={cache}>
-        <Card raised className="module-list-item">
+        <Card raised className="module-list-item" sx={{ background: "linear-gradient(358.98deg, #262626 0.96%, #343434 99.21%)",  }}>
           <Link
             to={
               "/main-content/learning-module/module-id=" +
@@ -31,17 +32,17 @@ function LearningModuleListItem(props) {
             }
             onClick={ScrollToTop}
           >
-            <Container className="module-list-item-inner-container">
+            <Box className="module-list-item-inner-container">
               <Typography
-                variant="h2"
-                sx={{ fontFamily: "Roboto", fontWeight: "500" }}
+                variant="h3"
+                sx={{ fontWeight: "500", color:"#ffffff" }}
               >
                 {props.moduleMetadata.title}
               </Typography>
-              <Typography variant="h5" sx={{ fontFamily: "Roboto" }}>
+              <Typography paragraph sx={{ color:"#ababab" }}>
                 {props.moduleMetadata.description}
               </Typography>
-              <Container className="keyword-container">
+              <Box className="keyword-container">
                 {props.moduleMetadata.keyWords.map((keyword, index) => {
                   return (
                     <Button
@@ -54,8 +55,8 @@ function LearningModuleListItem(props) {
                     </Button>
                   );
                 })}
-              </Container>
-            </Container>
+              </Box>
+            </Box>
           </Link>
         </Card>
       </CacheProvider>

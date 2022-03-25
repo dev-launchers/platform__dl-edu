@@ -20,6 +20,7 @@ function MainContent() {
   const [open, setOpen] = useState(true);
   const [filterKey, setFilterKey] = useState("");
 
+  console.log(paramValue)
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -31,7 +32,7 @@ function MainContent() {
   const filterHandler = (key) => {
     setFilterKey(key);
   };
-  const checkParams = paramValue[0].includes("legacy");
+  const checkParams = paramValue[0].includes("legacy") || paramValue[0].includes("learning-modules/");
   const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
     ({ theme, open }) => ({
       flexGrow: 1,

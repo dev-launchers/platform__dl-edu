@@ -19,7 +19,7 @@ function TagContainer(props) {
         <ListItem
           component={Typography}
           variant={"h6"}
-          sx={{ color: "theme.dark" }}
+          sx={{ color: "#ffffff" }}
         >
           Tags
         </ListItem>

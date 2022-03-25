@@ -4,6 +4,7 @@ import createCache from "@emotion/cache";
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
+import { styled } from "@mui/material"
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import EmbeddedIDE from "../components/EmbeddedIDE";
@@ -27,6 +28,16 @@ const TABVALUES = [
   { index: 1, title: "Engagement" },
   { index: 2, title: "Exercises" },
 ];
+
+const StyledTab = styled(Tab)({
+  color: "#ababab",
+  backgroundColor: "#222222",
+  '&.Mui-selected': {color: "white"}
+});
+
+const StyledTabs = styled(Tabs)({
+  '& .MuiBox-root': { padding: "0px" }
+})
 function LearningModuleHome(props) {
   //dynamically route user back to module starting point
   const [moduleDirector, setModuleDirector] = useState("");
@@ -53,7 +64,7 @@ function LearningModuleHome(props) {
 
   const learnTabValues = TABVALUES.map((tab) => {
     return (
-      <Tab
+      <StyledTab
         label={tab.title}
         disableRipple
         {...allyProps(tab.index)}
@@ -76,13 +87,14 @@ function LearningModuleHome(props) {
         </Box>
         <Box sx={{ width: "100%" }}>
           <Box className={classes.tabsContainer}>
-            <Tabs
+            <StyledTabs
               value={value}
               onChange={handleChange}
               aria-label="module tabs"
+              TabIndicatorProps={{ style: { background: "transparent" } }}
             >
               {learnTabValues}
-            </Tabs>
+            </StyledTabs>
           </Box>
           <TabPanel value={value} index={0}>
             <div className={classes.learningModuleHeader}>
