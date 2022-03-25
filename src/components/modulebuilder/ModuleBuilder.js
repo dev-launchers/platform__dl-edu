@@ -19,7 +19,7 @@ const TABVALUES = [
   { index: 1, title: "Details" },
   { index: 2, title: "Guide" },
   { index: 3, title: "Engagement" },
-  { index: 4, title: "Exercises" },
+  /* { index: 4, title: "Exercises" }, */
 ];
 const StyledTab = styled(Tab)({
   color: "#ababab",
@@ -107,13 +107,13 @@ function ModuleBuilder(props) {
       <TabPanel value={value} index={3}>
         <Engagement userSumbittedUrl={handleUserSubmittedUrl} />
       </TabPanel>
-      <TabPanel value={value} index={4}>
+     {/*  <TabPanel value={value} index={4}>
         <ExercisesHome
           advanceToNextTab={advanceToNextTab}
           userSubmittedQuestion={handleUserSubmittedQuestion}
           userQuestions={questionTracker}
         />
-      </TabPanel>
+      </TabPanel> */}
     </Box>
   );
 }

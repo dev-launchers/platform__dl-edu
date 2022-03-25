@@ -67,6 +67,7 @@ const StyledTextField = styled(TextField)`
 const StyledChip = styled(Chip)({
   marginRight: "3px",
   borderRadius: "5%",
+  fontWeight:"700"
 });
 
 function Details(props) {
@@ -212,17 +213,19 @@ function Details(props) {
             Here you can submit final information about your module:
           </Typography>
         </Grid>
-        <Grid item xs={3}>
-          <label style={{ color: "white" }}>Module Title</label>
-          <StyledTextField
-            id="title"
-            placeholder="eg. Java Fundamentals"
-            value={formik.values.title}
-            onChange={formik.handleChange}
-            error={formik.touched.title && Boolean(formik.errors.title)}
-            helperText={formik.touched.title && formik.errors.title}
-            inputProps={{ style: { color: "#ffffff" } }}
-          />
+        <Grid item container xs={12}>
+          <Grid item xs={8}>
+            <div><label style={{ color: "white" }}>Module Title</label></div> 
+            <StyledTextField
+              id="title"
+              placeholder="eg. Java Fundamentals"
+              value={formik.values.title}
+              onChange={formik.handleChange}
+              error={formik.touched.title && Boolean(formik.errors.title)}
+              helperText={formik.touched.title && formik.errors.title}
+              inputProps={{ style: { color: "#ffffff" } }}
+            />
+          </Grid>
         </Grid>
         <Grid item container xs={12}>
           <Grid item xs={8}>
@@ -280,7 +283,7 @@ function Details(props) {
                         difficultyValue === chip.title
                           ? "3px solid #FF7F0E"
                           : null,
-                      "&:hover": { backgroundColor: chip.color }
+                      "&:hover": { backgroundColor: chip.color },
                     }}
                     onClick={handleChangeDifficulty}
                   />

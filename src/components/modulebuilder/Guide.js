@@ -36,7 +36,8 @@ function Guide() {
           justifyContent: "space-around",
           backgroundColor: "#262626",
           padding:"40px",
-          marginTop:"-32px"
+          marginTop:"-32px",
+          height:"30vh"
         }}
       >
         <Typography variant="h6" sx={{ color: "neutral.main" }}>

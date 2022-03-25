@@ -49,6 +49,7 @@ const TAGCOLORS = [
 const StyledChip = styled(Chip)({
   marginRight: "3px",
   borderRadius: "5%",
+  fontWeight:"700"
 });
 
 function ModuleTags(props) {
