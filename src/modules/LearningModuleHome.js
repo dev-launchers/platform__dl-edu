@@ -2,15 +2,16 @@ import React, { useState, useEffect } from "react";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
-import { styled } from "@mui/material"
+import { styled } from "@mui/material";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import EmbeddedIDE from "../components/EmbeddedIDE";
 
 import { useParams } from "react-router-dom";
-import { Button } from "@mui/material";
 import { ArrowBack } from "@mui/icons-material";
 
 import classes from "./LearningModuleHome.module.css";
@@ -32,12 +33,12 @@ const TABVALUES = [
 const StyledTab = styled(Tab)({
   color: "#ababab",
   backgroundColor: "#222222",
-  '&.Mui-selected': {color: "white"}
+  "&.Mui-selected": { color: "white" },
 });
 
 const StyledTabs = styled(Tabs)({
-  '& .MuiBox-root': { padding: "0px" }
-})
+  "& .MuiBox-root": { padding: "0px" },
+});
 function LearningModuleHome(props) {
   //dynamically route user back to module starting point
   const [moduleDirector, setModuleDirector] = useState("");
@@ -98,16 +99,64 @@ function LearningModuleHome(props) {
           </Box>
           <TabPanel value={value} index={0}>
             <div className={classes.learningModuleHeader}>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-start",
+                }}
+              >
+                <Typography variant="h3" color="#ffffff">
+                  {moduleDatum.title}
+                </Typography>
+              </Box>
               <div className={classes.lmLeftcolumn}>
                 <ReactMarkdown
                   children={moduleDatum.markdown}
                   rehypePlugins={[rehypeHighlight]}
                 ></ReactMarkdown>
               </div>
+              <Box
+                sx={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-end",
+                  padding: "40px",
+                }}
+              >
+                <Button
+                  onClick={() => {
+                    setValue(1);
+                  }}
+                  variant="filled"
+                  sx={{
+                    backgroundColor: "secondary.main",
+                    color: "#ffffff",
+                    "&:hover": {
+                      backgroundColor: "secondary.main",
+                      color: "#ffffff",
+                    },
+                  }}
+                >
+                  Go to engagement section
+                </Button>
+              </Box>
             </div>
           </TabPanel>
           <TabPanel value={value} index={1} className={classes.tabPanels}>
-            <div style={{ display: "flex", height: "800px" }}>
+            <div style={{ marginTop:"-23px", display: "flex", height: "800px", flexDirection:"column", padding:"40px", backgroundColor:"#262626" }}>
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "flex-start",
+                mb:"10px"
+              }}
+            >
+              <Typography variant="h3" color="#ffffff">
+                {moduleDatum.title}
+              </Typography>
+            </Box>
               <div className={classes.lmRightcolumn}>
                 <EmbeddedIDE
                   embedURL={moduleDatum.embeddedIDEURL}
@@ -117,6 +166,17 @@ function LearningModuleHome(props) {
             </div>
           </TabPanel>
           <TabPanel value={value} index={2} className={classes.tabPanels}>
+            <Box
+              sx={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "flex-start",
+              }}
+            >
+              <Typography variant="h3" color="#ffffff">
+                {moduleDatum.title}
+              </Typography>
+            </Box>
             <>
               <h1>Here are the exercises!</h1>
             </>
