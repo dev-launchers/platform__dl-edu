@@ -4,8 +4,8 @@ import { Route, Routes } from "react-router-dom";
 import Box from "@mui/material/Box";
 import { CssBaseline } from "@mui/material";
 
-import DarkHeader from "./main/DarkHeader";
-import DarkFooter from "./main/DarkFooter";
+import Header from "./main/Header";
+import Footer from "./main/Footer";
 import HomeScreen from "./home/HomeScreen";
 import MainContent from "./main/MainContent";
 import About from "./pages/About";
@@ -54,14 +54,14 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Box className={classes.appWrapper}>
-        <DarkHeader />
+        <Header />
         <Routes>
           <Route path="/" element={<HomeScreen />} />
           <Route path="/about" element={<About />} />
           <Route path="/main-content/*" element={<MainContent />} />
           <Route path="/signup" element={<GoogleAuthCallback />} />
         </Routes>
-        <DarkFooter />
+        <Footer />
       </Box>
     </ThemeProvider>
   );

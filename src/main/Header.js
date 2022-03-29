@@ -1,54 +1,87 @@
-import React from "react"
-import { Link } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import logo from '../images/logo-monogram.png'
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+import { CacheProvider } from "@emotion/react";
+import createCache from "@emotion/cache";
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-    },
-    appBar: {
-        zIndex: theme.zIndex.drawer + 1,
-    },
-    title: {
-        paddingLeft: '.5em'
-    },
-    logoAndTitleContainer: {
-        flexGrow: 1,
-        color: 'rgb(240, 237, 238)',
-        display: 'flex',
-        alignItems: 'center'
-    },
-    logoImg: {
-        width: '3em',
-    }
-}));
+import ScrollToTop from "../components/ScrollToTop";
+import devLaunchersIcon from "../images/dev_launchers_rocket_small.png";
+import classes from "./Header.module.css";
+import { NavLink } from "react-router-dom";
 
-function Header() {
-    const classes = useStyles();
-    return (
-        <div className={classes.root}>
-            <AppBar position="fixed" className={classes.appBar}>
-                <Toolbar>
-                    <Link to="/home" className={classes.logoAndTitleContainer}>
-                        <div>
-                            <img src={logo} alt="Logo" className={classes.logoImg} />
-                        </div>
-                        <Typography variant="h4" className={classes.title}>
-                            DL Basecamp
-                        </Typography>
-                    </Link>
-                    <Link to="/login">
-                        <Button color="inherit">Login</Button>
-                    </Link>
-                </Toolbar>
-            </AppBar>
-        </div>
-    );
+//override default mui styling
+const cache = createCache({
+  key: "css",
+  prepend: true,
+});
+
+function DarkHeader() {
+  return (
+    <>
+      <CacheProvider value={cache}>
+        <AppBar className={classes.appBar}>
+          <Toolbar
+            className={classes.toolbarContainer}
+          >
+            <Box
+              component={NavLink}
+              to="/"
+              className={classes.basecampContainer}
+              onClick={ScrollToTop}
+            >
+              <img src={devLaunchersIcon} className={classes.rocketImage} />
+              <Typography variant="h6" className={classes.basecampText}>
+                DL Basecamp
+              </Typography>
+            </Box>
+            <Box className={classes.dlContainer1}>
+              <Link
+                component={NavLink}
+                to="/"
+                variant={"h6"}
+                className={classes.link}
+                underline="none"
+              >
+                Home
+              </Link>
+              <Link
+                component={NavLink}
+                to="/about"
+                variant={"h6"}
+                className={classes.link}
+                underline="none"
+              >
+                About
+              </Link>
+              <Button
+                className={classes.signupButton}
+                size="small"
+                color="primary"
+                variant="contained"
+              >
+                Sign up
+              </Button>
+              <Button
+                className={classes.loginButton}
+                size="small"
+                color="secondary"
+                variant="contained"
+                onClick={() =>
+                  (window.location = 'http://localhost:1337/connect/google')
+                }
+              >
+                Login
+              </Button>
+            </Box>
+          </Toolbar>
+        </AppBar>
+      </CacheProvider>
+    </>
+  );
 }
 
-export default Header;
+export default DarkHeader;

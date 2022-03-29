@@ -8,14 +8,13 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
-import Card from "@mui/material/Card";
 
 import instagramIcon from "../images/instagram.png";
 import devLaunchersIcon from "../images/dev_launchers_rocket_small.png";
 import linkedinIcon from "../images/linkedin.png";
 import twitchIcon from "../images/twitch.png";
 import discordIcon from "../images/discord.png";
-import classes from "./DarkFooter.module.css";
+import classes from "./Footer.module.css";
 //override default mui styling
 const cache = createCache({
   key: "css",

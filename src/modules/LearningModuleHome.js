@@ -27,7 +27,7 @@ const cache = createCache({
 const TABVALUES = [
   { index: 0, title: "Guide" },
   { index: 1, title: "Engagement" },
-  { index: 2, title: "Exercises" },
+  /* { index: 2, title: "Exercises" }, */
 ];
 
 const StyledTab = styled(Tab)({
@@ -133,7 +133,7 @@ function LearningModuleHome(props) {
                     backgroundColor: "secondary.main",
                     color: "#ffffff",
                     "&:hover": {
-                      backgroundColor: "secondary.main",
+                      backgroundColor: "#ffab00",
                       color: "#ffffff",
                     },
                   }}
@@ -163,9 +163,34 @@ function LearningModuleHome(props) {
                   customIFrameStyle={moduleDatum.embedIDEStyle}
                 />
               </div>
+            <Box
+                sx={{
+                  mt:"15px",
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "flex-start",
+                }}
+              >
+                <Button
+                  onClick={() => {
+                    setValue(0);
+                  }}
+                  variant="filled"
+                  sx={{
+                    backgroundColor: "primary.main",
+                    color: "#ffffff",
+                    "&:hover": {
+                      backgroundColor: "#81c3d7",
+                      color: "#ffffff",
+                    },
+                  }}
+                >
+                  Back to guide section
+                </Button>
+              </Box>
             </div>
           </TabPanel>
-          <TabPanel value={value} index={2} className={classes.tabPanels}>
+          {/* <TabPanel value={value} index={2} className={classes.tabPanels}>
             <Box
               sx={{
                 width: "100%",
@@ -180,7 +205,7 @@ function LearningModuleHome(props) {
             <>
               <h1>Here are the exercises!</h1>
             </>
-          </TabPanel>
+          </TabPanel> */}
         </Box>
       </CacheProvider>
     </>
