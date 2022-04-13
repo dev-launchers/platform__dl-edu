@@ -59,6 +59,15 @@ function DarkHeader() {
               </Link>
               <Link
                 component={NavLink}
+                to="/main-content/build"
+                variant={"h6"}
+                className={classes.link}
+                underline="none"
+              >
+                Create
+              </Link>
+              <Link
+                component={NavLink}
                 to="/about"
                 variant={"h6"}
                 className={classes.link}
