@@ -41,7 +41,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  width: 30%;
+  width: 40%;
 }
 .signupButton {
   font-weight: 600;
@@ -71,7 +71,7 @@
     display:none;
   }
   .basecampText {
-    margin-left:0px;  
+    margin-left:0px;
   }
   .dlContainer1 {
     display: flex;
