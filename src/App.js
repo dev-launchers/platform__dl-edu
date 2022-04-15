@@ -9,6 +9,7 @@ import DarkFooter from "./main/DarkFooter";
 import HomeScreen from "./home/HomeScreen";
 import MainContent from "./main/MainContent";
 import About from "./pages/About";
+import MyModules from "./pages/MyModules";
 import GoogleAuthCallback from "./auth/GoogleAuthCallback";
 
 import "./styles.css";
@@ -60,6 +61,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/main-content/*" element={<MainContent />} />
           <Route path="/signup" element={<GoogleAuthCallback />} />
+          <Route path="/profile/my-modules" element={<MyModules />} />
         </Routes>
         <DarkFooter />
       </Box>
