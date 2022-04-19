@@ -12,7 +12,7 @@ function Tags(props) {
     slicedTags = frequencyArray.slice(0, 9).map((tag, index) => {
       return (
         <Button
-          sx={{ color: "#333333" }}
+          sx={{ color: "#ffffff" }}
           key={index}
           component={NavLink}
           to={`/main-content/learning-module/filter-by=${tag.name.toLowerCase()}`}
@@ -26,7 +26,7 @@ function Tags(props) {
   let allTags = frequencyArray.map((tag, index) => {
     return (
       <Button
-        sx={{ color: "#333333" }}
+        sx={{ color: "#ffffff" }}
         component={NavLink}
         to={`/main-content/learning-module/filter-by=${tag.name}`}
         key={index}
