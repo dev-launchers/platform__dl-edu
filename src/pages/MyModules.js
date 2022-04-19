@@ -9,9 +9,12 @@ import SideNav from "../main/SideNav";
 
 import DifficultyButtons from "../components/sidenav/DifficultyButtons";
 import FilterDropdownMenu from "../components/sidenav/FilterDropdownMenu";
-/* import FilterButton from "../components/sidenav/FilterButton";
- */import SearchBar from "../components/sidenav/SearchBar";
+import FilterButton from "../components/sidenav/FilterButton";
+import SearchBar from "../components/sidenav/SearchBar";
 import TagContainer from "../components/sidenav/TagContainer";
+
+import classes from "./MyModules.module.css";
+
 
 const MyModules = (props) => {
   // const theme = useTheme();
@@ -31,39 +34,26 @@ const MyModules = (props) => {
   // };
 
   return (
-    <Box sx={{
+    <Box className={classes.myModulesContainer} sx={{
       backgroundColor: "#181818",
       color: "white"
     }}>
-      <Box>
-        <p>Profile > My Modules</p>
-        <h1>My Modules</h1>
+      <Box className={classes.myModulesInnerContainer}>
+        <Box className={classes.myModulesHeader}>
+          <p>Profile &gt; My Modules</p>
+          <h1>My Modules</h1>
+        </Box>
 
-      </Box>
+        <Box className={classes.filterBox}>
+          <SearchBar />
+          <FilterDropdownMenu />
+          <DifficultyButtons />
+          <FilterButton />
+          <TagContainer/>
 
-      {/* <Box>
-        <SideNav
-          theme={theme}
-          checkOpen={open}
-          handleOpen={handleDrawerOpen}
-          handleClose={handleDrawerClose}
-          onDifficultyWasSelected={filterHandler}
-          onTagWasSelected={filterHandler} />
-      </Box> */}
+        </Box>
 
-      <Box sx={{
-        width: 350,
-        padding: 5,
-        backgroundColor: "#262626",
-        // height: "fit-content",
-        // display: "flex",
-        // flexDirection: "column",
-        // alignItems: "center"
-      }}>
-        <SearchBar />
-        <FilterDropdownMenu />
-        <DifficultyButtons />
-        <TagContainer/>
+
       </Box>
     </Box>
   )
