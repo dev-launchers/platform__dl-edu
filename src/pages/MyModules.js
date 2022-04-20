@@ -1,37 +1,26 @@
 import React, { useState } from "react";
 
 import Box from "@mui/material/Box";
-import { styled, useTheme } from "@mui/material/styles";
+import { useTheme } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Container from "@mui/material/Container";
-import SideNav from "../main/SideNav";
 
 import DifficultyButtons from "../components/sidenav/DifficultyButtons";
 import FilterDropdownMenu from "../components/sidenav/FilterDropdownMenu";
 // import FilterButton from "../components/sidenav/FilterButton";
 import SearchBar from "../components/sidenav/SearchBar";
 import TagContainer from "../components/sidenav/TagContainer";
+import UserModuleList from "./UserModuleList";
 
 import classes from "./MyModules.module.css";
 
 
 const MyModules = (props) => {
-  // const theme = useTheme();
-  // const [open, setOpen] = useState(true);
-  // const [filterKey, setFilterKey] = useState("");
+  const theme = useTheme();
+  const [filterKey, setFilterKey] = useState("");
 
-  // const handleDrawerOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleDrawerClose = () => {
-  //   setOpen(false);
-  // };
-
-  // const filterHandler = (key) => {
-  //   setFilterKey(key);
-  // };
+  const filterHandler = (key) => {
+    setFilterKey(key);
+  };
 
   return (
     <Box className={classes.myModulesContainer} sx={{
@@ -45,14 +34,16 @@ const MyModules = (props) => {
         </Box>
 
         <Box className={classes.filterBox}>
-          <SearchBar />
+          <SearchBar handleTagWasSelected={filterHandler}/>
           <FilterDropdownMenu />
-          <DifficultyButtons />
+          <DifficultyButtons difficultyWasSelected={filterHandler}/>
           {/* <FilterButton /> */}
-          <TagContainer/>
+          <TagContainer handleTagWasSelected={filterHandler} />
 
         </Box>
 
+
+        <UserModuleList />
 
       </Box>
     </Box>
