@@ -33,17 +33,22 @@ const MyModules = (props) => {
           <h1>My Modules</h1>
         </Box>
 
-        <Box className={classes.filterBox}>
-          <SearchBar handleTagWasSelected={filterHandler}/>
-          <FilterDropdownMenu />
-          <DifficultyButtons difficultyWasSelected={filterHandler}/>
-          {/* <FilterButton /> */}
-          <TagContainer handleTagWasSelected={filterHandler} />
+        <Box className={classes.filterAndModules}>
+          <Box className={classes.filterBox}>
+            <SearchBar handleTagWasSelected={filterHandler}/>
+            <FilterDropdownMenu />
+            <DifficultyButtons difficultyWasSelected={filterHandler}/>
+            {/* <FilterButton /> */}
+            <TagContainer handleTagWasSelected={filterHandler} />
 
+          </Box>
+
+          <Box className={classes.userModulesContainer}>
+            <UserModuleList  />
+
+          </Box>
         </Box>
 
-
-        <UserModuleList />
 
       </Box>
     </Box>

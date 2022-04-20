@@ -23,6 +23,11 @@
   margin-top: 0;
 }
 
+.filterAndModules {
+  display: flex;
+  /* justify-content: center; */
+}
+
 .filterBox {
   /* border: 1px solid green; */
   background-color: #222222;
@@ -30,4 +35,9 @@
   padding: 25px;
   margin-left: 25px;
   width: 25%;
+  height: fit-content;
+}
+
+.userModulesContainer {
+  padding-left: 25px;
 }
