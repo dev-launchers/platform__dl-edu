@@ -5,15 +5,14 @@ import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
+import Fab from "@mui/material/Fab"
+import EditIcon from '@mui/icons-material/Edit';
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
-
 import ScrollToTop from "../components/ScrollToTop";
-
 import classes from "./MyModulesListItem.module.css";
 
-
-function LearningModuleListItem(props) {
+function MyModulesListItem(props) {
   //override default mui styling
   const cache = createCache({
     key: "css",
@@ -56,6 +55,10 @@ function LearningModuleListItem(props) {
                   );
                 })}
               </Container>
+              {/* TODO: onclick, go to edit module. Right now clicking just opens module details */}
+              <Fab className={classes.moduleEditIcon} color="primary">
+                <EditIcon />
+              </Fab>
             </Container>
           </Link>
         </Card>
@@ -64,4 +67,4 @@ function LearningModuleListItem(props) {
   );
 }
 
-export default LearningModuleListItem;
+export default MyModulesListItem;
