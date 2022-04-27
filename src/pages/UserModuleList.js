@@ -4,8 +4,6 @@ import ModuleMetadata from "../data/ModuleMetadata";
 import MyModulesListItem from "../modules/MyModulesListItem";
 
 function UserModuleList({ ownerId }) {
-  // TODO - after figuring out how to get authenticated user data,
-  // display only modules owned by the user
 
   const learningModuleListItemComponents = ModuleMetadata
     .filter((metaDatum) => metaDatum.ownerId && metaDatum.ownerId === ownerId)

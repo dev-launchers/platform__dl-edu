@@ -40,7 +40,7 @@ const MyModules = (props) => {
       <Box className={classes.myModulesInnerContainer}>
         <Box className={classes.myModulesHeader}>
           <p>Profile &gt; My Modules</p>
-          <h1>My Modules {userData.name}</h1>
+          <h1>My Modules</h1>
         </Box>
 
         <Box className={classes.filterAndModules}>
