@@ -3,13 +3,15 @@ import { CssBaseline } from "@mui/material";
 import ModuleMetadata from "../data/ModuleMetadata";
 import LearningModuleListItem from "../modules/LearningModuleListItem";
 
-function UserModuleList(props) {
+function UserModuleList({ ownerId }) {
   // TODO - after figuring out how to get authenticated user data,
   // display only modules owned by the user
 
-  const learningModuleListItemComponents = ModuleMetadata.map((metaDatum) => (
-    <LearningModuleListItem key={metaDatum.id} moduleMetadata={metaDatum} />
-  ));
+  const learningModuleListItemComponents = ModuleMetadata
+    .filter((metaDatum) => metaDatum.ownerId && metaDatum.ownerId === ownerId)
+    .map((metaDatum) => (
+      <LearningModuleListItem key={metaDatum.id} moduleMetadata={metaDatum} />
+    ));
 
   return (
     <>

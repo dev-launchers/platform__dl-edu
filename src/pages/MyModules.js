@@ -46,7 +46,7 @@ const MyModules = (props) => {
           </Box>
 
           <Box className={classes.userModulesContainer}>
-            <UserModuleList  />
+            <UserModuleList  ownerId={userData.id} />
 
           </Box>
         </Box>
