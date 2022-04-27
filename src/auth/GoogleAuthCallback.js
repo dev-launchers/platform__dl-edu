@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState, useEffect } from 'react';
+import constate from "constate"; // State Context Object Creator
+import axios from 'axios';
 
 import { env } from "../utils/EnvironmentVariables.js";
 
@@ -78,6 +79,11 @@ function GoogleAuthCallback() {
     </div>
 
   )
+
+    // return { userData };
 }
 
+// Step 2: Declare your context state object to share the state with other components
+// const [UserDataProvider, useUserDataContext] = constate(GoogleAuthCallback);
+// export { UserDataProvider, useUserDataContext };
 export default GoogleAuthCallback

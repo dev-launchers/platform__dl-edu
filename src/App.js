@@ -11,6 +11,7 @@ import MainContent from "./main/MainContent";
 import About from "./pages/About";
 import MyModules from "./pages/MyModules";
 import GoogleAuthCallback from "./auth/GoogleAuthCallback";
+// import { UserDataProvider } from "./auth/GoogleAuthCallback";
 
 import "./styles.css";
 import classes from "./App.module.css";
@@ -53,18 +54,20 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box className={classes.appWrapper}>
-        <DarkHeader />
-        <Routes>
-          <Route path="/" element={<HomeScreen />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/main-content/*" element={<MainContent />} />
-          <Route path="/signup" element={<GoogleAuthCallback />} />
-          <Route path="/profile/my-modules" element={<MyModules />} />
-        </Routes>
-        <DarkFooter />
-      </Box>
+      {/* <UserDataProvider> */}
+        <CssBaseline />
+        <Box className={classes.appWrapper}>
+          <DarkHeader />
+          <Routes>
+            <Route path="/" element={<HomeScreen />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/main-content/*" element={<MainContent />} />
+            <Route path="/signup" element={<GoogleAuthCallback />} />
+            <Route path="/profile/my-modules" element={<MyModules />} />
+          </Routes>
+          <DarkFooter />
+        </Box>
+      {/* </UserDataProvider> */}
     </ThemeProvider>
   );
 }
