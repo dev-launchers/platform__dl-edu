@@ -10,14 +10,14 @@ import FilterDropdownMenu from "../components/sidenav/FilterDropdownMenu";
 import SearchBar from "../components/sidenav/SearchBar";
 import TagContainer from "../components/sidenav/TagContainer";
 import UserModuleList from "./UserModuleList";
-// import { useUserDataContext } from "../auth/GoogleAuthCallback";
+import { useUserDataContext } from '../context/UserDataContext';
 
 import classes from "./MyModules.module.css";
 
 
 const MyModules = (props) => {
   const theme = useTheme();
-  // const { userData } = useUserDataContext();
+  const { userData } = useUserDataContext();
   const [filterKey, setFilterKey] = useState("");
 
   const filterHandler = (key) => {
@@ -32,7 +32,7 @@ const MyModules = (props) => {
       <Box className={classes.myModulesInnerContainer}>
         <Box className={classes.myModulesHeader}>
           <p>Profile &gt; My Modules</p>
-          <h1>My Modules</h1>
+          <h1>My Modules {userData.name}</h1>
         </Box>
 
         <Box className={classes.filterAndModules}>

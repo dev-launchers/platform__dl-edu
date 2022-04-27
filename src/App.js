@@ -11,7 +11,7 @@ import MainContent from "./main/MainContent";
 import About from "./pages/About";
 import MyModules from "./pages/MyModules";
 import GoogleAuthCallback from "./auth/GoogleAuthCallback";
-// import { UserDataProvider } from "./auth/GoogleAuthCallback";
+import { UserDataProvider } from "./context/UserDataContext";
 
 import "./styles.css";
 import classes from "./App.module.css";
@@ -54,7 +54,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {/* <UserDataProvider> */}
+      <UserDataProvider>
         <CssBaseline />
         <Box className={classes.appWrapper}>
           <DarkHeader />
@@ -67,7 +67,7 @@ function App() {
           </Routes>
           <DarkFooter />
         </Box>
-      {/* </UserDataProvider> */}
+      </UserDataProvider>
     </ThemeProvider>
   );
 }

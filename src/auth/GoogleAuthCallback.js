@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import constate from "constate"; // State Context Object Creator
 import axios from 'axios';
+import { useUserDataContext } from '../context/UserDataContext.js';
 
 import { env } from "../utils/EnvironmentVariables.js";
 
@@ -26,50 +27,16 @@ const DEFAULT_USER = {
   };
 
   /**
-   * Currently executes anytime "/users/me" or "/profile" is called from the backend. See App.js for Route triggers.
-   * Code yoinked from UserDataContext in 'platform__website' repo.
-   * @TODO Should probably implement this code similar to to how it's done in UserDataContext.js, Signup.js and UserProfiles.js. Currently there is no return, which is probably necessary for global access to logged in user data.
-   * @TODO url param needs to be set using an environmet variable, see EnvironmentVariables.js in 'platform__website'.
-   * @returns TODO.
+   * This component triggers Google Authentication and stores it in the userDataContext.
+   * For now, it displays a logged in message and some userData information.
    */
 function GoogleAuthCallback() {
-
-  const [userData, setUserData] = useState(DEFAULT_USER);
-
-  useEffect(() => {
-
-    axios({
-      method: 'GET',
-      url: env().API_URL + "/users/me",
-      withCredentials: true,
-    })
-    .then(({ data: currentUser }) => {
-      setUserData({
-        id: currentUser.id,
-        name: currentUser.profile.displayName,
-        username: currentUser.username,
-        email: currentUser.email,
-        bio: currentUser.profile.bio,
-        zipCode: currentUser.zipCode,
-        profilePictureUrl: currentUser.profilePictureUrl,
-        socialMediaLinks: currentUser.socialMediaLinks,
-        totalPoints: currentUser.totalPoints,
-        totalSeasonPoints: currentUser.totalSeasonPoints,
-        availablePoints: currentUser.availablePoints,
-        volunteerHours: currentUser.volunteerHours,
-        discordId: currentUser.discordId
-      });
-    })
-    .catch(err => {
-      //setUserData({ id: "invalid" });
-    });
-
-  }, [])
+  const { userData } = useUserDataContext();
 
   return (
 
     <div>
-      {console.log(userData)}
+      <h1>You're logged in!</h1>
       <div>Name: {userData.name}</div>
       <div>Username: {userData.username}</div>
       <div>Email: {userData.email}</div>
@@ -79,11 +46,6 @@ function GoogleAuthCallback() {
     </div>
 
   )
-
-    // return { userData };
 }
 
-// Step 2: Declare your context state object to share the state with other components
-// const [UserDataProvider, useUserDataContext] = constate(GoogleAuthCallback);
-// export { UserDataProvider, useUserDataContext };
 export default GoogleAuthCallback
