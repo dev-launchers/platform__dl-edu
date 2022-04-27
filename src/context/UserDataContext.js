@@ -55,7 +55,7 @@ function useUserData() {
         });
       })
       .catch((err) => {
-        // setUserData({ id: "invalid" });
+        setUserData({ id: "invalid" });
       });
   }, []);
 

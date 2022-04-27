@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
@@ -19,12 +19,20 @@ const MyModules = (props) => {
   const theme = useTheme();
   const { userData } = useUserDataContext();
   const [filterKey, setFilterKey] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const filterHandler = (key) => {
     setFilterKey(key);
   };
 
+  useEffect(() => {
+    if (userData.id === "invalid") setIsLoading(true);
+    else setIsLoading(false);
+  }, [isLoading])
+
   return (
+    isLoading ? <p>Please log in to view your modules</p> :
+    (
     <Box className={classes.myModulesContainer} sx={{
       backgroundColor: "#181818",
       color: "white"
@@ -54,6 +62,7 @@ const MyModules = (props) => {
 
       </Box>
     </Box>
+    )
   )
 }
 
