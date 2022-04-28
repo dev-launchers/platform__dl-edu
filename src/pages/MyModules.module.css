@@ -11,7 +11,6 @@
 }
 
 .myModulesHeader {
-  /* border: 1px solid blue; */
   padding: 10px 25px;
 }
 
@@ -23,22 +22,9 @@
   margin-top: 0;
 }
 
-.filterAndModules {
-  display: flex;
-  /* justify-content: center; */
-}
-
-.filterBox {
-  /* border: 1px solid green; */
-  background-color: #222222;
-  border-radius: 5px;
-  padding: 25px;
-  margin-left: 25px;
-  width: 25%;
-  height: fit-content;
-}
 
 .userModulesContainer {
-  padding-left: 50px;
-  width: 65%;
+  padding-left: 30px;
+  margin: 0 auto;
+  width: 80%;
 }

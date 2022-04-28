@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import constate from "constate"; // State Context Object Creator
-import axios from 'axios';
 import { useUserDataContext } from '../context/UserDataContext.js';
 
 import { env } from "../utils/EnvironmentVariables.js";
