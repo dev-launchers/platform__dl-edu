@@ -1,11 +1,11 @@
 import React from "react";
 import { CssBaseline } from "@mui/material";
-import ModuleMetadata from "../data/ModuleMetadata";
-import MyModulesListItem from "../modules/MyModulesListItem";
+import ModuleMetadata from "../../data/ModuleMetadata";
+import MyModulesListItem from "../../modules/MyModulesListItem";
 
 function UserModuleList({ ownerId }) {
 
-  const learningModuleListItemComponents = ModuleMetadata
+  const userModuleListItemComponents = ModuleMetadata
     .filter((metaDatum) => metaDatum.ownerId && metaDatum.ownerId === ownerId)
     .map((metaDatum) => (
       <MyModulesListItem key={metaDatum.id} moduleMetadata={metaDatum} />
@@ -15,7 +15,7 @@ function UserModuleList({ ownerId }) {
     <>
       <CssBaseline />
       <div className="module-list-container">
-        {learningModuleListItemComponents}
+        {userModuleListItemComponents}
       </div>
     </>
   );

@@ -3,22 +3,18 @@ import React, { useState, useEffect } from "react";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import UserModuleList from "./UserModuleList";
-import { useUserDataContext } from '../context/UserDataContext';
+import { useUserDataContext } from '../../context/UserDataContext';
 
 import classes from "./MyModules.module.css";
 
-
+/**
+ *
+ * TODO: connect my modules to the rest of the site - right now you can
+ * access this page through /profile/my-modules
+ */
 const MyModules = (props) => {
   const theme = useTheme();
   const { userData } = useUserDataContext();
-  const [filterKey, setFilterKey] = useState("");
-  // const [isLoading, setIsLoading] = useState(true);
-
-  const filterHandler = (key) => {
-    setFilterKey(key);
-  };
-
-
 
   return (
 
@@ -36,7 +32,6 @@ const MyModules = (props) => {
           <UserModuleList  ownerId={userData.id} />
 
         </Box>
-
 
       </Box>
     </Box>

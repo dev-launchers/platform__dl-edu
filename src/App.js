@@ -9,7 +9,7 @@ import DarkFooter from "./main/DarkFooter";
 import HomeScreen from "./home/HomeScreen";
 import MainContent from "./main/MainContent";
 import About from "./pages/About";
-import MyModules from "./pages/MyModules";
+import MyModules from "./userProfile/MyModules/MyModules";
 import GoogleAuthCallback from "./auth/GoogleAuthCallback";
 import { UserDataProvider } from "./context/UserDataContext";
 
