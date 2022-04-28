@@ -19,19 +19,19 @@ const MyModules = (props) => {
   const theme = useTheme();
   const { userData } = useUserDataContext();
   const [filterKey, setFilterKey] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  // const [isLoading, setIsLoading] = useState(true);
 
   const filterHandler = (key) => {
     setFilterKey(key);
   };
 
-  useEffect(() => {
-    if (userData.id === "invalid") setIsLoading(true);
-    else setIsLoading(false);
-  }, [isLoading])
+  // useEffect(() => {
+  //   if (userData.id === "invalid") setIsLoading(true);
+  //   else setIsLoading(false);
+  // }, [isLoading])
 
   return (
-    isLoading ? <p>Please log in to view your modules</p> :
+    // isLoading ? <p>Please log in to view your modules</p> :
     (
     <Box className={classes.myModulesContainer} sx={{
       backgroundColor: "#181818",
