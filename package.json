@@ -26,7 +26,8 @@
     "react-scroll": "^1.8.4",
     "rehype-highlight": "5.0.0",
     "stackedit-js": "^1.0.7",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "zustand": "^3.7.1"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.8",
