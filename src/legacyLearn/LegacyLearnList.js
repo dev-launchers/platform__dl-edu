@@ -1,3 +1,4 @@
+import React from 'react'
 import { useParams } from 'react-router-dom'
 import learnData from '../data/learnData.json'
 import LegacyLearnItem from './LegacyLearnItem'

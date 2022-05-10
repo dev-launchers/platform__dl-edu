@@ -1,0 +1,27 @@
+.sortWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.innerSortWrapper {
+  margin-bottom:10px;
+  width: 90%;
+}
+
+.filterButtons {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  text-transform: none;
+  position: static;
+  width:250px;
+}
+.menuListParent {
+  position: absolute;
+  width: 234px;
+  z-index: 2000;
+  background-color: #4e4e4e;
+}
+.menuListChild {
+  display: flex;
+  flex-direction: column;
+}

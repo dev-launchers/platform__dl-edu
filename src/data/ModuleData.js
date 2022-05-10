@@ -314,9 +314,9 @@ when you need the value of a variable to change frequently
   },
   {
     id: 10,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
@@ -324,9 +324,9 @@ when you need the value of a variable to change frequently
   },
   {
     id: 11,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
@@ -334,9 +334,9 @@ when you need the value of a variable to change frequently
   },
   {
     id: 12,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
@@ -344,9 +344,9 @@ when you need the value of a variable to change frequently
   },
   {
     id: 13,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
@@ -354,12 +354,23 @@ when you need the value of a variable to change frequently
   },
   {
     id: 14,
-    title: "TODO",
+    title: "C# Introduction",
     markdown: `
-    # TODO
+    # Introduction to C#
     `,
     embeddedIDEURL:
       "https://replit.com/@jdaus/HurtfulSpectacularGnuassembler?lite=true",
+    customIFrameStyle: null
+  },
+  {
+    id: 15,
+    title: "Hangman Module",
+    markdown: `
+    # Continue on to the Engagement Tab to play the Hangman Module! 
+    In this module you will have 3 lives to guess HTML, Javascript, and CSS related keywords! 
+    Use a hint if you get stuck! `,
+    embeddedIDEURL:
+      "https://codepen.io/jasonkx9/pen/ZEXJwpp",
     customIFrameStyle: null
   }
 ];
