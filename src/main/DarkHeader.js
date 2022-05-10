@@ -41,15 +41,6 @@ function DarkHeader() {
             <Box className={classes.dlContainer1}>
               <Link
                 component={NavLink}
-                to="/home"
-                variant={"h6"}
-                className={classes.link}
-                underline="none"
-              >
-                Home
-              </Link>
-              <Link
-                component={NavLink}
                 to="/main-content/legacy-learn/code"
                 variant={"h6"}
                 className={classes.link}
