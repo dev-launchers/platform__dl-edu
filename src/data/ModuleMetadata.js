@@ -1,6 +1,7 @@
 const ModuleMetadata = [
   {
     id: 1,
+    ownerId: 2,
     thumbnail:
       "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
     category: "JavaScript",
@@ -71,6 +72,7 @@ const ModuleMetadata = [
   },
   {
     id: 7,
+    ownerId: 2,
     thumbnail:
       "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
     category: "JavaScript",
@@ -148,6 +150,7 @@ const ModuleMetadata = [
   },
   {
     id: 15,
+    ownerId: 2,
     thumbnail: "https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg",
     category: "JavaScript, HTML, CSS",
     title: "Hangman Module",

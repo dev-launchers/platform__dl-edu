@@ -9,7 +9,9 @@ import DarkFooter from "./main/DarkFooter";
 import HomeScreen from "./home/HomeScreen";
 import MainContent from "./main/MainContent";
 import About from "./pages/About";
+import MyModules from "./userProfile/MyModules/MyModules";
 import GoogleAuthCallback from "./auth/GoogleAuthCallback";
+import { UserDataProvider } from "./context/UserDataContext";
 
 import "./styles.css";
 import classes from "./App.module.css";
@@ -35,7 +37,7 @@ function App() {
   const updateModule = bcModulesStore(state => state.updateModule);
   const deleteModule = bcModulesStore(state => state.deleteModule);
   // const setCurrentModule = bcModulesStore(state => state.setCurrentModule);
-  
+
   useEffect(() => {
 
     //TODO: Probably only need to call getModule() here and can delete the rest? Can then remove the return statement from getModules store
@@ -84,13 +86,14 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <UserDataProvider>
       <CssBaseline />
       <Box className={classes.appWrapper}>
 
         {/* <p> You currently have: {dollars} </p>
         <p> {broke ? "You are broke" : "You are not broke"} </p>
         <p>You currently live in {country} </p>
-        
+
         <Button onClick={() => { setBroke(!broke); }} > {" "} Change </Button>
 
         <Button onClick={() => { increaseDollars(); }} > + </Button>
@@ -119,9 +122,12 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/main-content/*" element={<MainContent />} />
           <Route path="/signup" element={<GoogleAuthCallback />} />
+          <Route path="/profile/my-modules" element={<MyModules />} />
         </Routes>
         <DarkFooter />
       </Box>
+      </UserDataProvider>
+
     </ThemeProvider>
   );
 }
