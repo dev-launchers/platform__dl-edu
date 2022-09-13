@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 
 import "./LearningModuleList.css";
 
-function LearningModuleList() {
+/*function LearningModuleList() {
   const params = useParams();
 
   const learningModuleListItemComponents = ModuleMetadata.filter(
@@ -26,4 +26,4 @@ function LearningModuleList() {
   );
 }
 
-export default LearningModuleList;
+export default LearningModuleList;*/
