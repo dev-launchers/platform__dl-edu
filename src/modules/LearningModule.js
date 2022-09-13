@@ -19,7 +19,7 @@ import TabPanel from "../components/TabPanel";
 import allyProps from "../components/allyProps";
 import DUMMY_TEXT from "../data/placeholdertext";
 
-const cache = createCache({
+/*const cache = createCache({
   key: "css",
   prepend: true,
 });
@@ -110,4 +110,4 @@ function LearningModule(props) {
   );
 }
 
-export default LearningModule;
+export default LearningModule;*/
